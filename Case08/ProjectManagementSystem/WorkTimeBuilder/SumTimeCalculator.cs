@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ManagementSystemObjects;
+
 
 namespace WorkTimeLibrary
 {
+    using ManagementSystemObjects;
+
     public class SumTimeCalculator
     {
         //Метод для суммирования суммы рабочих часов за определённый интервал времени
-        public int CalculateTime(DateTime startDate,DateTime finishDate)
+        public int CalculateTime(DateTime startDate,DateTime finishDate,IBusinessCalendarService workTimeBuilder)
         {
             int resultTime = 0;
-            WorkTimeBuilder workTimeBuilder = new WorkTimeBuilder();
-            List<Day> days = workTimeBuilder.GetDaysCollection(startDate, finishDate);
+            List<Day> days = new List<Day>(workTimeBuilder.GetDaysCollection(startDate, finishDate).OrderBy<Day,DateTime>(e => e.GetDate()));
            
             foreach (Day day in days)
             {
