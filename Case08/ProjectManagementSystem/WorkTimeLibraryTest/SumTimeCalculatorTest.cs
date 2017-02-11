@@ -23,17 +23,18 @@ namespace WorkTimeLibraryTest
 
             //Act
             SumTimeCalculator sumTimeCalculator = new SumTimeCalculator();
-            int sumTimeHours1 = sumTimeCalculator.CalculateTime(date1, date5);
-            int sumTimeHours2 = sumTimeCalculator.CalculateTime(date1, date4);
-            int sumTimeHours3 = sumTimeCalculator.CalculateTime(date2, date4);
-            int sumTimeHours4 = sumTimeCalculator.CalculateTime(date2, date5);
+            WorkTimeBuilder wtb = new WorkTimeBuilder();
+            int sumTimeHours1 = sumTimeCalculator.CalculateTime(date1, date5, wtb);
+            int sumTimeHours2 = sumTimeCalculator.CalculateTime(date1, date4, wtb);
+            int sumTimeHours3 = sumTimeCalculator.CalculateTime(date2, date4, wtb);
+            int sumTimeHours4 = sumTimeCalculator.CalculateTime(date2, date5, wtb);
 
 
             //Assert
-            Assert.Equal(35, sumTimeHours1);
-            Assert.Equal(28, sumTimeHours2);
-            Assert.Equal(21, sumTimeHours3);
-            Assert.Equal(28, sumTimeHours4);
+            Assert.Equal(28, sumTimeHours1);
+            Assert.Equal(21, sumTimeHours2);
+            Assert.Equal(14, sumTimeHours3);
+            Assert.Equal(21, sumTimeHours4);
         }
     }
 }
