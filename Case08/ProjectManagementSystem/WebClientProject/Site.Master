@@ -53,6 +53,7 @@
                         <li><a runat="server" href="~/">Домой</a></li>
                         <li><a runat="server" href="~/About">О программе</a></li>
                         <li><a runat="server" href="~/Contact">Контакты</a></li>
+                        <li><a runat="server" href="Calendar.aspx">Календарь</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled" Visible="false">
                         <AnonymousTemplate>
@@ -74,6 +75,7 @@
             </div>
         </div>
         <div class="container body-content">
+            
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

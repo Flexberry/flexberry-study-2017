@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WebClientProject
 {
+    using System.Globalization;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using WorkTimeLibrary;
@@ -17,6 +18,7 @@ namespace WebClientProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             days = new List<Day>();
         }
 
@@ -31,6 +33,7 @@ namespace WebClientProject
                 DeadLineCalculator deadLineCalculator = new DeadLineCalculator();
                 DateTime deadLine = deadLineCalculator.CalculateDeadLine(hour, startDate, wtb);
 
+
                 finishDate.Text = deadLine.ToString();
                 ErrorLabel.Visible = false;
             }
@@ -39,5 +42,7 @@ namespace WebClientProject
                 ErrorLabel.Visible = true;
             }
         }
+
+        
     }
 }

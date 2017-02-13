@@ -75,7 +75,21 @@ namespace ManagementSystemObjects
                 return workTime;
             }
         }
-       
+        
+        public bool IsWorkDay
+        {
+            get
+            {
+                if ((WorkTime.Hours > 0) || (WorkTime.Minutes > 0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
         //Метод возвращает дату дня
         public DateTime GetDate()
         {
