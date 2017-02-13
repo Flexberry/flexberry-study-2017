@@ -7,7 +7,7 @@
         <p class="lead"></p>
     </div>
 
-    <div class="row" style="float:left; width:100%; float:left;">
+    <div id="mainContainer" runat="server" class="row" style=" width:100%; float:left;">
         <table style="margin-left: 50px;">
             <tr>
                 <td>

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace ManagementSystemObjects
 {
-    
-    //Класс для хранения временных промежутков
+    /// <summary>
+    /// Класс для работы с временными промежутками
+    /// </summary>
     public class WorkTimeSpan
     {
         public WorkTimeSpan(
@@ -27,7 +28,9 @@ namespace ManagementSystemObjects
         private int hourFinish;
         private int minuteFinish;
 
-        //Вычислимое поле для определения длительности временного промежутка
+        /// <summary>
+        /// Возвращает длительность временного промежутка
+        /// </summary>
         public TimeSpan TotalTime 
         {
             get
@@ -36,20 +39,28 @@ namespace ManagementSystemObjects
             }
         }
 
-        //Вычислимое поле, возвращает часы и минуты начала временного промежутка
+        /// <summary>
+        /// Возвращает время начала временного промежутка
+        /// </summary>
+        /// <returns></returns>
         public TimeSpan GetStartTime()
         {
             return (new TimeSpan(hourStart, minuteStart, 0));
         }
 
-        //Вычислимое поле, возвращает часы и минуты окончания временного промежутка
+        /// <summary>
+        /// Возвращает время окончания временного промежутка
+        /// </summary>
+        /// <returns></returns>
         public TimeSpan GetFinishTime()
         {
             return (new TimeSpan(hourFinish, minuteFinish, 0));
         }
     }
 
-    //Класс для хранения информации о днях
+    /// <summary>
+    /// Класс для работы с информацией о днях
+    /// </summary>
     public class Day
     {
         public Day(
@@ -64,7 +75,9 @@ namespace ManagementSystemObjects
         private DateTime date;                              
         private string description;
 
-        //Вычислимое поле, возвращает сумму часов со всех промежутков дня
+        /// <summary>
+        /// Возвращает общую длительность временных промежутков за один день
+        /// </summary>
         public TimeSpan WorkTime 
         { 
             get
@@ -75,20 +88,45 @@ namespace ManagementSystemObjects
                 return workTime;
             }
         }
-       
-        //Метод возвращает дату дня
+        /// <summary>
+        /// Установить или задать тип дня true - рабочий день, false - день исключение
+        /// </summary>
+        public bool IsWorkDay
+        {
+            get
+            {
+                if ((WorkTime.Hours > 0) || (WorkTime.Minutes > 0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        /// <summary>
+        /// Возвращает дату начала дня
+        /// </summary>
+        /// <returns></returns>
         public DateTime GetDate()
         {
             return this.date;
         }
 
-        //Метод для добавления временного промежутка
+        /// <summary>
+        /// Добавить временной промежуток
+        /// </summary>
+        /// <param name="item"></param>
         public void AddWorkTimeSpan(WorkTimeSpan item)
         {
             workTimeSpanCollection.Add(item);
         }
 
-        //Метод возвращает список временных промежутков
+        /// <summary>
+        /// Возвращает список временных промежутков
+        /// </summary>
+        /// <returns></returns>
         public List<WorkTimeSpan> GetWorkTimeSpans()
         {
             return workTimeSpanCollection;

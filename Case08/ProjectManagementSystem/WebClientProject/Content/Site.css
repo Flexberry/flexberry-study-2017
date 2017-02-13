@@ -79,3 +79,57 @@ input[type="select"] {
 .ButtonSubmit:active{
     box-shadow: inset 0px 0px 20px 0px rgba(50, 50, 50, 0.6);
 }
+
+table.calendar{
+    display:block;
+    margin-top:100px;
+    margin-left:100px;
+    text-align:center;
+    font-family:'Comic Sans MS';
+    font-size:14pt;
+    font-weight:bold;
+}
+td.calendarDay{
+    border-style:solid;
+    border-radius:2px;
+    color:#080808;
+    border-color:#080808;
+    border-width:2px;
+    width:40px;
+    height:40px;
+}
+td.workDay{
+    border-style:solid;
+    border-radius:2px;
+    color:white;
+    background-color:#428bca;
+    font-size:14pt;
+    border-width:2px;
+    font-weight:bold;
+    width:40px;
+    height:40px;
+    border-color:#080808;
+}
+td.holiday{
+    border-style:solid;
+    border-radius:2px;
+    color:white;
+    background-color:#e16c5b;
+    font-size:14pt;
+    border-width:2px;
+    width:40px;
+    height:40px;
+    border-color:#080808;
+}
+td.empty{
+    width:40px;
+    height:40px;
+}
+tr.calendarFooter{
+    font-weight:bold;
+    font-size:14pt;
+}
+td.calendarDay.workDay{
+    background-color:#c09853;
+    color:white;
+}
