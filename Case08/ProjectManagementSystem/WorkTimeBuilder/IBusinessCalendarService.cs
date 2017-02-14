@@ -7,7 +7,7 @@ using ManagementSystemObjects;
 
 namespace WorkTimeLibrary
 {
-    interface IBusinessCalendarService
+    public interface IBusinessCalendarService
     {
         List<Day> GetDaysCollection(DateTime dateStart,DateTime dateFinish);
     }

@@ -52,7 +52,7 @@ namespace WorkTimeLibraryTest
             List<Day> dayList;
             dayList = workTimeBuilder.BuildAllCollection();
             //Assert
-            Assert.Equal(5, dayList.Count);
+            Assert.Equal(31, dayList.Count);
         }
 
     }
