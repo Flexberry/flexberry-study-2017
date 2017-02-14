@@ -1,0 +1,135 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: 280px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+}
+.MyTextBox{
+    margin-top:1%;
+    width:150px;
+    height:35px;
+    border-radius:10px;
+    border:3px solid #5164db;
+    color:black;
+    font-family:'Arial';
+    font-weight:bold;
+    font-size:18pt;
+    text-align:center;
+    outline:none;
+    transition-duration:600ms;
+}
+.MyTextBox:focus{
+    box-shadow:inset 0px 0px 7px 1px rgba(81,100,219,1);
+}
+.MyTextBox:active{
+    box-shadow:inset 0px 0px 20px 1px rgba(81,100,219,1);
+}
+.ButtonSubmit{
+    font-family:'Arial';
+    font-weight:bold;
+    font-size:8pt;
+    background-color:#5164db;
+    border:none;
+    border-radius:8px;
+    width:70px;
+    height:35px;
+    outline:none;
+    cursor:pointer;
+    color:white;
+    transition-duration:400ms;
+}
+.ButtonSubmit:hover{
+    background-color:rgb(23, 189, 37);
+}
+.ButtonSubmit:focus{
+    background-color:rgb(23, 189, 37);
+}
+.ButtonSubmit:active{
+    box-shadow: inset 0px 0px 20px 0px rgba(50, 50, 50, 0.6);
+}
+
+table.calendar{
+    display:block;
+    margin-top:100px;
+    margin-left:100px;
+    text-align:center;
+    font-family:'Comic Sans MS';
+    font-size:14pt;
+    font-weight:bold;
+}
+td.calendarDay{
+    border-style:solid;
+    border-radius:2px;
+    color:#080808;
+    border-color:#080808;
+    border-width:2px;
+    width:40px;
+    height:40px;
+}
+td.workDay{
+    border-style:solid;
+    border-radius:2px;
+    color:white;
+    background-color:#428bca;
+    font-size:14pt;
+    border-width:2px;
+    font-weight:bold;
+    width:40px;
+    height:40px;
+    border-color:#080808;
+}
+td.holiday{
+    border-style:solid;
+    border-radius:2px;
+    color:white;
+    background-color:#e16c5b;
+    font-size:14pt;
+    border-width:2px;
+    width:40px;
+    height:40px;
+    border-color:#080808;
+}
+td.empty{
+    width:40px;
+    height:40px;
+}
+tr.calendarFooter{
+    font-weight:bold;
+    font-size:14pt;
+}
+td.calendarDay.workDay{
+    background-color:#c09853;
+    color:white;
+}
