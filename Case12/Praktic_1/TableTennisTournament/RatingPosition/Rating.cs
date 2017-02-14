@@ -11,7 +11,7 @@ namespace RatingPosition
     {
         private static int magicK = 16;
 
-        public static double FutureBonus(double ratingA, double ratingB)
+        private static double FutureBonus(double ratingA, double ratingB)
         {
             var pow = (ratingB - ratingA)/400;
             return 1/(1 + Math.Pow(10, pow));
