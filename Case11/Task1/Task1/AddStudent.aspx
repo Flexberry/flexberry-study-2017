@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddStudent.aspx.cs" Inherits="Task1.Contact" %>
+﻿<%@ Page Title="Добавить учащегося" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddStudent.aspx.cs" Inherits="Task1.Contact" %>
 <%@ Import Namespace="Task1.DAL" %>
 <%@ Import Namespace="Task1.Objects" %>
 <%@ Import Namespace="CostCalculator" %>
@@ -76,7 +76,7 @@
                 <td><%# DataBinder.Eval(Container.DataItem, "group.name") %> </td>
                 <td><%# DataBinder.Eval(Container.DataItem, "campus") %> </td>
                 <td><%# DataBinder.Eval(Container.DataItem, "privelege") %> </td>
-                <td><%# CostCalc.Calc((Student)DataBinder.GetDataItem(Container), Double.Parse(CampusCostBox.Text)) %> </td>
+                <td><%# CostCalc.Calc((Student)DataBinder.GetDataItem(Container), DataService.campus_cost) %> </td>
                 <td>
                     <a href="<%= Request.Url.AbsoluteUri + "?student="%><%# ((Student)DataBinder.GetDataItem(Container)).Name %>">Удалить</a></td>
             </tr>

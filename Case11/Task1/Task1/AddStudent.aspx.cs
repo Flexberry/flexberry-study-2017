@@ -21,7 +21,7 @@ namespace Task1
                 GroupList.Items.Add(GroupName.Group2.ToString());
                 GroupList.Items.Add(GroupName.Group3.ToString());
                 GroupList.Items.Add(GroupName.Group4.ToString());
-                CampusCostBox.Text = "300";
+                CampusCostBox.Text = DataService.campus_cost.ToString();
             }
             if (Request.Params["student"] != null)
             {
@@ -40,11 +40,13 @@ namespace Task1
             NameBox.Text = string.Empty;
             GroupList.SelectedIndex = 0;
             PrivelegeCheck.Checked = false;
-            CampusCheck.Checked = false;            
+            CampusCheck.Checked = false;
+            CampusCostBox.Text = DataService.campus_cost.ToString();         
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
         {
+            DataService.campus_cost = Double.Parse(CampusCostBox.Text);
             Group addGroup = null;
             foreach (Group gr in DataService.GetGroups())
                 if (gr.name.ToString() == GroupList.SelectedItem.Value)
@@ -56,7 +58,7 @@ namespace Task1
                 privelege = PrivelegeCheck.Checked,
                 campus = CampusCheck.Checked                
             };
-            DataService.AddStudent(student, Double.Parse(CampusCostBox.Text));
+            DataService.AddStudent(student);
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 

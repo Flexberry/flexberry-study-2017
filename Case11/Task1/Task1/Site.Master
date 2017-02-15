@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> Среднее профессиональное образование</title>
+    <title>Среднее профессиональное образование</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -53,7 +53,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Главная страница</a></li>
-                        <li><a runat="server" href="~/AddStudent">Учащиеся</a></li>
+                        <li><a runat="server" href="~/AddStudent">Добавление учащихся</a></li>
+                        <li><a runat="server" href="~/FindByGroup">Список группы</a></li>
                     </ul>
                 </div>
             </div>
