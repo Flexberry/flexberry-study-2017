@@ -33,7 +33,7 @@
 ## Задание 2
 
 Для реализации потребуется:
-* Редактор кода для клиентской разработки: Visual Studio Code, Atom, Sublime Text и т.п.
+* Microsoft Visual Studio 2015
 * Git for Windows
 
 ###Задание
