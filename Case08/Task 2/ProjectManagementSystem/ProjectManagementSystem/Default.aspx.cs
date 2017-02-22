@@ -105,7 +105,8 @@ namespace ProjectManagementSystem
                     Button btn = new Button();
                     btn.Attributes.Add("data-toggle", "modal");
                     btn.Attributes.Add("data-target", "#myModal");
-                    btn.Attributes.Add("data-currentDate", calendarStartDay.ToString());
+                    btn.Attributes.Add("data-currentDate",calendarStartDay.ToString(@"d\/M\/yyyy"));
+                    btn.Attributes.Add("data-dayId", "");
                     btn.Attributes.Add("onclick", "getId(this);") ;
                     btn.Attributes.Add("id", "btnDay_" + btnDayId.ToString());
                     btnDayId++;
@@ -208,7 +209,7 @@ namespace ProjectManagementSystem
             TableRow calendarDescriptionRow2 = new TableRow();
             TableCell colorHolidayCell = new TableCell();
             TableCell descriptionHolidayCell = new TableCell();
-            descriptionHolidayCell.Text = " - выходной день";
+            descriptionHolidayCell.Text = " - день исключение";
             colorHolidayCell.CssClass = "calendarDay holiday";
             calendarDescriptionRow2.Cells.Add(colorHolidayCell);
             calendarDescriptionRow2.Cells.Add(descriptionHolidayCell);
