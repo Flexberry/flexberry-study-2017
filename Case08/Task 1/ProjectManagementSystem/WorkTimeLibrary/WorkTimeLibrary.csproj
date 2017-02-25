@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeadLineCalculator.cs" />
-    <Compile Include="SumTimeCalculator.cs" />
+    <Compile Include="BusinessCalendar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,9 +26,8 @@ namespace ProjectManagementSystem
                 int hour = Int32.Parse(TextBoxHour.Text);
 
                 BusinessCalendarService businessCalendarService = new BusinessCalendarService();
-                DeadLineCalculator deadLineCalculator = new DeadLineCalculator();
-                DateTime deadLine = deadLineCalculator.CalculateDeadLine(hour, startDate, businessCalendarService);
-
+                BusinessCalendar businessCalendar = new BusinessCalendar(BusinessCalendarServiceProvider.Current);
+                DateTime deadLine = businessCalendar.CalculateDeadLine(hour, startDate);
 
                 finishDate.Text = deadLine.ToString();
                 ErrorLabel.Visible = false;

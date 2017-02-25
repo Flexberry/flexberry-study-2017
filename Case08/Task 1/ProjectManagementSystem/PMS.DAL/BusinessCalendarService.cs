@@ -18,7 +18,7 @@ namespace PMS.DAL
         /// <param name="dateStart">дата начала промежутка</param>
         /// <param name="dateFinish">дата окончания промежутка</param>
         /// <returns></returns>
-        public IEnumerable<Day> GetDaysCollection(DateTime dateStart, DateTime dateFinish)
+        public IEnumerable<Day> GetDays(DateTime dateStart, DateTime dateFinish)
         {
             List<Day> gap =
                days.Where<Day>(e => (e.GetDate() >= dateStart) && (e.GetDate() <= dateFinish)).ToList<Day>();
@@ -28,14 +28,14 @@ namespace PMS.DAL
         public BusinessCalendarService()
         {
             //Формируем искусственный источник данных
-            days = generateArtificialCollection();
+            days = getArtificialDays();
         }
 
         /// <summary>
         /// Метод искусственно создаёт информацию о днях
         /// </summary>
         /// <returns></returns>
-        private List<Day> generateArtificialCollection()
+        private List<Day> getArtificialDays()
         {
             WorkTimeSpan beforeDinner = new WorkTimeSpan(8, 30, 12, 30);
             WorkTimeSpan afterDinner = new WorkTimeSpan(13, 30, 16, 30);
@@ -117,44 +117,44 @@ namespace PMS.DAL
             workDay30.AddWorkTimeSpan(afterDinner);
 
 
-            List<Day> dayCollection = new List<Day>();
+            List<Day> days = new List<Day>();
 
-            dayCollection.Add(workDay17);
-            dayCollection.Add(workDay18);
-            dayCollection.Add(workDay19);
-            dayCollection.Add(workDay20);
-            dayCollection.Add(workDay21);
-            dayCollection.Add(workDay22);
-            dayCollection.Add(workDay23);
-            dayCollection.Add(workDay24);
-            dayCollection.Add(workDay25);
-            dayCollection.Add(workDay26);
+            days.Add(workDay17);
+            days.Add(workDay18);
+            days.Add(workDay19);
+            days.Add(workDay20);
+            days.Add(workDay21);
+            days.Add(workDay22);
+            days.Add(workDay23);
+            days.Add(workDay24);
+            days.Add(workDay25);
+            days.Add(workDay26);
 
 
-            dayCollection.Add(workDay);
-            dayCollection.Add(workDay1);
-            dayCollection.Add(workDay2);
-            dayCollection.Add(workDay3);
-            dayCollection.Add(workDay4);
-            dayCollection.Add(workDay5);
-            dayCollection.Add(workDay6);
-            dayCollection.Add(workDay7);
-            dayCollection.Add(workDay8);
-            dayCollection.Add(workDay9);
-            dayCollection.Add(workDay10);
-            dayCollection.Add(workDay11);
-            dayCollection.Add(workDay12);
-            dayCollection.Add(workDay13);
-            dayCollection.Add(workDay14);
-            dayCollection.Add(workDay15);
-            dayCollection.Add(workDay16);
+            days.Add(workDay);
+            days.Add(workDay1);
+            days.Add(workDay2);
+            days.Add(workDay3);
+            days.Add(workDay4);
+            days.Add(workDay5);
+            days.Add(workDay6);
+            days.Add(workDay7);
+            days.Add(workDay8);
+            days.Add(workDay9);
+            days.Add(workDay10);
+            days.Add(workDay11);
+            days.Add(workDay12);
+            days.Add(workDay13);
+            days.Add(workDay14);
+            days.Add(workDay15);
+            days.Add(workDay16);
 
-            dayCollection.Add(workDay27);
-            dayCollection.Add(workDay28);
-            dayCollection.Add(workDay29);
-            dayCollection.Add(workDay30);
+            days.Add(workDay27);
+            days.Add(workDay28);
+            days.Add(workDay29);
+            days.Add(workDay30);
 
-            return dayCollection;
+            return days;
         }
     }
 }
