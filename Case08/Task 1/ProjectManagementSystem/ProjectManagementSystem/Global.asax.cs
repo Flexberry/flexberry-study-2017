@@ -25,7 +25,7 @@ namespace ProjectManagementSystem
             IUnityContainer container = new UnityContainer();
             var unitySection = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
             unitySection?.Configure(container);
-            DataServiceProvider.Current = container.Resolve<IBusinessCalendarService>();
+            BusinessCalendarServiceProvider.Current = container.Resolve<IBusinessCalendarService>();
         }
     }
 }

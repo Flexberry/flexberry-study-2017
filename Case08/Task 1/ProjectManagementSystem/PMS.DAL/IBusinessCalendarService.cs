@@ -13,6 +13,6 @@ namespace PMS.DAL
     /// </summary>
     public interface IBusinessCalendarService
     {
-        IEnumerable<Day> GetDaysCollection(DateTime dateStart, DateTime dateFinish);
+        IEnumerable<Day> GetDays(DateTime dateStart, DateTime dateFinish);
     }
 }

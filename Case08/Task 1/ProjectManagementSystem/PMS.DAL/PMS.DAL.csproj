@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessCalendarService.cs" />
-    <Compile Include="DataServiceProvider.cs" />
+    <Compile Include="BusinessCalendarServiceProvider.cs" />
     <Compile Include="IBusinessCalendarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,65 +7,21 @@ using System.Threading.Tasks;
 
 namespace PMS.Objects
 {
-    /// <summary>
-    /// Класс для работы с временными промежутками
-    /// </summary>
-    public class WorkTimeSpan
-    {
-        public WorkTimeSpan(
-            int HourStart,      //час начала временного промежутка
-            int MinuteStart,    //минута начала временного промежутка
-            int HourFinish,     //час окончания временного промежутка
-            int MinuteFinish)   //минута окончания временного промежутка
-        {
-            hourStart = HourStart;
-            minuteStart = MinuteStart;
-            hourFinish = HourFinish;
-            minuteFinish = MinuteFinish;
-        }
-        private int hourStart;
-        private int minuteStart;
-        private int hourFinish;
-        private int minuteFinish;
-
-        /// <summary>
-        /// Возвращает длительность временного промежутка
-        /// </summary>
-        public TimeSpan TotalTime 
-        {
-            get
-            {
-                return (new TimeSpan(hourFinish,minuteFinish,0) - (new TimeSpan(hourStart, minuteStart, 0)));
-            }
-        }
-
-        /// <summary>
-        /// Возвращает время начала временного промежутка
-        /// </summary>
-        /// <returns></returns>
-        public TimeSpan GetStartTime()
-        {
-            return (new TimeSpan(hourStart, minuteStart, 0));
-        }
-
-        /// <summary>
-        /// Возвращает время окончания временного промежутка
-        /// </summary>
-        /// <returns></returns>
-        public TimeSpan GetFinishTime()
-        {
-            return (new TimeSpan(hourFinish, minuteFinish, 0));
-        }
-    }
+    
 
     /// <summary>
     /// Класс для работы с информацией о днях
     /// </summary>
     public class Day
     {
+        /// <summary>
+        /// Конструктор дня
+        /// </summary>
+        /// <param name="DayDate">дата дня исключения</param>
+        /// <param name="Description">описание</param>
         public Day(
-            DateTime DayDate,       //Дата дня
-            string Description)     //Описание дня
+            DateTime DayDate,       
+            string Description)     
         {
             workTimeSpanCollection = new List<WorkTimeSpan>();  
             date = DayDate;

@@ -24,6 +24,12 @@ namespace ProjectManagementSystem
                 createDropDownDataSource();
             }
         }
+        /// <summary>
+        /// Метод для формирования календаря
+        /// </summary>
+        /// <param name="startDate">первая дата</param>
+        /// <param name="finishDate">последняя дата</param>
+        /// <returns></returns>
         public Table CreateCalendar(DateTime startDate, DateTime finishDate)
         {
             //отделяем время
@@ -35,7 +41,7 @@ namespace ProjectManagementSystem
             finishDate = new DateTime(finishDate.Year, finishDate.Month, finishDate.Day);
 
             BusinessCalendarService businessCalendarService = new BusinessCalendarService();
-            List<Day> daysInformation = new List<Day>(DataServiceProvider.Current.GetDaysCollection(startDate, finishDate));
+            List<Day> daysInformation = new List<Day>(BusinessCalendarServiceProvider.Current.GetDays(startDate, finishDate));
 
             //определяем какой день недели у startDate
             DayOfWeek dayOfWeek;
@@ -175,7 +181,10 @@ namespace ProjectManagementSystem
             return calendarFooter;
         }
 
-        //Метод для создания описания для календаря
+        /// <summary>
+        /// Метод для формирования описания цветов календаря
+        /// </summary>
+        /// <returns></returns>
         private TableCell createCalendarDescription()
         {
             TableCell descriptionCell = new TableCell();

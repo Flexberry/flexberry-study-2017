@@ -13,7 +13,14 @@ namespace WorkTimeLibrary
     public class BusinessCalendar
     {
 
-        
+        /// <summary>
+        /// Метод для вычисления даты окончания 
+        /// </summary>
+        /// <param name="allotedTime"></param>
+        /// <param name="startDate"></param>
+        /// <param name="businessCalendarService"></param>
+        /// <param name="standartWorkTime"></param>
+        /// <returns></returns>
         public DateTime CalculateDeadLine(int allotedTime,DateTime startDate, IBusinessCalendarService businessCalendarService, TimeSpan standartWorkTime)
         {
 
