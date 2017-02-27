@@ -29,16 +29,17 @@ namespace PMS.Tests
             int allotedHours5 = 16;
             DateTime startDate = new DateTime(2017, 2, 6);
 
-            DeadLineCalculator deadLineCalculator = new DeadLineCalculator();
+            BusinessCalendarService businessCalendarService = new BusinessCalendarService();
+            BusinessCalendar businessCalendar = new BusinessCalendar(businessCalendarService);
 
             //Act
-            BusinessCalendarService wtb = new BusinessCalendarService();
-            DateTime deadline1 = deadLineCalculator.CalculateDeadLine(allotedHours1, date1,wtb);
-            DateTime deadline2 = deadLineCalculator.CalculateDeadLine(allotedHours2, date1,wtb);
-            DateTime deadline3 = deadLineCalculator.CalculateDeadLine(allotedHours2, date3,wtb);
-            DateTime deadline4 = deadLineCalculator.CalculateDeadLine(allotedHours3, date1,wtb);
-            DateTime deadline5 = deadLineCalculator.CalculateDeadLine(allotedHours4, date1, wtb);
-            DateTime deadline6 = deadLineCalculator.CalculateDeadLine(allotedHours5, date2, wtb);
+            
+            DateTime deadline1 = businessCalendar.CalculateDeadLine(allotedHours1, date1);
+            DateTime deadline2 = businessCalendar.CalculateDeadLine(allotedHours2, date1);
+            DateTime deadline3 = businessCalendar.CalculateDeadLine(allotedHours2, date3);
+            DateTime deadline4 = businessCalendar.CalculateDeadLine(allotedHours3, date1);
+            DateTime deadline5 = businessCalendar.CalculateDeadLine(allotedHours4, date1);
+            DateTime deadline6 = businessCalendar.CalculateDeadLine(allotedHours5, date2);
 
             //Assert
             Assert.Equal(deadline1, (new DateTime(2017, 2, 7, 16, 30, 0)));

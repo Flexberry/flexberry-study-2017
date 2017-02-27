@@ -8,7 +8,8 @@
     <script src="Scripts/CalendarEditLogic.js"></script>
 
 
-    <div class="container">
+    <div class="page-header">
+        <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <label for="MonthDropDownList">Укажите месяц:</label>
@@ -20,7 +21,8 @@
             <div id="calendarBlock" runat="server" class="col-lg-8"></div>
         </div> 
     </div>
-
+    </div>
+    
     <!-- Modal -->
     <div id="myModal" class="modal fade" data-focus-on="input:first" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -29,7 +31,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Информация о дне</h4>
+                <h4 class="modal-title">
+                    <label for="dayTitle">Название:</label>
+                    <input type="text" class="form-control" id="dayTitle"/>
+                </h4>
             </div>
             <div class="modal-body" style="max-height:400px; overflow-y:scroll;">
                 <div class="container">
@@ -42,7 +47,6 @@
                                 <label><input id="workTimeCheck" type="radio" name="choiseDayTipe" checked="checked" value="1"/>Рабочее время</label>
                             </div>
                             <div class="panel-body text-center">
-                                
                                 <table class="table table-bordered table-hover" id="tableAddRow">
                                   <thead>
                                       <tr>
@@ -60,7 +64,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="startDate">Дата начала:</label>
-                            <input id="startDate" type="text" value="23/02/2017" data-date-format="dd.mm.yyyy" class="datepicker" >
+                            <input id="startDate" type="text" value="" data-date-format="dd/mm/yyyy" class="datepicker" >
                             <div class="radio">
                                 <p><label><input type="radio" name="iterType" checked="checked" value="0"/>Ежедневно</label></p>
                                 <p><label><input type="radio" name="iterType" value="1"/>Еженедельно</label></p>
@@ -79,15 +83,16 @@
                             </div>
                             <div class="radio">
                                 <label for="endDateInput"><input id="endDateCheck" type="radio" name="choiseMethod" value="1"/>Дата окончания:</label>
-                                <input id="endDateInput" type="text" value="16.02.17" data-date-format="dd.mm.yyyy" class="datepicker" >
+                                <input id="endDateInput" type="text" value="" data-date-format="dd/mm/yyyy" class="datepicker" >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="AddCalendarDay();">Сохранить</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="btnDeleteDay" type="button" class="btn btn-danger" data-dismiss="modal" disabled="disabled" onclick="DeleteCalendarDay();">Удалить</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal"  onclick="AddCalendarDay();">Сохранить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
             </div>
         </div>
     </div>

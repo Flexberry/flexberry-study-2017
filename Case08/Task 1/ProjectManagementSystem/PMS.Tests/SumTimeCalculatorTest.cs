@@ -24,12 +24,13 @@ namespace PMS.Tests
             DateTime date5 = new DateTime(2017, 2, 10);
 
             //Act
-            SumTimeCalculator sumTimeCalculator = new SumTimeCalculator();
             BusinessCalendarService businessCalendarService = new BusinessCalendarService();
-            int sumTimeHours1 = sumTimeCalculator.CalculateTime(date1, date5, businessCalendarService);
-            int sumTimeHours2 = sumTimeCalculator.CalculateTime(date1, date4, businessCalendarService);
-            int sumTimeHours3 = sumTimeCalculator.CalculateTime(date2, date4, businessCalendarService);
-            int sumTimeHours4 = sumTimeCalculator.CalculateTime(date2, date5, businessCalendarService);
+            BusinessCalendar businessCalendar = new BusinessCalendar(businessCalendarService);
+            
+            int sumTimeHours1 = businessCalendar.CalculateWorkTime(date1, date5);
+            int sumTimeHours2 = businessCalendar.CalculateWorkTime(date1, date4);
+            int sumTimeHours3 = businessCalendar.CalculateWorkTime(date2, date4);
+            int sumTimeHours4 = businessCalendar.CalculateWorkTime(date2, date5);
 
 
             //Assert

@@ -83,7 +83,6 @@ input[type="select"] {
 table.calendar{
     display:block;
     text-align:center;
-    font-family:'Comic Sans MS';
     font-size:14pt;
     font-weight:bold;
     outline:none;
