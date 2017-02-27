@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.Tests", "Task1.Tests\Task1.Tests.csproj", "{BF046F65-EA9A-471C-A4D8-7C977E69F7B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.Objects", "Task1.Objects\Task1.Objects.csproj", "{1052C9E8-7C30-478F-B9F7-A0212272FFB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.DAL", "Task1.DAL\Task1.DAL.csproj", "{65DD3EC4-61A6-4B01-A3BE-5CFE38ED7972}"
@@ -13,16 +11,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostCalculator", "CostCalcu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{8BEE4928-38DA-4425-B9C0-D48BFEA45208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.Tests", "Task1.Tests\Task1.Tests.csproj", "{0118F172-95DB-49FC-8D46-F7EB155291F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5D65D8CE-515D-4C8B-8044-0D7C7102E4C5} = {5D65D8CE-515D-4C8B-8044-0D7C7102E4C5}
+		{1052C9E8-7C30-478F-B9F7-A0212272FFB7} = {1052C9E8-7C30-478F-B9F7-A0212272FFB7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BF046F65-EA9A-471C-A4D8-7C977E69F7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF046F65-EA9A-471C-A4D8-7C977E69F7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF046F65-EA9A-471C-A4D8-7C977E69F7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF046F65-EA9A-471C-A4D8-7C977E69F7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1052C9E8-7C30-478F-B9F7-A0212272FFB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1052C9E8-7C30-478F-B9F7-A0212272FFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1052C9E8-7C30-478F-B9F7-A0212272FFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +39,10 @@ Global
 		{8BEE4928-38DA-4425-B9C0-D48BFEA45208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BEE4928-38DA-4425-B9C0-D48BFEA45208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BEE4928-38DA-4425-B9C0-D48BFEA45208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0118F172-95DB-49FC-8D46-F7EB155291F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0118F172-95DB-49FC-8D46-F7EB155291F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0118F172-95DB-49FC-8D46-F7EB155291F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0118F172-95DB-49FC-8D46-F7EB155291F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

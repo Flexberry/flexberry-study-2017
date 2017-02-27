@@ -10,6 +10,7 @@ namespace Task1.DAL
 {
     public static class DataService 
     {
+        public static double campus_cost = 500;
         private static List<Group> groups = new List<Group>()
             {
                 new Group(GroupName.Group1, 1000),
@@ -19,7 +20,7 @@ namespace Task1.DAL
             };
         private static List<Student> students = new List<Student>();
 
-        public static void AddStudent(Student student, double campus_cost) 
+        public static void AddStudent(Student student) 
         {
             CostCalc.Calc(student, campus_cost);
             students.Add(student);
