@@ -46,15 +46,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Pages/MethodTEst.aspx">Ping Pong</a>
+                    <a class="navbar-brand" runat="server" href="~/Pages/Match.aspx">Ping Pong</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/MethodTEst.aspx">Подсчет рейтинга</a></li>
-<%--                        <li><a runat="server" href="~/Pages/">Бросить вызов</a></li>
+                       <%-- <li><a runat="server" href="~/Pages/">Бросить вызов</a></li>
                         <li><a runat="server" href="~/">Общий рейтинг</a></li>
-                        <li><a runat="server" href="~/Pages/About">About</a></li>
-                        <li><a runat="server" href="~/Pages/Contact">Contact</a></li>--%>
+                        <li><a runat="server" href="~/Pages/About">About</a></li>--%>
+                        <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

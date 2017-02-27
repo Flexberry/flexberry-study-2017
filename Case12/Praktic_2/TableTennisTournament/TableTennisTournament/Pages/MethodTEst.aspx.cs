@@ -12,6 +12,7 @@ namespace TableTennisTournament.Pages
 {
     public partial class MethodTEst : System.Web.UI.Page
     {
+        private Rating RatingElo = new RatingPosition.Rating();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -41,14 +42,14 @@ namespace TableTennisTournament.Pages
             }
             else if (WinAB.Checked)
             {
-                match.Result = 0.5;
+                match.Result = -1;
             }
             else if (WinB.Checked)
             {
                 match.Result = 0;
             }
 
-            RatingPosition.Rating.GetNewPlayerRating(match);
+            RatingElo.GetNewPlayerRating(match);
             newRatingA.Text = match.PlayerOne.Rating.ToString();
             newRatingB.Text = match.PlayerTwo.Rating.ToString();
         }

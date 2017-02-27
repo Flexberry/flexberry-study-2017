@@ -13,9 +13,7 @@ namespace TableTennisTournament.DAL
         /// <summary>
         /// Добавить матч в хранилище.
         /// </summary>
-        /// <param name="player_A">Первый игрок.</param>
-        /// <param name="player_B">Второй игрок.</param>
-        /// <param name="gameTime">Дата и время матча.</param>
+        /// <param name="match">Матч.</param>
         void AddMatch(Match match);
 
         /// <summary>

@@ -9,28 +9,29 @@ namespace RatingPosition
 {
     public class Rating
     {
-        private static int magicK = 16;
-
-        private static double FutureBonus(double ratingA, double ratingB)
+        private double FutureBonus(double ratingA, double ratingB)
         {
-            var pow = (ratingB - ratingA)/400;
+            double pow = (ratingB - ratingA)/400;
             return 1/(1 + Math.Pow(10, pow));
         }
 
-        public static int GetNewRating(int currentRating,double matchResult, double bonusRating)
+        public int GetNewEloRating(int currentRating,int enemyRating, int matchResult,int gameFactor)
         {
-            return currentRating + (int) Math.Round(magicK * (matchResult - bonusRating));
+           
+            double bonusRating = FutureBonus(currentRating, enemyRating);
+            double change = gameFactor * (matchResult - bonusRating);
+            change = Math.Abs(change) < 1 ? 1 : change;
+            return currentRating + (int) Math.Round(gameFactor * (matchResult - bonusRating));
         }
 
-        public static void GetNewPlayerRating(Match match)
+        public void GetNewPlayerRating(Match match)
         {
-            magicK = match.GameFactor;
-            var matchResult_ViewA = match.Result;
-            var matchResult_ViewB = 1 - matchResult_ViewA;
-            var bonus_ViewA = FutureBonus(match.PlayerOne.Rating,match.PlayerTwo.Rating);
-            var bonus_ViewB= 1-bonus_ViewA;
-            match.PlayerOne.Rating = GetNewRating(match.PlayerOne.Rating, matchResult_ViewA, bonus_ViewA);
-            match.PlayerTwo.Rating = GetNewRating(match.PlayerTwo.Rating, matchResult_ViewB, bonus_ViewB);
+             if (match.Result != 1 & match.Result != 0)
+            {
+                return;
+            }
+            match.PlayerOne.Rating = GetNewEloRating(match.PlayerOne.Rating, match.PlayerTwo.Rating, match.Result, match.GameFactor);
+            match.PlayerTwo.Rating = GetNewEloRating(match.PlayerTwo.Rating, match.PlayerOne.Rating, 1-match.Result, match.GameFactor);
         }
     }
 }

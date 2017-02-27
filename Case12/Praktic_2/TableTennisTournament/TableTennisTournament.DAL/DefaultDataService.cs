@@ -9,62 +9,57 @@ namespace TableTennisTournament.DAL
 {
     public class DefaultDataService : IDataService
     {
-        internal List<Player> _PlayersList;
-        internal List<Match> _MatchesList;
+        internal List<Player> PlayersList;
+        internal List<Match> MatchesList;
+
         public DefaultDataService()
         {
-            _PlayersList = new List<Player>();
-            _MatchesList = new List<Match>();
-        }
-        
-        public void AddMatch(Match match)
-        {
-            
-            if (GetMatch(match.PlayerOne,match.PlayerTwo,match.PlayDateTime) == null)
-            {
-                _MatchesList.Add( match);
-            }
+            PlayersList = new List<Player>();
+            MatchesList = new List<Match>();
         }
 
-        public void CreateNPlayers(int count)
+        public void AddMatch(Match match)
         {
-            Random rnd = new Random();
-            for (var i = 1; i < count+1; i++)
+
+            if (GetMatch(match.PlayerOne, match.PlayerTwo, match.PlayDateTime) == null)
             {
-               var temp =new Player()
-                {
-                    firstName = "Champion_"+i,
-                    MiddleName = "Champ_"+i,
-                    LastName = "Player_"+i,
-                    Login = "play_"+i,
-                    Rating = 1400+ rnd.Next(-200,200),
-                    PlayerGuid = Guid.NewGuid()
-                };
-                AddPlayer(temp);
+                MatchesList.Add(match);
             }
         }
 
         public void AddPlayer(Player player)
         {
-            if (GetPlayer(player.PlayerGuid)== null)
+            if (GetPlayer(player.PlayerGuid) == null)
             {
-                _PlayersList.Add(player);
+                PlayersList.Add(player);
             }
+        }
+
+        public Player GetPlayer(string playerLogin)
+        {
+            return PlayersList.FirstOrDefault(player => player.Login == playerLogin);
         }
 
         public Player GetPlayer(Guid playerGuid)
         {
-            return _PlayersList.FirstOrDefault(player => player.PlayerGuid == playerGuid);
+            return PlayersList.FirstOrDefault(player => player.PlayerGuid == playerGuid);
         }
 
         public Match GetMatch(Player playerA, Player playerB, DateTime gameTime)
         {
-            return _MatchesList.FirstOrDefault(
-                    x =>
-                        x.PlayDateTime == gameTime &&
-                        (x.PlayerOne == playerA & x.PlayerTwo == playerB) ^
-                        (x.PlayerOne == playerB & x.PlayerTwo == playerA));
+            return MatchesList.FirstOrDefault(
+                x =>
+                    x.PlayDateTime == gameTime &&
+                    ((x.PlayerOne == playerA & x.PlayerTwo == playerB) |
+                     (x.PlayerOne == playerB & x.PlayerTwo == playerA)));
         }
+
+        public Match GetMatch(Guid matchGuid)
+        {
+            return MatchesList.FirstOrDefault(
+                x => x.MatchGuid == matchGuid);
+        }
+
         public void DeletePlayer(Guid playerGuid)
         {
             var player = GetPlayer(playerGuid);
@@ -73,30 +68,27 @@ namespace TableTennisTournament.DAL
 
         public void DeletePlayer(Player player)
         {
-            _PlayersList.Remove(player);
+            PlayersList.Remove(player);
         }
 
         public void DropAllPlayer()
         {
-           _PlayersList.Clear();
+            PlayersList.Clear();
         }
 
         public void DropAllMatch()
         {
-           _MatchesList.Clear();
+            MatchesList.Clear();
         }
 
         public IEnumerable<Player> GetAllPlayer()
         {
-            return _PlayersList;
+            return PlayersList;
         }
 
         public IEnumerable<Match> GetAllMatch()
         {
-            return _MatchesList;
+            return MatchesList;
         }
-
-
-
     }
 }
