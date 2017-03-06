@@ -48,41 +48,19 @@
 
             if (availableConsumers.FirstOrDefault() != null)
             {
+                //return;
                 throw new Exception("Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!");
             }
 
             if (availableConsumers2.FirstOrDefault() != null)
             {
+                //return;
                 throw new Exception("Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!");
             }
 
             _consumersStorage.Add(consumer);
         }
 
-       /* /// <summary>
-        /// Добавляет объект в хранилище по алгоритму 2.
-        /// </summary>
-        /// <param name="consumer2">
-        /// Объект, который необходимо добавить в хранилище
-        /// </param>
-        public void Add2Consumer(Consumer consumer)
-        {   
-            var CodeConsumer = Logic2.GenerateCode(consumer);
-            var availableConsumers = from с in _consumersStorage
-                                     where Logic2.GenerateCode(с) == CodeConsumer
-                                     select с;
-
-            if (availableConsumers.FirstOrDefault() != null)
-            {
-                throw new Exception("Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!");
-            }
-
-            _consumersStorage.Add(consumer);
-        }*/
-
-        /// <summary>
-        /// Удалить всеобхекты из хранилища.
-        /// </summary>
         public void ClearConsumers()
         {
             _consumersStorage.Clear();
