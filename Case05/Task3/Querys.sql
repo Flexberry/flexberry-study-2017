@@ -14,21 +14,23 @@ FROM objects
 INNER JOIN sectors ON sectors.Name = objects.Name 
 GROUP BY objects.Name
 ORDER BY Namesectors DESC;
+
+GO
 /* */
 
 /* 3. Вывести потребителей (контрагентов), 
     у объектов которых больше всего ВНУТРЕННИХ участков сети.*/
-SELECT objects.Name
+SELECT objects.agent, COUNT( sectors.Number ) 
 FROM objects
 INNER JOIN sectors ON sectors.Name = objects.Name 
 WHERE sectors.MountType = 'Внутренний' 
-GROUP BY objects.Name
+GROUP BY objects.agent
 HAVING COUNT( sectors.Number ) = (
     SELECT TOP 1 COUNT(sectors.Number) AS numberOfsectors
     FROM objects
     INNER JOIN sectors ON sectors.Name = objects.Name 
     WHERE sectors.MountType = 'Внутренний'
-    GROUP BY objects.Name
+    GROUP BY objects.agent
     ORDER BY numberOfsectors DESC
     );
 /* */
@@ -57,10 +59,10 @@ ORDER BY Numberofobjects DESC;
 /* бэкап БД 
 BACKUP DATABASE task03_db  
 TO DISK='D:\sourse\task03_db_BACKUP.bak';
-/* */
+*/
 
 /* Удалить таблицы
+DROP TABLE objects;
 DROP TABLE buildings;
 DROP TABLE sectors;
-DROP TABLE objects;
-/* */ 
+*/ 

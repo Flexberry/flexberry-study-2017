@@ -1,57 +1,61 @@
 /* скрипты создания БД*/
 CREATE DATABASE task03_db;
+GO
+USE task03_db;
+GO
 
 CREATE TABLE objects
 (
-    Name nvarchar(255) NOT NULL,
-    Address nvarchar(255) NOT NULL,
+    Name nvarchar(100) NOT NULL,
+    Address nvarchar(100) NOT NULL,
+    agent nvarchar(100) NOT NULL,
     PRIMARY KEY (Name)
-);  
+); 
 
 CREATE TABLE buildings
 (
-    Address nvarchar(255) NOT NULL,
-    District nvarchar(255) NOT NULL,
+    Address nvarchar(100) NOT NULL,
+    District nvarchar(100) NOT NULL,
     PRIMARY KEY (Address)
 )
 
 CREATE TABLE sectors
 (
     Number int NOT NULL,
-    Insulation nvarchar(255) NOT NULL,
+    Insulation nvarchar(100) NOT NULL,
     MountType nvarchar(10) NOT NULL,
-    Name nvarchar(255) NOT NULL REFERENCES objects(Name),
+    Name nvarchar(100) NOT NULL REFERENCES objects(Name),
     PRIMARY KEY (Number),
-);
+); 
 /* */
 /* заполнить базу скриптами */
 /* Объекты */ 
 INSERT INTO objects
-VALUES ('Больница','Глинки 4');
+VALUES ('Больница','Глинки 4', 'ТеплоСнаб');
 
 INSERT INTO objects
-VALUES ('Больница №2','Глинки 4');
+VALUES ('Больница №2','Глинки 4', 'ТеплоСнаб');
 
 INSERT INTO objects
-VALUES ('Дом','Ленина 74');
+VALUES ('Дом','Ленина 74', 'ТеплоКомплект');
 
 INSERT INTO objects
-VALUES ('Завод','Леонова 64');
+VALUES ('Завод','Леонова 64', 'ТеплоПрофи');
 
 INSERT INTO objects
-VALUES ('Зоопарк','Ленина 12');
+VALUES ('Зоопарк','Ленина 12', 'ТеплоПрофи');
 
 INSERT INTO objects
-VALUES ('Отель','Свиязева 32');
+VALUES ('Отель','Свиязева 32', 'ТеплоПрофи');
 
 INSERT INTO objects
-VALUES ('Пив Завод','Леонова 3');
+VALUES ('Пив Завод','Леонова 3', 'ТеплоПрофи');
 
 INSERT INTO objects
-VALUES ('Школа №1','Пушкина 64');
+VALUES ('Школа №1','Пушкина 64', 'ТеплоКомплект');
 
 INSERT INTO objects
-VALUES ('Школа №2','Пушкина 2');
+VALUES ('Школа №2','Пушкина 2', 'ТеплоКомплект');
 /* Объекты */ 
 
 /* Здания */
