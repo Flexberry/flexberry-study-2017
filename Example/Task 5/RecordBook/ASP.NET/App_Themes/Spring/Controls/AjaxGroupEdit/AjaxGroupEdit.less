@@ -1,0 +1,68 @@
+﻿@import '../../../BaseTheme/Controls/AjaxGroupEdit/AjaxGroupEdit.less';
+
+/**
+ * Файл визуального оформления AjaxGroupEdit.
+ */
+
+/* Тулбар. */
+.@{ageToolbarButtonCreate},
+.@{ageToolbarButtonDelete},
+.@{ageToolbarButtonEdit},
+.@{ageToolbarButtonMoveup},
+.@{ageToolbarButtonMovedown} {
+    margin-right: 7px;
+    padding: 5px 6px 3px;
+    font-size: 18px;
+}
+
+/* Основной тулбар.*/
+.@{wgeToolbar} {
+    border-top: 1px solid @wgeToolbarBorderColor;
+    border-bottom: 1px solid @wgeToolbarBorderColor;
+    background-color: @wgeToolbarBackgroundColor;
+    z-index: 100;
+}
+
+.@{wgeWrapperClass} {
+    .@{wgeTableClass} {
+        /* Шапка таблицы.*/
+        .@{wgeTableCaptionClass} > td {
+            background: @wgeTableCaptionBackgroundColor;
+        }
+
+        .@{wgeTableCaptionItemClass} td {
+            background: @wgeCaptionTextBackgroundColor;
+            color: @wgeCaptionTextColor;
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        .@{wgeTableWrapperCellDataClass} {
+            .lookup span {
+                line-height: 30px;
+            }
+        }
+
+        tr {
+            > td {
+                border-color: @wgeTableDataRowBorderColor;
+            }
+
+            &:hover td {
+                background: @wgeTableDataRowHoveredBackgroundColor;
+            }
+        }
+
+        > td {
+            tr.@{wgeTableDataRowClass} & {
+                background: @wgeTableDataRowBackgroundColor;
+            }
+
+            tr.@{wgeTableDataAlternateRowClass} & {
+                background: @wgeTableDataAlternativeRowBackgroundColor;
+            }
+        }
+    }
+}
+
+@import '_Settings.less';
