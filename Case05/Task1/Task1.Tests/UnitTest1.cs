@@ -11,18 +11,18 @@ namespace Web.Tests
     public class CodeGeneratorTests
     {
         [Fact]
-        public void L1_Correct()
+        public void L1_Correct_1_1()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "РогаКопыта",
+                Name = "1",
                 DateReg = new DateTime(2017, 01, 01),
-                Account = 123456789
+                Account = 1
             };
             
             //правильное решение
-            var expectedCode = "170101РогаКоп56789";
+            var expectedCode = "170101______200001";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -31,31 +31,31 @@ namespace Web.Tests
             Assert.Equal(expectedCode, Code);
         }
 
-        // короткие поля названия и лс
         [Fact]
-        public void TC_L1_Correct_short_name_ls()
+        public void L1_Correct_1_36()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "Рога",
+                Name = "1",
                 DateReg = new DateTime(2017, 01, 01),
-                Account = 123
+                Account = 36
             };
 
             //правильное решение
-            var expectedCode = "170101___Рога00123";
+            var expectedCode = "170101______20000a";
 
             ///Запуск теста.
-            var Code = Logic.Logic1.GenerateCode(TestConsumer);
+            var Code = Logic1.GenerateCode(TestConsumer);
 
             ///Сравнение.
             Assert.Equal(expectedCode, Code);
         }
+        
 
         //пустой объект
         [Fact]
-        public void TC_L1_Incorrecе_empty_name()
+        public void L1_Incorrecе_empty_name()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
@@ -74,7 +74,7 @@ namespace Web.Tests
 
         //пустой л/с
         [Fact]
-        public void TC_L1_Incorrect_empty_ls()
+        public void L1_Incorrect_empty_ls()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
@@ -89,43 +89,21 @@ namespace Web.Tests
 
             ///Сравнение.
             Assert.Contains("Не заполнены все поля формы", ex.Message);
-        }
-        
-        //странные символы
+        }    
+
         [Fact]
-        public void TC_L1_Correct_random_symbol()
+        public void L2_Correct()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "@",
+                Name = "1",
                 DateReg = new DateTime(2017, 01, 01),
-                Account = 123,
+                Account = 49
             };
 
             //правильное решение
-            var expectedCode = "170101______@00123";
-
-            ///Запуск теста.
-            var Code = Logic.Logic1.GenerateCode(TestConsumer);
-
-            ///Сравнение.
-            Assert.Equal(expectedCode, Code);
-        }
-
-        [Fact]
-        public void TC_L2_Correct()
-        {
-            ///Тестовые данные.
-            var TestConsumer = new Consumer()
-            {
-                Name = "РогаКопыта",
-                DateReg = new DateTime(2017, 01, 01),
-                Account = 123456789
-            };
-
-            //правильное решение
-            var expectedCode = "021I3V9РогаК170101";
+            var expectedCode = "000001D___1D170101";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -134,18 +112,18 @@ namespace Web.Tests
             Assert.Equal(expectedCode, Code);
         }
         [Fact]
-        public void TC_L2_Correct_short()
+        public void L2_Correct_short()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "Р",
+                Name = "1",
                 DateReg = new DateTime(2017, 01, 01),
                 Account = 1,
             };
 
             //правильное решение
-            var expectedCode = "0000001____Р170101";
+            var expectedCode = "0000001___1D170101";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -155,7 +133,7 @@ namespace Web.Tests
         }
         //пустой объект
         [Fact]
-        public void TC_L2_Incorrecе_empty_name()
+        public void L2_Incorrecе_empty_name()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
@@ -174,7 +152,7 @@ namespace Web.Tests
 
         //пустой л/с
         [Fact]
-        public void TC_L2_Incorrect_empty_ls()
+        public void L2_Incorrect_empty_ls()
         {
             ///Тестовые данные.
             var TestConsumer = new Consumer()
@@ -189,49 +167,6 @@ namespace Web.Tests
 
             ///Сравнение.
             Assert.Contains("Не заполнены все поля формы", ex.Message);
-        }
-
-        //
-        [Fact]
-        public void TC_L1_Correct_t1()
-        {
-            ///Тестовые данные.
-            var TestConsumer = new Consumer()
-            {
-                Name = "Test0001",
-                DateReg = new DateTime(2017, 03, 31),
-                Account = 1234567890,
-            };
-
-            //правильное решение
-            var expectedCode = "170331Test00067890";
-
-            ///Запуск теста.
-            var Code = Logic.Logic1.GenerateCode(TestConsumer);
-
-            ///Сравнение.
-            Assert.Equal(expectedCode, Code);
-        }
-        //
-        [Fact]
-        public void TC_L1_Correct_t2()
-        {
-            ///Тестовые данные.
-            var TestConsumer = new Consumer()
-            {
-                Name = "Test0002",
-                DateReg = new DateTime(2017, 03, 31),
-                Account = 1234567890,
-            };
-
-            //правильное решение
-            var expectedCode = "170331Test00067890";
-
-            ///Запуск теста.
-            var Code = Logic.Logic1.GenerateCode(TestConsumer);
-
-            ///Сравнение.
-            Assert.Equal(expectedCode, Code);
         }
     }
 }

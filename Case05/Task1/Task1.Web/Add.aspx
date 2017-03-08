@@ -21,7 +21,7 @@
                 <td><p> <asp:Calendar ID="CalendarReg" runat="server"></asp:Calendar></p></td>
             </tr>
             <tr>
-                <td><p>Лицевой счет</p></td>
+                <td><p>Лицевой счет (не более 19 цифр)</p></td>
                 <td><p><asp:TextBox ID="TextBoxAccount" runat="server"></asp:TextBox>
                         <asp:Label ID="TextBoxAccountError" runat="server" CssClass ="hidden" Text="Проверьте введённое значение!"></asp:Label>
                     </p>

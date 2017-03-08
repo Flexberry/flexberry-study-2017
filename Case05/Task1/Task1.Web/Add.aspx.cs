@@ -35,7 +35,6 @@ namespace Web
 
         protected void ButtonAdd_Click(object sender, EventArgs e)
         {            
-
             if ( CheckUlong(TextBoxAccount.Text) )
             {
                 TextBoxAccountError.CssClass = "hidden";

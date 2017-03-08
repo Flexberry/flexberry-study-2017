@@ -9,12 +9,11 @@ namespace Logic
 
     //алгоритм 1
     //код состоит из 18 символов, в таком пордяке:
-    // 6 - год, месяц, день по 2 на каждый
-    // 7 - первых букв названия
-    // 5 - последних цифр лицевого счета
+    // 6 - год, месяц, день по 2 последних символа 
+    // 7 - название пересчитанное в хэш и переведённое в цифры и латинские символы
+    // 5 - лицевой счет переведённый в цифры и латинские символы
     public class Logic1
     {
-
         public static string GenerateCode(Consumer user)
         {
             if (user.Account == 0 || user.Account == 0 || user.Name == null)
@@ -23,28 +22,67 @@ namespace Logic
             }
             var year = formatLength.format($"{user.DateReg.Year}",4,'0').Substring(2,2);            
             var month = formatLength.format($"{user.DateReg.Month}",2,'0').Substring(0, 2);
-            var day = formatLength.format($"{user.DateReg.Day}",2, '0').Substring(0, 2);
-
-            var name = formatLength.format(user.Name, 7,'_');
-
-            var ls = $"{user.Account}";
-            if (ls.Length > 5)
-            {
-                 ls = ls.Remove(0, ls.Length - 5);
-            }
-            else
-            {
-                 ls = formatLength.format(ls, 5, '0');
-            }
-
+            var day = formatLength.format( $"{user.DateReg.Day}",2, '0' ).Substring(0, 2);
+            var name = formatLength.format( HashName(user.Name), 7,'_');
+            var ls = formatLength.format(In62alf(user.Account) , 5, '0');
             return year + month + day + name + ls;
+        }
+        public static string HashName(string val)
+        {
+            ulong tmp = 191; // 10 + 26*2 + 33*2 = 190
+            ulong hash = 0, tmp_pow = 1;
+            for (int i = 0; i < val.Length; ++i)
+            {
+                try
+                {
+                    hash += ( (ulong)val[i] - (int)'0' + 1) * tmp_pow;
+                    tmp_pow *= tmp;
+                }
+                catch (OverflowException)
+                {
+                    throw new ArgumentNullException( $"{hash}", "Переполнение типа в hash");
+                }
+            }
+
+            return In62alf(hash);
+        }
+        public static string In62alf(ulong val)
+        {
+            string tmp = "";
+            do
+            {
+                //0..9 - 10
+                //А..Z - 26
+                //а..z 
+                ulong i = val % 62; 
+
+                if (i > 35)
+                {
+                    i += (int)'a' - 36;
+                }
+                else
+                {
+                    if (i > 9)
+                    {
+                        i += (int)'A' - 10;
+                    }
+                    else
+                    {
+                        i += (int)'0';
+                    }
+                }                
+                tmp = (char)i + tmp;
+                val /= 62;
+            } while (val > 0);
+
+            return tmp;
         }
     }
 
     //алгоритм 2
     //код состоит из 18 символов, в таком пордяке:
-    // 7 - код лицевого счета из латинских букв и цифр ( номер лс преобразован в 36ю сис.счисления) 
-    // 5 - первых букв из названия
+    // 7 - код лицевого счета из латинских букв и цифр (номер лс преобразован в 36 сис.счисления) 
+    // 5 - символы названия переведены в 10е числа, собраны в строку и пересчитаны в 36 сис.счисления 
     // 6 - год, месяц, день
     //позволяет длинный номер лс записать в коде
 
@@ -59,7 +97,7 @@ namespace Logic
             var year = formatLength.format($"{user.DateReg.Year}", 4, '0').Substring(2, 2);
             var month = formatLength.format($"{user.DateReg.Month}", 2, '0').Substring(0, 2);
             var day = formatLength.format($"{user.DateReg.Day}", 2, '0').Substring(0, 2);
-            var name = formatLength.format(user.Name, 5,'_');
+            var name = formatLength.format(IntoLat(StringToInt(user.Name)), 5,'_');
             var ls = formatLength.format($"{IntoLat(user.Account)}", 7, '0').Substring(0, 7);
             return ls + name + year + month + day;
         }
@@ -82,6 +120,15 @@ namespace Logic
                 tmp = (char)i + tmp;
                 val /= 36;
             } while (val > 0);
+            return tmp;
+        }
+        public static ulong StringToInt(string val)
+        {
+            ulong tmp = 0;
+            for (int i=0; i < val.Length; i++)
+            {
+                tmp += (ulong)val[i] ;
+            }
             return tmp;
         }
     }
