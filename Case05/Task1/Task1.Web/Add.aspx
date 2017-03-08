@@ -5,10 +5,16 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h3>Добавить объект</h3>
+        
+        <h3><asp:Label ID="TextBoxNameError" runat="server" CssClass ="hidden" Text="Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!"></asp:Label> </h3>
+        
         <table class="table">
             <tr>
                 <td><p>Наименование</p></td>
-                <td><p><asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox></p></td>
+                <td><p><asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    
+                    </p>
+                    </td>
             </tr>
             <tr>
                 <td><p>Дата регистрации</p></td>
@@ -17,7 +23,7 @@
             <tr>
                 <td><p>Лицевой счет</p></td>
                 <td><p><asp:TextBox ID="TextBoxAccount" runat="server"></asp:TextBox>
-                        <asp:Label ID="TextBoxAccountError" runat="server" CssClass ="hidden" Text="Введите только цифры!"></asp:Label>
+                        <asp:Label ID="TextBoxAccountError" runat="server" CssClass ="hidden" Text="Проверьте введённое значение!"></asp:Label>
                     </p>
                     </td>
             </tr>

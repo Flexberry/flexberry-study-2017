@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Имена типов - AssemblyQualifiedName;
+     Если вы изменили настройку, то необходимо перезапускать сервер -->
+<root>
+  <!-- Пример
+  <method name="GetPropertyValues">
+    <type name="IIS.КошкиСЛапами.Кошка, КошкиСЛапами(Objects), Version=1.0.0.1, Culture=neutral, PublicKeyToken=null"/>
+    <type name="IIS.КошкиСЛапами.Порода, КошкиСЛапами(Objects), Version=1.0.0.1, Culture=neutral, PublicKeyToken=null"/>
+  </method>
+  -->
+</root>

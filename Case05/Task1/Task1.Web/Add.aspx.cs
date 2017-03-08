@@ -34,10 +34,9 @@ namespace Web
         }
 
         protected void ButtonAdd_Click(object sender, EventArgs e)
-        {
-            
+        {            
 
-            if (CheckUlong(TextBoxAccount.Text))
+            if ( CheckUlong(TextBoxAccount.Text) )
             {
                 TextBoxAccountError.CssClass = "hidden";
                 var consumer = new Consumer()
@@ -47,41 +46,22 @@ namespace Web
                     Account = Convert.ToUInt64(TextBoxAccount.Text),
                 };
 
-                DataServiceProvider.Current.AddConsumer(consumer);
-                Session["IsConsumerAdded"] = true;
-                Response.Redirect(Request.Url.AbsoluteUri);
-            }
-            else
-            {
-                TextBoxAccountError.CssClass = "text-danger";
-                TextBoxAccount.Text = "";
-            }
-        }
-
-       /* protected void ButtonAdd2_Click(object sender, EventArgs e)
-        {
-
-
-            if (CheckUlong(TextBoxAccount.Text))
-            {
-                TextBoxAccountError.CssClass = "hidden";
-                var consumer = new Consumer()
+                try
                 {
-                    Name = TextBoxName.Text,
-                    DateReg = CalendarReg.SelectedDate,
-                    Account = Convert.ToUInt64(TextBoxAccount.Text),
-                };
-
-                DataServiceProvider.Current.Add2Consumer(consumer);
-                Session["IsConsumerAdded"] = true;
-                Response.Redirect(Request.Url.AbsoluteUri);
+                    DataServiceProvider.Current.AddConsumer(consumer);
+                    Session["IsConsumerAdded"] = true;
+                    Response.Redirect(Request.Url.AbsoluteUri);
+                }
+                catch  
+                {
+                    TextBoxNameError.CssClass = "text-danger";
+                }
             }
             else
-            {
+            {                
                 TextBoxAccountError.CssClass = "text-danger";
-                TextBoxAccount.Text = "";
             }
-        }*/
+        }    
 
         protected void ButtonClear_OnClick(object sender, EventArgs e)
         {
@@ -109,7 +89,6 @@ namespace Web
                 return false;
             }
         }
-
     }
 
 }

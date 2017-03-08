@@ -1,0 +1,34 @@
+﻿/**
+ * Файл, содержащий общие настройки для всех тем.
+ */
+
+
+/* Наименование классов и идентификаторов. */
+@bodyHasLeftAndMainColumnsClass: body.LM;   // Доступно основное содержимое и левое меню.
+@bodyHasMainColumn: body.M;                 // Доступно только основное содержимое (форма открыта из лукапа или открыта в новом модальном окне).
+
+
+// Форма открыта из лукапа или открыта в новом модальном окне.
+
+@{bodyHasMainColumn} {
+
+    // Скрытие меню, перехода по ссылкам, кнопки навигации.
+    #pageBlockTreeview,
+    #treeviewHideSpan,
+    #pageTreeViewShowHideBtn {
+        display: none;
+    }
+
+    // Скрытие левой границы для основного содержимого.
+    #pageBlockContent {
+        border-left: none;
+    }
+
+    // Скрытие шапки и футера.
+    .page-header,
+    .page-navigation,
+    .page-footer {
+        display: none;
+    }
+
+}
