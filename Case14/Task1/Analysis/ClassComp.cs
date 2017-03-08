@@ -24,7 +24,7 @@
             double pct = 0;
             int lenghtLost = lost.Length;
             int lenghtFound = found.Length;
-            int lenghtArray = lenghtLost;   
+            int lenghtArray = lenghtLost;
 
             if (lenghtLost == lenghtFound)
             {
@@ -34,15 +34,20 @@
                     {
                         var lostElem = lost[i];
                         var foundElem = found[j];
+                        bool lostElemEmpty = string.IsNullOrEmpty(lostElem);
+                        bool foundElemEmpty = string.IsNullOrEmpty(foundElem);
 
-                        if (lostElem == foundElem & lostElem != null & foundElem != null)
+                        if (lostElem == foundElem && !lostElemEmpty && !foundElemEmpty)
                         {
                             overlap = overlap + 1;
                         }
-                        else overlap = overlap + 0;
                     }
                 }
                 pct = (overlap * 100 / lenghtArray);
+                if (pct > 100)
+                {
+                    pct = 100;
+                }
                 return pct;
             }
             else throw new Exception("Array\'s not equal");

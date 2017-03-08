@@ -81,7 +81,7 @@
         }
 
         [Fact]
-        public void ValuesRreversedEqual()
+        public void ValuesReversedEqual()
         {
             //Arrange.
             string[] lost = new string[9] { "Потеряно", "Кошка", "Ивановская, 4", "01.02.2000", "Животное", "Пятнистая", "Маленькая", "Беспородная", "Белая с рыжими и черными пятнами" };
@@ -96,7 +96,42 @@
 
             //Assert.
             Assert.Equal(expectedPct, actPct);
+        }
 
+        [Fact]
+        public void FullFewElement()
+        {
+            //Arrange.
+            string[] lost = new string[9] { "Потеряно", "", "", "01.02.2000", "", "", "", "", "" };
+
+            string[] found = new string[9] { "Потеряно", "", "", "01.02.2000", "", "", "", "", "" };
+
+            double expectedPct = 22;
+
+            //Act.
+            ClassComp testClassComp = new ClassComp();
+            double actPct = (int)testClassComp.Comparison(lost, found);
+
+            //Assert.
+            Assert.Equal(expectedPct, actPct);
+        }
+
+        [Fact]
+        public void SameArraysElements()
+        {
+            //Arrange.
+            string[] lost = new string[9] { "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно" };
+
+            string[] found = new string[9] { "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно", "Потеряно" };
+
+            double expectedPct = 100;
+
+            //Act.
+            ClassComp testClassComp = new ClassComp();
+            double actPct = testClassComp.Comparison(lost, found);
+
+            //Assert.
+            Assert.Equal(expectedPct, actPct);
         }
 
         [Fact]
@@ -121,7 +156,6 @@
             }
 
             Assert.True(exeptionCalled);
-
         }
 
         [Fact]
