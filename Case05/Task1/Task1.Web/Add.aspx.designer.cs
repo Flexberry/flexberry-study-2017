@@ -13,13 +13,22 @@ namespace Web {
     public partial class AddConsumers {
         
         /// <summary>
-        /// TextBoxNameError элемент управления.
+        /// TextBoxNameError1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TextBoxNameError;
+        protected global::System.Web.UI.WebControls.Label TextBoxNameError1;
+        
+        /// <summary>
+        /// TextBoxNameError2 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TextBoxNameError2;
         
         /// <summary>
         /// TextBoxName элемент управления.

@@ -48,14 +48,12 @@
 
             if (availableConsumers.FirstOrDefault() != null)
             {
-                //return;
-                throw new Exception("Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!");
+                throw new Exception("Logic 1, equal code");
             }
 
             if (availableConsumers2.FirstOrDefault() != null)
             {
-                //return;
-                throw new Exception("Невозможно добавить объект с такими данными, т.к. код для него не будет уникальным!");
+                throw new Exception("Logic 2, equal code");
             }
 
             _consumersStorage.Add(consumer);

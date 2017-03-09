@@ -51,9 +51,16 @@ namespace Web
                     Session["IsConsumerAdded"] = true;
                     Response.Redirect(Request.Url.AbsoluteUri);
                 }
-                catch  
+                catch (Exception exc)
                 {
-                    TextBoxNameError.CssClass = "text-danger";
+                    if ( exc.Message == "Logic 1, equal code")
+                    {
+                        TextBoxNameError1.CssClass = "text -danger";
+                    }
+                    if ( exc.Message == "Logic 2, equal code")
+                    {
+                        TextBoxNameError2.CssClass = "text -danger";
+                    }
                 }
             }
             else
@@ -81,11 +88,18 @@ namespace Web
             try
             {
                 ulong x = Convert.ToUInt64(value);
-                return true;
             }
             catch
             {
                 return false;
+            }
+            if ( (value.Length == 1) && Convert.ToChar(value) == '0' || (value.Length == 0) )
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

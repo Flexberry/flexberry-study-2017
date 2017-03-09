@@ -97,13 +97,13 @@ namespace Web.Tests
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "1",
+                Name = "абв",
                 DateReg = new DateTime(2017, 01, 01),
-                Account = 49
+                Account = 9999
             };
 
             //правильное решение
-            var expectedCode = "000001D___1D170101";
+            var expectedCode = "170101000001D___1D";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -117,13 +117,13 @@ namespace Web.Tests
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "1",
-                DateReg = new DateTime(2017, 01, 01),
-                Account = 1,
+                Name = "11",
+                DateReg = new DateTime(1917, 01, 01),
+                Account = 49,
             };
 
             //правильное решение
-            var expectedCode = "0000001___1D170101";
+            var expectedCode = "170101000001D___1D";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
