@@ -10,7 +10,7 @@ namespace Logic
 
     //алгоритм 1
     //код состоит из 18 символов, в таком пордяке:
-    // 6 - год, месяц, день по 2 последних символа 
+    // 8 - ГГГГММДД
     // 5 - название пересчитанное в хэш и переведённое в 62 алф.
     // 5 - лицевой счет переведённый в 62 афл.
     public class Logic1
@@ -24,7 +24,7 @@ namespace Logic
             var year = Logicformat.Length($"{user.DateReg.Year}",4,'0').Substring(0,4);            
             var month = Logicformat.Length($"{user.DateReg.Month}",2,'0').Substring(0, 2);
             var day = Logicformat.Length( $"{user.DateReg.Day}",2, '0' ).Substring(0, 2); //8
-            var name = Logicformat.Length(Logicformat.HashName(user.Name), 5,'_'); //13
+            var name = Logicformat.Length(Logicformat.HashName(user.Name), 5, '_'); //13
             var ls = Logicformat.Length(Logicformat.In62alf(user.Account) , 5, '0'); //18
             return year + month + day + name + ls;
         }
@@ -53,7 +53,7 @@ namespace Logic
             var name = Logicformat.Length($"{user.Name}", 3,'_');  // 11
             var nameHash = Logicformat.Length(Logicformat.HashName($"{user.Name}"), 3, '_');  //14
             var lsHash = Logicformat.Length(Logicformat.HashName($"{user.Account}"), 2, '0').Substring(0, 2); //16
-            var ls = Logicformat.Length($"{user.Account}", 2, '0');
+            var ls = Logicformat.Length($"{user.Account}", 2, '0'); //18
             return name + ls + year + month + day + yearIn62 + nameHash + lsHash;
         }
     }
@@ -82,7 +82,7 @@ namespace Logic
         //хэш из наименования потребителя
         public static string HashName(string val)
         {
-            ulong tmp = 191; // 10 + 26*2 + 33*2 = 190
+            ulong tmp = 131; // 10 + 26*2 + 33*2 = 128
             ulong hash = 0, tmp_pow = 1;
             for (int i = 0; i < val.Length; ++i)
             {
@@ -96,7 +96,14 @@ namespace Logic
                     throw new ArgumentNullException($"{hash}", "Переполнение типа в hash");
                 }
             }
-            return In62alf(hash);
+            val = In62alf(hash);
+            int Length = val.Length;
+            var value = "";
+            for (int i= Length-1; i > -1; i--)
+            {
+                value = value + val[i];
+            }      
+            return value;
         }
         //перевод в 62 сим алф
         public static string In62alf(ulong val)
@@ -127,7 +134,6 @@ namespace Logic
                 tmp = (char)i + tmp;
                 val /= 62;
             } while (val > 0);
-
             return tmp;
         }
 

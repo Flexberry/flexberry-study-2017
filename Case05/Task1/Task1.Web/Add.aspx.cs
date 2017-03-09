@@ -53,11 +53,11 @@ namespace Web
                 }
                 catch (Exception exc)
                 {
-                    if ( exc.Message == "Logic 1, equal code")
+                    if ( exc.Message == "Logic1")
                     {
                         TextBoxNameError1.CssClass = "text -danger";
                     }
-                    if ( exc.Message == "Logic 2, equal code")
+                    if ( exc.Message == "Logic2")
                     {
                         TextBoxNameError2.CssClass = "text -danger";
                     }

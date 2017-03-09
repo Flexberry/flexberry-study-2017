@@ -48,12 +48,12 @@
 
             if (availableConsumers.FirstOrDefault() != null)
             {
-                throw new Exception("Logic 1, equal code");
+                throw new Exception("Logic1");
             }
 
             if (availableConsumers2.FirstOrDefault() != null)
             {
-                throw new Exception("Logic 2, equal code");
+                throw new Exception("Logic2");
             }
 
             _consumersStorage.Add(consumer);

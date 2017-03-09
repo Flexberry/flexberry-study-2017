@@ -22,7 +22,7 @@ namespace Web.Tests
             };
             
             //правильное решение
-            var expectedCode = "170101______200001";
+            var expectedCode = "20170101____200001";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -43,7 +43,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "170101______20000a";
+            var expectedCode = "20170101____20000a";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -51,7 +51,48 @@ namespace Web.Tests
             ///Сравнение.
             Assert.Equal(expectedCode, Code);
         }
-        
+
+        [Fact]
+        public void L1_Correct_aa_1()
+        {
+            ///Тестовые данные.
+            var TestConsumer = new Consumer()
+            {
+                Name = "a0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                DateReg = new DateTime(2017, 01, 01),
+                Account = 1
+            };
+
+            //правильное решение
+            var expectedCode = "20170101bsbTT00001";
+
+            ///Запуск теста.
+            var Code = Logic1.GenerateCode(TestConsumer);
+
+            ///Сравнение.
+            Assert.Equal(expectedCode, Code);
+        }
+
+        [Fact]
+        public void L1_Correct_aaa_1()
+        {
+            ///Тестовые данные.
+            var TestConsumer = new Consumer()
+            {
+                Name = "aa0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                DateReg = new DateTime(2017, 01, 01),
+                Account = 1
+            };
+
+            //правильное решение
+            var expectedCode = "20170101Pn6QT00001";
+
+            ///Запуск теста.
+            var Code = Logic1.GenerateCode(TestConsumer);
+
+            ///Сравнение.
+            Assert.Equal(expectedCode, Code);
+        }
 
         //пустой объект
         [Fact]
@@ -99,11 +140,11 @@ namespace Web.Tests
             {
                 Name = "абв",
                 DateReg = new DateTime(2017, 01, 01),
-                Account = 9999
+                Account = 99
             };
 
             //правильное решение
-            var expectedCode = "170101000001D___1D";
+            var expectedCode = "абв99170101WX28WIL";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -117,13 +158,13 @@ namespace Web.Tests
             ///Тестовые данные.
             var TestConsumer = new Consumer()
             {
-                Name = "11",
+                Name = "1",
                 DateReg = new DateTime(1917, 01, 01),
-                Account = 49,
+                Account = 62,
             };
 
             //правильное решение
-            var expectedCode = "170101000001D___1D";
+            var expectedCode = "__162170101Uv__2S6";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -131,6 +172,29 @@ namespace Web.Tests
             ///Сравнение.
             Assert.Equal(expectedCode, Code);
         }
+
+        //год на 100 лет отличается
+        [Fact]
+        public void L2_Correct_short_year()
+        {
+            ///Тестовые данные.
+            var TestConsumer = new Consumer()
+            {
+                Name = "1",
+                DateReg = new DateTime(2017, 01, 01),
+                Account = 62,
+            };
+
+            //правильное решение
+            var expectedCode = "__162170101WX__2S6";
+
+            ///Запуск теста.
+            var Code = Logic2.GenerateCode(TestConsumer);
+
+            ///Сравнение.
+            Assert.Equal(expectedCode, Code);
+        } 
+
         //пустой объект
         [Fact]
         public void L2_Incorrecе_empty_name()
