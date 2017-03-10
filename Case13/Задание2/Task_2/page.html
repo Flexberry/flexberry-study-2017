@@ -1,0 +1,48 @@
+<html>
+ <head> 
+  <script>
+	var userProfile = ["Логин 1", "Mail 1", "Фамилия 1", "Имя 1", "Отчество 1", "м", "01.02.1992", "Город 1", "Страна 1", "temp.site.com",
+					   "Логин 2", "Mail 2", "Фамилия 2", "Имя 2", "Отчество 2", "м", "02.02.2992", "Город 2", "Страна 2", "temp.site.com",
+					   "Логин 3", "Mail 3", "Фамилия 3", "Имя 3", "Отчество 3", "м", "03.02.3992", "Город 3", "Страна 3", "temp.site.com",
+					   "Логин 4", "Mail 4", "Фамилия 4", "Имя 4", "Отчество 4", "м", "04.02.4992", "Город 4", "Страна 4", "temp.site.com",
+					   "Логин 5", "Mail 5", "Фамилия 5", "Имя 5", "Отчество 5", "м", "05.02.5992", "Город 5", "Страна 5", "temp.site.com"];
+	var userProfileType = ["Логин", "Mail", "Фамилия", "Имя", "Отчество", "Пол", "Дата рождения", "Город", "Страна", "Сайт"];
+  </script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    ! function(i) {
+      var o, n;
+      i(".title_block").on("click", function() {
+        o = i(this).parents(".accordion_item"), n = o.find(".info"),
+          o.hasClass("active_block") ? (o.removeClass("active_block"),
+            n.slideUp()) : (o.addClass("active_block"), n.stop(!0, !0).slideDown(),
+            o.siblings(".active_block").removeClass("active_block").children(
+              ".info").stop(!0, !0).slideUp())
+      })
+    }(jQuery);
+   </script>
+  <title>Пример веб-страницы</title>
+ </head>
+ <link rel="stylesheet" href="css/style.css">
+ <body>
+  <ul class="liinline">
+   <script>
+    var l = userProfile.length;
+    for (var i = 0; i < l/10; i++) {
+     document.writeln("<li><div>");
+     for (var j = 0; j < 5; j++) {
+      document.write(userProfileType[j] + ": " + userProfile[i*10+j] + "<br>");
+     }
+     document.write("<div class=\"accordion\"><section class=\"accordion_item\"><h5 class=\"title_block\">Дополнительно</h3><div class=\"info\">")
+     for (var j = 5; j < 10; j++) {
+      document.write(userProfileType[j] + ": " + userProfile[i*10+j] + "<br>");
+     }
+     document.write("</div></section><div>")
+     document.write("</div></li>");
+    }
+    document.write("<br>" + "<br>" + "<label class=\"count\">" +"Колличество профилей: " + l/10 + "</label>");
+   </script>
+   </ul>
+  </div>
+ </body>
+</html>

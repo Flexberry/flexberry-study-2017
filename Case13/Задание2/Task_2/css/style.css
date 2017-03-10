@@ -1,0 +1,96 @@
+.liinline{
+margin-left: 0;
+list-style: none;
+counter-reset: li;
+}
+
+ul.liinline li{
+    display: inline-block;
+    margin-bottom: 1.5em;
+    border: 1px solid #07152B;
+    padding: 0.6em;
+    border-radius: 4px;
+    background: #62B9FF;
+    color: #231F20;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+label.count{
+    margin-bottom: 1.5em;
+    border: 1px solid #07152B;
+    border-radius: 4px;
+    background-color:#62B9FF;
+    color: #231F20;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+
+/* стили блока аккордеон */
+.accordion {
+  width:100%;
+  max-width: 600px; 
+  margin: 0 auto
+}
+/* секции аккордеона */
+.accordion .accordion_item {
+  margin-bottom:1px;
+  position:relative
+}
+/* заголовки панелей аккордеона */
+.accordion .title_block {
+  font-weight: 400;
+  font-size: 18px;
+  color: #eee;
+  cursor:pointer;
+  background: #62B9FF;
+  border: 1px solid #07152B;
+  padding:10px 55px 10px 15px;
+  -webkit-transition:all .2s linear 0;
+  -webkit-transition-delay:.2s 0;
+  transition:all .2s linear 0
+}
+/* переключатель панелей, положение вниз */
+.accordion .title_block:before {
+  content:'';
+  height:8px;
+  width:8px;
+  display:block;
+  border:2px solid #fefefe;
+  border-right-width:0;
+  border-top-width:0;
+  -ms-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+  position:absolute;
+  right:20px;
+  top:18px
+}
+/* активный переключатель, положение вверх */
+.accordion .active_block .title_block:before {
+  border:2px solid  #00BFFF;
+  border-left-width:0;
+  border-bottom-width:0;
+  top:18px
+}
+.accordion .title_block:hover {
+  background: #00BFFF 
+}
+ 
+/* заголовок активного блока  */
+.accordion .active_block .title_block {
+  background: #00BFFF;
+  color:#00BFFF
+}
+/* блоки с содержанием */
+.accordion .info {
+  display:none;
+  padding:10px 15px;
+  overflow: hidden;
+  background:#f7f7f7
+}
+/* параграф внутри блоков с содержанием */
+.accordion .info_item {
+  margin-bottom:1px
+}
