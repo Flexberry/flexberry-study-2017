@@ -11,8 +11,8 @@ namespace Logic
     //алгоритм 1
     //код состоит из 18 символов, в таком пордяке:
     // 8 - ГГГГММДД
-    // 5 - название пересчитанное в хэш и переведённое в 62 алф.
-    // 5 - лицевой счет переведённый в 62 афл.
+    // 5 - название пересчитанное в хэш и переведённое в 36 алф.
+    // 5 - хэш лицевовоо счетва переведённый в 36 афл.
     public class Logic1
     {
         public static string GenerateCode(Consumer user)
@@ -21,11 +21,11 @@ namespace Logic
             {
                 throw new ArgumentNullException(nameof(user), "Не заполнены все поля формы");
             }
-            var year = Logicformat.Length($"{user.DateReg.Year}",4,'0').Substring(0,4);            
-            var month = Logicformat.Length($"{user.DateReg.Month}",2,'0').Substring(0, 2);
-            var day = Logicformat.Length( $"{user.DateReg.Day}",2, '0' ).Substring(0, 2); //8
+            var year = Logicformat.Length($"{user.DateReg.Year}", 4, '0').Substring(0, 4);
+            var month = Logicformat.Length($"{user.DateReg.Month}", 2, '0').Substring(0, 2);
+            var day = Logicformat.Length($"{user.DateReg.Day}", 2, '0').Substring(0, 2); //8
             var name = Logicformat.Length(Logicformat.HashName(user.Name), 5, '_'); //13
-            var ls = Logicformat.Length(Logicformat.In62alf(user.Account) , 5, '0'); //18
+            var ls = Logicformat.Length(Logicformat.HashName($"{user.Account}") , 5, '0'); //18
             return year + month + day + name + ls;
         }
     }
@@ -35,7 +35,7 @@ namespace Logic
     // 3 - первые буквы названия
     // 2 - цифры лиц счета
     // 6 - год, месяц, день
-    // 1 - год в 62 алф.
+    // 2 - год в 36 алф.
     // 3 - хэш названия
     // 2 - хэш лс
     public class Logic2
@@ -49,12 +49,12 @@ namespace Logic
             var year = Logicformat.Length($"{user.DateReg.Year}", 4, '0').Substring(2, 2); 
             var month = Logicformat.Length($"{user.DateReg.Month}", 2, '0').Substring(0, 2);
             var day = Logicformat.Length($"{user.DateReg.Day}", 2, '0').Substring(0, 2);
-            var yearIn62 = Logicformat.In62alf( Convert.ToUInt64($"{user.DateReg.Year}")).Substring(0, 2);  //8
+            var yearIn36 = Logicformat.Length( Logicformat.In36alf( Convert.ToUInt64($"{user.DateReg.Year-1900}")), 2, '_').Substring(0, 2);  //8
             var name = Logicformat.Length($"{user.Name}", 3,'_');  // 11
             var nameHash = Logicformat.Length(Logicformat.HashName($"{user.Name}"), 3, '_');  //14
             var lsHash = Logicformat.Length(Logicformat.HashName($"{user.Account}"), 2, '0').Substring(0, 2); //16
             var ls = Logicformat.Length($"{user.Account}", 2, '0'); //18
-            return name + ls + year + month + day + yearIn62 + nameHash + lsHash;
+            return name + ls + year + month + day + yearIn36 + nameHash + lsHash;
         }
     }
 
@@ -93,10 +93,10 @@ namespace Logic
                 }
                 catch (OverflowException)
                 {
-                    throw new ArgumentNullException($"{hash}", "Переполнение типа в hash");
+                    throw new ArgumentNullException("Exception_hash");
                 }
             }
-            val = In62alf(hash);
+            val = In36alf(hash);
             int Length = val.Length;
             var value = "";
             for (int i= Length-1; i > -1; i--)
@@ -105,34 +105,27 @@ namespace Logic
             }      
             return value;
         }
-        //перевод в 62 сим алф
-        public static string In62alf(ulong val)
+        //перевод в 36 сим алф
+        public static string In36alf(ulong val)
         {
             string tmp = "";
             do
             {
                 //0..9 - 10
                 //А..Z - 26
-                //а..z 
-                ulong i = val % 62;
-
-                if (i > 35)
+                ulong i = val % 36;
+                
+                if (i > 9)
                 {
-                    i += (int)'a' - 36;
+                    i += (int)'A' - 10;
                 }
                 else
                 {
-                    if (i > 9)
-                    {
-                        i += (int)'A' - 10;
-                    }
-                    else
-                    {
-                        i += (int)'0';
-                    }
+                    i += (int)'0';
                 }
+                
                 tmp = (char)i + tmp;
-                val /= 62;
+                val /= 36;
             } while (val > 0);
             return tmp;
         }
@@ -157,7 +150,7 @@ namespace Logic
                 }
                 catch (OverflowException)
                 {
-                    throw new ArgumentNullException($"{tmp}", "Переполнение типа в StringToInt");
+                    throw new ArgumentNullException("Exception_StringToInt");
                 }
             }
             return tmp;

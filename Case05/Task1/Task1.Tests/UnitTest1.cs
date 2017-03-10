@@ -22,7 +22,7 @@ namespace Web.Tests
             };
             
             //правильное решение
-            var expectedCode = "20170101____200001";
+            var expectedCode = "20170101____200002";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -43,7 +43,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "20170101____20000a";
+            var expectedCode = "20170101____2000LP";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -64,7 +64,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "20170101bsbTT00001";
+            var expectedCode = "20170101PZVPX00002";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -85,7 +85,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "20170101Pn6QT00001";
+            var expectedCode = "20170101Z308X00002";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -144,7 +144,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "абв99170101WX28WIL";
+            var expectedCode = "абв99170101396JNO0";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -164,7 +164,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "__162170101Uv__2S6";
+            var expectedCode = "__162170101_H__24B";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
@@ -186,7 +186,7 @@ namespace Web.Tests
             };
 
             //правильное решение
-            var expectedCode = "__162170101WX__2S6";
+            var expectedCode = "__16217010139__24B";
 
             ///Запуск теста.
             var Code = Logic2.GenerateCode(TestConsumer);
