@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SportSchool.Objects;
 using Calculations;
 
@@ -18,6 +15,16 @@ namespace SportSchool.DAL
         public static void AddSportsman(Sportsman sportsman)
         {
             sportsmen.Add(sportsman);
+        }
+
+        public static void AddTraining(Training training)
+        {
+            trainings.Add(training);
+        }
+
+        public static void AddZone(int zone, TimeSpan time)
+        {
+            trainings[trainings.Count].TimeInZones.Add(zone, time);
         }
 
         public static void ClearSportsmen()
@@ -133,7 +140,7 @@ namespace SportSchool.DAL
 
         public static double CalculatePoints(Training training)
         {
-            return Calculate.Points(training);
+            return Calculate.TrainingLoad(training);
         }
         
     }

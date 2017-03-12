@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GetSportsman.ascx.cs" Inherits="SportSchool.GetSportsman" %>
+<%@ Import Namespace="SportSchool.DAL" %>
+<%@ Import Namespace="SportSchool.Objects" %>
 
 <h2>Введите ФИО спортсмена и номер группы</h2>
 <div>
@@ -36,6 +38,7 @@
                 <td><%# DataBinder.Eval(Container.DataItem, "FirstName") %> </td>
                 <td><%# DataBinder.Eval(Container.DataItem, "Patronymic") %> </td>
                 <td><%# DataBinder.Eval(Container.DataItem, "CodeGroup") %> </td>
+                <td><a href="<%="Trainings?sportsman="%><%# ((Sportsman)DataBinder.GetDataItem(Container)).LastName + ";"%><%# ((Sportsman)DataBinder.GetDataItem(Container)).FirstName + ";"%><%# ((Sportsman)DataBinder.GetDataItem(Container)).Patronymic + ";"%><%# ((Sportsman)DataBinder.GetDataItem(Container)).CodeGroup + ";"%> ">Добавить тренировку</a></td>
             </tr>
         </ItemTemplate>
 

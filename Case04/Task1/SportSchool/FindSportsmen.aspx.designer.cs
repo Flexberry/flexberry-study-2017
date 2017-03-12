@@ -10,24 +10,15 @@
 namespace SportSchool {
     
     
-    public partial class Trainings {
+    public partial class FindSportsmen {
         
         /// <summary>
-        /// Sportsmen элемент управления.
+        /// GetSportsman1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sportsmen;
-        
-        /// <summary>
-        /// PointsCalculate1 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::SportSchool.PointsCalculate PointsCalculate1;
+        protected global::SportSchool.GetSportsman GetSportsman1;
     }
 }

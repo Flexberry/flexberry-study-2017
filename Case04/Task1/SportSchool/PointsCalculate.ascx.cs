@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SportSchool.DAL;
 using SportSchool.Objects;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace SportSchool
 {
@@ -13,27 +15,27 @@ namespace SportSchool
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            Training training = new Training();
+        }
 
+        protected void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            var time = TextBoxTime.Text;
+
+            string pattern = @"^[0-9][0-9]:[0-6][0-9]:[0-6][0-9]$";
+            Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+            MatchCollection matches = rgx.Matches(time);
+            if (matches.Count == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Неверное время')", true);
+                return;
+            }
         }
 
         protected void ButtonCalculatePoints_OnClick(object sender, EventArgs e)
         {
-            Training training = new Training()
-            {
-                FirstZoneMinutes = Convert.ToDouble(TextBoxM1.Text),
-                FirstZoneSeconds = Convert.ToDouble(TextBoxS1.Text),
-                SecondZoneMinutes = Convert.ToDouble(TextBoxM2.Text),
-                SecondZoneSeconds = Convert.ToDouble(TextBoxS2.Text),
-                ThirdZoneMinutes = Convert.ToDouble(TextBoxM3.Text),
-                ThirdZoneSeconds = Convert.ToDouble(TextBoxS3.Text),
-            };
-
-            double points = DataService.CalculatePoints(training);
             
-                LabelFirstZone.Text = $"{training.FirstZoneMinutes}м. {training.FirstZoneSeconds}c.";
-                LabelSecondZone.Text = $"{training.SecondZoneMinutes}м. {training.SecondZoneSeconds}c.";
-                LabelThirdZone.Text = $"{training.ThirdZoneMinutes}м. {training.ThirdZoneSeconds}c.";
-            LabelPoints.Text = String.Format("{0:0.##}", points);
         }
     }
 }
