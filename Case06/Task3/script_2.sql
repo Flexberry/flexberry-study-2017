@@ -1,17 +1,17 @@
-/***Вывести рейтинг организаций, построенный по принципу: 
-за каждого студента 
-	1-го приоритета даётся 3 балла, 
-	2-го приоритета - 2 балла, 
-	3-го приоритета - 1 балл.***/
+/***Р’С‹РІРµСЃС‚Рё СЂРµР№С‚РёРЅРі РѕСЂРіР°РЅРёР·Р°С†РёР№, РїРѕСЃС‚СЂРѕРµРЅРЅС‹Р№ РїРѕ РїСЂРёРЅС†РёРїСѓ: 
+Р·Р° РєР°Р¶РґРѕРіРѕ СЃС‚СѓРґРµРЅС‚Р° 
+	1-РіРѕ РїСЂРёРѕСЂРёС‚РµС‚Р° РґР°С‘С‚СЃСЏ 3 Р±Р°Р»Р»Р°, 
+	2-РіРѕ РїСЂРёРѕСЂРёС‚РµС‚Р° - 2 Р±Р°Р»Р»Р°, 
+	3-РіРѕ РїСЂРёРѕСЂРёС‚РµС‚Р° - 1 Р±Р°Р»Р».***/
 	
-SELECT o.name, sum(4-ch.priority_num) as  'Балл'
+SELECT o.name, sum(4-ch.priority_num) as  'Р‘Р°Р»Р»'
   FROM [task3].[dbo].[students] as s 
   JOIN [task3].[dbo].[choice] as ch on s.stud_id=ch.stud_id 
   JOIN [task3].[dbo].[modules]as m  on  ch.mod_id=m.mod_id 
   JOIN [task3].[dbo].[organizations]as o  on  m.org_id=o.org_id 
    WHERE (4-ch.priority_num) > 0
    GROUP BY o.name
-   ORDER BY 'Балл' desc
+   ORDER BY 'Р‘Р°Р»Р»' desc
 GO
 
 

@@ -1,12 +1,12 @@
-/*Вывести список студентов, которые выбрали первым приоритетом указанную организацию.*/
+/*Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ РІС‹Р±СЂР°Р»Рё РїРµСЂРІС‹Рј РїСЂРёРѕСЂРёС‚РµС‚РѕРј СѓРєР°Р·Р°РЅРЅСѓСЋ РѕСЂРіР°РЅРёР·Р°С†РёСЋ.*/
 
-SELECT s.*, o.name, ch.priority_num as 'Приоритет'
+SELECT s.*, o.name, ch.priority_num as 'РџСЂРёРѕСЂРёС‚РµС‚'
   FROM [task3].[dbo].[students] as s 
   JOIN [task3].[dbo].[choice] as ch on s.stud_id=ch.stud_id 
   JOIN [task3].[dbo].[modules]as m  on  ch.mod_id=m.mod_id 
   JOIN [task3].[dbo].[organizations]as o  on  m.org_id=o.org_id 
   WHERE 
-			o.name = 'ИНТУИТ'
+			o.name = 'РРќРўРЈРРў'
 		AND
 			ch.priority_num = 1
 GO

@@ -1,17 +1,17 @@
-/*На указанную дату вывести перечень образовательных организаций, 
-		с которыми есть действующий договор.*/
+/*РќР° СѓРєР°Р·Р°РЅРЅСѓСЋ РґР°С‚Сѓ РІС‹РІРµСЃС‚Рё РїРµСЂРµС‡РµРЅСЊ РѕР±СЂР°Р·РѕРІР°С‚РµР»СЊРЅС‹С… РѕСЂРіР°РЅРёР·Р°С†РёР№, 
+		СЃ РєРѕС‚РѕСЂС‹РјРё РµСЃС‚СЊ РґРµР№СЃС‚РІСѓСЋС‰РёР№ РґРѕРіРѕРІРѕСЂ.*/
 		
-SELECT o.*, cast(year(CURRENT_TIMESTAMP) as varchar)+'-'+cast(month(CURRENT_TIMESTAMP) as varchar)+'-'+cast(day(CURRENT_TIMESTAMP) as varchar)as 'Текущая дата', 'Статус' = 
+SELECT o.*, cast(year(CURRENT_TIMESTAMP) as varchar)+'-'+cast(month(CURRENT_TIMESTAMP) as varchar)+'-'+cast(day(CURRENT_TIMESTAMP) as varchar)as 'РўРµРєСѓС‰Р°СЏ РґР°С‚Р°', 'РЎС‚Р°С‚СѓСЃ' = 
 CASE
-  when DATEDIFF(DAY,CURRENT_TIMESTAMP,date_end)<0 then 'Договор недействителен!' 
-  when DATEDIFF(DAY,CURRENT_TIMESTAMP,date_end)>=0 then 'Договор действителен'
+  when DATEDIFF(DAY,CURRENT_TIMESTAMP,date_end)<0 then 'Р”РѕРіРѕРІРѕСЂ РЅРµРґРµР№СЃС‚РІРёС‚РµР»РµРЅ!' 
+  when DATEDIFF(DAY,CURRENT_TIMESTAMP,date_end)>=0 then 'Р”РѕРіРѕРІРѕСЂ РґРµР№СЃС‚РІРёС‚РµР»РµРЅ'
   end 
 
 FROM [task3].[dbo].[organizations]as o
 GO
 
-/*Ниже вариант точно по заданию*/
-SELECT o.*, cast(year(CURRENT_TIMESTAMP) as varchar)+'-'+cast(month(CURRENT_TIMESTAMP) as varchar)+'-'+cast(day(CURRENT_TIMESTAMP) as varchar)as 'Текущая дата'
+/*РќРёР¶Рµ РІР°СЂРёР°РЅС‚ С‚РѕС‡РЅРѕ РїРѕ Р·Р°РґР°РЅРёСЋ*/
+SELECT o.*, cast(year(CURRENT_TIMESTAMP) as varchar)+'-'+cast(month(CURRENT_TIMESTAMP) as varchar)+'-'+cast(day(CURRENT_TIMESTAMP) as varchar)as 'РўРµРєСѓС‰Р°СЏ РґР°С‚Р°'
 FROM [task3].[dbo].[organizations]as o
 WHERE DATEDIFF(DAY,CURRENT_TIMESTAMP,date_end)>=0 
 

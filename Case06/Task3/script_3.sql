@@ -1,31 +1,31 @@
-/***Для каждого студента вывести его знак зодиака***/
+/***Р”Р»СЏ РєР°Р¶РґРѕРіРѕ СЃС‚СѓРґРµРЅС‚Р° РІС‹РІРµСЃС‚Рё РµРіРѕ Р·РЅР°Рє Р·РѕРґРёР°РєР°***/
  
-  SELECT s.fio as 'ФИО',s.birthday as 'Дата рождения', 'Знак зодиака'=
+  SELECT s.fio as 'Р¤РРћ',s.birthday as 'Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ', 'Р—РЅР°Рє Р·РѕРґРёР°РєР°'=
   case  
 	when (DAY(birthday) between 21 and 31 and MONTH(birthday)= 3) 
-	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 4) then 'Овен'
+	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 4) then 'РћРІРµРЅ'
 	when (DAY(birthday) between 23 and 31 and MONTH(birthday)= 7) 
-	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 8) then 'Лев'
+	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 8) then 'Р›РµРІ'
 	when (DAY(birthday) between 23 and 30 and MONTH(birthday)= 11) 
-	  OR (DAY(birthday) between 1 and 21 and MONTH(birthday) = 12) then 'Стрелец'
+	  OR (DAY(birthday) between 1 and 21 and MONTH(birthday) = 12) then 'РЎС‚СЂРµР»РµС†'
 	when (DAY(birthday) between 21 and 30 and MONTH(birthday)= 4) 
-	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 5) then 'Телец'
+	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 5) then 'РўРµР»РµС†'
 	when (DAY(birthday) between 24 and 31 and MONTH(birthday)= 8) 
-	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 9) then 'Дева'
+	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 9) then 'Р”РµРІР°'
 	when (DAY(birthday) between 22 and 31 and MONTH(birthday)= 12) 
-	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 1) then 'Козерог'
+	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 1) then 'РљРѕР·РµСЂРѕРі'
 	when (DAY(birthday) between 21 and 31 and MONTH(birthday)= 5) 
-	  OR (DAY(birthday) between 1 and 21 and MONTH(birthday) = 6) then 'Близнецы'
+	  OR (DAY(birthday) between 1 and 21 and MONTH(birthday) = 6) then 'Р‘Р»РёР·РЅРµС†С‹'
 	when (DAY(birthday) between 24 and 30 and MONTH(birthday)= 9) 
-	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 10) then 'Весы'
+	  OR (DAY(birthday) between 1 and 23 and MONTH(birthday) = 10) then 'Р’РµСЃС‹'
 	when (DAY(birthday) between 21 and 31 and MONTH(birthday)= 1) 
-	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 2) then 'Водолей'
+	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 2) then 'Р’РѕРґРѕР»РµР№'
 	when (DAY(birthday) between 22 and 30 and MONTH(birthday)= 6) 
-	  OR (DAY(birthday) between 1 and 22 and MONTH(birthday) = 7) then 'Рак'
+	  OR (DAY(birthday) between 1 and 22 and MONTH(birthday) = 7) then 'Р Р°Рє'
 	when (DAY(birthday) between 24 and 31 and MONTH(birthday)= 10) 
-	  OR (DAY(birthday) between 1 and 22 and MONTH(birthday) = 11) then 'Скорпион'
+	  OR (DAY(birthday) between 1 and 22 and MONTH(birthday) = 11) then 'РЎРєРѕСЂРїРёРѕРЅ'
 	when (DAY(birthday) between 21 and 29 and MONTH(birthday)= 2) 
-	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 3) then 'Рыбы'
+	  OR (DAY(birthday) between 1 and 20 and MONTH(birthday) = 3) then 'Р С‹Р±С‹'
 	end
   FROM [task3].[dbo].[students] as s   
 GO
