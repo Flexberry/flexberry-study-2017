@@ -29,8 +29,6 @@
 
     <h2>Список спортсменов</h2>
 
-    <ajaxToolkit:MaskedEditExtender runat="server" TargetControlID="TextBoxTime" MaskType="Time"/>
-
     <asp:Repeater ID="SportsmenRepeater" runat="server">
         <HeaderTemplate>
             <table border="1">

@@ -27,15 +27,18 @@ namespace SportSchool
                     CodeGroup = arr[3]
                 };
 
-                Sportsmen.Text ="Спортсмен: " + arr[0] + ' ' + arr[1] + ' ' + arr[2];
+                //Sportsmen.Text ="Спортсмен: " + arr[0] + ' ' + arr[1] + ' ' + arr[2];
 
-                Training training = new Training()
+                
+                if (!IsPostBack)
                 {
-                    sportsman = sportsmen,
-                    TimeInZones = new Dictionary<int, TimeSpan>()
-                };
-
-                DataService.AddTraining(training);
+                    Training training = new Training()
+                    {
+                        sportsman = sportsmen,
+                        TimeInZones = new Dictionary<int, TimeSpan>()
+                    };
+                    DataService.AddTraining(training);
+                }
             }
         }
     }

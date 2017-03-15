@@ -22,13 +22,13 @@ namespace SportSchool {
         protected global::System.Web.UI.WebControls.Label labelZoneNumber;
         
         /// <summary>
-        /// TextBoxZoneNumber элемент управления.
+        /// ZoneDropDownList элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxZoneNumber;
+        protected global::System.Web.UI.WebControls.DropDownList ZoneDropDownList;
         
         /// <summary>
         /// labelZoneTime элемент управления.
@@ -56,5 +56,32 @@ namespace SportSchool {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonAdd;
+        
+        /// <summary>
+        /// ZoneRepeater элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater ZoneRepeater;
+        
+        /// <summary>
+        /// ButtonCalculatePoints элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCalculatePoints;
+        
+        /// <summary>
+        /// loadLabel элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label loadLabel;
     }
 }

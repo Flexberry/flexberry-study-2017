@@ -24,7 +24,7 @@ namespace SportSchool.DAL
 
         public static void AddZone(int zone, TimeSpan time)
         {
-            trainings[trainings.Count].TimeInZones.Add(zone, time);
+            trainings[trainings.Count-1].TimeInZones.Add(zone, time);
         }
 
         public static void ClearSportsmen()
@@ -138,11 +138,21 @@ namespace SportSchool.DAL
             return sportsmen;
         }
 
+        public static Dictionary<int, TimeSpan> GetZones()
+        {
+            return trainings[trainings.Count-1].TimeInZones;
+        }
+
         public static double CalculatePoints(Training training)
         {
             return Calculate.TrainingLoad(training);
         }
-        
+
+        public static Training GetLastTraining()
+        {
+            return trainings[trainings.Count-1];
+        }
+
     }
 
 }
