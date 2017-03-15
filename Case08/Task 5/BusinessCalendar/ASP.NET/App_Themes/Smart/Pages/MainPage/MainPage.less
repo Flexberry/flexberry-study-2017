@@ -1,0 +1,121 @@
+﻿@import '../../../BaseTheme/Pages/MainPage/MainPage.less';
+
+/**
+ * Файл визуального оформления основной страницы.
+ */
+
+
+.page-form {
+    height: 100%;
+
+    &.treeview-hidden #pageBlockTreeview,
+    &.treeview-visible #treeviewShowSpan,
+    &.treeview-hidden #treeviewHideSpan {
+        display: none;
+    }
+}
+
+.page-wrap {
+    min-height: 100%;
+}
+
+.page-empty {
+    overflow: auto;
+    padding-bottom: 32px;
+}
+
+/* Шапка. */
+.@{pageHeaderClass} {
+
+    a { color: @headerColor; }
+
+    &-image {
+        border-radius: 15px;
+        background-color: @headerBackgroundColor;
+        box-shadow: 1px 1px 10px @headerBoxShadowColor;
+        padding: 5px;
+    }
+        
+    &-userbar {        
+        margin: 13px 0;
+        color: @menuHeaderUserbarColor;
+    }
+}
+
+/* Строка навигации. */
+.@{pageNavigatorClass} {
+    border-top: 2px solid @headerPageNavigationBordersColor;
+    border-bottom: 2px solid @headerPageNavigationBordersColor;
+
+    a {
+        color: @headerPageNavigationTextColor;
+    }
+
+}
+
+/* Блок меню. */
+#@{pageBlockTreeId} {
+    background: #eee;
+
+    .@{pageMenuTreeClass} {
+        margin: 10px 0;
+        line-height: 2em;
+
+        a.@{pageMenuNodeClass} {
+            display: block;
+            padding: 8px;
+            color: @menuTextColor;
+            font-size: 12px !important; // Используется для перекрытия заданного шрифта.
+            line-height: 16px;
+
+            &:hover {
+                background: #f6f6f6;
+                color: @menuHoveredTextColor;
+            }
+
+            &-selected,
+            &-selected:hover {
+                border-color: @wolvTableCaptionTopBorderColor @wolvTableCaptionRightBorderColor @wolvTableCaptionBottomBorderColor @wolvTableCaptionLeftBorderColor;
+                .background(#0098ca,#027da6);
+                color: @menuTextSelectedColor;
+            }
+        }
+
+        a > span.@{pageMenuNodeClass} {
+            display: block;
+            padding: 8px;
+            background-image: url(Images/menu-header-background.png);
+            line-height: 16px;
+
+            &:hover {
+                background-position: 100% 100%;
+            }
+        }
+    }
+}
+
+/* Контент (правый блок). */
+#@{pageContentId} {
+
+    .@{pageContentHeaderClass} {
+        margin-left: 24px;
+    }
+}
+
+
+/* Футер. */
+.@{pageFooterClass} {
+    overflow: hidden;
+    background-image: url(Images/background-dark.png);
+    background-position: top left;
+    background-repeat: repeat;
+    color: @menuFooterColor;
+
+    select {
+        bottom: 5px;      
+        height: 25px;
+    }
+}
+
+
+@import '_Settings.less';
