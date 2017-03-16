@@ -11,7 +11,7 @@ namespace SportSchool.DAL
         private static List<Sportsman> sportsmen = new List<Sportsman>();
 
         private static List<Training> trainings = new List<Training>();
-
+        
         public static void AddSportsman(Sportsman sportsman)
         {
             sportsmen.Add(sportsman);
@@ -24,6 +24,9 @@ namespace SportSchool.DAL
 
         public static void AddZone(int zone, TimeSpan time)
         {
+            if (trainings[trainings.Count - 1].TimeInZones.ContainsKey(zone)) {
+                return;
+            }
             trainings[trainings.Count-1].TimeInZones.Add(zone, time);
         }
 
@@ -140,7 +143,11 @@ namespace SportSchool.DAL
 
         public static Dictionary<int, TimeSpan> GetZones()
         {
-            return trainings[trainings.Count-1].TimeInZones;
+            if (trainings.Count > 0)
+            {
+                return trainings[trainings.Count - 1].TimeInZones;
+            }
+            return new Dictionary<int, TimeSpan>();
         }
 
         public static double CalculatePoints(Training training)
