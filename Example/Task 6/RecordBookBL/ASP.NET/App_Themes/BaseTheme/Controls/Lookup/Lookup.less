@@ -1,0 +1,165 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол Lookup. 
+ */
+
+@import (reference) '_Variables.less';
+
+.@{lookupMainClass} {
+    position: relative;
+
+    .@{lookupClass} {
+        overflow: hidden;
+
+        > input {
+            padding: 4px;
+            padding-right: 55px;
+        }
+    }
+        
+    // Недоступный лукап.
+    .@{disableClass}:before {
+        color: @readonly-color;
+    }
+}
+
+/**
+ * Кнопки.
+ */
+.@{lookupBtnClass} {
+    position: absolute;
+    z-index: 1;
+    .font-icon-style();
+    font-size: @lookupIconSize;
+    float: right;
+    padding: 4px;
+    line-height: @lookupBtnLineHeight;
+
+    .@{wrapperCellDataClass} & {
+        position: static;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Кнопка "Выбрать".
+.@{lookupLookupBtnClass} {
+    right: 22px;
+    color: @lookupIconLookupColor;
+    padding-top: 5px;
+    padding-bottom: 3px;
+
+    &:before {
+        content: "\f08e";
+    }
+
+    &:hover {
+        color: @lookupIconLookupHoverColor;
+    }
+}
+
+// Кнопка "Очистить".
+.@{lookupClearBtnClass} {
+    right: 0;
+    color: @lookupIconClearColor;
+
+    &:before {
+        content: "\f00d";
+    }
+
+    &:hover {
+        color: @lookupIconClearHoverColor;
+    }
+}
+
+// Кнопка "Показать объект".
+.@{lookupShowObjectBtnClass} {
+    right: 47px;
+    color: @lookupIconShowObjectColor;
+
+    &:before {
+        content: "\f06e";
+    }
+
+    &:hover {
+        color: @lookupIconShowObjectHoverColor;
+    }
+}
+
+// Кнопка загрузки.
+.@{lookupLoadingBtnClass} {
+    right: 47px;   
+    .border-box();
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @input-height-base;
+
+    &:before {
+        .loading-indicator-small();
+        height: @input-height-base;
+        content: " ";
+    }
+}
+
+/**
+ *  Лукап в АГЕ.
+ */
+.@{wgeTableClass} .@{lookupClass} {
+    > input {
+        padding-right: 0;
+    }    
+}
+
+/**
+ * Связанный лукап.
+ */
+.@{linkedlookupClass} {
+    .@{lookupClass} input {
+        width: 100%;
+    }    
+}
+
+/**
+ * Связанный лукап в АГЕ. 
+ */
+.@{wgeTableClass} {
+    .@{linkedlookupClass} {
+        .@{lookupMainClass} .@{lookupBtnClass} {
+            position: absolute;
+        }
+    }
+
+    .@{lookupClass} input {
+        width: 100%;
+    }
+}
+
+/**
+ * Лукап в АГЕ только для чтения.
+ */
+.@{wgeTableClass} {
+    .@{readonlyClass} {
+        .@{lookupClass} {
+            height: @input-height-base;
+
+            span {
+                vertical-align: middle;
+                vertical-align: -webkit-baseline-middle;
+            }
+        }
+    }
+}
+
+/**
+ * Предиктивный ввод.
+ */
+.ui-autocomplete {
+    z-index: 1;
+
+    a.ui-state-focus {
+        border: none;
+        background: #eee;
+    }
+}
