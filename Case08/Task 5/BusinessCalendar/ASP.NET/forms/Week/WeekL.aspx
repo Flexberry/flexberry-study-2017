@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="<%= Constants.FormCssClass %> <%= Constants.ListFormCssClass %>">
-        <h2 class="<%= Constants.FormHeaderCssClass %> <%= Constants.ListFormHeaderCssClass %>">Стандартная рабочая неделя</h2>
+        <h2 class="<%= Constants.FormHeaderCssClass %> <%= Constants.ListFormHeaderCssClass %>">Week</h2>
         <div class="<%= Constants.FormControlsCssClass %> <%= Constants.ListFormControlsCssClass %>">
             <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" />
         </div>

@@ -30,43 +30,44 @@ namespace IIS.BusinessCalendar
     [Caption("Work time definition")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("WorkTimeDefinitionE", new string[] {
-            "WorkTimeSpans"})]
+            "SumTime as \'Рабочие часы\'"})]
     [AssociatedDetailViewAttribute("WorkTimeDefinitionE", "WorkTimeSpan", "WorkTimeSpanE", true, "", "Work time span", true, new string[] {
             ""})]
     [View("WorkTimeDefinitionL", new string[] {
-            "WorkTimeSpans"})]
+            "SumTime as \'Рабочие часы\'"})]
     public class WorkTimeDefinition : ICSSoft.STORMNET.DataObject
     {
         
         private IIS.BusinessCalendar.DetailArrayOfWorkTimeSpan fWorkTimeSpan;
         
         // *** Start programmer edit section *** (WorkTimeDefinition CustomMembers)
-        private object workTimeSpans;
+
         // *** End programmer edit section *** (WorkTimeDefinition CustomMembers)
 
         
         /// <summary>
-        /// WorkTimeSpans.
+        /// SumTime.
         /// </summary>
-        // *** Start programmer edit section *** (WorkTimeDefinition.WorkTimeSpans CustomAttributes)
+        // *** Start programmer edit section *** (WorkTimeDefinition.SumTime CustomAttributes)
 
-        // *** End programmer edit section *** (WorkTimeDefinition.WorkTimeSpans CustomAttributes)
+        // *** End programmer edit section *** (WorkTimeDefinition.SumTime CustomAttributes)
         [ICSSoft.STORMNET.NotStored()]
-        [DataServiceExpression(typeof(ICSSoft.STORMNET.Business.MSSQLDataService), "select SUM(wts.\"endTime\" - wts.\"startTime\")"+
-            " from \"WorkTimeSpan\" wts where wts.\"WorkTimeDefinition\" = StormMainObjectKey")]
-        public virtual object WorkTimeSpans
+        [DataServiceExpression(typeof(ICSSoft.STORMNET.Business.MSSQLDataService), "select SUM(wts.\"endTime\" - wts.\"startTime\")\r\nfrom \"WorkTimeSpan\" as wts \r\nwhere w" +
+            "ts.\"WorkTimeDefinition\" = StormMainObjectKey")]
+        public virtual object SumTime
         {
             get
             {
-                // *** Start programmer edit section *** (WorkTimeDefinition.WorkTimeSpans Get)
-                return this.workTimeSpans;
-                // *** End programmer edit section *** (WorkTimeDefinition.WorkTimeSpans Get)
+                // *** Start programmer edit section *** (WorkTimeDefinition.SumTime Get)
+
+                return null;
+                // *** End programmer edit section *** (WorkTimeDefinition.SumTime Get)
             }
             set
             {
-                // *** Start programmer edit section *** (WorkTimeDefinition.WorkTimeSpans Set)
-                this.workTimeSpans = value;
-                // *** End programmer edit section *** (WorkTimeDefinition.WorkTimeSpans Set)
+                // *** Start programmer edit section *** (WorkTimeDefinition.SumTime Set)
+
+                // *** End programmer edit section *** (WorkTimeDefinition.SumTime Set)
             }
         }
         

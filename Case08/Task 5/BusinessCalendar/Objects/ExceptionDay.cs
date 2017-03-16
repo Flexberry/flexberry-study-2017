@@ -37,10 +37,11 @@ namespace IIS.BusinessCalendar
             "StartDate as \'Дата начала\'",
             "EndDate as \'Дата окончания\'",
             "RecurrenceCount as \'Число повторений\'",
+            "WorkTimeDefinition.*",
             "WorkTimeDefinition as \'Временные промежутки\'",
             "Calendar as \'Календарь\'",
-            "Calendar.Name as \'Название календаря\'",
-            "WorkTimeDefinition.WorkTimeSpans"})]
+            "Calendar.Name as \'Название календаря\'"}, Hidden=new string[] {
+            "WorkTimeDefinition.*"})]
     [View("ExceptionDayL", new string[] {
             "Name as \'Название\'",
             "DayType as \'Тип дня\'",
@@ -68,13 +69,14 @@ namespace IIS.BusinessCalendar
         private int fRecurrenceCount;
         
         private IIS.BusinessCalendar.WorkTimeDefinition fWorkTimeDefinition;
-                
+        
         private IIS.BusinessCalendar.Calendar fCalendar;
-
+        
         // *** Start programmer edit section *** (ExceptionDay CustomMembers)
+
         // *** End programmer edit section *** (ExceptionDay CustomMembers)
 
-
+        
         /// <summary>
         /// Name.
         /// </summary>
@@ -360,16 +362,7 @@ namespace IIS.BusinessCalendar
                 // *** End programmer edit section *** (ExceptionDay.Calendar Set end)
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public virtual IIS.BusinessCalendar.DetailArrayOfWorkTimeSpan GetWorkTimeSpans()
-        {
-            return this.WorkTimeDefinition.WorkTimeSpan;
-        }
-
+        
         /// <summary>
         /// Class views container.
         /// </summary>

@@ -211,21 +211,12 @@ namespace IIS.BusinessCalendar {
         protected global::System.Web.UI.WebControls.TextBox ctrlCalendar_Name;
         
         /// <summary>
-        /// ctrlWorkTimeDefinition_WorkTimeSpansLabel control.
+        /// tWorkTimeSpan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlWorkTimeDefinition_WorkTimeSpansLabel;
-        
-        /// <summary>
-        /// ctrlWorkTimeDefinition_WorkTimeSpans control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlWorkTimeDefinition_WorkTimeSpans;
+        protected global::System.Web.UI.WebControls.GridView tWorkTimeSpan;
     }
 }
