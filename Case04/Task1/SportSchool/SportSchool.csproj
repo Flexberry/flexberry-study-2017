@@ -121,8 +121,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="GetSportsman.ascx" />
-    <Content Include="PointsCalculate.ascx" />
+    <Content Include="CustomControls\GetSportsman.ascx" />
+    <Content Include="CustomControls\PointsCalculate.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -188,21 +188,21 @@
     <Compile Include="FindSportsmen.aspx.designer.cs">
       <DependentUpon>FindSportsmen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GetSportsman.ascx.cs">
+    <Compile Include="CustomControls\GetSportsman.ascx.cs">
       <DependentUpon>GetSportsman.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GetSportsman.ascx.designer.cs">
+    <Compile Include="CustomControls\GetSportsman.ascx.designer.cs">
       <DependentUpon>GetSportsman.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="PointsCalculate.ascx.cs">
+    <Compile Include="CustomControls\PointsCalculate.ascx.cs">
       <DependentUpon>PointsCalculate.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PointsCalculate.ascx.designer.cs">
+    <Compile Include="CustomControls\PointsCalculate.ascx.designer.cs">
       <DependentUpon>PointsCalculate.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

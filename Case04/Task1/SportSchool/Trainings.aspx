@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Тренировка" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trainings.aspx.cs" Inherits="SportSchool.Trainings" %>
-<%@ Register TagPrefix="SportsmenControls" TagName="GetSportsman" Src="~/GetSportsman.ascx" %>
-<%@ Register TagPrefix="TrainingControls" TagName="PointsCalculate" Src="~/PointsCalculate.ascx" %>
+<%@ Register TagPrefix="SportsmenControls" TagName="GetSportsman" Src="~/CustomControls/GetSportsman.ascx" %>
+<%@ Register TagPrefix="TrainingControls" TagName="PointsCalculate" Src="~/CustomControls/PointsCalculate.ascx" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">

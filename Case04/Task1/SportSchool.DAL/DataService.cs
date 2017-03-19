@@ -24,7 +24,7 @@ namespace SportSchool.DAL
 
         public static void AddZone(int zone, TimeSpan time)
         {
-            if (trainings[trainings.Count - 1].TimeInZones.ContainsKey(zone)) {
+            if (trainings.Count == 0) {
                 return;
             }
             trainings[trainings.Count-1].TimeInZones.Add(zone, time);
