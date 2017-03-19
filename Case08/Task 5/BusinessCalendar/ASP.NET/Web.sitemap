@@ -10,7 +10,6 @@
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
     <siteMapNode title="BusinessCalendar" roles="*" xmlns="">
-      <siteMapNode title="Exception day" description="" url="~/forms/ExceptionDay/ExceptionDayL.aspx" />
       <siteMapNode title="Work time definition" description="" url="~/forms/WorkTimeDefinition/WorkTimeDefinitionL.aspx" />
       <siteMapNode title="Week" description="" url="~/forms/Week/WeekL.aspx" />
       <siteMapNode title="Calendar" description="" url="~/forms/Calendar/CalendarL.aspx" />

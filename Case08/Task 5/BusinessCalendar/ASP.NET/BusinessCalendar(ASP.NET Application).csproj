@@ -303,6 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\businessCalendar.css" />
     <Content Include="forms\Calendar\CalendarL.aspx" />
     <Compile Include="forms\Calendar\CalendarL.aspx.cs">
       <DependentUpon>CalendarL.aspx</DependentUpon>
@@ -343,7 +344,12 @@
     <Compile Include="forms\Week\WeekE.aspx.designer.cs">
       <DependentUpon>WeekE.aspx</DependentUpon>
     </Compile>
-    <Content Include="Web.sitemap" />
+    <Content Include="shared\script\businessCalendar.js" />
+    <Content Include="shared\script\ExceptionDayForm.js" />
+    <Content Include="shared\script\jquery.min.js" />
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="forms\WorkTimeDefinition\WorkTimeDefinitionE.aspx" />
     <Compile Include="forms\WorkTimeDefinition\WorkTimeDefinitionE.aspx.cs">
       <DependentUpon>WorkTimeDefinitionE.aspx</DependentUpon>
@@ -989,9 +995,7 @@
     <Content Include="Xml\Bindings\ExampleE.xml" />
     <Content Include="Xml\Sitemaps\Empty.sitemap" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CSS\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -71,5 +71,10 @@ namespace IIS.BusinessCalendar
         {
             return base.SaveObject();
         }
+
+        protected void BtnGoDays_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("~/forms/ExceptionDay/ExceptionDayL.aspx");
+        }
     }
 }

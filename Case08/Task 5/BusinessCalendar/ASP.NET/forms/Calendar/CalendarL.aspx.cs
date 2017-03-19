@@ -37,6 +37,7 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
+            WebObjectListView1.Operations.OpenEditorInNewWindow = false;
         }
     }
 }
