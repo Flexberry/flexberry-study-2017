@@ -81,6 +81,10 @@
     <Reference Include="Mono.Security">
       <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
     </Reference>
@@ -304,6 +308,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\businessCalendar.css" />
+    <Content Include="CSS\businessTimeSpans.css" />
+    <Content Include="CSS\Site.css" />
     <Content Include="forms\Calendar\CalendarL.aspx" />
     <Compile Include="forms\Calendar\CalendarL.aspx.cs">
       <DependentUpon>CalendarL.aspx</DependentUpon>
@@ -313,6 +319,7 @@
       <DependentUpon>CalendarL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\WorkTimeDefinition\WorkTimeDefinitionL.aspx" />
+    <Compile Include="forms\JSONHelper.cs" />
     <Compile Include="forms\WorkTimeDefinition\WorkTimeDefinitionL.aspx.cs">
       <DependentUpon>WorkTimeDefinitionL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,9 +351,15 @@
     <Compile Include="forms\Week\WeekE.aspx.designer.cs">
       <DependentUpon>WeekE.aspx</DependentUpon>
     </Compile>
+    <Content Include="Icons\glyphicons-chevron-up.png" />
+    <Content Include="Icons\glyphicons-chevron-down.png" />
+    <Content Include="Icons\glyphicons-minus.png" />
+    <Content Include="Icons\glyphicons-plus.png" />
     <Content Include="shared\script\businessCalendar.js" />
-    <Content Include="shared\script\ExceptionDayForm.js" />
+    <Content Include="shared\script\businessTimeSpans.js" />
+    <Content Include="shared\script\exception-day.js" />
     <Content Include="shared\script\jquery.min.js" />
+    <Content Include="shared\script\validation.js" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
@@ -374,6 +387,7 @@
     <Compile Include="forms\ExceptionDay\ExceptionDayE.aspx.designer.cs">
       <DependentUpon>ExceptionDayE.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\WorkTimeSpanShort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />
     <Content Include="shared\jstreeThemes\apple\d.png" />
@@ -933,7 +947,9 @@
       <DependentUpon>
       </DependentUpon>
     </Compile>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Site1.Master" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

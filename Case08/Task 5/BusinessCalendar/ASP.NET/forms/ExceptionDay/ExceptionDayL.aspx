@@ -3,10 +3,9 @@
 <%@ Import namespace="NewPlatform.Flexberry.Web.Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../../shared/script/businessCalendar.js"></script>
     <div class="<%= Constants.FormCssClass %> <%= Constants.ListFormCssClass %>">
         <h2 class="<%= Constants.FormHeaderCssClass %> <%= Constants.ListFormHeaderCssClass %>">Дни-исключения</h2>
-        <div class="businessCalendar"></div>
+        <div class="businessCalendar block-padding"></div>
         <div class="<%= Constants.FormControlsCssClass %> <%= Constants.ListFormControlsCssClass %>">
             <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" />
         </div>

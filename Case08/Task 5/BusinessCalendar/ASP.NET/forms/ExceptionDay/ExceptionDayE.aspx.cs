@@ -4,9 +4,13 @@ namespace IIS.BusinessCalendar
 {
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
+    using ICSSoft.STORMNET.Web.Tools;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.UI.WebControls;
+    using System.Web.Script.Serialization;
+    using IIS.BusinessCalendar.forms;
+    using Newtonsoft.Json;
     using System;
     public partial class ExceptionDayE : BaseEditForm<ExceptionDay>
     {
@@ -57,6 +61,7 @@ namespace IIS.BusinessCalendar
             } else
             {
                 fWorkTimeDefinition = DataObject.WorkTimeDefinition;
+                
             }
             if (!Page.IsPostBack)
             {
@@ -70,6 +75,8 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
+            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
+            PageContentManager.AttachExternalFile("/CSS/businessTimeSpans.css");
         }
 
         /// <summary>
@@ -98,35 +105,15 @@ namespace IIS.BusinessCalendar
                 {
                     ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, DataObject.WorkTimeDefinition, false, false);
                     List<WorkTimeSpan> wts = DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>().ToList();
-                    tWorkTimeSpan.DataSource = wts;
-                    tWorkTimeSpan.DataBind();
+
+                    var jsonSerializer = new JavaScriptSerializer();
+                    List<WorkTimeSpanShort> wtsShort = JSONHelper.convertWorkTimeSpans(DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>());
+                    var wtsJSON = jsonSerializer.Serialize(wtsShort);
+                    //wtsLiteral.Text = string.Format(wtsLiteral.Text, wtsJSON);
                 }  
             } 
         }
-        protected void tWorkTimeSpan_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
-        {
-            tWorkTimeSpan.EditIndex = e.NewEditIndex;
-            this.BindGrid();
-        }
-
-        protected void tWorkTimeSpan_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
-        {
-            tWorkTimeSpan.EditIndex = -1;
-            this.BindGrid();
-        }
-
-        protected void tWorkTimeSpan_RowUpdated(object sender, System.Web.UI.WebControls.GridViewUpdatedEventArgs e)
-        {
-
-        }
-
-        protected void tWorkTimeSpan_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = (sender as GridView).Rows[e.RowIndex];
-            this.editTimeSpan(new ICSSoft.STORMNET.KeyGen.KeyGuid(e.NewValues[2].ToString()), Convert.ToDecimal(e.NewValues[0]), Convert.ToDecimal(e.NewValues[1]));
-            tWorkTimeSpan.EditIndex = -1;
-            this.BindGrid();
-        }
+       
 
         protected void editTimeSpan(ICSSoft.STORMNET.KeyGen.KeyGuid key,decimal startTime,decimal endTime)
         {

@@ -76,6 +76,7 @@
         protected override void OnInit(EventArgs e)
         {
             PageContentManager.AttachExternalFile("/shared/script/jquery-1.7.2.min.js");
+            PageContentManager.AttachExternalFile("/shared/script/businessCalendar.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.cookie.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.disable.text.select.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.countdown.pack.js");
