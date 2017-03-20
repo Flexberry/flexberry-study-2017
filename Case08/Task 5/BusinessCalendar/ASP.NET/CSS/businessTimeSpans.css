@@ -1,0 +1,78 @@
+﻿.timeSpansTable{
+    border:solid #337ab7;
+}
+.timeCell{
+    width:200px;
+    height:50px;
+}
+.borderStandart{
+    border:1px solid #337ab7;
+}
+.borderGray{
+    border:1px solid #ccc;
+}
+.textStandart{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline:none;
+    transition-duration:600ms;
+}
+.textStandart:focus{
+    box-shadow: 0px 0px 7px 1px rgba(81,100,219,1);
+}
+.textStandart:active{
+    box-shadow: 0px 0px 20px 1px rgba(81,100,219,1);
+}
+.inputSmall{
+    width:60px;
+    height: 25px;
+    text-align: center;
+}
+.glyphicon-minus{
+    background:url(../Icons/glyphicons-minus.png) no-repeat;
+    background-size:10px;
+}
+.glyphicon-plus{
+    background:url(../Icons/glyphicons-plus.png) no-repeat;
+}
+.iconSmall{
+    background-size:10px 10px;
+}
+.background-center{
+    background-position:center center;
+}
+.colorStandart{
+    background-color:#337ab7;
+    color:white;
+}
+.btnStandart{
+    display:table-cell;
+    border-style:none;
+    color:#080808;
+    outline: none;
+    background-color:white;
+    cursor:pointer;
+    transition-duration:200ms;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+.btnStandart:hover{
+    background-color:#337ab7;
+    color:white;
+}
+.btnStandart:active{
+    box-shadow: #337ab7;
+    color:white;
+}
+.btnSmall{
+    width: 30px;
+    height: 30px;
+}
+.textMiddle{
+    text-align: center;
+    vertical-align: middle;
+}
+.smallCell{
+    height: 30px;
+    width: 40px;
+}
