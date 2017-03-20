@@ -1,1 +1,1 @@
-create DATABASE db_t3_g
+create DATABASE task3
