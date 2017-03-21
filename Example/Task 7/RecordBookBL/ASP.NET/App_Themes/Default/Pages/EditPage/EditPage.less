@@ -1,0 +1,36 @@
+﻿@import '../../../BaseTheme/Pages/EditPage/EditPage.less';
+
+/* Файл визуального оформления формы редактирования. */
+
+.@{btnSaveClass},
+.@{btnSaveCloseClass},
+.@{btnCloseClass} {
+    display: inline-block;
+    display: -moz-box;
+    .border-radius(4px);
+    outline: none; 
+        width: 32px;
+    height: 32px;
+        border: none;
+}
+/* Кнопки в тулбаре: "Сохранить", "Сохранить и закрыть", "Закрыть".*/
+.@{btnSaveClass},
+.@{btnSaveCloseClass},
+.@{btnCloseClass} { 
+    background: url('Images/edit-form-toolbar-btns.png');
+}
+
+.@{btnSaveClass} {
+    background-position: 0 0;
+}
+
+.@{btnSaveCloseClass} {
+    background-position: -32px 0;
+}
+
+.@{btnCloseClass} {
+    background-position: -64px 0;
+}
+
+
+@import '_Settings.less';

@@ -1,0 +1,33 @@
+﻿/**
+ * Стили базовой темы.
+ * Пейджер. 
+ */
+
+@import (reference) 'WolvClasses.less';
+
+.@{wolvPagerTopClass} {
+    float: right;
+}
+
+// Контейнер количества элементов на странице.
+.@{wolvPagerItemsOnPageClass} {
+    float: right;
+}
+
+.@{wolvPagerPageClass},
+.@{wolvPagerNavigatioButtonClass},
+.@{wolvPagerItemsOnPageClass},
+.@{wolvPagerItemsOnPageListClass} {
+    .border-box();
+}
+
+.@{wolvPagerClass} {
+    .@{wolvPagerPageClass},
+    .@{wolvPagerNavigatioButtonClass},
+    .@{wolvPagerItemsOnPageClass},
+    .@{wolvPagerGoToPageInputClass},
+    .@{wolvPagerInlineGoToPageInputClass},
+    .@{wolvPagerItemsOnPageListClass} {
+        height: @pager-height;
+    }
+}

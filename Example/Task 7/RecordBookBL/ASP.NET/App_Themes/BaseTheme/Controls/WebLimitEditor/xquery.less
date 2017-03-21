@@ -1,0 +1,379 @@
+﻿#expression {
+    font-family: Verdana;
+    line-height: 1.5em;
+    font-size: 16px;
+    margin-bottom: .2em;
+
+    div {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+    }
+
+    .Right {
+        > .BinaryExpression[NodeType="OrElse"] {
+            > .Right {
+                display: block;
+            }
+        }
+
+        > .BinaryExpression[NodeType="AndAlso"] {
+            > .Right {
+                display: block;
+            }
+        }
+    }
+
+    .LambdaExpression {
+        display: block;
+
+        > .BinaryExpression[NodeType="OrElse"] {
+            > .Right {
+                display: block;
+            }
+        }
+
+        > .BinaryExpression[NodeType="AndAlso"] {
+            > .Right {
+                display: block;
+            }
+        }
+    }
+
+    .BinaryExpression[NodeType="OrElse"] {
+        > .Right {
+            display: block;
+        }
+    }
+
+    .BinaryExpression[NodeType="AndAlso"] {
+        > .Right {
+            display: block;
+        }
+    }
+
+    .MemberExpression {
+        > .Expression {
+            > .MemberExpression {
+                display: none;
+            }
+        }
+
+        .Member:before {
+            content: none;
+        }
+    }
+
+    .MemberExpression[showPath="true"] {
+        > .Expression {
+            > .MemberExpression {
+                display: inline-block;
+            }
+        }
+
+        .Member:before {
+            content: ".";
+        }
+    }
+}
+
+.UnaryExpression[NodeType="IsNull"] > .content,
+.UnaryExpression[NodeType="NotIsNull"] > .content {
+    position: relative;
+}
+
+.UnaryExpression[NodeType="IsNull"] > .Operand:before,
+.UnaryExpression[NodeType="NotIsNull"] > .Operand:before {
+    content: "(";
+    vertical-align: top;
+}
+
+.UnaryExpression[NodeType="IsNull"] > .Operand:after,
+.UnaryExpression[NodeType="NotIsNull"] > .Operand:after {
+    content: ")";
+    vertical-align: top;
+}
+
+.UnaryExpression[NodeType="IsNull"] .Operand,
+.UnaryExpression[NodeType="NotIsNull"] .Operand {
+    padding-left: 0;
+}
+
+.Method > .content, .UnaryExpression > .content {
+    color: #099;
+}
+
+.Method > .content:before {
+    content: ".";
+}
+
+.ConstantExpression {
+    color: #c00;
+}
+
+.MemberExpression {
+    color: #00c;
+}
+
+.UnaryExpression[NodeType="Convert"] > .content {
+    display: none !important;
+}
+
+.UnaryExpression[NodeType="Convert"] > div {
+    padding-left: 0;
+}
+
+.UnaryExpression {
+    position: relative;
+}
+
+.UnaryExpression > .content {
+    position: absolute;
+}
+
+.UnaryExpression[OperandNodeType="AndAlso"] > .content, .UnaryExpression[OperandNodeType="OrElse"] > .content {
+    top: 50%;
+    margin-top: -12px;
+}
+
+.UnaryExpression .Operand {
+    padding-left: 3em;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .content,
+.BinaryExpression[NodeType="OrElse"] > .content,
+.BinaryExpression[NodeType="AndAlso"] > .Left,
+.BinaryExpression[NodeType="OrElse"] > .Left {
+    float: none;
+}
+
+.MethodCallExpression > .Object,
+.MethodCallExpression > .Method,
+.BinaryExpression > .Left,
+.BinaryExpression > .content,
+.UnaryExpression > .content {
+    float: left;
+}
+
+.BinaryExpression > .content,
+.MethodCallExpression[type="System.Boolean"] > .Method > .content {
+    padding: 0 1em;
+    color: #0C0;
+}
+
+.MethodCallExpression[type="System.Boolean"] > .Method[MethodName="Any"] > .content,
+.MethodCallExpression[type="System.Boolean"] > .Method[MethodName="All"] > .content {
+    padding: 0;
+}
+
+.MethodCallExpression > .Method[MethodName="StartsWith"] > .content:before,
+.MethodCallExpression > .Method[MethodName="IsLike"] > .content:before,
+.MethodCallExpression[declaringType="System.Linq.Enumerable"] > .Method > .content:before,
+.MethodCallExpression[methodname="StartsWith"] > .Arguments:before,
+.MethodCallExpression[methodname="StartsWith"] > .Arguments:after,
+.MemberExpression[expression="ParameterExpression"] > .Member:before {
+    content: none;
+}
+
+.BinaryExpression[NodeType="AndAlso"],
+.BinaryExpression[NodeType="OrElse"] {
+    position: relative;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .content,
+.BinaryExpression[NodeType="OrElse"] > .content {
+    color: #990;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .Left, .BinaryExpression[NodeType="OrElse"] > .Left {
+    background: transparent url('Images/group-bracket-top.png') no-repeat 3em top;
+    padding-left: 3.5em;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .Right, .BinaryExpression[NodeType="OrElse"] > .Right {
+    background: transparent url('Images/group-bracket-bottom.png') no-repeat 3em bottom;
+    padding-left: 3.5em;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .Left > .BinaryExpression[NodeType="AndAlso"] > .Left,
+.BinaryExpression[NodeType="AndAlso"] > .Left > .BinaryExpression[NodeType="AndAlso"] > .Right,
+.BinaryExpression[NodeType="AndAlso"] > .Right > .BinaryExpression[NodeType="AndAlso"] > .Left,
+.BinaryExpression[NodeType="AndAlso"] > .Right > .BinaryExpression[NodeType="AndAlso"] > .Right,
+.BinaryExpression[NodeType="OrElse"] > .Left > .BinaryExpression[NodeType="OrElse"] > .Left,
+.BinaryExpression[NodeType="OrElse"] > .Left > .BinaryExpression[NodeType="OrElse"] > .Right,
+.BinaryExpression[NodeType="OrElse"] > .Right > .BinaryExpression[NodeType="OrElse"] > .Left,
+.BinaryExpression[NodeType="OrElse"] > .Right > .BinaryExpression[NodeType="OrElse"] > .Right {
+    background: none;
+    padding-left: 0;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .Left > .BinaryExpression[NodeType="AndAlso"] > .content,
+.BinaryExpression[NodeType="AndAlso"] > .Right > .BinaryExpression[NodeType="AndAlso"] > .content,
+.BinaryExpression[NodeType="OrElse"] > .Left > .BinaryExpression[NodeType="OrElse"] > .content,
+.BinaryExpression[NodeType="OrElse"] > .Right > .BinaryExpression[NodeType="OrElse"] > .content,
+.Method[MethodName="Cast"] > .content {
+    display: none !important;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .Right > .BinaryExpression[NodeType="AndAlso"] > div,
+.BinaryExpression[NodeType="AndAlso"] > .Left > .BinaryExpression[NodeType="AndAlso"] > div,
+.BinaryExpression[NodeType="OrElse"] > .Left > .BinaryExpression[NodeType="OrElse"] > div,
+.BinaryExpression[NodeType="OrElse"] > .Right > .BinaryExpression[NodeType="OrElse"] > div {
+    margin-left: 0;
+}
+
+
+.Arguments:before {
+    content: "(";
+    vertical-align: top;
+    color: #099;
+}
+
+.Arguments:after {
+    content: ")";
+    vertical-align: top;
+    color: #099;
+}
+
+.Arguments .Arguments:after {
+    content: ")";
+}
+
+.MethodCallExpression[declaringType="System.Linq.Enumerable"] > .Arguments:before,
+.MethodCallExpression[declaringType="System.Linq.Enumerable"] > .Arguments:after {
+    content: none;
+}
+
+.MethodCallExpression[declaringType="System.Linq.Enumerable"] > .Method {
+    padding-right: 1em;
+}
+
+/* Кавычки для строк */
+.ConstantExpression[type="System.String"] .Value:before,
+.ConstantExpression[type="System.String"] .Value:after {
+    content: "\"";
+}
+
+/* Апострофы для символов */
+.ConstantExpression[type="System.Char"] .Value:before,
+.ConstantExpression[type="System.Char"] .Value:after {
+    content: "'";
+}
+
+/* Перенос по строкам большого условия */
+.Value {
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+.Arguments > .content {
+    color: #099;
+    padding-right: .5em;
+}
+
+.Method[MethodName^="op_"] {
+    display: none !important;
+}
+
+.MemberExpression > .Member:before {
+    content: ".";
+}
+
+/* Placeholders */
+#reg, #typeMap, #constEditors, #resolvingViews {
+    display: none;
+}
+
+*[placeholder][empty="true"] {
+    border: 1px dotted #F90;
+    border-radius: .2em;
+    width: 4em;
+    height: 1.4em;
+    cursor: pointer;
+}
+
+.Arguments *[placeholder][empty="true"] {
+    margin-bottom: -.2em;
+}
+
+*[placeholder="expression"][empty="true"].selected {
+    border-width: 2px;
+}
+
+/* Элементы управления */
+.selected {
+    border: 1px solid #CCC;
+    cursor: pointer;
+    background: #F4F4F4;
+}
+
+.hover {
+    cursor: pointer;
+    background-color: #FF6;
+}
+
+.c.x {
+    color: #CCC;
+    text-decoration: none;
+    margin-left: 1em;
+    float: right;
+}
+
+.c.x:hover {
+    color: #999;
+}
+
+.BinaryExpression[NodeType="AndAlso"] > .c.x,
+.BinaryExpression[NodeType="OrElse"] > .c.x {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    left: 1.2em;
+}
+
+.c.addLine {
+    margin-left: .5em;
+    color: #690;
+    text-decoration: none;
+}
+
+.c.addLine:hover {
+    font-weight: bold;
+}
+
+.c.addField {
+    color: #009;
+}
+
+/* Параметры */
+
+.btn-value-helper-menu {
+    background-image: url('Images/value-helper-menu.png') !important;
+    background-position: center;
+}
+
+.MethodCallExpression[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] > .Arguments:after,
+.MethodCallExpression[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] > .Arguments:before,
+.MethodCallExpression[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] > .Arguments > .ConstantExpression > .Value:after,
+.MethodCallExpression[nodetype="Call"] > .Method[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] ~ .Arguments:after,
+.MethodCallExpression[nodetype="Call"] > .Method[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] ~ .Arguments:before,
+.MethodCallExpression[nodetype="Call"] > .Method[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] ~ .Arguments > .ConstantExpression > .Value:after {
+    content: none;
+}
+
+.MethodCallExpression[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] > .Method,
+.MethodCallExpression[nodetype="Call"] > .Method[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] {
+    display: none !important;
+}
+
+.MethodCallExpression[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] > .Arguments > .ConstantExpression > .Value:before,
+.MethodCallExpression[nodetype="Call"] > .Method[declaringtype="ICSSoft.STORMNET.Business.LINQProvider.ParamSet"] ~ .Arguments > .ConstantExpression > .Value:before {
+    color: #009999;
+    content: "@";
+    font-weight: bold;
+}

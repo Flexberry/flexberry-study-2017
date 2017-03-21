@@ -1,0 +1,87 @@
+﻿@import '../../../BaseTheme/Controls/Buttons/Buttons.less';
+
+/**
+ * Файл визуального оформления кнопок. 
+ * Тема Default.
+ */
+
+
+.@{buttonClass} {
+    box-shadow: inset 0 0 1px 1px #fff;
+    text-decoration: none;  
+    background: #e6e6e6;
+    .background(#e6e6e6,#fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#ffffff', GradientType=0);
+
+    &:hover {
+        color: @buttonTextColor;
+        background: #fff;
+        .background(#fff,#e6e6e6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    }
+
+    &:focus {
+        outline: 0;
+        border-color: @buttonBorderFocusColor;
+    }
+
+    &:active {
+        box-shadow: inset 0 0 1px 1px @buttonBorderActiveColor;
+    }
+}
+
+/* Кнопки. */
+.ics-btn,
+#popup_panel input[type="button"] {
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 2px 6px;
+    box-shadow: inset 0 0 1px 1px #fff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 16px;
+    .border-radius(2px);
+    background: #e6e6e6;
+    .background(#e6e6e6, #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#ffffff',GradientType=0 );
+    cursor: pointer;
+
+    &:hover {
+        color: #000;
+        background: #fff;
+        .background(#fff, #e6e6e6);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #00bfff;
+        position: relative;
+    }
+
+    &:active {
+        color: #000;
+        box-shadow: inset 0 0 1px 1px #00bfff;
+    }
+}
+
+.ics-btn.disabled,
+.ics-btn[disabled] {
+    background: #ddd;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Миксин кнопок с классом 'ics-btn' */
+.ics-btn() {
+    &:extend(.ics-btn);
+}
+
+/* Миксин кнопок с классом 'ics-btn' 
+   в состоянии active. */
+.ics-btn-active() {
+    &:extend(.ics-btn:active);
+}
+
+
+@import "_Settings.less";
