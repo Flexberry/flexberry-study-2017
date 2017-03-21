@@ -5,6 +5,7 @@ using System.Web;
 
 namespace IIS.BusinessCalendar.forms
 {
+    using IIS.BusinessCalendar;
     /// <summary>
     /// Класс для приведения сущностей к сериализуемому виду
     /// </summary>
@@ -17,9 +18,10 @@ namespace IIS.BusinessCalendar.forms
             {
                 result.Add(new WorkTimeSpanShort()
                 {
-                    PrimaryKey = ((ICSSoft.STORMNET.KeyGen.KeyGuid)wts.__PrimaryKey).Guid,
-                    StartTime = wts.StartTime,
-                    EndTime = wts.EndTime
+                    StartTimeH = (int)Math.Truncate(wts.StartTime),
+                    StartTimeM = (int)(wts.StartTime - Math.Truncate(wts.StartTime)),
+                    EndTimeH = (int)Math.Truncate(wts.EndTime),
+                    EndTimeM = (int)(wts.EndTime - Math.Truncate(wts.EndTime))
                 });
             }
             return result;

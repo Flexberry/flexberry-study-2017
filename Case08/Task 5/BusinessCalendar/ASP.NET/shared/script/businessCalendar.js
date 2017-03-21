@@ -331,7 +331,7 @@
         } else if (!method){
             return methods.init.apply(this);
         } else {
-            $.error('Метод с именем ' + method + ' не существует для JQuery.tooltip');
+            $.error('Метод с именем ' + method + ' не существует для JQuery.BusinessCalendar');
         }
   };
 })(jQuery);

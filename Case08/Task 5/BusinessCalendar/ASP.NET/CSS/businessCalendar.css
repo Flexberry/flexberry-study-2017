@@ -27,6 +27,8 @@ table.calendar{
 }
 .btnStandart{
     display:table-cell;
+    vertical-align:middle;
+    text-align:center;
     border-style:solid;
     color:#080808;
     outline: none;

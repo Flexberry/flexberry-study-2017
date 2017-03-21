@@ -10,8 +10,7 @@ namespace IIS.BusinessCalendar
     using System.Web.UI.WebControls;
     using System.Web.Script.Serialization;
     using IIS.BusinessCalendar.forms;
-    using Newtonsoft.Json;
-    using System;
+
     public partial class ExceptionDayE : BaseEditForm<ExceptionDay>
     {
         private WorkTimeDefinition fWorkTimeDefinition;
@@ -67,6 +66,16 @@ namespace IIS.BusinessCalendar
             {
                 this.BindGrid();
             }
+            else
+            {
+                var jsArray = Request.Form.GetValues("wtsJsonArray")[0];
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                List<WorkTimeSpanShort> wtsList = ser.Deserialize<List<WorkTimeSpanShort>>(jsArray);
+                if(DataObject != null)
+                {
+                    DataObject.WorkTimeSpans = wtsList;
+                }
+            }
             Page.Validate();
         }
 
@@ -74,9 +83,10 @@ namespace IIS.BusinessCalendar
         /// Вызывается самым последним в Page_Load.
         /// </summary>
         protected override void Postload()
-        {
-            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
+        {  
             PageContentManager.AttachExternalFile("/CSS/businessTimeSpans.css");
+            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
+            PageContentManager.AttachExternalFile("/shared/script/exception-day-edit.js");  
         }
 
         /// <summary>
@@ -109,30 +119,10 @@ namespace IIS.BusinessCalendar
                     var jsonSerializer = new JavaScriptSerializer();
                     List<WorkTimeSpanShort> wtsShort = JSONHelper.convertWorkTimeSpans(DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>());
                     var wtsJSON = jsonSerializer.Serialize(wtsShort);
-                    //wtsLiteral.Text = string.Format(wtsLiteral.Text, wtsJSON);
+                    wtsLiteral.Text = string.Concat("<input type='hidden' name='wtsJsonArray' id='wtsJson' value='", wtsJSON.ToString(), "'/>");
                 }  
             } 
         }
-       
-
-        protected void editTimeSpan(ICSSoft.STORMNET.KeyGen.KeyGuid key,decimal startTime,decimal endTime)
-        {
-            ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, DataObject.WorkTimeDefinition, false, false);
-            WorkTimeDefinition wtd = DataObject.WorkTimeDefinition;
-            if (wtd != null)
-            {
-                WorkTimeSpan wts = (WorkTimeSpan)wtd.WorkTimeSpan.GetByKey(key);
-                if(wts == null)
-                {
-                    wts = new WorkTimeSpan();
-                    fWorkTimeDefinition.WorkTimeSpan.Add(wts);
-                }
-                ((WorkTimeSpan)wts).StartTime = startTime;
-                ((WorkTimeSpan)wts).EndTime = endTime;
-                DataObject.WorkTimeDefinition.WorkTimeSpan.SetByKey(key, wts);
-                DataObject.WorkTimeDefinition.SetStatus(ObjectStatus.Altered);
-                DataObject.SetStatus(ObjectStatus.Altered);
-            }
-        }
+      
     }
 }

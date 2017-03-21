@@ -357,6 +357,7 @@
     <Content Include="Icons\glyphicons-plus.png" />
     <Content Include="shared\script\businessCalendar.js" />
     <Content Include="shared\script\businessTimeSpans.js" />
+    <Content Include="shared\script\exception-day-edit.js" />
     <Content Include="shared\script\exception-day.js" />
     <Content Include="shared\script\jquery.min.js" />
     <Content Include="shared\script\validation.js" />
@@ -387,7 +388,6 @@
     <Compile Include="forms\ExceptionDay\ExceptionDayE.aspx.designer.cs">
       <DependentUpon>ExceptionDayE.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\WorkTimeSpanShort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />
     <Content Include="shared\jstreeThemes\apple\d.png" />

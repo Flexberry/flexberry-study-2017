@@ -59,7 +59,6 @@ namespace IIS.BusinessCalendar
             get
             {
                 // *** Start programmer edit section *** (WorkTimeDefinition.SumTime Get)
-
                 return null;
                 // *** End programmer edit section *** (WorkTimeDefinition.SumTime Get)
             }

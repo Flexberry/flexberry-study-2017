@@ -12,6 +12,7 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,6 +27,7 @@ namespace IIS.BusinessCalendar
     // *** Start programmer edit section *** (ExceptionDay CustomAttributes)
 
     // *** End programmer edit section *** (ExceptionDay CustomAttributes)
+    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [Caption("Дни исключения")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
@@ -40,8 +42,10 @@ namespace IIS.BusinessCalendar
             "WorkTimeDefinition.*",
             "WorkTimeDefinition as \'Временные промежутки\'",
             "Calendar as \'Календарь\'",
-            "Calendar.Name as \'Название календаря\'"}, Hidden=new string[] {
-            "WorkTimeDefinition.*"})]
+            "Calendar.Name as \'Название календаря\'",
+            "WorkTimeSpans"}, Hidden=new string[] {
+            "WorkTimeDefinition.*",
+            "WorkTimeSpans"})]
     [View("ExceptionDayL", new string[] {
             "Name as \'Название\'",
             "DayType as \'Тип дня\'",
@@ -296,6 +300,29 @@ namespace IIS.BusinessCalendar
         }
         
         /// <summary>
+        /// WorkTimeSpans.
+        /// </summary>
+        // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans CustomAttributes)
+
+        // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<WorkTimeSpanShort> WorkTimeSpans
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
+                return null;
+                // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans Set)
+
+                // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans Set)
+            }
+        }
+        
+        /// <summary>
         /// Дни исключения.
         /// </summary>
         // *** Start programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
@@ -303,7 +330,6 @@ namespace IIS.BusinessCalendar
         // *** End programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
         [PropertyStorage(new string[] {
                 "WorkTimeDefinition"})]
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition WorkTimeDefinition
         {
             get
