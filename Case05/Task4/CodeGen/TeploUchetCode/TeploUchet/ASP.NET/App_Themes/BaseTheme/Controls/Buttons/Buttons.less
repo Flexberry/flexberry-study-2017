@@ -1,0 +1,31 @@
+﻿@import '../../../BaseTheme/Controls/Buttons/Buttons.less';
+
+/**
+ * Файл визуального оформления кнопок базовой темы.
+ */
+
+
+.@{buttonClass} {    
+    border: 1px solid;    
+    border-color: @buttonBorderColor;    
+    .border-radius(@buttonRadius);
+    color: @buttonTextColor;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus {
+        color: @buttonTextColor;
+        outline: 0;
+    }
+}
+
+#popup_panel input[type="button"] {
+    min-width: 75px;
+}
+
+button:focus {
+    outline: 0;
+}
+
+@import (reference) "_Variables.less";

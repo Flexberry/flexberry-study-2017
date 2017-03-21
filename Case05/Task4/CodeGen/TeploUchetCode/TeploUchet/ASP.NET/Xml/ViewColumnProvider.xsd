@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Корневой элемент, содержащий настройки отображения столбцов для базовых типов и для свойств пользовательских типов. -->
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="basetype" type="BaseTypeSettings" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="CustomTypeSettings" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Базовые настройки отображения столбца. -->
+  <xs:complexType name="BaseSettings">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="fixedwidth" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="minwidth" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="cut" type="xs:boolean" use="optional" />
+    <xs:attribute name="cutwidth" type="xs:unsignedInt" use="optional" />
+    <xs:attribute name="filter" type="xs:boolean" use="optional" />
+    <xs:attribute name="sort" type="xs:boolean" use="optional" />
+    <xs:attribute name="align" type="xs:string" use="optional" />
+    <xs:attribute name="noteditbyclick" type="xs:boolean" use="optional" />
+    <xs:attribute name="filteroperations" type="xs:boolean" use="optional" />
+  </xs:complexType>
+
+  <!-- Настройки отображения столбца для базового типа. -->
+  <xs:complexType name="BaseTypeSettings">
+    <xs:complexContent>
+      <xs:extension base="BaseSettings" />
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!-- Настройки отображения столбца, соответствующего свойству пользовательского типа. -->
+  <xs:complexType name="PropertySettings">
+    <xs:complexContent>
+      <xs:extension base="BaseSettings" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Настройки отображения столбца с кнопками. -->
+  <xs:complexType name="ToolbarSettings">
+    <xs:attribute name="fixedwidth" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="minwidth" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="align" type="xs:string" use="optional" />
+  </xs:complexType>
+
+  <!-- Настройки отображения свойств пользовательского типа. -->
+  <xs:complexType name="CustomTypeSettings">
+    <xs:sequence>
+      <xs:element name="toolbar" type="ToolbarSettings" minOccurs="0" maxOccurs="1" />
+      <xs:element name="property" type="PropertySettings" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+</xs:schema>
