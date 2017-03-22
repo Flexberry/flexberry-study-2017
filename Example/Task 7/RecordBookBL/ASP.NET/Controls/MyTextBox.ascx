@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MyTextBox.ascx.cs" Inherits="NewPlatform.RecordBookBL.Controls.MyTextBox" %>
+<asp:TextBox runat="server" ID="MainTextBox" BackColor="#0f0"></asp:TextBox>

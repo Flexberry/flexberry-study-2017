@@ -316,6 +316,7 @@
     <Content Include="App_Themes\Spring\style.css" />
     <Content Include="CheckExam.asmx" />
     <Content Include="Controls\GetStudent.ascx" />
+    <Content Include="Controls\MyTextBox.ascx" />
     <Content Include="forms\Disciplina\DisciplinaE.aspx" />
     <Compile Include="CheckExam.asmx.cs">
       <DependentUpon>CheckExam.asmx</DependentUpon>
@@ -327,6 +328,13 @@
     </Compile>
     <Compile Include="Controls\GetStudent.ascx.designer.cs">
       <DependentUpon>GetStudent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyTextBox.ascx.cs">
+      <DependentUpon>MyTextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MyTextBox.ascx.designer.cs">
+      <DependentUpon>MyTextBox.ascx</DependentUpon>
     </Compile>
     <Compile Include="forms\Disciplina\DisciplinaE.aspx.cs">
       <DependentUpon>DisciplinaE.aspx</DependentUpon>
