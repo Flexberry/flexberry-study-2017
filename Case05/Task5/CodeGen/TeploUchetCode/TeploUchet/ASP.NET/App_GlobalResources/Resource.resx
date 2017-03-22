@@ -196,10 +196,10 @@
     <value>Обязательно для заполнения</value>
   </data>
   <data name="Master_Page_Title" xml:space="preserve">
-    <value>Web system on CASEBERRY Techn</value>
+    <value>Web system on CASEBERRY Technology</value>
   </data>
   <data name="Master_Page_Header_Title" xml:space="preserve">
-    <value>[Электронный учет объектов теплопотребления]</value>
+    <value>[Название проекта]</value>
   </data>
   <data name="Log_Out" xml:space="preserve">
     <value>Выход</value>
@@ -211,7 +211,7 @@
     <value>Отобразить область переходов</value>
   </data>
   <data name="Footer_Copyright" xml:space="preserve">
-    <value>(c) 2017. All rights </value>
+    <value>(c) 2017. All rights reserved.</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Сохранение...</value>
