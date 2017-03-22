@@ -14,6 +14,8 @@
         public override void SettingsApply(AjaxControls.WebObjectListView wolv)
         {
             base.SettingsApply(wolv);
+
+            wolv.Operations.DeleteInRow = true;
         }
 
         /// <summary>

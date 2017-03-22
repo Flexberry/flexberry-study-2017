@@ -372,6 +372,14 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="shared\img\Clients.png" />
+    <Content Include="shared\img\EventLog.png" />
+    <Content Include="shared\img\GraphicScheme.png" />
+    <Content Include="shared\img\HealthMonitor.png" />
+    <Content Include="shared\img\Messages.png" />
+    <Content Include="shared\img\MessageTypes.png" />
+    <Content Include="shared\img\StatisticsMonitor.png" />
+    <Content Include="shared\img\Subscriptios.png" />
     <Content Include="Web.sitemap" />
     <Content Include="forms\Semestr\SemestrL.aspx" />
     <Compile Include="forms\Semestr\SemestrL.aspx.cs">
