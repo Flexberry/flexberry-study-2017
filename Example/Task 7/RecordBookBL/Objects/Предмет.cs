@@ -30,13 +30,22 @@ namespace NewPlatform.RecordBookBL
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ПредметE", new string[] {
             "Дисциплина as \'Дисциплина\'",
-            "Дисциплина.Название as \'Название\'",
+            "Дисциплина.Название",
             "Семестр as \'Семестр\'",
-            "Семестр.Начало as \'Начало\'",
+            "Семестр.Название",
             "Преподаватель as \'Преподаватель\'",
-            "Преподаватель.Фамилия as \'Фамилия\'"})]
+            "Преподаватель.ФИО",
+            "Преподаватель.Фамилия",
+            "Преподаватель.Имя",
+            "Преподаватель.Отчество"}, Hidden=new string[] {
+            "Дисциплина.Название",
+            "Семестр.Название",
+            "Преподаватель.ФИО"})]
     [AssociatedDetailViewAttribute("ПредметE", "Оценка", "ОценкаE", true, "", "Оценка", true, new string[] {
             ""})]
+    [MasterViewDefineAttribute("ПредметE", "Дисциплина", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
+    [MasterViewDefineAttribute("ПредметE", "Семестр", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
+    [MasterViewDefineAttribute("ПредметE", "Преподаватель", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "ФИО")]
     [View("ПредметL", new string[] {
             "Дисциплина.Название as \'Название\'",
             "Семестр.Начало as \'Начало\'",
@@ -44,9 +53,9 @@ namespace NewPlatform.RecordBookBL
     public class Предмет : ICSSoft.STORMNET.DataObject
     {
         
-        private NewPlatform.RecordBookBL.Преподаватель fПреподаватель;
-        
         private NewPlatform.RecordBookBL.Дисциплина fДисциплина;
+        
+        private NewPlatform.RecordBookBL.Преподаватель fПреподаватель;
         
         private NewPlatform.RecordBookBL.Семестр fСеместр;
         
@@ -56,6 +65,38 @@ namespace NewPlatform.RecordBookBL
 
         // *** End programmer edit section *** (Предмет CustomMembers)
 
+        
+        /// <summary>
+        /// Предмет.
+        /// </summary>
+        // *** Start programmer edit section *** (Предмет.Дисциплина CustomAttributes)
+
+        // *** End programmer edit section *** (Предмет.Дисциплина CustomAttributes)
+        [NotNull()]
+        public virtual NewPlatform.RecordBookBL.Дисциплина Дисциплина
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Предмет.Дисциплина Get start)
+
+                // *** End programmer edit section *** (Предмет.Дисциплина Get start)
+                NewPlatform.RecordBookBL.Дисциплина result = this.fДисциплина;
+                // *** Start programmer edit section *** (Предмет.Дисциплина Get end)
+
+                // *** End programmer edit section *** (Предмет.Дисциплина Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Предмет.Дисциплина Set start)
+
+                // *** End programmer edit section *** (Предмет.Дисциплина Set start)
+                this.fДисциплина = value;
+                // *** Start programmer edit section *** (Предмет.Дисциплина Set end)
+
+                // *** End programmer edit section *** (Предмет.Дисциплина Set end)
+            }
+        }
         
         /// <summary>
         /// Предмет.
@@ -88,38 +129,6 @@ namespace NewPlatform.RecordBookBL
                 // *** Start programmer edit section *** (Предмет.Преподаватель Set end)
 
                 // *** End programmer edit section *** (Предмет.Преподаватель Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Предмет.
-        /// </summary>
-        // *** Start programmer edit section *** (Предмет.Дисциплина CustomAttributes)
-
-        // *** End programmer edit section *** (Предмет.Дисциплина CustomAttributes)
-        [NotNull()]
-        public virtual NewPlatform.RecordBookBL.Дисциплина Дисциплина
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Предмет.Дисциплина Get start)
-
-                // *** End programmer edit section *** (Предмет.Дисциплина Get start)
-                NewPlatform.RecordBookBL.Дисциплина result = this.fДисциплина;
-                // *** Start programmer edit section *** (Предмет.Дисциплина Get end)
-
-                // *** End programmer edit section *** (Предмет.Дисциплина Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Предмет.Дисциплина Set start)
-
-                // *** End programmer edit section *** (Предмет.Дисциплина Set start)
-                this.fДисциплина = value;
-                // *** Start programmer edit section *** (Предмет.Дисциплина Set end)
-
-                // *** End programmer edit section *** (Предмет.Дисциплина Set end)
             }
         }
         

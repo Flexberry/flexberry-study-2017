@@ -33,15 +33,18 @@ namespace NewPlatform.RecordBookBL
     [View("ГруппаE", new string[] {
             "Название as \'Название\'",
             "Факультет as \'Факультет\'",
-            "Факультет.Название as \'Название\'",
+            "Факультет.Название",
             "Староста as \'Староста\'",
             "Староста.Фамилия as \'Фамилия\'",
             "Специальность",
             "Специальность.Название",
             "КоличествоСтудентов as \'Количество студентов\'"}, Hidden=new string[] {
+            "Факультет.Название",
             "Специальность.Название"})]
     [AssociatedDetailViewAttribute("ГруппаE", "Студенты", "СтудентE", true, "", "Студенты", true, new string[] {
             ""})]
+    [MasterViewDefineAttribute("ГруппаE", "Факультет", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
+    [MasterViewDefineAttribute("ГруппаE", "Староста", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "ФИО")]
     [MasterViewDefineAttribute("ГруппаE", "Специальность", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
     [View("ГруппаL", new string[] {
             "Название as \'Название\'",
@@ -57,9 +60,9 @@ namespace NewPlatform.RecordBookBL
         
         private int fКоличествоСтудентов = 0;
         
-        private NewPlatform.RecordBookBL.Студент fСтароста;
-        
         private NewPlatform.RecordBookBL.Факультет fФакультет;
+        
+        private NewPlatform.RecordBookBL.Студент fСтароста;
         
         private NewPlatform.RecordBookBL.Специальность fСпециальность;
         
@@ -163,37 +166,6 @@ namespace NewPlatform.RecordBookBL
         /// <summary>
         /// Группа.
         /// </summary>
-        // *** Start programmer edit section *** (Группа.Староста CustomAttributes)
-
-        // *** End programmer edit section *** (Группа.Староста CustomAttributes)
-        public virtual NewPlatform.RecordBookBL.Студент Староста
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Группа.Староста Get start)
-
-                // *** End programmer edit section *** (Группа.Староста Get start)
-                NewPlatform.RecordBookBL.Студент result = this.fСтароста;
-                // *** Start programmer edit section *** (Группа.Староста Get end)
-
-                // *** End programmer edit section *** (Группа.Староста Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Группа.Староста Set start)
-
-                // *** End programmer edit section *** (Группа.Староста Set start)
-                this.fСтароста = value;
-                // *** Start programmer edit section *** (Группа.Староста Set end)
-
-                // *** End programmer edit section *** (Группа.Староста Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Группа.
-        /// </summary>
         // *** Start programmer edit section *** (Группа.Факультет CustomAttributes)
 
         // *** End programmer edit section *** (Группа.Факультет CustomAttributes)
@@ -222,6 +194,37 @@ namespace NewPlatform.RecordBookBL
                 // *** Start programmer edit section *** (Группа.Факультет Set end)
 
                 // *** End programmer edit section *** (Группа.Факультет Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Группа.
+        /// </summary>
+        // *** Start programmer edit section *** (Группа.Староста CustomAttributes)
+
+        // *** End programmer edit section *** (Группа.Староста CustomAttributes)
+        public virtual NewPlatform.RecordBookBL.Студент Староста
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Группа.Староста Get start)
+
+                // *** End programmer edit section *** (Группа.Староста Get start)
+                NewPlatform.RecordBookBL.Студент result = this.fСтароста;
+                // *** Start programmer edit section *** (Группа.Староста Get end)
+
+                // *** End programmer edit section *** (Группа.Староста Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Группа.Староста Set start)
+
+                // *** End programmer edit section *** (Группа.Староста Set start)
+                this.fСтароста = value;
+                // *** Start programmer edit section *** (Группа.Староста Set end)
+
+                // *** End programmer edit section *** (Группа.Староста Set end)
             }
         }
         
