@@ -12,11 +12,14 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
-    using System.Collections.Generic;
-    
-    
-    // *** Start programmer edit section *** (Using statements)
 
+
+    // *** Start programmer edit section *** (Using statements)
+    using System.Collections.Generic;
+    using System.Linq;
+    using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
     // *** End programmer edit section *** (Using statements)
 
 
@@ -39,16 +42,63 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Обработчик события сохранения дня-исключения
         /// </summary>
-        /// <param name="UpdatedObject"></param>
+        /// <param name="UpdatedObject">редактируемый объект данных</param>
         /// <returns></returns>
         // *** End programmer edit section *** (OnUpdateExceptionDay CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateExceptionDay(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateExceptionDay)
-
             List<WorkTimeSpanShort> wtss = UpdatedObject.WorkTimeSpans;
+
+            if(UpdatedObject.GetStatus() == ObjectStatus.Altered)
+            {
+                var ds = (SQLDataService)DataServiceProvider.DataService;
+
+                IQueryable<WorkTimeSpan> wtsQuery = ds.Query<WorkTimeSpan>();
+                IQueryable<WorkTimeSpan> query = wtsQuery.Where<WorkTimeSpan>(w => w.WorkTimeDefinition == UpdatedObject.WorkTimeDefinition);
+                List<DataObject> wtsList = query.Cast<DataObject>().ToList();
+                foreach (DataObject wts in wtsList)
+                {
+                    wts.SetStatus(ObjectStatus.Deleted);
+                }
+                var dataObjects = wtsList.ToArray();
+                ds.UpdateObjects(ref dataObjects);
+
+                wtsList.Clear();
+
+                foreach (WorkTimeSpanShort ts in wtss)
+                {
+                    WorkTimeSpan wts = new WorkTimeSpan();
+                    wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM);
+                    wts.EndTime = (decimal)(ts.EndTimeH + ts.EndTimeM);
+                    wts.WorkTimeDefinition = UpdatedObject.WorkTimeDefinition;
+                    wtsList.Add(wts);
+                }
+                dataObjects = wtsList.ToArray();
+                ds.UpdateObjects(ref dataObjects);
+            }
+            
+
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateExceptionDay)
+        }
+
+        // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition CustomAttributes)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UpdatedObject"></param>
+        /// <returns></returns>
+        // *** End programmer edit section *** (OnUpdateWorkTimeDefinition CustomAttributes)
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWorkTimeDefinition(IIS.BusinessCalendar.WorkTimeDefinition UpdatedObject)
+        {
+            // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition)
+            if(UpdatedObject.GetStatus() == ICSSoft.STORMNET.ObjectStatus.Altered)
+            {
+
+            }
+            return new ICSSoft.STORMNET.DataObject[0];
+            // *** End programmer edit section *** (OnUpdateWorkTimeDefinition)
         }
     }
 }

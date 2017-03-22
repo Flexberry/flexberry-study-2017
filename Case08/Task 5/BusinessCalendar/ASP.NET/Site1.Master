@@ -12,7 +12,6 @@
     </title>
     <asp:ContentPlaceHolder ID="AddToHeadPlaceholder" runat="server" />
     <asp:Placeholder ID="FlexberryStyles" runat="server" />
-
 </head>
 <%--
     Тэг "body" является отдельным контролом для корректной работы PlaceholderPageContentConnector

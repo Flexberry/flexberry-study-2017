@@ -15,7 +15,6 @@ namespace IIS.BusinessCalendar
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
-    
     // *** Start programmer edit section *** (Using statements)
 
     // *** End programmer edit section *** (Using statements)
@@ -73,6 +72,8 @@ namespace IIS.BusinessCalendar
         private int fRecurrenceCount;
         
         private IIS.BusinessCalendar.WorkTimeDefinition fWorkTimeDefinition;
+
+        private System.Collections.Generic.List<WorkTimeSpanShort> fWorkTimeSpans;
         
         private IIS.BusinessCalendar.Calendar fCalendar;
         
@@ -311,13 +312,13 @@ namespace IIS.BusinessCalendar
             get
             {
                 // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
-                return null;
+                return fWorkTimeSpans;
                 // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
             }
             set
             {
                 // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans Set)
-
+                this.fWorkTimeSpans = value;
                 // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans Set)
             }
         }

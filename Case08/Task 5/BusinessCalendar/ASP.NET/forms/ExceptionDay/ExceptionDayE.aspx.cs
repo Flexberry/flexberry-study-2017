@@ -13,7 +13,6 @@ namespace IIS.BusinessCalendar
 
     public partial class ExceptionDayE : BaseEditForm<ExceptionDay>
     {
-        private WorkTimeDefinition fWorkTimeDefinition;
         /// <summary>
         /// Конструктор формы.
         /// </summary>
@@ -42,10 +41,6 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void PreApplyToControls()
         {
-            if (!Page.IsPostBack)
-            {
-                this.BindGrid();
-            }
         }
 
         /// <summary>
@@ -54,24 +49,17 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void PostApplyToControls()
         {
-            if((DataObject == null)||(DataObject.WorkTimeDefinition == null))
-            {
-                fWorkTimeDefinition = new WorkTimeDefinition();
-            } else
-            {
-                fWorkTimeDefinition = DataObject.WorkTimeDefinition;
-                
-            }
             if (!Page.IsPostBack)
             {
                 this.BindGrid();
+                
             }
             else
             {
                 var jsArray = Request.Form.GetValues("wtsJsonArray")[0];
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 List<WorkTimeSpanShort> wtsList = ser.Deserialize<List<WorkTimeSpanShort>>(jsArray);
-                if(DataObject != null)
+                if (DataObject != null)
                 {
                     DataObject.WorkTimeSpans = wtsList;
                 }
@@ -83,10 +71,7 @@ namespace IIS.BusinessCalendar
         /// Вызывается самым последним в Page_Load.
         /// </summary>
         protected override void Postload()
-        {  
-            PageContentManager.AttachExternalFile("/CSS/businessTimeSpans.css");
-            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
-            PageContentManager.AttachExternalFile("/shared/script/exception-day-edit.js");  
+        {
         }
 
         /// <summary>

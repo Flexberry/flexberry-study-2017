@@ -301,6 +301,14 @@
     <Reference Include="System.Workflow.Runtime">
       <HintPath>System.Workflow.Runtime</HintPath>
     </Reference>
+    <ProjectReference Include="..\BusinessServersBF\BusinessCalendar%28BusinessServersBF%29.csproj">
+      <Project>{295c0165-2a42-4f12-9d6a-a83068b0037f}</Project>
+      <Name>BusinessCalendar%28BusinessServersBF%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessServers\BusinessCalendar%28BusinessServers%29.csproj">
+      <Project>{7f996ea6-6419-492c-a142-7ab6fa3928c0}</Project>
+      <Name>BusinessCalendar%28BusinessServers%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Objects\BusinessCalendar%28Objects%29.csproj">
       <Project>{bdba3b22-aaf1-4562-8798-8af16e792959}</Project>
       <Name>BusinessCalendar%28Objects%29</Name>
@@ -995,6 +1003,13 @@
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
     <Content Include="favicon.ico" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WOLVSettApplyer.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="App_GlobalResources\Resource.designer.cs" />
@@ -1003,6 +1018,7 @@
     <Content Include="App_GlobalResources\Resource.resx" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\ServiceConfig.cs" />
+    <Content Include="WebForm1.aspx" />
     <Content Include="Xml\ServiceSecurityProvider.xml" />
     <Content Include="Xml\ViewColumnProvider.xml" />
     <Content Include="Xml\ViewColumnProvider.xsd" />
