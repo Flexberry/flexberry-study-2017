@@ -1,5 +1,14 @@
 ﻿(function ($) {
-    var timeSpans = [];
+
+    var attr = {
+        timeSpans: [],
+        idElemToStore:"",
+        status : {
+            Altered : 1,
+            UnAltered : 0
+        },
+        currentStatus : 0
+    }
 
     var methods = {
 
@@ -26,7 +35,10 @@
             btnAddRow.id = "btnAddTS";
             btnAddRow.type = "button";
             btnAddRow.setAttribute("class", "glyphiconStyle glyphicon-plus iconSmall background-center btnStandart btnSmall");
-            btnAddRow.onclick = function () { methods.addRow(container, "", "", "", ""); }
+            btnAddRow.onclick = function () {
+                methods.addRow(container, "", "", "", "");
+                attr.currentStatus = attr.status.Altered;
+            }
             th3.appendChild(btnAddRow);
             var tbody = document.createElement("tbody");
 
@@ -46,8 +58,11 @@
          * Метод для преобразования строки JSON в объект
          * @param {string} jsonArray
          */
-        desirializeArray: function (jsonArray) {
-            timeSpans = JSON.parse(jsonArray);
+        readDataFromHidden: function () {
+            if (attr.idElemToStore !== "") {
+                var tsString = $('#' + attr.idElemToStore).val();
+                attr.timeSpans = JSON.parse(tsString);
+            }
         },
         /**
          * Метод добавляет одну строку в таблицу временных промежутков
@@ -57,7 +72,7 @@
          * @param {number} endTimeM
          * @param {number} container
          */
-        addRow: function (container, upTimeH, upTimeM, endTimeH, endTimeM) {
+        addRow: function (container,upTimeH, upTimeM, endTimeH, endTimeM) {
             var table = document.getElementById('TimeSpansTable');
             var i = table.rows.length;
             var tempTr = ('<tr id="tr_' + i + '">\
@@ -76,28 +91,34 @@
                                 </td>\
                             </tr>');
             $(container).find('tbody').append(tempTr);
+            $(container).find('tbody').find('input').keyup(function () {
+                attr.currentStatus = attr.status.Altered;
+                methods.storeData.apply(container);
+            });
             $(container).find('tbody').find('button').on("click", function () {
                 $(this).closest('tr').remove();
+                attr.currentStatus = attr.status.Altered;
             })
         },
         /**
          * Метод для заполнения таблицы временных промежутков
          * @param {DOM} container
          */
-        fillTable: function (container) {
-            var tsCount = timeSpans.length;
+        fillTable: function () {
+            var tsCount = attr.timeSpans.length;
             for (var i = 0; i < tsCount; i++) {
-                methods.addRow(container, timeSpans[i].StartTimeH, timeSpans[i].StartTimeM, timeSpans[i].EndTimeH, timeSpans[i].EndTimeM);
+                methods.addRow(this, attr.timeSpans[i].StartTimeH, attr.timeSpans[i].StartTimeM, attr.timeSpans[i].EndTimeH, attr.timeSpans[i].EndTimeM);
             }
+            attr.currentStatus = attr.status.UnAltered;
         },
         /**
-         * 
-         * @param container
+         * Функция считывает временные промежутки с таблицы
+         * @param {DOM} container 
          * @returns {Array} 
          */
-        getTimeSpans: function (container) {
+        getTimeSpans: function () {
             var result = [];
-            var tbody = container[0].getElementsByTagName("tbody")[0];
+            var tbody = this[0].getElementsByTagName("tbody")[0];
             var rowsCount = tbody.rows.length;
             for (var i = 0; i < rowsCount; i++) {
                 var row = tbody.rows[i];
@@ -115,10 +136,31 @@
          * @param {string} jsonArray строка с массивом JSON
          * @param {DOM} container таблица временных промежутков
          */
-        init: function (container, jsonArray) {
-            methods.desirializeArray(jsonArray);
-            methods.craateTable(container);
-            methods.fillTable(container);
+        init: function (idElemToStore) {
+            attr.idElemToStore(idElemToStore);
+            methods.readDataFromHidden();
+            methods.craateTable(this);
+            methods.fillTable(this);      
+        },
+        /**
+         * Функция возвращает текущее состояние объекта
+         * @returns {Number} 1 - изменён, 0 - не изменён
+         */
+        getStatus: function() {
+            return attr.currentStatus;
+        },
+        /**
+         * Функция для установления идентификатора элемента, в значении которого будут храниться временные промежутки в сериализованном виде (JSON массиве)
+         * @param {String} elementId
+         */
+        setIdElemToStore: function (elementId) {
+            attr.idElemToStore = elementId;
+        },
+        /**
+         * Функция сохраняет 
+         */
+        storeData: function() {
+            $('#' + attr.idElemToStore).val() = JSON.stringify(methods.getTimeSpans.apply(this));
         }
     }
     /**
@@ -127,7 +169,7 @@
      */
     $.fn.TimeSpans = function (method) {
         if (method) {
-            var result = methods[method](this, Array.prototype.slice.call(arguments, 1));
+            var result = methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else {
             $.error('Метод с именем ' + method + ' не существует для JQuery.TimeSpans');
         }

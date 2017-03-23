@@ -26,7 +26,7 @@ namespace IIS.BusinessCalendar
     // *** Start programmer edit section *** (WorkTimeSpanShort CustomAttributes)
 
     // *** End programmer edit section *** (WorkTimeSpanShort CustomAttributes)
-    public class WorkTimeSpanShort 
+    public class TimeSpan 
     {
         
         private int fStartTimeH;

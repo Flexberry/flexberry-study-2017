@@ -315,10 +315,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\TimeSpanView.ascx" />
     <Content Include="CSS\businessCalendar.css" />
     <Content Include="CSS\businessTimeSpans.css" />
     <Content Include="CSS\Site.css" />
     <Content Include="forms\Calendar\CalendarL.aspx" />
+    <Compile Include="Controls\TimeSpanView.ascx.cs">
+      <DependentUpon>TimeSpanView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TimeSpanView.ascx.designer.cs">
+      <DependentUpon>TimeSpanView.ascx</DependentUpon>
+    </Compile>
     <Compile Include="forms\Calendar\CalendarL.aspx.cs">
       <DependentUpon>CalendarL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

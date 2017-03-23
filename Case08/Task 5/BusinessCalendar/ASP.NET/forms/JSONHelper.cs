@@ -11,12 +11,12 @@ namespace IIS.BusinessCalendar.forms
     /// </summary>
     public static class JSONHelper
     {
-        public static List<WorkTimeSpanShort> convertWorkTimeSpans(IEnumerable<WorkTimeSpan> wtsArray)
+        public static List<TimeSpan> convertWorkTimeSpans(IEnumerable<WorkTimeSpan> wtsArray)
         {
-            List<WorkTimeSpanShort> result = new List<WorkTimeSpanShort>();
+            List<TimeSpan> result = new List<TimeSpan>();
             foreach(WorkTimeSpan wts in wtsArray)
             {
-                result.Add(new WorkTimeSpanShort()
+                result.Add(new TimeSpan()
                 {
                     StartTimeH = (int)Math.Truncate(wts.StartTime),
                     StartTimeM = (int)(wts.StartTime - Math.Truncate(wts.StartTime)),

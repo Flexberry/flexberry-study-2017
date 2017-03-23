@@ -58,7 +58,7 @@ namespace IIS.BusinessCalendar
             {
                 var jsArray = Request.Form.GetValues("wtsJsonArray")[0];
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                List<WorkTimeSpanShort> wtsList = ser.Deserialize<List<WorkTimeSpanShort>>(jsArray);
+                List<TimeSpan> wtsList = ser.Deserialize<List<TimeSpan>>(jsArray);
                 if (DataObject != null)
                 {
                     DataObject.WorkTimeSpans = wtsList;
@@ -72,6 +72,9 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
+            PageContentManager.AttachExternalFile("/CSS/businessTimeSpans.css");
+            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
+            PageContentManager.AttachExternalFile("/shared/script/exception-day-edit.js");
         }
 
         /// <summary>
@@ -100,9 +103,8 @@ namespace IIS.BusinessCalendar
                 {
                     ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, DataObject.WorkTimeDefinition, false, false);
                     List<WorkTimeSpan> wts = DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>().ToList();
-
                     var jsonSerializer = new JavaScriptSerializer();
-                    List<WorkTimeSpanShort> wtsShort = JSONHelper.convertWorkTimeSpans(DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>());
+                    List<TimeSpan> wtsShort = JSONHelper.convertWorkTimeSpans(DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>());
                     var wtsJSON = jsonSerializer.Serialize(wtsShort);
                     wtsLiteral.Text = string.Concat("<input type='hidden' name='wtsJsonArray' id='wtsJson' value='", wtsJSON.ToString(), "'/>");
                 }  

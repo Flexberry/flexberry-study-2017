@@ -48,7 +48,7 @@ namespace IIS.BusinessCalendar
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateExceptionDay(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateExceptionDay)
-            List<WorkTimeSpanShort> wtss = UpdatedObject.WorkTimeSpans;
+            List<TimeSpan> wtss = UpdatedObject.WorkTimeSpans;
 
             if(UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
@@ -66,7 +66,7 @@ namespace IIS.BusinessCalendar
 
                 wtsList.Clear();
 
-                foreach (WorkTimeSpanShort ts in wtss)
+                foreach (TimeSpan ts in wtss)
                 {
                     WorkTimeSpan wts = new WorkTimeSpan();
                     wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM);

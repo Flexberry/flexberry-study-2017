@@ -4,6 +4,8 @@ namespace IIS.BusinessCalendar
     using System;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.Tools;
+    using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Web;
     using Resources;
     using WebApplication;
 
@@ -31,7 +33,13 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Preload()
         {
-            
+            WebObjectListView1.Operations.OpenEditorInNewWindow = true;
+            WebObjectListView1.Operations.OpenEditorInModalWindow = true;
+        }
+
+        private void WebObjectListView1_TableCellGenerated(object sender, ICSSoft.STORMNET.Web.AjaxControls.ThickBoxControlArgs args)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -39,26 +47,6 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
-            /*
-            WebObjectListView1.Operations.OpenEditorInNewWindow = true;
-            WebObjectListView1.Operations.OpenEditorInModalWindow = true;
-
-            String jsname = "BusinessCalendar";
-            String jsJQuery = "JQueryMinJs";
-            String jsExcDayForm = "ExcDayForm";
-
-            String jsExcDayFormUrl = "~/shared/script/exception-day.js";
-            String jsJQueryUrl = "~/shared/script/jquery.min.js";
-            String jsurl = "~/shared/script/businessCalendar.js";
-
-            Type jsType = this.GetType();
-
-            System.Web.UI.ClientScriptManager js = Page.ClientScript;
-
-            js.RegisterClientScriptInclude(jsType, jsJQuery, ResolveClientUrl(jsJQueryUrl));
-            js.RegisterClientScriptInclude(jsType, jsname, ResolveClientUrl(jsurl));
-            js.RegisterClientScriptInclude(jsType, jsExcDayForm, ResolveClientUrl(jsExcDayFormUrl));
-            */
             PageContentManager.AttachExternalFile("/shared/script/exception-day.js");
             PageContentManager.AttachExternalFile("/CSS/businessCalendar.css");
             PageContentManager.AttachExternalFile("/CSS/Site.css");

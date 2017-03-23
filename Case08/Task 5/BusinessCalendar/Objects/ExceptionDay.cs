@@ -73,7 +73,7 @@ namespace IIS.BusinessCalendar
         
         private IIS.BusinessCalendar.WorkTimeDefinition fWorkTimeDefinition;
 
-        private System.Collections.Generic.List<WorkTimeSpanShort> fWorkTimeSpans;
+        private System.Collections.Generic.List<TimeSpan> fWorkTimeSpans;
         
         private IIS.BusinessCalendar.Calendar fCalendar;
         
@@ -307,7 +307,7 @@ namespace IIS.BusinessCalendar
 
         // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans CustomAttributes)
         [ICSSoft.STORMNET.NotStored()]
-        public virtual System.Collections.Generic.List<WorkTimeSpanShort> WorkTimeSpans
+        public virtual System.Collections.Generic.List<TimeSpan> WorkTimeSpans
         {
             get
             {
