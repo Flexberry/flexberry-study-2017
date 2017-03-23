@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{040FCC07-B87D-4B08-B429-1CC6B355C3AF}</ProjectGuid>
+    <ProjectGuid>{1BE5E12F-0836-4D68-A5C9-7AECD95EB0BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -131,25 +131,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Объект.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Персона.cs">
+    <Compile Include="ЗначенияМонтажа.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Район.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Здание.cs">
+    <Compile Include="УчастокСети.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Объект.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Инспектор.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="УчастокСети.cs">
+    <Compile Include="Здание.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ЗначенияМонтажа.cs">
+    <Compile Include="Персона.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

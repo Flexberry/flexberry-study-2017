@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{71CD41DD-DA0C-467E-8864-09CF47E8D947}</ProjectGuid>
+    <ProjectGuid>{2EEB2DD6-CA0B-4CD5-BD9D-EF2618A99C1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -38,10 +38,6 @@
     <Reference Include="System.XML">
       <HintPath>System.XML.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\Objects\TeploUchet(Objects).csproj">
-      <Project>{040fcc07-b87d-4b08-b429-1cc6b355c3af}</Project>
-      <Name>TeploUchet(Objects)</Name>
-    </ProjectReference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
     </Reference>
@@ -123,6 +119,10 @@
     <Reference Include="ICSSoft.STORMNET.UserDataTypes">
       <HintPath>..\packages\NewPlatform.Flexberry.ORM.3.0.0-alpha03\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\Objects\TeploUchet%28Objects%29.csproj">
+      <Project>{1be5e12f-0836-4d68-a5c9-7aecd95eb0ba}</Project>
+      <Name>TeploUchet%28Objects%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ГенерацияКода.cs">

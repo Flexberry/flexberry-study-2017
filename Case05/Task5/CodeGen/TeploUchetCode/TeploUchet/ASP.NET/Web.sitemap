@@ -9,18 +9,12 @@
       <siteMapNode title="Лог" url="~/flexberry/LogList" />
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
-    <siteMapNode title="Инспекторы" roles="*" xmlns="">
-      <siteMapNode title="Инспектор" description="" url="~/forms/Inspektor/InspektorL.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Участки сети" roles="*" xmlns="">
-      <siteMapNode title="УчастокСети" description="" url="~/forms/UchastokSeti/UchastokSetiL.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Объекты и здания" roles="*" xmlns="">
+    <siteMapNode title="TeploUchet" roles="*" xmlns="">
+      <siteMapNode title="Участок сети" description="" url="~/forms/UchastokSeti/UchastokSetiL.aspx" />
       <siteMapNode title="Объект" description="" url="~/forms/Ob'ekt/Ob'ektL.aspx" />
       <siteMapNode title="Здание" description="" url="~/forms/Zdanie/ZdanieL.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Районы" roles="*" xmlns="">
       <siteMapNode title="Район" description="" url="~/forms/Rajon/RajonL.aspx" />
+      <siteMapNode title="Инспектор" description="" url="~/forms/Inspektor/InspektorL.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

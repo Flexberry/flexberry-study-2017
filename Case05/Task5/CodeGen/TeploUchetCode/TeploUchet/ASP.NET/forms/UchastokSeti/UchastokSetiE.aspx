@@ -39,9 +39,13 @@ ErrorMessage="Не указано: Теплоизоляция" EnableClientScrip
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlТипМонтажаLabel" runat="server" Text="Тип монтажа" EnableViewState="False">
 </asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlТипМонтажа" runat="server">
-</asp:TextBox>
+<asp:DropDownList ID="ctrlТипМонтажа" CssClass="descTxt" runat="server">
+	<asp:ListItem>Надземный</asp:ListItem>
+<asp:ListItem>Подземный</asp:ListItem>
+<asp:ListItem>По</asp:ListItem>
+<asp:ListItem>подвалу</asp:ListItem>
 
+</asp:DropDownList>
 <asp:RequiredFieldValidator ID="ctrlТипМонтажаValidator" runat="server" ControlToValidate="ctrlТипМонтажа"
 ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
@@ -60,6 +64,16 @@ ErrorMessage="Не указано: ГодПрокладки" EnableClientScript=
   <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
 </asp:Label>
 <ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
+
+</div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlОбъект_НаименованиеLabel" runat="server" Text="Наименование" EnableViewState="False">
+</asp:Label>
+<asp:TextBox CssClass="descTxt" ID="ctrlОбъект_Наименование" runat="server" ReadOnly="true">
+</asp:TextBox>
+
+<asp:RequiredFieldValidator ID="ctrlОбъект_НаименованиеValidator" runat="server" ControlToValidate="ctrlОбъект_Наименование"
+ErrorMessage="Не указано: Объект.Наименование" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
 <br/>

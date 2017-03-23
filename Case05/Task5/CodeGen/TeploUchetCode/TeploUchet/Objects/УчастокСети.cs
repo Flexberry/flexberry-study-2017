@@ -44,8 +44,7 @@ namespace TeploCorp.TeploUchet
             "ТипМонтажа as \'Тип монтажа\'",
             "ГодПрокладки as \'Год прокладки\'",
             "Объект as \'Объект\'",
-            "Объект.Наименование as \'Наименование\'"}, Hidden=new string[] {
-            "Объект.Наименование"})]
+            "Объект.Наименование as \'Наименование\'"})]
     [View("УчастокСетиL", new string[] {
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
@@ -59,7 +58,7 @@ namespace TeploCorp.TeploUchet
         
         private string fТеплоизоляция;
         
-        private string fТипМонтажа;
+        private TeploCorp.TeploUchet.ЗначенияМонтажа fТипМонтажа;
         
         private System.DateTime fГодПрокладки;
         
@@ -149,16 +148,15 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (УчастокСети.ТипМонтажа CustomAttributes)
 
         // *** End programmer edit section *** (УчастокСети.ТипМонтажа CustomAttributes)
-        [StrLen(255)]
         [NotNull()]
-        public virtual string ТипМонтажа
+        public virtual TeploCorp.TeploUchet.ЗначенияМонтажа ТипМонтажа
         {
             get
             {
                 // *** Start programmer edit section *** (УчастокСети.ТипМонтажа Get start)
 
                 // *** End programmer edit section *** (УчастокСети.ТипМонтажа Get start)
-                string result = this.fТипМонтажа;
+                TeploCorp.TeploUchet.ЗначенияМонтажа result = this.fТипМонтажа;
                 // *** Start programmer edit section *** (УчастокСети.ТипМонтажа Get end)
 
                 // *** End programmer edit section *** (УчастокСети.ТипМонтажа Get end)

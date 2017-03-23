@@ -30,7 +30,7 @@ namespace TeploCorp.TeploUchet
     // *** End programmer edit section *** (Инспектор CustomAttributes)
     [AutoAltered()]
     [ICSSoft.STORMNET.NotStored(false)]
-    [AccessType(ICSSoft.STORMNET.AccessType.@this)]
+    [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("AuditView", new string[] {
             "ID as \'ID\'",
             "Фамилия as \'Фамилия\'",
@@ -46,8 +46,7 @@ namespace TeploCorp.TeploUchet
             "Отчество as \'Отчество\'",
             "Логин as \'Логин\'",
             "Район as \'Район\'",
-            "Район.Название as \'Название\'"}, Hidden=new string[] {
-            "Район.Название"})]
+            "Район.Название as \'Название\'"})]
     [View("ИнспекторL", new string[] {
             "ID as \'ID\'",
             "Фамилия as \'Фамилия\'",
