@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -35,6 +35,11 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+                <asp:ScriptReference Path="~/Scripts/Matches.js" />
+                <asp:ScriptReference Path="~/Scripts/moment.js" />
+                <asp:ScriptReference Path="~/Scripts/moment.min.js" />
+                <asp:ScriptReference Path="~/Scripts/moment-with-locales.js" />
+                <asp:ScriptReference Path="~/Scripts/moment-with-locales.min.js" />
             </Scripts>
         </asp:ScriptManager>
 
@@ -51,9 +56,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/MethodTEst.aspx">Подсчет рейтинга</a></li>
-                       <%-- <li><a runat="server" href="~/Pages/">Бросить вызов</a></li>
-                        <li><a runat="server" href="~/">Общий рейтинг</a></li>
-                        <li><a runat="server" href="~/Pages/About">About</a></li>--%>
+                        <%--                        <li><a runat="server" href="~/Pages/">Бросить вызов</a></li>
+                        <li><a runat="server" href="~/">Общий рейтинг</a></li>--%>
+                        <%--<li><a runat="server" href="~/Pages/About">About</a></li>--%>
+                        <li><a runat="server" href="~/Pages/Match.aspx">clientMatch</a></li>
                         <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

@@ -12,7 +12,7 @@ namespace TableTennisTournament.Pages
 {
     public partial class MethodTEst : System.Web.UI.Page
     {
-        private Rating RatingElo = new RatingPosition.Rating();
+        private EloRating RatingElo = new RatingPosition.EloRating();
         protected void Page_Load(object sender, EventArgs e)
         {
 

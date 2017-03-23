@@ -8,7 +8,7 @@ namespace TableTennisTournament.Tests
     [TestClass]
     public class UnitTest1
     {
-        private readonly Rating ratingElo = new Rating();
+        private readonly EloRating ratingElo = new EloRating();
 
         private readonly Player _playerMax = new Player()
         {
