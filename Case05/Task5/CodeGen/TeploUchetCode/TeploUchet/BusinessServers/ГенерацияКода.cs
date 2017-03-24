@@ -40,7 +40,6 @@ namespace TeploCorp.TeploUchet
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъект)
-
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъект)
         }

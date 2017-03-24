@@ -5,6 +5,13 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET.Web.Controls;
 
     using Resources;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+    using System.Web;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
 
     public partial class УчастокСетиL : BaseListForm<УчастокСети>
     {
@@ -30,6 +37,44 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            string strUser = HttpContext.Current.User.Identity.Name;
+            SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+
+            //var _dataService = (SQLDataService)DataServiceProvider.DataService;
+
+            //var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторE).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+            new VariableDef(langdef.StringType, Information.ExtractPropertyName<Инспектор>(x => x.Район))
+
+            WebObjectListView1.LimitFunction = langdef.GetFunction(
+                langdef.funcEQ,
+                new VariableDef(langdef.StringType, Information.ExtractPropertyName<УчастокСети>(x => x.Объект.Здание.Район.Название)),
+                strUser);
+            
+            /*
+            //var текИнспектор = new Инспектор();
+            string strUser = HttpContext.Current.User.Identity.Name;
+            SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+
+            Function lf = langdef.GetFunction(
+                langdef.funcEQ,
+                new VariableDef(langdef.StringType, Information.ExtractPropertyName<УчастокСети>(x => x.Объект.Здание.Район.Название)),
+                strUser);
+
+            //LoadingCustomizationStruct lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(УчастокСети), УчастокСети.Views.УчастокСетиL);
+
+            WebObjectListView1.LimitFunction = lf;
+            */
+            RightManager.DisableAllRightChecks();
+            /*var _dataService = DataServiceProvider.DataService;
+            if (_dataService.GetObjectsCount(lcs) >= 1)
+            {
+                if (_dataService != null)
+                    текИнспектор = (Инспектор)(_dataService.LoadObjects(lcs)[0]);
+            };
+            //else return null;
+            */
+            RightManager.EnableAllRightChecks();
+
         }
 
         /// <summary>
@@ -37,6 +82,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+
         }
     }
 }

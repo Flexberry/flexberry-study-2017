@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5A8259D-DE2E-48F2-B221-377C86324784}</ProjectGuid>
+    <ProjectGuid>{0605E5B0-284F-44E1-9B9A-6780F2F5366D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -41,6 +41,10 @@
     <Reference Include="System.EnterpriseServices">
       <HintPath>System.EnterpriseServices.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\BusinessServers\TeploUchet(BusinessServers).csproj">
+      <Project>{239727ab-631a-4990-81ab-dc3bc6c0422c}</Project>
+      <Name>TeploUchet(BusinessServers)</Name>
+    </ProjectReference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
     </Reference>
@@ -132,10 +136,6 @@
     <Reference Include="ICSSoft.STORMNET.UserDataTypes">
       <HintPath>..\packages\NewPlatform.Flexberry.ORM.3.0.0-alpha03\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\BusinessServers\TeploUchet%28BusinessServers%29.csproj">
-      <Project>{2eeb2dd6-ca0b-4cd5-bd9d-ef2618a99c1f}</Project>
-      <Name>TeploUchet%28BusinessServers%29</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bfГенерацияКода.cs">

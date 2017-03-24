@@ -34,6 +34,7 @@ namespace ICSSoft.STORMNET.Web.Controls
         /// <param name="view">Представление по которому будут зачитаны объекты данных для списка.</param>
         protected BaseListForm(View view) : base(view)
         {
+
         }
 
         /// <summary>

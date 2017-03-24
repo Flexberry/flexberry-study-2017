@@ -47,17 +47,9 @@ namespace TeploCorp.TeploUchet
         /// <summary>
         /// 
         /// </summary>
-        // *** Start programmer edit section *** (ЗначенияМонтажа.По CustomAttributes)
+        // *** Start programmer edit section *** (ЗначенияМонтажа.ПоПодвалу CustomAttributes)
 
-        // *** End programmer edit section *** (ЗначенияМонтажа.По CustomAttributes)
-        По,
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        // *** Start programmer edit section *** (ЗначенияМонтажа.подвалу CustomAttributes)
-
-        // *** End programmer edit section *** (ЗначенияМонтажа.подвалу CustomAttributes)
-        подвалу,
+        // *** End programmer edit section *** (ЗначенияМонтажа.ПоПодвалу CustomAttributes)
+        ПоПодвалу,
     }
 }

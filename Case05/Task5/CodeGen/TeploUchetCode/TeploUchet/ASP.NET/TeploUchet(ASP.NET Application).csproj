@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{01E5BF71-2353-414D-B430-918A9EF36430}</ProjectGuid>
+    <ProjectGuid>{5FC43D31-A237-4C88-B67D-2BBED1A305E5}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -50,6 +50,51 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>System.Data</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>System.Drawing</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>System.Linq</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>System.Web</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>System.Web.Extensions</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design">
+      <HintPath>System.Web.Extensions.Design</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <HintPath>System.Web.Services</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>System.XML</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>System.Xml.Linq</HintPath>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime">
+      <HintPath>System.Workflow.Runtime</HintPath>
+    </Reference>
+    <ProjectReference Include="..\Objects\TeploUchet(Objects).csproj">
+      <Project>{a316cc0e-3221-445f-a8b6-d1915e4d264a}</Project>
+      <Name>TeploUchet(Objects)</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessServers\TeploUchet(BusinessServers).csproj">
+      <Project>{239727ab-631a-4990-81ab-dc3bc6c0422c}</Project>
+      <Name>TeploUchet(BusinessServers)</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessServersBF\TeploUchet(BusinessServersBF).csproj">
+      <Project>{0605e5b0-284f-44e1-9b9a-6780f2f5366d}</Project>
+      <Name>TeploUchet(BusinessServersBF)</Name>
+    </ProjectReference>
     <Reference Include="AntiXssLibrary">
       <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
     </Reference>
@@ -264,54 +309,8 @@
     <Reference Include="SmartScroller">
       <HintPath>..\packages\NewPlatform.Flexberry.AspNet.2.1.0\lib\net40\SmartScroller.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath>System</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>System.Data</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing">
-      <HintPath>System.Drawing</HintPath>
-    </Reference>
-    <Reference Include="System.Linq">
-      <HintPath>System.Linq</HintPath>
-    </Reference>
-    <Reference Include="System.Web">
-      <HintPath>System.Web</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Extensions">
-      <HintPath>System.Web.Extensions</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Extensions.Design">
-      <HintPath>System.Web.Extensions.Design</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Services">
-      <HintPath>System.Web.Services</HintPath>
-    </Reference>
-    <Reference Include="System.XML">
-      <HintPath>System.XML</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <HintPath>System.Xml.Linq</HintPath>
-    </Reference>
-    <Reference Include="System.Workflow.Runtime">
-      <HintPath>System.Workflow.Runtime</HintPath>
-    </Reference>
-    <ProjectReference Include="..\Objects\TeploUchet%28Objects%29.csproj">
-      <Project>{1be5e12f-0836-4d68-a5c9-7aecd95eb0ba}</Project>
-      <Name>TeploUchet%28Objects%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BusinessServers\TeploUchet%28BusinessServers%29.csproj">
-      <Project>{2eeb2dd6-ca0b-4cd5-bd9d-ef2618a99c1f}</Project>
-      <Name>TeploUchet%28BusinessServers%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BusinessServersBF\TeploUchet%28BusinessServersBF%29.csproj">
-      <Project>{a5a8259d-de2e-48f2-b221-377c86324784}</Project>
-      <Name>TeploUchet%28BusinessServersBF%29</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.sitemap" />
     <Content Include="forms\Inspektor\InspektorE.aspx" />
     <Compile Include="forms\Inspektor\InspektorE.aspx.cs">
       <DependentUpon>InspektorE.aspx</DependentUpon>
@@ -319,38 +318,6 @@
     </Compile>
     <Compile Include="forms\Inspektor\InspektorE.aspx.designer.cs">
       <DependentUpon>InspektorE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Rajon\RajonE.aspx" />
-    <Compile Include="forms\Rajon\RajonE.aspx.cs">
-      <DependentUpon>RajonE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Rajon\RajonE.aspx.designer.cs">
-      <DependentUpon>RajonE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Zdanie\ZdanieL.aspx" />
-    <Compile Include="forms\Zdanie\ZdanieL.aspx.cs">
-      <DependentUpon>ZdanieL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Zdanie\ZdanieL.aspx.designer.cs">
-      <DependentUpon>ZdanieL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Rajon\RajonL.aspx" />
-    <Compile Include="forms\Rajon\RajonL.aspx.cs">
-      <DependentUpon>RajonL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Rajon\RajonL.aspx.designer.cs">
-      <DependentUpon>RajonL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Ob'ekt\Ob'ektL.aspx" />
-    <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.cs">
-      <DependentUpon>Ob'ektL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.designer.cs">
-      <DependentUpon>Ob'ektL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\Zdanie\ZdanieE.aspx" />
     <Compile Include="forms\Zdanie\ZdanieE.aspx.cs">
@@ -360,14 +327,6 @@
     <Compile Include="forms\Zdanie\ZdanieE.aspx.designer.cs">
       <DependentUpon>ZdanieE.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Ob'ekt\Ob'ektE.aspx" />
-    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.cs">
-      <DependentUpon>Ob'ektE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.designer.cs">
-      <DependentUpon>Ob'ektE.aspx</DependentUpon>
-    </Compile>
     <Content Include="forms\UchastokSeti\UchastokSetiE.aspx" />
     <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.cs">
       <DependentUpon>UchastokSetiE.aspx</DependentUpon>
@@ -375,6 +334,14 @@
     </Compile>
     <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.designer.cs">
       <DependentUpon>UchastokSetiE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Inspektor\InspektorL.aspx" />
+    <Compile Include="forms\Inspektor\InspektorL.aspx.cs">
+      <DependentUpon>InspektorL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Inspektor\InspektorL.aspx.designer.cs">
+      <DependentUpon>InspektorL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\UchastokSeti\UchastokSetiL.aspx" />
     <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.cs">
@@ -384,13 +351,46 @@
     <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.designer.cs">
       <DependentUpon>UchastokSetiL.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Inspektor\InspektorL.aspx" />
-    <Compile Include="forms\Inspektor\InspektorL.aspx.cs">
-      <DependentUpon>InspektorL.aspx</DependentUpon>
+    <Content Include="forms\Ob'ekt\Ob'ektE.aspx" />
+    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.cs">
+      <DependentUpon>Ob'ektE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Inspektor\InspektorL.aspx.designer.cs">
-      <DependentUpon>InspektorL.aspx</DependentUpon>
+    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.designer.cs">
+      <DependentUpon>Ob'ektE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Zdanie\ZdanieL.aspx" />
+    <Compile Include="forms\Zdanie\ZdanieL.aspx.cs">
+      <DependentUpon>ZdanieL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Zdanie\ZdanieL.aspx.designer.cs">
+      <DependentUpon>ZdanieL.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Rajon\RajonE.aspx" />
+    <Compile Include="forms\Rajon\RajonE.aspx.cs">
+      <DependentUpon>RajonE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Rajon\RajonE.aspx.designer.cs">
+      <DependentUpon>RajonE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Web.sitemap" />
+    <Content Include="forms\Ob'ekt\Ob'ektL.aspx" />
+    <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.cs">
+      <DependentUpon>Ob'ektL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.designer.cs">
+      <DependentUpon>Ob'ektL.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Rajon\RajonL.aspx" />
+    <Compile Include="forms\Rajon\RajonL.aspx.cs">
+      <DependentUpon>RajonL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Rajon\RajonL.aspx.designer.cs">
+      <DependentUpon>RajonL.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />
@@ -933,24 +933,15 @@
     <Content Include="App_Themes\Smart\_VariablesBasic.less" />
     <None Include="packages.config" />
     <Compile Include="forms\BaseEditForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forms\BaseListForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forms\LookUpForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormUtils.cs">
-      <DependentUpon>
-      </DependentUpon>
-    </Compile>
+    <Compile Include="FormUtils.cs" />
     <Content Include="Web.config" />
     <Content Include="Site1.Master" />
     <Compile Include="Site1.Master.cs">
