@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ScriptManager runat="server" ID="ScriptManager1" EnablePartialRendering="true"></asp:ScriptManager>
         <cc:TimeSpanView id="TimeSpanView1" runat="server"></cc:TimeSpanView>
     </div>
     </form>

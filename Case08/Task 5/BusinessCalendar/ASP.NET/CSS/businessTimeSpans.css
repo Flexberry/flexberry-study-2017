@@ -5,11 +5,15 @@
     width:200px;
     height:50px;
 }
-.borderStandart{
+.border-standart{
     border:1px solid #337ab7;
+    border-bottom-color:#337ab7;
 }
-.borderGray{
+.border-gray{
     border:1px solid #ccc;
+}
+.border-aqua{
+    border:1px solid #7dbaef;
 }
 .textStandart{
     border: 1px solid #ccc;
@@ -28,6 +32,11 @@
     height: 25px;
     text-align: center;
 }
+.font-big{
+    font-size:20pt;
+    font-family:sans-serif;
+    font-weight: bold;
+}
 .glyphicon-minus{
     background:url(../Icons/glyphicons-minus.png) no-repeat;
     background-size:10px;
@@ -45,24 +54,34 @@
     background-color:#337ab7;
     color:white;
 }
-.btnStandart{
-    display:table-cell;
-    border-style:none;
-    color:#080808;
+.btn-standart{
     outline: none;
-    background-color:white;
+    background-color:#7dbaef;
     cursor:pointer;
     transition-duration:200ms;
-    font-family:sans-serif;
-    font-weight: bold;
+    color:white;
 }
-.btnStandart:hover{
+.btn-standart:hover{
     background-color:#337ab7;
+}
+.btn-standart:active{
+    box-shadow: #337ab7;
+}
+.btn-add{
+    outline: none;
+    background-color:#337ab7;
+    
+    cursor:pointer;
+    transition-duration:200ms;
     color:white;
 }
-.btnStandart:active{
-    box-shadow: #337ab7;
-    color:white;
+.btn-add:hover{
+    background-color:#7dbaef;
+    border-color:#7dbaef;
+}
+.btn-add:active{
+    background-color:#7dbaef;
+    border-color:#7dbaef;
 }
 .btnSmall{
     width: 30px;
@@ -75,4 +94,8 @@
 .smallCell{
     height: 30px;
     width: 40px;
+}
+.span-standart{
+    vertical-align: sub;
+    font-weight:bold;
 }

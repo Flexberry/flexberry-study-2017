@@ -56,4 +56,8 @@
   <customproperty class="AuditField" property="AuditEntity.OperationTime">
     <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
   </customproperty>
+
+  <customproperty class="ExceptionDay" property="WorkTimeSpans">
+    <control  typename="BusinessCalendar.Controls.TimeSpanView" property="Value" codefile="~/Controls/TimeSpanView.ascx"/>
+  </customproperty>
 </root>

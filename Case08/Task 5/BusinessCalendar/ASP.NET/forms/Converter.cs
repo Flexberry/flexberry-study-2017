@@ -9,7 +9,7 @@ namespace IIS.BusinessCalendar.forms
     /// <summary>
     /// Класс для приведения сущностей к сериализуемому виду
     /// </summary>
-    public static class JSONHelper
+    public static class Converter
     {
         public static List<TimeSpan> convertWorkTimeSpans(IEnumerable<WorkTimeSpan> wtsArray)
         {

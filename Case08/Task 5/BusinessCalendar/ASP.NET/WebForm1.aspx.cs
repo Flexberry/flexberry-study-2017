@@ -12,7 +12,22 @@ namespace IIS.BusinessCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            List<TimeSpan> tsl = new List<TimeSpan>();
+            tsl.Add(new TimeSpan()
+            {
+                StartTimeH = 8,
+                StartTimeM = 30,
+                EndTimeH = 12,
+                EndTimeM = 30
+            });
+            tsl.Add(new TimeSpan()
+            {
+                StartTimeH = 13,
+                StartTimeM = 30,
+                EndTimeH = 17,
+                EndTimeM = 30
+            });
+            TimeSpanView1.Value = tsl;
         }
     }
 }

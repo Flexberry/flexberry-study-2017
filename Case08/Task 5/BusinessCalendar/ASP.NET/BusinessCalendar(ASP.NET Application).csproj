@@ -335,7 +335,7 @@
       <DependentUpon>CalendarL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\WorkTimeDefinition\WorkTimeDefinitionL.aspx" />
-    <Compile Include="forms\JSONHelper.cs" />
+    <Compile Include="forms\Converter.cs" />
     <Compile Include="forms\WorkTimeDefinition\WorkTimeDefinitionL.aspx.cs">
       <DependentUpon>WorkTimeDefinitionL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -376,6 +376,7 @@
     <Content Include="shared\script\exception-day-edit.js" />
     <Content Include="shared\script\exception-day.js" />
     <Content Include="shared\script\jquery.min.js" />
+    <Content Include="shared\script\TSRealTimeLogic.js" />
     <Content Include="shared\script\validation.js" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
@@ -1027,6 +1028,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\ServiceConfig.cs" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Xml\Bindings\ExceptionDayE.xml" />
     <Content Include="Xml\ServiceSecurityProvider.xml" />
     <Content Include="Xml\ViewColumnProvider.xml" />
     <Content Include="Xml\ViewColumnProvider.xsd" />

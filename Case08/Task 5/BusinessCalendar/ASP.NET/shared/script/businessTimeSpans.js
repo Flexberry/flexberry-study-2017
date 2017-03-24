@@ -2,7 +2,8 @@
 
     var attr = {
         timeSpans: [],
-        idElemToStore:"",
+        elemToStore: {},
+        inputStatus:{},
         status : {
             Altered : 1,
             UnAltered : 0
@@ -24,22 +25,17 @@
             var tr = document.createElement("tr");
             tr.setAttribute("class", "colorStandart textMiddle");
             var th1 = document.createElement("th");
-            th1.setAttribute("class", "textMiddle timeCell borderStandart");
+            th1.setAttribute("class", "textMiddle timeCell border-standart");
             th1.innerText = "Время начала(чч:мм)";
             var th2 = document.createElement("th");
-            th2.setAttribute("class", "textMiddle timeCell borderStandart");
+            th2.setAttribute("class", "textMiddle timeCell border-standart");
             th2.innerText = "Время окончания(чч:мм)";
             var th3 = document.createElement("th");
-            th3.setAttribute("class", "smallCell borderStandart");
-            var btnAddRow = document.createElement("button");
-            btnAddRow.id = "btnAddTS";
-            btnAddRow.type = "button";
-            btnAddRow.setAttribute("class", "glyphiconStyle glyphicon-plus iconSmall background-center btnStandart btnSmall");
-            btnAddRow.onclick = function () {
+            th3.setAttribute("class", "textMiddle smallCell background-center btn-add border-standart font-big");
+            th3.innerText = "+";
+            th3.onclick = function () {
                 methods.addRow(container, "", "", "", "");
-                attr.currentStatus = attr.status.Altered;
             }
-            th3.appendChild(btnAddRow);
             var tbody = document.createElement("tbody");
 
             tr.appendChild(th1);
@@ -55,54 +51,114 @@
             container[0].appendChild(table);
         },
         /**
-         * Метод для преобразования строки JSON в объект
-         * @param {string} jsonArray
+         * Метод считывает временные промежутки со скрытого поля
          */
         readDataFromHidden: function () {
-            if (attr.idElemToStore !== "") {
-                var tsString = $('#' + attr.idElemToStore).val();
-                attr.timeSpans = JSON.parse(tsString);
+            if (attr.elemToStore !== {}) {
+                var tsString = attr.elemToStore.value;
+                if (tsString !== "") {
+                    attr.timeSpans = JSON.parse(tsString);
+                }
             }
         },
         /**
          * Метод добавляет одну строку в таблицу временных промежутков
-         * @param {number} upTimeH
-         * @param {number} upTimeM
-         * @param {number} endTimeH
-         * @param {number} endTimeM
+         * @param {number} upTimeH часы начала
+         * @param {number} upTimeM минуты начала
+         * @param {number} endTimeH часы окончания
+         * @param {number} endTimeM минуты окончания
          * @param {number} container
          */
         addRow: function (container,upTimeH, upTimeM, endTimeH, endTimeM) {
-            var table = document.getElementById('TimeSpansTable');
-            var i = table.rows.length;
-            var tempTr = ('<tr id="tr_' + i + '">\
-                                <td class="textMiddle timeCell borderGray">\
-                                    <input type="number" value=\"' + upTimeH + '\" name="upTimeH" id="startTime_' + i + '" class="textStandart inputSmall inputHour"/>\
-                                    <span style="vertical-align: sub; font-weight:bold;">:</span>\
-                                    <input type="number"  value=\"'+ upTimeM + '\" name="upTimeM" id="startTimeM_' + i + '" class="textStandart inputSmall inputMinutes"/>\
-                                </td>\
-                                <td class="textMiddle timeCell borderGray">\
-                                    <input name="endTimeH" type="number" value=\"' + endTimeH + '\"  id="endTime_' + i + '" class="textStandart inputSmall inputHour"/>\
-                                    <span style="vertical-align: sub; font-weight:bold;">:</span>\
-                                    <input name="endTimeM" type="number" value=\"' + endTimeM + '\" id="endTimeM_' + i + '"  class="textStandart inputSmall inputMinutes"/>\
-                                </td>\
-                                <td class="textMiddle smallCell borderGray">\
-                                    <button type="button" class="glyphiconStyle glyphicon-minus background-center btnStandart btnSmall delTS" id="workTimeSpan_' + i + '" tabindex="-1"></button>\
-                                </td>\
-                            </tr>');
-            $(container).find('tbody').append(tempTr);
-            $(container).find('tbody').find('input').keyup(function () {
+            var i = container[0].firstChild.rows.length;
+
+            var tr = document.createElement("tr");
+            tr.id = "tr_" + i;
+
+            var td1 = document.createElement("td");
+            td1.setAttribute("class", "textMiddle timeCell border-gray");
+
+            var txtUpTimeH = document.createElement("input");
+            txtUpTimeH.type = "number";
+            txtUpTimeH.value = upTimeH;
+            txtUpTimeH.name = "upTimeH";
+            txtUpTimeH.setAttribute("class", "textStandart inputSmall inputHour");
+            txtUpTimeH.id = "startTime_" + i;
+            txtUpTimeH.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
                 methods.storeData.apply(container);
-            });
-            $(container).find('tbody').find('button').on("click", function () {
-                $(this).closest('tr').remove();
+            }
+
+            var span = document.createElement("span");
+            span.setAttribute("class", "span-standart");
+            span.innerHTML = ":";
+
+            var txtUpTimeM = document.createElement("input");
+            txtUpTimeM.type = "number";
+            txtUpTimeM.value = upTimeM;
+            txtUpTimeM.name = "upTimeM";
+            txtUpTimeM.setAttribute("class", "textStandart inputSmall inputHour");
+            txtUpTimeM.id = "startTimeM_" + i;
+            txtUpTimeM.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
-            })
+                methods.storeData.apply(container);
+            }
+
+            td1.appendChild(txtUpTimeH);
+            td1.appendChild(span);
+            td1.appendChild(txtUpTimeM);
+
+            var td2 = document.createElement("td");
+
+            td2.setAttribute("class", "textMiddle timeCell border-gray");
+
+            var txtEndTimeH = document.createElement("input");
+            txtEndTimeH.type = "number";
+            txtEndTimeH.value = endTimeH;
+            txtEndTimeH.name = "endTimeH";
+            txtEndTimeH.setAttribute("class", "textStandart inputSmall inputHour");
+            txtEndTimeH.id = "startTime_" + i;
+            txtEndTimeH.onchange = function () {
+                attr.currentStatus = attr.status.Altered;
+                methods.storeData.apply(container);
+            }
+
+            var span1 = document.createElement("span");
+            span1.setAttribute("class", "span-standart");
+            span1.innerHTML = ":";
+
+            var txtEndTimeM = document.createElement("input");
+            txtEndTimeM.type = "number";
+            txtEndTimeM.value = endTimeM;
+            txtEndTimeM.name = "endTimeM";
+            txtEndTimeM.setAttribute("class", "textStandart inputSmall inputHour");
+            txtEndTimeM.id = "startTimeM_" + i;
+            txtEndTimeM.onchange = function () {
+                attr.currentStatus = attr.status.Altered;
+                methods.storeData.apply(container);
+            }
+
+            td2.appendChild(txtEndTimeH);
+            td2.appendChild(span1);
+            td2.appendChild(txtEndTimeM);
+
+            var td3 = document.createElement("td");
+            td3.setAttribute("class", " textMiddle background-center btn-standart font-big border-aqua");
+            td3.innerText = "-";
+            td3.onclick = function () {
+                $(td3).closest('tr').remove();
+                attr.currentStatus = attr.status.Altered;
+                methods.storeData.apply(container);
+            }
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            container[0].getElementsByTagName("tbody")[0].appendChild(tr);
         },
         /**
          * Метод для заполнения таблицы временных промежутков
-         * @param {DOM} container
          */
         fillTable: function () {
             var tsCount = attr.timeSpans.length;
@@ -116,56 +172,58 @@
          * @param {DOM} container 
          * @returns {Array} 
          */
-        getTimeSpans: function () {
+        readDataFromView: function () {
             var result = [];
             var tbody = this[0].getElementsByTagName("tbody")[0];
             var rowsCount = tbody.rows.length;
             for (var i = 0; i < rowsCount; i++) {
                 var row = tbody.rows[i];
-                result.push({
-                    StartTimeH: $(row).find('input[name=\"upTimeH\"]').val(),
-                    StartTimeM: $(row).find('input[name=\"upTimeM\"]').val(),
-                    EndTimeH: $(row).find('input[name=\"endTimeH\"]').val(),
-                    EndTimeM: $(row).find('input[name=\"endTimeM\"]').val()
-                })
+                var stH = $(row).find('input[name=\"upTimeH\"]').val();
+                var stM = $(row).find('input[name=\"upTimeM\"]').val();
+                var etH = $(row).find('input[name=\"endTimeH\"]').val();
+                var etM = $(row).find('input[name=\"endTimeM\"]').val();
+                if (!((stH === "") || (stM === "") || (etH === "") || (etM === ""))) {
+                    result.push({
+                        StartTimeH: stH,
+                        StartTimeM: stM,
+                        EndTimeH: etH,
+                        EndTimeM: etM
+                    })
+                }
             }
             return result;
         },
         /**
          * Метод для инициализации таблицы временных промежутков
-         * @param {string} jsonArray строка с массивом JSON
-         * @param {DOM} container таблица временных промежутков
+         * @param {DOM} elemToStore таблица временных промежутков
          */
-        init: function (idElemToStore) {
-            attr.idElemToStore(idElemToStore);
+        init: function (elemToStore,inputStatus) {
+            attr.elemToStore = elemToStore;
+            attr.inputStatus = inputStatus;
             methods.readDataFromHidden();
             methods.craateTable(this);
-            methods.fillTable(this);      
+            methods.fillTable.apply(this);
+            attr.currentStatus = attr.status.UnAltered;
         },
         /**
          * Функция возвращает текущее состояние объекта
-         * @returns {Number} 1 - изменён, 0 - не изменён
+         * @returns {Number} 2 - сохранён, 1 - изменён, 0 - не изменён
          */
         getStatus: function() {
             return attr.currentStatus;
         },
         /**
-         * Функция для установления идентификатора элемента, в значении которого будут храниться временные промежутки в сериализованном виде (JSON массиве)
-         * @param {String} elementId
-         */
-        setIdElemToStore: function (elementId) {
-            attr.idElemToStore = elementId;
-        },
-        /**
-         * Функция сохраняет 
+         * Функция сохраняет массив временных промежутков в скрытом поле
          */
         storeData: function() {
-            $('#' + attr.idElemToStore).val() = JSON.stringify(methods.getTimeSpans.apply(this));
+            $(attr.elemToStore).val(JSON.stringify(methods.readDataFromView.apply(this)));
+            $(attr.inputStatus).val(attr.currentStatus);
+            return;
         }
     }
     /**
      * Плагин для работы с временными промежутками
-     * @param {string} метод плагина
+     * @param {string} название вызываемого метода плагина
      */
     $.fn.TimeSpans = function (method) {
         if (method) {

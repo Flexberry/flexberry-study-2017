@@ -14,9 +14,10 @@ namespace IIS.BusinessCalendar
     using System.Xml;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
-    
-    // *** Start programmer edit section *** (Using statements)
 
+    // *** Start programmer edit section *** (Using statements)
+    using System.Collections.Generic;
+    using System.Linq;
     // *** End programmer edit section *** (Using statements)
 
 
@@ -312,6 +313,11 @@ namespace IIS.BusinessCalendar
             get
             {
                 // *** Start programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
+                if(fWorkTimeSpans == null)
+                {
+                    ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.WorkTimeDefinition, false, false);
+                    this.fWorkTimeSpans = Converter.convertWorkTimeSpans(this.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                }
                 return fWorkTimeSpans;
                 // *** End programmer edit section *** (ExceptionDay.WorkTimeSpans Get)
             }

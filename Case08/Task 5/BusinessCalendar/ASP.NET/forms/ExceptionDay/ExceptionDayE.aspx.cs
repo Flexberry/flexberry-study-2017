@@ -10,6 +10,7 @@ namespace IIS.BusinessCalendar
     using System.Web.UI.WebControls;
     using System.Web.Script.Serialization;
     using IIS.BusinessCalendar.forms;
+    using ICSSoft;
 
     public partial class ExceptionDayE : BaseEditForm<ExceptionDay>
     {
@@ -34,6 +35,7 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Preload()
         {
+            
         }
 
         /// <summary>
@@ -41,6 +43,15 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void PreApplyToControls()
         {
+            if (!Page.IsPostBack)
+            {
+                ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.DataObject.WorkTimeDefinition, false, false);
+                this.DataObject.WorkTimeSpans = Converter.convertWorkTimeSpans(this.DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+            } 
+            else
+            {
+                this.DataObject.WorkTimeSpans = ctrlWorkTimeSpans.Value;
+            }
         }
 
         /// <summary>
@@ -49,22 +60,7 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void PostApplyToControls()
         {
-            if (!Page.IsPostBack)
-            {
-                this.BindGrid();
-                
-            }
-            else
-            {
-                var jsArray = Request.Form.GetValues("wtsJsonArray")[0];
-                JavaScriptSerializer ser = new JavaScriptSerializer();
-                List<TimeSpan> wtsList = ser.Deserialize<List<TimeSpan>>(jsArray);
-                if (DataObject != null)
-                {
-                    DataObject.WorkTimeSpans = wtsList;
-                }
-            }
-            Page.Validate();
+
         }
 
         /// <summary>
@@ -72,9 +68,6 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
-            PageContentManager.AttachExternalFile("/CSS/businessTimeSpans.css");
-            PageContentManager.AttachExternalFile("/shared/script/businessTimeSpans.js");
-            PageContentManager.AttachExternalFile("/shared/script/exception-day-edit.js");
         }
 
         /// <summary>
@@ -83,6 +76,13 @@ namespace IIS.BusinessCalendar
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
+            if(DataObject.GetStatus() == ObjectStatus.UnAltered)
+            {
+                if(ctrlWorkTimeSpans.Status == ObjectStatus.Altered)
+                {
+                    DataObject.SetStatus(ObjectStatus.Altered);
+                }
+            }
             return base.PreSaveObject();
         }
 
@@ -97,18 +97,7 @@ namespace IIS.BusinessCalendar
 
         protected void BindGrid()
         {
-            if(DataObject != null)
-            {
-                if(DataObject.WorkTimeDefinition != null)
-                {
-                    ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, DataObject.WorkTimeDefinition, false, false);
-                    List<WorkTimeSpan> wts = DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>().ToList();
-                    var jsonSerializer = new JavaScriptSerializer();
-                    List<TimeSpan> wtsShort = JSONHelper.convertWorkTimeSpans(DataObject.WorkTimeDefinition.WorkTimeSpan.Cast<WorkTimeSpan>());
-                    var wtsJSON = jsonSerializer.Serialize(wtsShort);
-                    wtsLiteral.Text = string.Concat("<input type='hidden' name='wtsJsonArray' id='wtsJson' value='", wtsJSON.ToString(), "'/>");
-                }  
-            } 
+
         }
       
     }

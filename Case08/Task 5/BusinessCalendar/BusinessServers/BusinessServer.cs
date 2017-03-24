@@ -52,30 +52,33 @@ namespace IIS.BusinessCalendar
 
             if(UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
-                var ds = (SQLDataService)DataServiceProvider.DataService;
-
-                IQueryable<WorkTimeSpan> wtsQuery = ds.Query<WorkTimeSpan>();
-                IQueryable<WorkTimeSpan> query = wtsQuery.Where<WorkTimeSpan>(w => w.WorkTimeDefinition == UpdatedObject.WorkTimeDefinition);
-                List<DataObject> wtsList = query.Cast<DataObject>().ToList();
-                foreach (DataObject wts in wtsList)
+                if (wtss != null)
                 {
-                    wts.SetStatus(ObjectStatus.Deleted);
-                }
-                var dataObjects = wtsList.ToArray();
-                ds.UpdateObjects(ref dataObjects);
+                    var ds = (SQLDataService)DataServiceProvider.DataService;
 
-                wtsList.Clear();
+                    IQueryable<WorkTimeSpan> wtsQuery = ds.Query<WorkTimeSpan>();
+                    IQueryable<WorkTimeSpan> query = wtsQuery.Where<WorkTimeSpan>(w => w.WorkTimeDefinition == UpdatedObject.WorkTimeDefinition);
+                    List<DataObject> wtsList = query.Cast<DataObject>().ToList();
+                    foreach (DataObject wts in wtsList)
+                    {
+                        wts.SetStatus(ObjectStatus.Deleted);
+                    }
+                    var dataObjects = wtsList.ToArray();
+                    ds.UpdateObjects(ref dataObjects);
 
-                foreach (TimeSpan ts in wtss)
-                {
-                    WorkTimeSpan wts = new WorkTimeSpan();
-                    wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM);
-                    wts.EndTime = (decimal)(ts.EndTimeH + ts.EndTimeM);
-                    wts.WorkTimeDefinition = UpdatedObject.WorkTimeDefinition;
-                    wtsList.Add(wts);
-                }
-                dataObjects = wtsList.ToArray();
-                ds.UpdateObjects(ref dataObjects);
+                    wtsList.Clear();
+
+                    foreach (TimeSpan ts in wtss)
+                    {
+                        WorkTimeSpan wts = new WorkTimeSpan();
+                        wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM);
+                        wts.EndTime = (decimal)(ts.EndTimeH + ts.EndTimeM);
+                        wts.WorkTimeDefinition = UpdatedObject.WorkTimeDefinition;
+                        wtsList.Add(wts);
+                    }
+                    dataObjects = wtsList.ToArray();
+                    ds.UpdateObjects(ref dataObjects);
+                }         
             }
             
 
