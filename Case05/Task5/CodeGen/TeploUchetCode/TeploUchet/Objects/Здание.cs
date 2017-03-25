@@ -33,14 +33,16 @@ namespace TeploCorp.TeploUchet
     [View("AuditView", new string[] {
             "Адрес as \'Адрес\'",
             "Район as \'Район\'",
-            "Район.Название as \'Название\'"})]
+            "Район.Название as \'Район\'"})]
     [View("ЗданиеE", new string[] {
             "Адрес as \'Адрес\'",
             "Район as \'Район\'",
-            "Район.Название as \'Название\'"})]
+            "Район.Название as \'Район\'"})]
     [View("ЗданиеL", new string[] {
             "Адрес as \'Адрес\'",
-            "Район.Название as \'Название\'"})]
+            "Район.Название as \'Район\'"
+    }, Hidden=new string[] {
+            })]
     public class Здание : ICSSoft.STORMNET.DataObject, IDataObjectWithAuditFields
     {
         

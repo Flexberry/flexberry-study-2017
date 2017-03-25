@@ -54,7 +54,10 @@ namespace TeploCorp.TeploUchet
             "Контрагент as \'Контрагент\'",
             "ДатаРегистрации as \'Дата регистрации\'",
             "ЛицСчет as \'Лиц счет\'",
-            "КодОбъекта as \'Код объекта\'"})]
+            "КодОбъекта as \'Код объекта\'",
+            "Здание.Район.*"
+        }, Hidden=new string[] {
+            "Здание.Район.*"})]
     public class Объект : ICSSoft.STORMNET.DataObject, IDataObjectWithAuditFields
     {
         

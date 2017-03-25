@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0605E5B0-284F-44E1-9B9A-6780F2F5366D}</ProjectGuid>
+    <ProjectGuid>{6F1CAC24-DF94-4C5A-A0A3-A738F891519F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -42,7 +42,7 @@
       <HintPath>System.EnterpriseServices.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\BusinessServers\TeploUchet(BusinessServers).csproj">
-      <Project>{239727ab-631a-4990-81ab-dc3bc6c0422c}</Project>
+      <Project>{72389617-14d3-4d2b-81a3-0a667192e1b4}</Project>
       <Name>TeploUchet(BusinessServers)</Name>
     </ProjectReference>
     <Reference Include="log4net">

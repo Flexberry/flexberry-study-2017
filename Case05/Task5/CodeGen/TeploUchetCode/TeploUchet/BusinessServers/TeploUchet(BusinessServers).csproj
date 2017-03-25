@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{239727AB-631A-4990-81AB-DC3BC6C0422C}</ProjectGuid>
+    <ProjectGuid>{72389617-14D3-4D2B-81A3-0A667192E1B4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -39,7 +39,7 @@
       <HintPath>System.XML.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\Objects\TeploUchet(Objects).csproj">
-      <Project>{a316cc0e-3221-445f-a8b6-d1915e4d264a}</Project>
+      <Project>{5fd13916-dd0a-47fe-8502-3be099b6643f}</Project>
       <Name>TeploUchet(Objects)</Name>
     </ProjectReference>
     <Reference Include="log4net">

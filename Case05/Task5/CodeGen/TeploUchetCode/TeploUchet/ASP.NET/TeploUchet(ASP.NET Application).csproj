@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5FC43D31-A237-4C88-B67D-2BBED1A305E5}</ProjectGuid>
+    <ProjectGuid>{9B00667F-EDDC-4220-9F74-F08735CA0BF6}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -84,15 +84,15 @@
       <HintPath>System.Workflow.Runtime</HintPath>
     </Reference>
     <ProjectReference Include="..\Objects\TeploUchet(Objects).csproj">
-      <Project>{a316cc0e-3221-445f-a8b6-d1915e4d264a}</Project>
+      <Project>{5fd13916-dd0a-47fe-8502-3be099b6643f}</Project>
       <Name>TeploUchet(Objects)</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessServers\TeploUchet(BusinessServers).csproj">
-      <Project>{239727ab-631a-4990-81ab-dc3bc6c0422c}</Project>
+      <Project>{72389617-14d3-4d2b-81a3-0a667192e1b4}</Project>
       <Name>TeploUchet(BusinessServers)</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessServersBF\TeploUchet(BusinessServersBF).csproj">
-      <Project>{0605e5b0-284f-44e1-9b9a-6780f2f5366d}</Project>
+      <Project>{6f1cac24-df94-4c5a-a0a3-a738f891519f}</Project>
       <Name>TeploUchet(BusinessServersBF)</Name>
     </ProjectReference>
     <Reference Include="AntiXssLibrary">
@@ -319,45 +319,13 @@
     <Compile Include="forms\Inspektor\InspektorE.aspx.designer.cs">
       <DependentUpon>InspektorE.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Zdanie\ZdanieE.aspx" />
-    <Compile Include="forms\Zdanie\ZdanieE.aspx.cs">
-      <DependentUpon>ZdanieE.aspx</DependentUpon>
+    <Content Include="forms\Rajon\RajonL.aspx" />
+    <Compile Include="forms\Rajon\RajonL.aspx.cs">
+      <DependentUpon>RajonL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Zdanie\ZdanieE.aspx.designer.cs">
-      <DependentUpon>ZdanieE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\UchastokSeti\UchastokSetiE.aspx" />
-    <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.cs">
-      <DependentUpon>UchastokSetiE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.designer.cs">
-      <DependentUpon>UchastokSetiE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Inspektor\InspektorL.aspx" />
-    <Compile Include="forms\Inspektor\InspektorL.aspx.cs">
-      <DependentUpon>InspektorL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Inspektor\InspektorL.aspx.designer.cs">
-      <DependentUpon>InspektorL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\UchastokSeti\UchastokSetiL.aspx" />
-    <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.cs">
-      <DependentUpon>UchastokSetiL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.designer.cs">
-      <DependentUpon>UchastokSetiL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Ob'ekt\Ob'ektE.aspx" />
-    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.cs">
-      <DependentUpon>Ob'ektE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.designer.cs">
-      <DependentUpon>Ob'ektE.aspx</DependentUpon>
+    <Compile Include="forms\Rajon\RajonL.aspx.designer.cs">
+      <DependentUpon>RajonL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\Zdanie\ZdanieL.aspx" />
     <Compile Include="forms\Zdanie\ZdanieL.aspx.cs">
@@ -367,15 +335,30 @@
     <Compile Include="forms\Zdanie\ZdanieL.aspx.designer.cs">
       <DependentUpon>ZdanieL.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Rajon\RajonE.aspx" />
-    <Compile Include="forms\Rajon\RajonE.aspx.cs">
-      <DependentUpon>RajonE.aspx</DependentUpon>
+    <Content Include="forms\Inspektor\InspektorL.aspx" />
+    <Compile Include="forms\Inspektor\InspektorL.aspx.cs">
+      <DependentUpon>InspektorL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Rajon\RajonE.aspx.designer.cs">
-      <DependentUpon>RajonE.aspx</DependentUpon>
+    <Compile Include="forms\Inspektor\InspektorL.aspx.designer.cs">
+      <DependentUpon>InspektorL.aspx</DependentUpon>
     </Compile>
-    <Content Include="Web.sitemap" />
+    <Content Include="forms\Ob'ekt\Ob'ektE.aspx" />
+    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.cs">
+      <DependentUpon>Ob'ektE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Ob'ekt\Ob'ektE.aspx.designer.cs">
+      <DependentUpon>Ob'ektE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\UchastokSeti\UchastokSetiL.aspx" />
+    <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.cs">
+      <DependentUpon>UchastokSetiL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\UchastokSeti\UchastokSetiL.aspx.designer.cs">
+      <DependentUpon>UchastokSetiL.aspx</DependentUpon>
+    </Compile>
     <Content Include="forms\Ob'ekt\Ob'ektL.aspx" />
     <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.cs">
       <DependentUpon>Ob'ektL.aspx</DependentUpon>
@@ -384,13 +367,30 @@
     <Compile Include="forms\Ob'ekt\Ob'ektL.aspx.designer.cs">
       <DependentUpon>Ob'ektL.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Rajon\RajonL.aspx" />
-    <Compile Include="forms\Rajon\RajonL.aspx.cs">
-      <DependentUpon>RajonL.aspx</DependentUpon>
+    <Content Include="forms\UchastokSeti\UchastokSetiE.aspx" />
+    <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.cs">
+      <DependentUpon>UchastokSetiE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Rajon\RajonL.aspx.designer.cs">
-      <DependentUpon>RajonL.aspx</DependentUpon>
+    <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.designer.cs">
+      <DependentUpon>UchastokSetiE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Web.sitemap" />
+    <Content Include="forms\Zdanie\ZdanieE.aspx" />
+    <Compile Include="forms\Zdanie\ZdanieE.aspx.cs">
+      <DependentUpon>ZdanieE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Zdanie\ZdanieE.aspx.designer.cs">
+      <DependentUpon>ZdanieE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Rajon\RajonE.aspx" />
+    <Compile Include="forms\Rajon\RajonE.aspx.cs">
+      <DependentUpon>RajonE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Rajon\RajonE.aspx.designer.cs">
+      <DependentUpon>RajonE.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />

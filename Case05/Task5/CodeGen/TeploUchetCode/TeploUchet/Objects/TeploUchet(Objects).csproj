@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A316CC0E-3221-445F-A8B6-D1915E4D264A}</ProjectGuid>
+    <ProjectGuid>{5FD13916-DD0A-47FE-8502-3BE099B6643F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeploCorp.TeploUchet</RootNamespace>
@@ -134,13 +134,13 @@
     <Compile Include="ЗначенияМонтажа.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Район.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Объект.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="УчастокСети.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Район.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Персона.cs">

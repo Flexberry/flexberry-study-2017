@@ -5,6 +5,13 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET.Web.Controls;
 
     using Resources;
+    using System.Web;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET;
 
     public partial class РайонL : BaseListForm<Район>
     {
@@ -30,6 +37,20 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            string strUser = HttpContext.Current.User.Identity.Name;
+            var _dataService = (SQLDataService)DataServiceProvider.DataService;
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторE).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            if (_Inspector != null)
+            {
+                SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+                string strDistrictName = _Inspector.Район.Название; //название района инспектора
+
+                Function lf = langdef.GetFunction(langdef.funcEQ,
+                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Район>(x => x.Название)),
+                        strDistrictName);
+                WebObjectListView1.LimitFunction = lf;
+            };
         }
 
         /// <summary>
