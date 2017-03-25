@@ -1,0 +1,29 @@
+﻿/* Файл визуального оформления блока с ограничениями. */
+
+.@{wolvLimitEditBlockClass} {
+    background: @wolvLimitEditBlockBackgroundColor;
+    color: @wolvLimitEditBlockTextColor;
+
+    .@{wolvLimitEditRowClass} .@{wolvLimitEditTextClass} {
+        padding: 0;
+        width: auto;
+    }
+
+    .@{wolvLimitEditBtnClass} input[type=submit] {
+        &:hover {
+            background: @wolvLimitEditBtnHoveredBackgroundColor;
+            text-decoration: none;
+            filter: none;
+            color: @wolvLimitEditBtnHoveredTextColor;
+        }
+
+        &:active,
+        &:focus {
+            background-color: @wolvLimitEditActiveFocusedBackgroundColor;
+            -webkit-box-shadow: inset 1px 1px 1px @wolvLimitEditActiveFocusedBoxShadowColor;
+            box-shadow: inset 1px 1px 1px @wolvLimitEditActiveFocusedBoxShadowColor;
+        }
+    }
+}
+
+@import (reference) "_Settings.less";
