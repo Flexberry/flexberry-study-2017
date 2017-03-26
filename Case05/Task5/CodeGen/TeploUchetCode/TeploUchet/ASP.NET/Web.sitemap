@@ -9,7 +9,7 @@
       <siteMapNode title="Лог" url="~/flexberry/LogList" />
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
-    <siteMapNode title="TeploUchet" roles="*" xmlns="">
+    <siteMapNode title="Электронный учет" roles="*" xmlns="">
       <siteMapNode title="Участок сети" description="" url="~/forms/UchastokSeti/UchastokSetiL.aspx" />
       <siteMapNode title="Объект" description="" url="~/forms/Ob'ekt/Ob'ektL.aspx" />
       <siteMapNode title="Здание" description="" url="~/forms/Zdanie/ZdanieL.aspx" />

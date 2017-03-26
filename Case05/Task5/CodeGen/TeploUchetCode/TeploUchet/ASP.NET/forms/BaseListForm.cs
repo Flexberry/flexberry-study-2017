@@ -2,7 +2,6 @@
 // Этот класс не технологический, его можно менять в соответствии с
 // потребностями проекта
 //------------------------------------------------------------------------------
-
 using ICSSoft.STORMNET.Business;
 using ICSSoft.STORMNET.Business.LINQProvider;
 using ICSSoft.STORMNET.FunctionalLanguage;

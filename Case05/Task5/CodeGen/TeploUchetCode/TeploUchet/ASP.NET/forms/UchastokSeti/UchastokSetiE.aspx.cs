@@ -36,6 +36,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PreApplyToControls()
         {
+            //ctrlОбъект.PropertyToShow = Information.ExtractPropertyPath<Здание>(x => x.Адрес);
         }
 
         /// <summary>
@@ -44,6 +45,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PostApplyToControls()
         {
+            ctrlОбъект.PropertyToShow = Information.ExtractPropertyPath<Объект>(x => x.Наименование);
             Page.Validate();
         }
 

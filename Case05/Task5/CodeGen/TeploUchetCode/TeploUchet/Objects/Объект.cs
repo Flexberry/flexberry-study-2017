@@ -46,8 +46,7 @@ namespace TeploCorp.TeploUchet
             "ДатаРегистрации as \'Дата регистрации\'",
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
-            "Здание as \'Здание\'",
-            "Здание.Адрес as \'Адрес\'"})]
+            "Здание as \'Здание\'"})]
     [View("ОбъектL", new string[] {
             "Наименование as \'Наименование\'",
             "Здание.Адрес as \'Адрес\'",
@@ -56,7 +55,7 @@ namespace TeploCorp.TeploUchet
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
             "Здание.Район.*"
-        }, Hidden=new string[] {
+            }, Hidden=new string[] {
             "Здание.Район.*"})]
     public class Объект : ICSSoft.STORMNET.DataObject, IDataObjectWithAuditFields
     {

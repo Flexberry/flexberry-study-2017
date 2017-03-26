@@ -44,6 +44,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PostApplyToControls()
         {
+            ctrlЗдание.PropertyToShow = Information.ExtractPropertyPath<Здание>(x => x.Адрес);
             Page.Validate();
         }
 

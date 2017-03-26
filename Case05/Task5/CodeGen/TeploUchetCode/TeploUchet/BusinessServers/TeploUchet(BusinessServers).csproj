@@ -123,6 +123,12 @@
     <Reference Include="ICSSoft.STORMNET.UserDataTypes">
       <HintPath>..\packages\NewPlatform.Flexberry.ORM.3.0.0-alpha03\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
     </Reference>
+    <Reference Include="Task1.Objects1">
+      <HintPath>..\..\..\..\..\Task6\CodeGen\TeploUchetCode\TeploUchet\dotNet\Task1.Objects1.dll</HintPath>
+    </Reference>
+    <Reference Include="Task1p1">
+      <HintPath>..\..\..\..\..\Task6\CodeGen\TeploUchetCode\TeploUchet\dotNet\Task1p1.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ГенерацияКода.cs">

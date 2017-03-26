@@ -36,45 +36,39 @@ ErrorMessage="Не указано: Номер" EnableClientScript="true" Validat
 ErrorMessage="Не указано: Теплоизоляция" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlТипМонтажаLabel" runat="server" Text="Тип монтажа" EnableViewState="False">
-</asp:Label>
-<asp:DropDownList ID="ctrlТипМонтажа" CssClass="descTxt" runat="server">
-	<asp:ListItem>Надземный</asp:ListItem>
-<asp:ListItem>Подземный</asp:ListItem>
-<asp:ListItem>ПоПодвалу</asp:ListItem>
+    <div class="clearfix">
+        <asp:Label CssClass="descLbl" ID="ctrlТипМонтажаLabel" runat="server" Text="Тип монтажа" EnableViewState="False">
+        </asp:Label>
+        <asp:DropDownList ID="ctrlТипМонтажа" CssClass="descTxt" runat="server">
+            <asp:ListItem>Надземный</asp:ListItem>
+            <asp:ListItem>Подземный</asp:ListItem>
+            <asp:ListItem>ПоПодвалу</asp:ListItem>
 
-</asp:DropDownList>
-<asp:RequiredFieldValidator ID="ctrlТипМонтажаValidator" runat="server" ControlToValidate="ctrlТипМонтажа"
-ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="ctrlТипМонтажаValidator" runat="server" ControlToValidate="ctrlТипМонтажа"
+            ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Год прокладки" EnableViewState="False">
-</asp:Label>
-<div class="descTxt">
-    <ac:DatePicker ID="ctrlГодПрокладки" runat="server"/>
-</div>
-<asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
-ErrorMessage="Не указано: ГодПрокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+    </div>
 
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
-</asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
+    <div class="clearfix">
+        <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Год прокладки" EnableViewState="False">
+        </asp:Label>
+        <div class="descTxt">
+            <ac:DatePicker ID="ctrlГодПрокладки" runat="server" />
+        </div>
+        <asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
+            ErrorMessage="Не указано: ГодПрокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlОбъект_НаименованиеLabel" runat="server" Text="Наименование" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlОбъект_Наименование" runat="server" ReadOnly="true">
-</asp:TextBox>
+    </div>
 
-<asp:RequiredFieldValidator ID="ctrlОбъект_НаименованиеValidator" runat="server" ControlToValidate="ctrlОбъект_Наименование"
-ErrorMessage="Не указано: Объект.Наименование" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+    <div class="clearfix">
+        <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
+        </asp:Label>
+        <ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
-</div>
+        <asp:RequiredFieldValidator ID="ctrlОбъектValidator" runat="server" ControlToValidate="ctrlОбъект"
+            ErrorMessage="Не указан: Объект" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+    </div>
 <br/>
 
 </div>

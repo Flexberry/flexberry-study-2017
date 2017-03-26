@@ -3,6 +3,7 @@ namespace TeploCorp.TeploUchet
 {
     using System;
     using ICSSoft.STORMNET.Web.Controls;
+    using ICSSoft.STORMNET.Web.AjaxControls;
 
     using Resources;
     using System.Web;
