@@ -13,6 +13,8 @@ namespace NewPlatform.RecordBookBL
     using System;
     using System.Xml;
     using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business.Audit;
+    using ICSSoft.STORMNET.Business.Audit.Objects;
     
     
     // *** Start programmer edit section *** (Using statements)
@@ -29,7 +31,17 @@ namespace NewPlatform.RecordBookBL
     [AutoAltered()]
     [ICSSoft.STORMNET.NotStored(false)]
     [Caption("Сотрудник кафедры")]
-    [AccessType(ICSSoft.STORMNET.AccessType.none)]
+    [AccessType(ICSSoft.STORMNET.AccessType.@this)]
+    [View("AuditView", new string[] {
+            "Должность as \'Должность\'",
+            "Фамилия as \'Фамилия\'",
+            "Имя as \'Имя\'",
+            "Отчество as \'Отчество\'",
+            "ДатаРождения as \'Дата рождения\'",
+            "Логин as \'Логин\'",
+            "ФИО as \'ФИО\'",
+            "ЗавКаф as \'Зав каф\'",
+            "ЗавКаф.Должность as \'Должность\'"})]
     [View("СотрудникКафедрыE", new string[] {
             "Должность as \'Должность\'",
             "Фамилия as \'Фамилия\'",
@@ -50,10 +62,18 @@ namespace NewPlatform.RecordBookBL
             "ФИО as \'ФИО\'",
             "ЗавКаф as \'Должность\'"}, Hidden=new string[] {
             "ЗавКаф"})]
-    public class СотрудникКафедры : NewPlatform.RecordBookBL.Личность
+    public class СотрудникКафедры : NewPlatform.RecordBookBL.Личность, IDataObjectWithAuditFields
     {
         
         private string fДолжность;
+        
+        private System.Nullable<System.DateTime> fCreateTime;
+        
+        private string fCreator;
+        
+        private System.Nullable<System.DateTime> fEditTime;
+        
+        private string fEditor;
         
         private NewPlatform.RecordBookBL.СотрудникКафедры fЗавКаф;
         
@@ -91,6 +111,132 @@ namespace NewPlatform.RecordBookBL
                 // *** Start programmer edit section *** (СотрудникКафедры.Должность Set end)
 
                 // *** End programmer edit section *** (СотрудникКафедры.Должность Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Время создания объекта.
+        /// </summary>
+        // *** Start programmer edit section *** (СотрудникКафедры.CreateTime CustomAttributes)
+
+        // *** End programmer edit section *** (СотрудникКафедры.CreateTime CustomAttributes)
+        public virtual System.Nullable<System.DateTime> CreateTime
+        {
+            get
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.CreateTime Get start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.CreateTime Get start)
+                System.Nullable<System.DateTime> result = this.fCreateTime;
+                // *** Start programmer edit section *** (СотрудникКафедры.CreateTime Get end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.CreateTime Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.CreateTime Set start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.CreateTime Set start)
+                this.fCreateTime = value;
+                // *** Start programmer edit section *** (СотрудникКафедры.CreateTime Set end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.CreateTime Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Создатель объекта.
+        /// </summary>
+        // *** Start programmer edit section *** (СотрудникКафедры.Creator CustomAttributes)
+
+        // *** End programmer edit section *** (СотрудникКафедры.Creator CustomAttributes)
+        [StrLen(255)]
+        public virtual string Creator
+        {
+            get
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.Creator Get start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Creator Get start)
+                string result = this.fCreator;
+                // *** Start programmer edit section *** (СотрудникКафедры.Creator Get end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Creator Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.Creator Set start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Creator Set start)
+                this.fCreator = value;
+                // *** Start programmer edit section *** (СотрудникКафедры.Creator Set end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Creator Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Время последнего редактирования объекта.
+        /// </summary>
+        // *** Start programmer edit section *** (СотрудникКафедры.EditTime CustomAttributes)
+
+        // *** End programmer edit section *** (СотрудникКафедры.EditTime CustomAttributes)
+        public virtual System.Nullable<System.DateTime> EditTime
+        {
+            get
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.EditTime Get start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.EditTime Get start)
+                System.Nullable<System.DateTime> result = this.fEditTime;
+                // *** Start programmer edit section *** (СотрудникКафедры.EditTime Get end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.EditTime Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.EditTime Set start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.EditTime Set start)
+                this.fEditTime = value;
+                // *** Start programmer edit section *** (СотрудникКафедры.EditTime Set end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.EditTime Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Последний редактор объекта.
+        /// </summary>
+        // *** Start programmer edit section *** (СотрудникКафедры.Editor CustomAttributes)
+
+        // *** End programmer edit section *** (СотрудникКафедры.Editor CustomAttributes)
+        [StrLen(255)]
+        public virtual string Editor
+        {
+            get
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.Editor Get start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Editor Get start)
+                string result = this.fEditor;
+                // *** Start programmer edit section *** (СотрудникКафедры.Editor Get end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Editor Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (СотрудникКафедры.Editor Set start)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Editor Set start)
+                this.fEditor = value;
+                // *** Start programmer edit section *** (СотрудникКафедры.Editor Set end)
+
+                // *** End programmer edit section *** (СотрудникКафедры.Editor Set end)
             }
         }
         
@@ -134,6 +280,17 @@ namespace NewPlatform.RecordBookBL
         {
             
             /// <summary>
+            /// "AuditView" view.
+            /// </summary>
+            public static ICSSoft.STORMNET.View AuditView
+            {
+                get
+                {
+                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(NewPlatform.RecordBookBL.СотрудникКафедры));
+                }
+            }
+            
+            /// <summary>
             /// "СотрудникКафедрыE" view.
             /// </summary>
             public static ICSSoft.STORMNET.View СотрудникКафедрыE
@@ -154,6 +311,98 @@ namespace NewPlatform.RecordBookBL
                     return ICSSoft.STORMNET.Information.GetView("СотрудникКафедрыL", typeof(NewPlatform.RecordBookBL.СотрудникКафедры));
                 }
             }
+        }
+        
+        /// <summary>
+        /// Audit class settings.
+        /// </summary>
+        public class AuditSettings
+        {
+            
+            /// <summary>
+            /// Включён ли аудит для класса.
+            /// </summary>
+            public static bool AuditEnabled = true;
+            
+            /// <summary>
+            /// Использовать имя представления для аудита по умолчанию.
+            /// </summary>
+            public static bool UseDefaultView = false;
+            
+            /// <summary>
+            /// Включён ли аудит операции чтения.
+            /// </summary>
+            public static bool SelectAudit = false;
+            
+            /// <summary>
+            /// Имя представления для аудирования операции чтения.
+            /// </summary>
+            public static string SelectAuditViewName = "AuditView";
+            
+            /// <summary>
+            /// Включён ли аудит операции создания.
+            /// </summary>
+            public static bool InsertAudit = true;
+            
+            /// <summary>
+            /// Имя представления для аудирования операции создания.
+            /// </summary>
+            public static string InsertAuditViewName = "AuditView";
+            
+            /// <summary>
+            /// Включён ли аудит операции изменения.
+            /// </summary>
+            public static bool UpdateAudit = false;
+            
+            /// <summary>
+            /// Имя представления для аудирования операции изменения.
+            /// </summary>
+            public static string UpdateAuditViewName = "AuditView";
+            
+            /// <summary>
+            /// Включён ли аудит операции удаления.
+            /// </summary>
+            public static bool DeleteAudit = true;
+            
+            /// <summary>
+            /// Имя представления для аудирования операции удаления.
+            /// </summary>
+            public static string DeleteAuditViewName = "AuditView";
+            
+            /// <summary>
+            /// Путь к форме просмотра результатов аудита.
+            /// </summary>
+            public static string FormUrl = "";
+            
+            /// <summary>
+            /// Режим записи данных аудита (синхронный или асинхронный).
+            /// </summary>
+            public static ICSSoft.STORMNET.Business.Audit.Objects.tWriteMode WriteMode = ICSSoft.STORMNET.Business.Audit.Objects.tWriteMode.Synchronous;
+            
+            /// <summary>
+            /// Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            /// </summary>
+            public static int PrunningLength = 0;
+            
+            /// <summary>
+            /// Показывать ли пользователям в изменениях первичные ключи.
+            /// </summary>
+            public static bool ShowPrimaryKey = false;
+            
+            /// <summary>
+            /// Сохранять ли старое значение.
+            /// </summary>
+            public static bool KeepOldValue = true;
+            
+            /// <summary>
+            /// Сжимать ли сохраняемые значения.
+            /// </summary>
+            public static bool Compress = false;
+            
+            /// <summary>
+            /// Сохранять ли все значения атрибутов, а не только изменяемые.
+            /// </summary>
+            public static bool KeepAllValues = false;
         }
     }
 }

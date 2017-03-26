@@ -8,6 +8,10 @@
       <siteMapNode title="Классы" url="~/flexberry/SecurityClassesList" />
       <siteMapNode title="Лог" url="~/flexberry/LogList" />
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
+      <siteMapNode title="Сущности аудита" url="~/flexberry/AuditEntitiesList" />
+      <siteMapNode title="Данные аудита" url="~/flexberry/AuditEntityByObjectsList" />
+      <siteMapNode title="Блокировки" url="~/flexberry/LocksList" />
+      <siteMapNode title="Кэш" url="~/flexberry/Cache" />
     </siteMapNode>
     <siteMapNode title="RecordBook" roles="*" xmlns="">
       <siteMapNode title="Сотрудник кафедры" description="" url="~/forms/SotrudnikKafedry/SotrudnikKafedryL.aspx" />

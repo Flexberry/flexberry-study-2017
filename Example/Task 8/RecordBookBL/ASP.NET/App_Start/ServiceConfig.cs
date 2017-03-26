@@ -1,12 +1,11 @@
 ﻿namespace ICSSoft.STORMNET.Web
 {
     using ICSSoft.Services;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.Audit;
     using ICSSoft.STORMNET.Web.AjaxControls;
     using ICSSoft.STORMNET.Web.Tools;
-
     using Microsoft.Practices.Unity;
-
     using NewPlatform.Flexberry.Services;
     using NewPlatform.Flexberry.Web.Themeable;
 
@@ -23,7 +22,7 @@
             IUnityContainer container = UnityFactory.CreateContainer();
             
             // Сервис аудита.
-            // AuditSetter.InitAuditService(BridgeToDS.GetDataService());
+            AuditSetter.InitAuditService(DataServiceProvider.DataService);
 
             // Сервис тем оформления.
             ThemeService.Current = container.Resolve<IThemeService>();
