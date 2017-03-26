@@ -1,0 +1,38 @@
+﻿// Файл визуального оформления блока с ограничениями.
+
+.@{wolvLimitEditBlockClass} {
+    border: 1px solid @wolvLimitEditBlockBorderColor;
+
+    .@{wolvLimitEditRowClass} .@{wolvLimitEditTextClass} {
+        float: none;
+    }
+
+    .@{wolvLimitEditBtnClass} input[type=submit] {
+        padding: 6px;
+        border: 1px solid @wolvLimitEditBtnBorderColor;
+        .border-radius(4px);
+        .background-image(#fff,#cecece);
+        -moz-box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        -webkit-box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        color: #333;
+        text-decoration: none;
+        -webkit-text-shadow: 0 1px 1px @wolvLimitEditBtnTextShadowColor;
+        text-shadow: 0 1px 1px @wolvLimitEditBtnTextShadowColor;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+            .background(#fff,#e6e6e6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+        }
+
+        &:active,
+        &:focus {
+            color: #000;
+            box-shadow: inset 0 0 1px 1px #00bfff;
+        }
+    }
+}
+
+@import (reference) "_Settings.less";

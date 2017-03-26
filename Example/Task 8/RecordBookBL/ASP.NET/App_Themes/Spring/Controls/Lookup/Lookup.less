@@ -1,0 +1,105 @@
+﻿@import '../../../BaseTheme/Controls/Lookup/Lookup.less';
+
+/**
+ * Файл визуального оформления контрола Lookup.
+ * Тема Spring.
+ */
+
+
+.@{lookupMainClass} {
+    /**
+     * Скругленные углы у крайней кнопки.
+     */
+    > .@{lookupBtnClass}:first-child {
+        margin-left: 0;
+        .border-radius-right(7px);
+    }
+    /**
+     * Кнопки лукапа.
+     */
+    .@{lookupBtnClass} {
+        position: initial;
+        border: 1px solid @buttonBorderColor;
+        .border-radius(0);
+        .background-image(#fff, #cecece);
+        -moz-box-shadow: inset 0 0 1px 1px @lookupBtnShadowColor;
+        -webkit-box-shadow: inset 0 0 1px 1px @lookupBtnShadowColor;
+        box-shadow: inset 0 0 1px 1px @lookupBtnShadowColor;
+        filter: none;
+
+        &:hover {
+            background: @lookupHoveredBackgroundColor;
+            text-decoration: none;
+        }
+
+        &:focus {
+            border: 1px solid @lookupFocusedBorderColor;
+            background: @lookupFocusedBackgroundColor;
+        }
+
+        &:active {
+            .background-image(#cecece, #fff);
+            -webkit-box-shadow: inset 1px 1px 1px @lookupBtnActiveShadowColor;
+            box-shadow: inset 1px 1px 1px @lookupBtnActiveShadowColor;
+        }
+    }
+    // Кнопка загрузки.
+    .@{lookupLoadingBtnClass} {
+        border-left: none;
+        border-right: none;
+        border-color: #ccc;
+        background: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+/**
+ * Лукап в модальном окне.
+ */
+.@{lookupFormClass} > body .@{lookupFormWolvContentClass} {
+    margin: 8px;
+    height: auto;
+}
+
+.@{lookupFormClass} > body .@{lookupFormWolvPagerBottom} {
+    display: block;
+    padding-left: 8px;
+    padding-right: 0;
+}
+
+/**
+ * Связанный лукап.
+ */
+
+.@{linkedlookupClass} {
+    .@{lookupMainClass} .@{lookupBtnClass} {
+        margin-left: -1px;
+    } 
+}
+
+/**
+ * Связанный лукап в АГЕ. 
+ */
+.@{wgeTableClass} {
+    .@{linkedlookupClass} .@{lookupClass} {
+        .border-radius-right(7px);
+    } 
+}
+
+/**
+ * Лукап в АГЕ.
+ */
+.@{wgeTableClass} {
+    .@{lookupClass} input {
+        padding-left: 0;
+        border-right-color: transparent;
+        .border-radius-right(0);
+    }
+
+    // Кнопка загрузки.
+    .@{lookupLoadingBtnClass} {
+        background: #fff;
+    }
+}
+@import '_Settings.less';

@@ -1,0 +1,76 @@
+﻿/**
+ * Файл визуального оформления основного тулбара.
+ */
+
+
+.@{wolvToolbarClass},
+.@{wolvPagerBottomClass} {
+    overflow: hidden;
+}
+
+.@{wolvToolbarClass} {
+    margin-top: 0;
+}
+
+/* Группа кнопок тулбара */
+.@{wolvToolbarGroupClass},
+.@{wolvToolbarDynamiContainerClass} {
+    position: relative;
+    margin-bottom: 7px;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.@{wolvToolbarActiveBtnClass} {
+    /* добавление свойств из buttons.less */
+    .ics-btn-active();
+}
+
+.@{wolvToolbarCaptionClass} {
+    .@{wolvToolbarSearchBtnClass} &, 
+    .@{wolvToolbarFilterBtnClass} &, 
+    .@{wolvToolbarLimitEditBtnClass} &, 
+    .@{wolvToolbarConfigureColumnsBtnClass} &,
+    .@{wolvToolbarExportExcelBtnClass} &,
+    .@{wolvToolbarExportXmlBtnClass} &,
+    .@{wolvToolbarHierarchyBtnClass} &,
+    .@{wolvToolbarHierarchyCollapseAllBtnClass} &,
+    .@{wolvToolbarHierarchyExpandAllBtnClass} &,
+    .@{wolvToolbarLimitOptionsBtnClass} span &,
+    .@{wolvToolbarExportExcelOptionsBtnClass} span &,
+    .@{wolvToolbarConfigureColumnsOptionsBtnClass} span &,
+    .@{wolvToolbarEditBtnClass} & {
+        display: none;
+    }
+}
+
+/* Контейнер для динамически добавляемых элементов тулбара. */
+.@{wolvToolbarDynamiContainerClass} .@{wolvToolbarBtnIconClass} {
+    display: inline-block;
+}
+
+/* WOLV панель поиска. */
+.@{wolvToolbarSearchPanelClass} {
+    margin: 8px 0;
+
+    span {
+        display: inline-block;
+        margin: 5px;      
+    }
+
+    br {
+        display: none;
+    }
+
+    input, select {
+        vertical-align: middle;
+    }
+
+    input[type="button"] {
+        margin-left: 4px;
+    }
+}
+
+
+@import (reference) "_Settings.less";

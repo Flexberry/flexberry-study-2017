@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A98BE069-6C32-4837-8B46-4AE1C0878CCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewPlatform.RecordBookBL</RootNamespace>
+    <AssemblyName>RecordBookBL(BusinessServersBF)</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\RecordBookBL(BusinessServersBF).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\RecordBookBL(BusinessServersBF).xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChangesToSqlBTMonitor, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e5ad39f116a43e0b, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ChangesToSqlBTMonitor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExternalLangDef, Version=1.0.0.0, Culture=neutral, PublicKeyToken=50dc27591ed591e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ExternalLangDef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.BF, Version=1.0.0.1, Culture=neutral, PublicKeyToken=d2f4681f62216317, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.BF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c17bb360f7843f45, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.DRDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cef244157a7f77f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.DRDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LINQProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=68e48bb6f6293778, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.LINQProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LockService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=68ac0e47b5ef94d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.LockService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.MSSQLDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=49b42003269a4a66, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.MSSQLDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.ODBCDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=4c6916a347bdf8b1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.ODBCDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.OracleDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=b24b342e1d86de22, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.OracleDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.PostgresDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1da4b21bda90afe, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Business.PostgresDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Collections, Version=1.0.0.1, Culture=neutral, PublicKeyToken=898f36b7a907d804, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.DataObject, Version=1.0.0.1, Culture=neutral, PublicKeyToken=023a90c13b0ca8dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.DataObject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Drawing, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c2ac2a795a66d3d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Drawing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.FunctionalLanguage, Version=1.0.0.1, Culture=neutral, PublicKeyToken=88efc6f76e5cd161, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.FunctionalLanguage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Tools, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c824f5305b237be9, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.Tools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.UserDataTypes, Version=1.0.0.1, Culture=neutral, PublicKeyToken=bc478021255def29, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.2.3.1\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\BusinessServers\RecordBookBL(BusinessServers).csproj">
+      <Project>{21ba687f-388c-4c6c-abf3-ee6fcf7a1cb3}</Project>
+      <Name>RecordBookBL(BusinessServers)</Name>
+    </ProjectReference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LogService">
+      <HintPath>..\packages\NewPlatform.Flexberry.LogService.1.1.0\lib\net45\LogService.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="ICSSoft.Services.UnityFactory">
+      <HintPath>..\packages\NewPlatform.Flexberry.UnityFactory.1.2.0\lib\net45\ICSSoft.Services.UnityFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.Services.CurrentUserService">
+      <HintPath>..\packages\NewPlatform.Flexberry.CurrentUserService.1.1.0\lib\net45\ICSSoft.Services.CurrentUserService.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.resources">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\zh-CN\Npgsql.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\packages\Remotion.Linq.1.13.183.0\lib\net35\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bfЭлектроннаяЗачётка.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
+    <Compile Include="bfBSГруппа.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

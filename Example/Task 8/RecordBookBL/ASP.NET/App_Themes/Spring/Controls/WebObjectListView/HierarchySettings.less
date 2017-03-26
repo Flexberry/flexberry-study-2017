@@ -1,0 +1,17 @@
+﻿@import "../../../BaseTheme/Controls/WebObjectListView/HierarchySettings.less";
+
+/**
+ * Файл визуального оформления настроек иерархического отображения.
+ */
+
+.@{tableContentClass} {
+    > tbody > tr.@{wolvHierarchyGrayedRowClass} {
+        &:hover > td {
+            background: @wolvTableCellHoveredBackgroundColor;
+            cursor: pointer;
+            background: none;
+        }
+    }
+}
+
+@import "_Settings.less";
