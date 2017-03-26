@@ -5,7 +5,13 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using WebApplication;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using NewPlatform.Flexberry.Web.Page;
+    using System;
+
     public partial class УчастокСетиE : BaseEditForm<УчастокСети>
     {
         /// <summary>
@@ -44,6 +50,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PostApplyToControls()
         {
+            ctrlОбъект.PropertyToShow = Information.ExtractPropertyPath<Объект>(x => x.Наименование);
             Page.Validate();
         }
 

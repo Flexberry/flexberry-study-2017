@@ -70,7 +70,9 @@ ErrorMessage="Не указано: Логин" EnableClientScript="true" Validat
   <asp:Label CssClass="descLbl" ID="ctrlРайонLabel" runat="server" Text="Район" EnableViewState="False">
 </asp:Label>
 <ac:MasterEditorAjaxLookUp ID="ctrlРайон" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
-
+    
+<asp:RequiredFieldValidator ID="ctrlРайонValidator" runat="server" ControlToValidate="ctrlРайон"
+ErrorMessage="Не указан: Район" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 </div>
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlРайон_НазваниеLabel" runat="server" Text="Название" EnableViewState="False">

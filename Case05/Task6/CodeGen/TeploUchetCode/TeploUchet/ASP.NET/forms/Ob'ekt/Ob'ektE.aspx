@@ -62,29 +62,27 @@ ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" Val
 <asp:TextBox CssClass="descTxt" ID="ctrlКодОбъекта" runat="server" Enabled="false">
 </asp:TextBox>
 
-<asp:RequiredFieldValidator ID="ctrlКодОбъектаValidator" runat="server" ControlToValidate="ctrlКодОбъекта"
+ <asp:RequiredFieldValidator ID="ctrlКодОбъектаValidator" runat="server" ControlToValidate="ctrlКодОбъекта"
 ErrorMessage="Не указано: КодОбъекта" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlЗданиеLabel" runat="server" Text="Здание" EnableViewState="False">
 </asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
+<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" ReadOnly="true"/>
 
 <asp:RequiredFieldValidator ID="ctrlЗданиеValidator" runat="server" ControlToValidate="ctrlЗдание"
 ErrorMessage="Не указано: Здание" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlЗдание_АдресLabel" runat="server" Text="Адрес" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlЗдание_Адрес" runat="server" ReadOnly="true">
-</asp:TextBox>
-
-<asp:RequiredFieldValidator ID="ctrlЗдание_АдресValidator" runat="server" ControlToValidate="ctrlЗдание_Адрес"
-ErrorMessage="Не указано: Здание.Адрес" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-</div>
+    <div class="clearfix hidden">
+        <asp:Label CssClass="descLbl" ID="ctrlЗдание_АдресLabel" runat="server" Text="Адрес" EnableViewState="False">
+        </asp:Label>
+        <asp:TextBox CssClass="descTxt" ID="ctrlЗдание_Адрес" runat="server" ReadOnly="true">
+        </asp:TextBox>
+        <asp:RequiredFieldValidator ID="ctrlЗдание_АдресValidator" runat="server" ControlToValidate="ctrlЗдание_Адрес"
+            ErrorMessage="Не указано: Здание.Адрес" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+    </div>
 <br/>
 
 </div>

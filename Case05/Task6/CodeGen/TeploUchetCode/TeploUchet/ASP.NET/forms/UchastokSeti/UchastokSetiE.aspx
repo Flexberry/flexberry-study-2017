@@ -62,8 +62,10 @@ ErrorMessage="Не указано: ГодПрокладки" EnableClientScript=
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
 </asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
-
+<ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />    
+    
+<asp:RequiredFieldValidator ID="ctrlОбъектValidator" runat="server" ControlToValidate="ctrlОбъект"
+ErrorMessage="Не указан: Объект" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 </div>
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlОбъект_НаименованиеLabel" runat="server" Text="Наименование" EnableViewState="False">

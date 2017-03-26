@@ -5,7 +5,14 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using WebApplication;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using NewPlatform.Flexberry.Web.Page;
+    using System;
+
+
     public partial class ОбъектE : BaseEditForm<Объект>
     {
         /// <summary>
@@ -44,6 +51,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PostApplyToControls()
         {
+            ctrlЗдание.PropertyToShow = Information.ExtractPropertyPath<Здание>(x => x.Адрес);
             Page.Validate();
         }
 
@@ -60,8 +68,8 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
+            //TeploUchet.ГенерацияКода();
             return base.PreSaveObject();
-
         }
 
         /// <summary>

@@ -14,9 +14,12 @@ namespace TeploCorp.TeploUchet
     using System.Xml;
     using Task1.Objects;
     using Logic;
-    
-    
-    
+    using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+
+
+
     // *** Start programmer edit section *** (Using statements)
 
     // *** End programmer edit section *** (Using statements)
@@ -41,13 +44,19 @@ namespace TeploCorp.TeploUchet
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъект)
-            var consumer = new Consumer()
+            /*if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
-                Name = UpdatedObject.Наименование,
-                DateReg = UpdatedObject.ДатаРегистрации,
-                Account = Convert.ToUInt64(UpdatedObject.ЛицСчет),
-            };
-            UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
+                //DataService.LoadObject(UpdatedObject);
+                var consumer = new Consumer()
+                {
+                    Name = UpdatedObject.Наименование,
+                    DateReg = UpdatedObject.ДатаРегистрации,
+                    Account = Convert.ToUInt64(UpdatedObject.ЛицСчет),
+                };
+                UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
+
+            }
+            */
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъект)
         }
