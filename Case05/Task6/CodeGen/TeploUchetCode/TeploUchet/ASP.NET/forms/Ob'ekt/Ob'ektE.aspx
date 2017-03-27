@@ -47,9 +47,9 @@ ErrorMessage="Не указано: ДатаРегистрации" EnableClientS
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlЛицСчетLabel" runat="server" Text="Лиц счет" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlЛицСчетLabel" runat="server" Text="Лицевой счет" EnableViewState="False">
 </asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlЛицСчет" runat="server" MaxLength="19">
+<asp:TextBox CssClass="descTxt" ID="ctrlЛицСчет" runat="server">
 </asp:TextBox>
 
 <asp:RequiredFieldValidator ID="ctrlЛицСчетValidator" runat="server" ControlToValidate="ctrlЛицСчет"
@@ -57,32 +57,19 @@ ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" Val
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlКодОбъектаLabel" runat="server" Text="Код объекта" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlКодОбъекта" runat="server" Enabled="false">
-</asp:TextBox>
-
- <asp:RequiredFieldValidator ID="ctrlКодОбъектаValidator" runat="server" ControlToValidate="ctrlКодОбъекта"
-ErrorMessage="Не указано: КодОбъекта" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-</div>
-<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlЗданиеLabel" runat="server" Text="Здание" EnableViewState="False">
 </asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" ReadOnly="true"/>
+<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 <asp:RequiredFieldValidator ID="ctrlЗданиеValidator" runat="server" ControlToValidate="ctrlЗдание"
 ErrorMessage="Не указано: Здание" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
-    <div class="clearfix hidden">
-        <asp:Label CssClass="descLbl" ID="ctrlЗдание_АдресLabel" runat="server" Text="Адрес" EnableViewState="False">
-        </asp:Label>
-        <asp:TextBox CssClass="descTxt" ID="ctrlЗдание_Адрес" runat="server" ReadOnly="true">
-        </asp:TextBox>
-        <asp:RequiredFieldValidator ID="ctrlЗдание_АдресValidator" runat="server" ControlToValidate="ctrlЗдание_Адрес"
-            ErrorMessage="Не указано: Здание.Адрес" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-    </div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>
+</div>
 <br/>
 
 </div>

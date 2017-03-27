@@ -38,6 +38,12 @@
     <Reference Include="System.XML">
       <HintPath>System.XML.dll</HintPath>
     </Reference>
+    <Reference Include="Task1.Objects1">
+      <HintPath>..\..\..\..\..\Task6\CodeGen\TeploUchetCode\TeploUchet\dotNet\Task1.Objects1.dll</HintPath>
+    </Reference>
+    <Reference Include="Task1p1">
+      <HintPath>..\..\..\..\..\Task6\CodeGen\TeploUchetCode\TeploUchet\dotNet\Task1p1.dll</HintPath>
+    </Reference>
     <ProjectReference Include="..\Objects\TeploUchet(Objects).csproj">
       <Project>{5fd13916-dd0a-47fe-8502-3be099b6643f}</Project>
       <Name>TeploUchet(Objects)</Name>
@@ -123,12 +129,6 @@
     <Reference Include="ICSSoft.STORMNET.UserDataTypes">
       <HintPath>..\packages\NewPlatform.Flexberry.ORM.3.0.0-alpha03\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
     </Reference>
-    <Reference Include="Task1.Objects1">
-      <HintPath>..\dotNet\Task1.Objects1.dll</HintPath>
-    </Reference>
-    <Reference Include="Task1p1">
-      <HintPath>..\dotNet\Task1p1.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ГенерацияКода.cs">
@@ -136,6 +136,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="УдалениеУчастка.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="УдалениеЗдания.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="УдалениеРайона.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="УдалениеИнспектора.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

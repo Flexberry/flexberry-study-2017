@@ -249,9 +249,6 @@
     <Reference Include="IIS.Caseberry.Logging.MsEntLib">
       <HintPath>..\packages\NewPlatform.Flexberry.LogService.Objects.1.0.1\lib\net35\IIS.Caseberry.Logging.MsEntLib.dll</HintPath>
     </Reference>
-    <Reference Include="Task1.Objects1">
-      <HintPath>..\dotNet\Task1.Objects1.dll</HintPath>
-    </Reference>
     <Reference Include="UserSettingsService">
       <HintPath>..\packages\NewPlatform.Flexberry.UserSettingsService.1.0.1\lib\net35\UserSettingsService.dll</HintPath>
     </Reference>

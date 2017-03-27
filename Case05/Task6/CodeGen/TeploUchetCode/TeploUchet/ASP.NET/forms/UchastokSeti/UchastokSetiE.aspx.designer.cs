@@ -137,41 +137,5 @@ namespace TeploCorp.TeploUchet {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::ICSSoft.STORMNET.Web.AjaxControls.MasterEditorAjaxLookUp ctrlОбъект;
-        
-        /// <summary>
-        /// ctrlОбъектValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlОбъектValidator;
-        
-        /// <summary>
-        /// ctrlОбъект_НаименованиеLabel элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlОбъект_НаименованиеLabel;
-        
-        /// <summary>
-        /// ctrlОбъект_Наименование элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlОбъект_Наименование;
-        
-        /// <summary>
-        /// ctrlОбъект_НаименованиеValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlОбъект_НаименованиеValidator;
     }
 }

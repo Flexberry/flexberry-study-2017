@@ -121,6 +121,24 @@ namespace TeploCorp.TeploUchet {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЛицСчетValidator;
         
         /// <summary>
+        /// ctrlКодОбъектаLabel элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ctrlКодОбъектаLabel;
+        
+        /// <summary>
+        /// ctrlКодОбъекта элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ctrlКодОбъекта;
+        
+        /// <summary>
         /// ctrlЗданиеLabel элемент управления.
         /// </summary>
         /// <remarks>
@@ -146,32 +164,5 @@ namespace TeploCorp.TeploUchet {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЗданиеValidator;
-        
-        /// <summary>
-        /// ctrlКодОбъектаLabel элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlКодОбъектаLabel;
-        
-        /// <summary>
-        /// ctrlКодОбъекта элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlКодОбъекта;
-        
-        /// <summary>
-        /// ctrlКодОбъектаValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlКодОбъектаValidator;
     }
 }

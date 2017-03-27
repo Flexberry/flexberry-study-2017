@@ -33,12 +33,14 @@ namespace TeploCorp.TeploUchet
             "Фамилия as \'Фамилия\'",
             "Имя as \'Имя\'",
             "Отчество as \'Отчество\'",
-            "Логин as \'Логин\'"})]
+            "Логин as \'Логин\'",
+            "Актуален"})]
     [View("ПерсонаL", new string[] {
             "Фамилия as \'Фамилия\'",
             "Имя as \'Имя\'",
             "Отчество as \'Отчество\'",
-            "Логин as \'Логин\'"})]
+            "Логин as \'Логин\'",
+            "Актуален"})]
     public class Персона : ICSSoft.STORMNET.DataObject
     {
         
@@ -49,6 +51,8 @@ namespace TeploCorp.TeploUchet
         private string fОтчество;
         
         private string fЛогин;
+        
+        private bool fАктуален = true;
         
         // *** Start programmer edit section *** (Персона CustomMembers)
 
@@ -184,6 +188,37 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (Персона.Логин Set end)
 
                 // *** End programmer edit section *** (Персона.Логин Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Актуален.
+        /// </summary>
+        // *** Start programmer edit section *** (Персона.Актуален CustomAttributes)
+
+        // *** End programmer edit section *** (Персона.Актуален CustomAttributes)
+        public virtual bool Актуален
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Персона.Актуален Get start)
+
+                // *** End programmer edit section *** (Персона.Актуален Get start)
+                bool result = this.fАктуален;
+                // *** Start programmer edit section *** (Персона.Актуален Get end)
+
+                // *** End programmer edit section *** (Персона.Актуален Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Персона.Актуален Set start)
+
+                // *** End programmer edit section *** (Персона.Актуален Set start)
+                this.fАктуален = value;
+                // *** Start programmer edit section *** (Персона.Актуален Set end)
+
+                // *** End programmer edit section *** (Персона.Актуален Set end)
             }
         }
         

@@ -62,20 +62,13 @@ ErrorMessage="Не указано: ГодПрокладки" EnableClientScript=
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
 </asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />    
-    
-<asp:RequiredFieldValidator ID="ctrlОбъектValidator" runat="server" ControlToValidate="ctrlОбъект"
-ErrorMessage="Не указан: Объект" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+<ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
+
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlОбъект_НаименованиеLabel" runat="server" Text="Наименование" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlОбъект_Наименование" runat="server" ReadOnly="true">
-</asp:TextBox>
-
-<asp:RequiredFieldValidator ID="ctrlОбъект_НаименованиеValidator" runat="server" ControlToValidate="ctrlОбъект_Наименование"
-ErrorMessage="Не указано: Объект.Наименование" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
+<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>
 </div>
 <br/>
 

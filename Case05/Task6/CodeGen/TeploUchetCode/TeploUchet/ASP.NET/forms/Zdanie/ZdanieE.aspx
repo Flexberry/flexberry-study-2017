@@ -33,16 +33,12 @@ ErrorMessage="Не указано: Адрес" EnableClientScript="true" Validat
 
 <asp:RequiredFieldValidator ID="ctrlРайонValidator" runat="server" ControlToValidate="ctrlРайон"
 ErrorMessage="Не указано: Район" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlРайон_НазваниеLabel" runat="server" Text="Название" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlРайон_Название" runat="server" ReadOnly="true">
-</asp:TextBox>
-
-<asp:RequiredFieldValidator ID="ctrlРайон_НазваниеValidator" runat="server" ControlToValidate="ctrlРайон_Название"
-ErrorMessage="Не указано: Район.Название" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
+<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>
 </div>
 
 </div>

@@ -139,15 +139,6 @@ namespace TeploCorp.TeploUchet {
         protected global::System.Web.UI.WebControls.TextBox ctrlКодОбъекта;
         
         /// <summary>
-        /// ctrlКодОбъектаValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlКодОбъектаValidator;
-        
-        /// <summary>
         /// ctrlЗданиеLabel элемент управления.
         /// </summary>
         /// <remarks>
@@ -173,32 +164,5 @@ namespace TeploCorp.TeploUchet {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЗданиеValidator;
-        
-        /// <summary>
-        /// ctrlЗдание_АдресLabel элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlЗдание_АдресLabel;
-        
-        /// <summary>
-        /// ctrlЗдание_Адрес элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlЗдание_Адрес;
-        
-        /// <summary>
-        /// ctrlЗдание_АдресValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЗдание_АдресValidator;
     }
 }

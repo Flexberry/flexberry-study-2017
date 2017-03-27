@@ -32,8 +32,13 @@ ErrorMessage="Не указано: Адрес" EnableClientScript="true" Validat
 <ac:MasterEditorAjaxLookUp ID="ctrlРайон" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 <asp:RequiredFieldValidator ID="ctrlРайонValidator" runat="server" ControlToValidate="ctrlРайон"
-ErrorMessage="Не указан: Район" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+ErrorMessage="Не указано: Район" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
+</div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>
 </div>
 
 </div>

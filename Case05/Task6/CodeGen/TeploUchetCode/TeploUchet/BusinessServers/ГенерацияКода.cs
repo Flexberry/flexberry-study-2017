@@ -12,13 +12,12 @@ namespace TeploCorp.TeploUchet
 {
     using System;
     using System.Xml;
-    using Task1.Objects;
-    using Logic;
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
-
-
+    using System.Linq;
+    using Task1.Objects;
+    using Logic;
 
     // *** Start programmer edit section *** (Using statements)
 
@@ -36,27 +35,43 @@ namespace TeploCorp.TeploUchet
     {
         
         // *** Start programmer edit section *** (ГенерацияКода CustomMembers)
+
         // *** End programmer edit section *** (ГенерацияКода CustomMembers)
 
         
         // *** Start programmer edit section *** (OnUpdateОбъект CustomAttributes)
+
         // *** End programmer edit section *** (OnUpdateОбъект CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъект)
-            /*if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
+            if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
-                //DataService.LoadObject(UpdatedObject);
                 var consumer = new Consumer()
                 {
                     Name = UpdatedObject.Наименование,
-                    DateReg = UpdatedObject.ДатаРегистрации,
-                    Account = Convert.ToUInt64(UpdatedObject.ЛицСчет),
+                    Account = UpdatedObject.ЛицСчет,
+                    DateReg = UpdatedObject.ДатаРегистрации
                 };
                 UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
-
             }
-            */
+            
+            //ставим флаг удален 
+            if (UpdatedObject.GetStatus() == ObjectStatus.Deleted)
+            {
+                DataService.LoadObject(UpdatedObject);
+                UpdatedObject.SetStatus(ObjectStatus.Altered);
+                UpdatedObject.Актуален = false;
+
+                var ds = (SQLDataService)DataServiceProvider.DataService;
+                var delobjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(k => k.Здание.__PrimaryKey == UpdatedObject.__PrimaryKey);
+                foreach (var k in delobjects)
+                {
+                    k.SetStatus(ObjectStatus.Deleted);
+                }
+                return delobjects.ToArray();
+            }
+
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъект)
         }

@@ -14,8 +14,6 @@ namespace TeploCorp.TeploUchet
     using System.Xml;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
-    using ICSSoft.STORMNET.Business.Audit;
-    using ICSSoft.STORMNET.Business.Audit.Objects;
     
     
     // *** Start programmer edit section *** (Using statements)
@@ -39,15 +37,17 @@ namespace TeploCorp.TeploUchet
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
             "Здание as \'Здание\'",
-            "Здание.Адрес as \'Адрес\'"})]
+            "Здание.Адрес as \'Адрес\'"}, Hidden=new string[] {
+            "Здание.Адрес"})]
     [View("ОбъектE", new string[] {
             "Наименование as \'Наименование\'",
             "Контрагент as \'Контрагент\'",
             "ДатаРегистрации as \'Дата регистрации\'",
-            "ЛицСчет as \'Лиц счет\'",
+            "ЛицСчет as \'Лицевой счет\'",
             "КодОбъекта as \'Код объекта\'",
             "Здание as \'Здание\'",
-            "Здание.Адрес as \'Адрес\'"})]
+            "Актуален"}, Hidden=new string[] {
+            "КодОбъекта"})]
     [View("ОбъектL", new string[] {
             "Наименование as \'Наименование\'",
             "Здание.Адрес as \'Адрес\'",
@@ -55,10 +55,10 @@ namespace TeploCorp.TeploUchet
             "ДатаРегистрации as \'Дата регистрации\'",
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
-            "Здание.Район.*"
-        }, Hidden=new string[] {
-            "Здание.Район.*"})]
-    public class Объект : ICSSoft.STORMNET.DataObject, IDataObjectWithAuditFields
+            "Здание.Район.Название",
+            "Актуален"}, Hidden=new string[] {
+            "Здание.Район.Название"})]
+    public class Объект : ICSSoft.STORMNET.DataObject
     {
         
         private string fНаименование;
@@ -78,6 +78,8 @@ namespace TeploCorp.TeploUchet
         private System.Nullable<System.DateTime> fEditTime;
         
         private string fEditor;
+        
+        private bool fАктуален = true;
         
         private TeploCorp.TeploUchet.Здание fЗдание;
         
@@ -223,7 +225,6 @@ namespace TeploCorp.TeploUchet
 
         // *** End programmer edit section *** (Объект.КодОбъекта CustomAttributes)
         [StrLen(255)]
-        [NotNull()]
         public virtual string КодОбъекта
         {
             get
@@ -376,6 +377,37 @@ namespace TeploCorp.TeploUchet
         }
         
         /// <summary>
+        /// Актуален.
+        /// </summary>
+        // *** Start programmer edit section *** (Объект.Актуален CustomAttributes)
+
+        // *** End programmer edit section *** (Объект.Актуален CustomAttributes)
+        public virtual bool Актуален
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Объект.Актуален Get start)
+
+                // *** End programmer edit section *** (Объект.Актуален Get start)
+                bool result = this.fАктуален;
+                // *** Start programmer edit section *** (Объект.Актуален Get end)
+
+                // *** End programmer edit section *** (Объект.Актуален Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Объект.Актуален Set start)
+
+                // *** End programmer edit section *** (Объект.Актуален Set start)
+                this.fАктуален = value;
+                // *** Start programmer edit section *** (Объект.Актуален Set end)
+
+                // *** End programmer edit section *** (Объект.Актуален Set end)
+            }
+        }
+        
+        /// <summary>
         /// Объект.
         /// </summary>
         // *** Start programmer edit section *** (Объект.Здание CustomAttributes)
@@ -447,98 +479,6 @@ namespace TeploCorp.TeploUchet
                     return ICSSoft.STORMNET.Information.GetView("ОбъектL", typeof(TeploCorp.TeploUchet.Объект));
                 }
             }
-        }
-        
-        /// <summary>
-        /// Audit class settings.
-        /// </summary>
-        public class AuditSettings
-        {
-            
-            /// <summary>
-            /// Включён ли аудит для класса.
-            /// </summary>
-            public static bool AuditEnabled = true;
-            
-            /// <summary>
-            /// Использовать имя представления для аудита по умолчанию.
-            /// </summary>
-            public static bool UseDefaultView = false;
-            
-            /// <summary>
-            /// Включён ли аудит операции чтения.
-            /// </summary>
-            public static bool SelectAudit = false;
-            
-            /// <summary>
-            /// Имя представления для аудирования операции чтения.
-            /// </summary>
-            public static string SelectAuditViewName = "AuditView";
-            
-            /// <summary>
-            /// Включён ли аудит операции создания.
-            /// </summary>
-            public static bool InsertAudit = true;
-            
-            /// <summary>
-            /// Имя представления для аудирования операции создания.
-            /// </summary>
-            public static string InsertAuditViewName = "AuditView";
-            
-            /// <summary>
-            /// Включён ли аудит операции изменения.
-            /// </summary>
-            public static bool UpdateAudit = false;
-            
-            /// <summary>
-            /// Имя представления для аудирования операции изменения.
-            /// </summary>
-            public static string UpdateAuditViewName = "AuditView";
-            
-            /// <summary>
-            /// Включён ли аудит операции удаления.
-            /// </summary>
-            public static bool DeleteAudit = true;
-            
-            /// <summary>
-            /// Имя представления для аудирования операции удаления.
-            /// </summary>
-            public static string DeleteAuditViewName = "AuditView";
-            
-            /// <summary>
-            /// Путь к форме просмотра результатов аудита.
-            /// </summary>
-            public static string FormUrl = "";
-            
-            /// <summary>
-            /// Режим записи данных аудита (синхронный или асинхронный).
-            /// </summary>
-            public static ICSSoft.STORMNET.Business.Audit.Objects.tWriteMode WriteMode = ICSSoft.STORMNET.Business.Audit.Objects.tWriteMode.Synchronous;
-            
-            /// <summary>
-            /// Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
-            /// </summary>
-            public static int PrunningLength = 0;
-            
-            /// <summary>
-            /// Показывать ли пользователям в изменениях первичные ключи.
-            /// </summary>
-            public static bool ShowPrimaryKey = false;
-            
-            /// <summary>
-            /// Сохранять ли старое значение.
-            /// </summary>
-            public static bool KeepOldValue = true;
-            
-            /// <summary>
-            /// Сжимать ли сохраняемые значения.
-            /// </summary>
-            public static bool Compress = false;
-            
-            /// <summary>
-            /// Сохранять ли все значения атрибутов, а не только изменяемые.
-            /// </summary>
-            public static bool KeepAllValues = false;
         }
     }
 }
