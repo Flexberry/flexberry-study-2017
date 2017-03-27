@@ -31,27 +31,22 @@ namespace TeploCorp.TeploUchet
     [AutoAltered()]
     [ICSSoft.STORMNET.NotStored(false)]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
-    [View("AuditView", new string[] {
-            "Фамилия as \'Фамилия\'",
-            "Имя as \'Имя\'",
-            "Отчество as \'Отчество\'",
-            "Логин as \'Логин\'",
-            "Район as \'Район\'",
-            "Район.Название as \'Название\'"})]
     [View("ИнспекторE", new string[] {
             "Фамилия as \'Фамилия\'",
             "Имя as \'Имя\'",
             "Отчество as \'Отчество\'",
             "Логин as \'Логин\'",
             "Район as \'Район\'",
-            "Актуален"})]
+            "Район.Название as \'Название\'",
+            "Актуален as \'Актуален\'"}, Hidden=new string[] {
+            "Район.Название"})]
     [View("ИнспекторL", new string[] {
+            "Логин as \'Логин\'",
             "Фамилия as \'Фамилия\'",
             "Имя as \'Имя\'",
             "Отчество as \'Отчество\'",
-            "Логин as \'Логин\'",
             "Район.Название as \'Район\'",
-            "Актуален"})]
+            "Актуален as \'Актуален\'"})]
     public class Инспектор : TeploCorp.TeploUchet.Персона
     {
         
@@ -68,8 +63,6 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Инспектор.Район CustomAttributes)
 
         // *** End programmer edit section *** (Инспектор.Район CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Район"})]
         public virtual TeploCorp.TeploUchet.Район Район
         {
             get
@@ -100,17 +93,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         public class Views
         {
-            
-            /// <summary>
-            /// "AuditView" view.
-            /// </summary>
-            public static ICSSoft.STORMNET.View AuditView
-            {
-                get
-                {
-                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(TeploCorp.TeploUchet.Инспектор));
-                }
-            }
             
             /// <summary>
             /// "ИнспекторE" view.

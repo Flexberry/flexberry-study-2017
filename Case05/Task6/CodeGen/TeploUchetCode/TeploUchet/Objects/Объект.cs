@@ -30,34 +30,29 @@ namespace TeploCorp.TeploUchet
     [BusinessServer("TeploCorp.TeploUchet.ГенерацияКода, TeploUchet(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
-    [View("AuditView", new string[] {
-            "Наименование as \'Наименование\'",
-            "Контрагент as \'Контрагент\'",
-            "ДатаРегистрации as \'Дата регистрации\'",
-            "ЛицСчет as \'Лиц счет\'",
-            "КодОбъекта as \'Код объекта\'",
-            "Здание as \'Здание\'",
-            "Здание.Адрес as \'Адрес\'"}, Hidden=new string[] {
-            "Здание.Адрес"})]
     [View("ОбъектE", new string[] {
             "Наименование as \'Наименование\'",
             "Контрагент as \'Контрагент\'",
             "ДатаРегистрации as \'Дата регистрации\'",
-            "ЛицСчет as \'Лицевой счет\'",
+            "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
-            "Здание as \'Здание\'",
             "Площадь as \'Площадь\'",
-            "Актуален as \'Актуален\'"}, Hidden=new string[] {
-            "КодОбъекта"})]
+            "Здание as \'Здание\'",
+            "Здание.Адрес as \'Адрес\'",
+            "Актуален as \'Актуален\'",
+            "Здание.Район.Название"}, Hidden=new string[] {
+            "КодОбъекта",
+            "Здание.Адрес",
+            "Здание.Район.Название"})]
     [View("ОбъектL", new string[] {
             "Наименование as \'Наименование\'",
-            "Здание.Адрес as \'Адрес\'",
             "Контрагент as \'Контрагент\'",
             "ДатаРегистрации as \'Дата регистрации\'",
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
-            "Здание.Район.Название",
             "Площадь as \'Площадь\'",
+            "Здание.Адрес as \'Адрес\'",
+            "Здание.Район.Название",
             "Актуален as \'Актуален\'"}, Hidden=new string[] {
             "Здание.Район.Название"})]
     public class Объект : ICSSoft.STORMNET.DataObject
@@ -72,14 +67,6 @@ namespace TeploCorp.TeploUchet
         private ulong fЛицСчет;
         
         private string fКодОбъекта;
-        
-        private System.Nullable<System.DateTime> fCreateTime;
-        
-        private string fCreator;
-        
-        private System.Nullable<System.DateTime> fEditTime;
-        
-        private string fEditor;
         
         private bool fАктуален = true;
         
@@ -164,7 +151,6 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Объект.ДатаРегистрации CustomAttributes)
 
         // *** End programmer edit section *** (Объект.ДатаРегистрации CustomAttributes)
-        [NotNull()]
         public virtual System.DateTime ДатаРегистрации
         {
             get
@@ -255,132 +241,6 @@ namespace TeploCorp.TeploUchet
         }
         
         /// <summary>
-        /// Время создания объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Объект.CreateTime CustomAttributes)
-
-        // *** End programmer edit section *** (Объект.CreateTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> CreateTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Объект.CreateTime Get start)
-
-                // *** End programmer edit section *** (Объект.CreateTime Get start)
-                System.Nullable<System.DateTime> result = this.fCreateTime;
-                // *** Start programmer edit section *** (Объект.CreateTime Get end)
-
-                // *** End programmer edit section *** (Объект.CreateTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Объект.CreateTime Set start)
-
-                // *** End programmer edit section *** (Объект.CreateTime Set start)
-                this.fCreateTime = value;
-                // *** Start programmer edit section *** (Объект.CreateTime Set end)
-
-                // *** End programmer edit section *** (Объект.CreateTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Создатель объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Объект.Creator CustomAttributes)
-
-        // *** End programmer edit section *** (Объект.Creator CustomAttributes)
-        [StrLen(255)]
-        public virtual string Creator
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Объект.Creator Get start)
-
-                // *** End programmer edit section *** (Объект.Creator Get start)
-                string result = this.fCreator;
-                // *** Start programmer edit section *** (Объект.Creator Get end)
-
-                // *** End programmer edit section *** (Объект.Creator Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Объект.Creator Set start)
-
-                // *** End programmer edit section *** (Объект.Creator Set start)
-                this.fCreator = value;
-                // *** Start programmer edit section *** (Объект.Creator Set end)
-
-                // *** End programmer edit section *** (Объект.Creator Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Время последнего редактирования объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Объект.EditTime CustomAttributes)
-
-        // *** End programmer edit section *** (Объект.EditTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> EditTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Объект.EditTime Get start)
-
-                // *** End programmer edit section *** (Объект.EditTime Get start)
-                System.Nullable<System.DateTime> result = this.fEditTime;
-                // *** Start programmer edit section *** (Объект.EditTime Get end)
-
-                // *** End programmer edit section *** (Объект.EditTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Объект.EditTime Set start)
-
-                // *** End programmer edit section *** (Объект.EditTime Set start)
-                this.fEditTime = value;
-                // *** Start programmer edit section *** (Объект.EditTime Set end)
-
-                // *** End programmer edit section *** (Объект.EditTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Последний редактор объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Объект.Editor CustomAttributes)
-
-        // *** End programmer edit section *** (Объект.Editor CustomAttributes)
-        [StrLen(255)]
-        public virtual string Editor
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Объект.Editor Get start)
-
-                // *** End programmer edit section *** (Объект.Editor Get start)
-                string result = this.fEditor;
-                // *** Start programmer edit section *** (Объект.Editor Get end)
-
-                // *** End programmer edit section *** (Объект.Editor Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Объект.Editor Set start)
-
-                // *** End programmer edit section *** (Объект.Editor Set start)
-                this.fEditor = value;
-                // *** Start programmer edit section *** (Объект.Editor Set end)
-
-                // *** End programmer edit section *** (Объект.Editor Set end)
-            }
-        }
-        
-        /// <summary>
         /// Актуален.
         /// </summary>
         // *** Start programmer edit section *** (Объект.Актуален CustomAttributes)
@@ -448,8 +308,6 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Объект.Здание CustomAttributes)
 
         // *** End programmer edit section *** (Объект.Здание CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Здание"})]
         [NotNull()]
         public virtual TeploCorp.TeploUchet.Здание Здание
         {
@@ -481,17 +339,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         public class Views
         {
-            
-            /// <summary>
-            /// "AuditView" view.
-            /// </summary>
-            public static ICSSoft.STORMNET.View AuditView
-            {
-                get
-                {
-                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(TeploCorp.TeploUchet.Объект));
-                }
-            }
             
             /// <summary>
             /// "ОбъектE" view.

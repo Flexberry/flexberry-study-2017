@@ -30,32 +30,23 @@ namespace TeploCorp.TeploUchet
     [BusinessServer("TeploCorp.TeploUchet.УдалениеЗдания, TeploUchet(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
-    [View("AuditView", new string[] {
-            "Адрес as \'Адрес\'",
-            "Район as \'Район\'",
-            "Район.Название as \'Название\'"})]
     [View("ЗданиеE", new string[] {
             "Адрес as \'Адрес\'",
-            "Район as \'Район\'",
             "Площади as \'Площади\'",
-            "Актуален as \'Актуален\'"})]
+            "Район as \'Район\'",
+            "Актуален as \'Актуален\'",
+            "Район.Название as \'Название\'"}, Hidden=new string[] {
+            "Площади",
+            "Район.Название"})]
     [View("ЗданиеL", new string[] {
             "Адрес as \'Адрес\'",
             "Район.Название as \'Район\'",
-            "Актуален",
-            "Площади as \'Площади\'"})]
+            "Площади as \'Площади\'",
+            "Актуален as \'Актуален\'"})]
     public class Здание : ICSSoft.STORMNET.DataObject
     {
         
         private string fАдрес;
-        
-        private System.Nullable<System.DateTime> fCreateTime;
-        
-        private string fCreator;
-        
-        private System.Nullable<System.DateTime> fEditTime;
-        
-        private string fEditor;
         
         private bool fАктуален = true;
         
@@ -98,132 +89,6 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (Здание.Адрес Set end)
 
                 // *** End programmer edit section *** (Здание.Адрес Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Время создания объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Здание.CreateTime CustomAttributes)
-
-        // *** End programmer edit section *** (Здание.CreateTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> CreateTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Здание.CreateTime Get start)
-
-                // *** End programmer edit section *** (Здание.CreateTime Get start)
-                System.Nullable<System.DateTime> result = this.fCreateTime;
-                // *** Start programmer edit section *** (Здание.CreateTime Get end)
-
-                // *** End programmer edit section *** (Здание.CreateTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Здание.CreateTime Set start)
-
-                // *** End programmer edit section *** (Здание.CreateTime Set start)
-                this.fCreateTime = value;
-                // *** Start programmer edit section *** (Здание.CreateTime Set end)
-
-                // *** End programmer edit section *** (Здание.CreateTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Создатель объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Здание.Creator CustomAttributes)
-
-        // *** End programmer edit section *** (Здание.Creator CustomAttributes)
-        [StrLen(255)]
-        public virtual string Creator
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Здание.Creator Get start)
-
-                // *** End programmer edit section *** (Здание.Creator Get start)
-                string result = this.fCreator;
-                // *** Start programmer edit section *** (Здание.Creator Get end)
-
-                // *** End programmer edit section *** (Здание.Creator Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Здание.Creator Set start)
-
-                // *** End programmer edit section *** (Здание.Creator Set start)
-                this.fCreator = value;
-                // *** Start programmer edit section *** (Здание.Creator Set end)
-
-                // *** End programmer edit section *** (Здание.Creator Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Время последнего редактирования объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Здание.EditTime CustomAttributes)
-
-        // *** End programmer edit section *** (Здание.EditTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> EditTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Здание.EditTime Get start)
-
-                // *** End programmer edit section *** (Здание.EditTime Get start)
-                System.Nullable<System.DateTime> result = this.fEditTime;
-                // *** Start programmer edit section *** (Здание.EditTime Get end)
-
-                // *** End programmer edit section *** (Здание.EditTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Здание.EditTime Set start)
-
-                // *** End programmer edit section *** (Здание.EditTime Set start)
-                this.fEditTime = value;
-                // *** Start programmer edit section *** (Здание.EditTime Set end)
-
-                // *** End programmer edit section *** (Здание.EditTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Последний редактор объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Здание.Editor CustomAttributes)
-
-        // *** End programmer edit section *** (Здание.Editor CustomAttributes)
-        [StrLen(255)]
-        public virtual string Editor
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Здание.Editor Get start)
-
-                // *** End programmer edit section *** (Здание.Editor Get start)
-                string result = this.fEditor;
-                // *** Start programmer edit section *** (Здание.Editor Get end)
-
-                // *** End programmer edit section *** (Здание.Editor Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Здание.Editor Set start)
-
-                // *** End programmer edit section *** (Здание.Editor Set start)
-                this.fEditor = value;
-                // *** Start programmer edit section *** (Здание.Editor Set end)
-
-                // *** End programmer edit section *** (Здание.Editor Set end)
             }
         }
         
@@ -295,8 +160,6 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Здание.Район CustomAttributes)
 
         // *** End programmer edit section *** (Здание.Район CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Район"})]
         [NotNull()]
         public virtual TeploCorp.TeploUchet.Район Район
         {
@@ -328,17 +191,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         public class Views
         {
-            
-            /// <summary>
-            /// "AuditView" view.
-            /// </summary>
-            public static ICSSoft.STORMNET.View AuditView
-            {
-                get
-                {
-                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(TeploCorp.TeploUchet.Здание));
-                }
-            }
             
             /// <summary>
             /// "ЗданиеE" view.

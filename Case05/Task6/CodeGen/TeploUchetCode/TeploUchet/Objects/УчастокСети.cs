@@ -31,27 +31,21 @@ namespace TeploCorp.TeploUchet
     [AutoAltered()]
     [Caption("Участок сети")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
-    [View("AuditView", new string[] {
-            "Номер as \'Номер\'",
-            "Теплоизоляция as \'Теплоизоляция\'",
-            "ТипМонтажа as \'Тип монтажа\'",
-            "ГодПрокладки as \'Год прокладки\'",
-            "Объект as \'Объект\'",
-            "Объект.Наименование as \'Наименование\'"})]
     [View("УчастокСетиE", new string[] {
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
             "ТипМонтажа as \'Тип монтажа\'",
             "ГодПрокладки as \'Год прокладки\'",
+            "СводнаяИнф as \'Сводная инф\'",
             "Объект as \'Объект\'",
+            "Объект.Наименование as \'Наименование\'",
+            "Актуален as \'Актуален\'",
+            "Объект.Здание.Район.Название",
+            "Объект.Здание.Адрес"
+    }, Hidden=new string[] {
             "Объект.Наименование",
             "Объект.Здание.Адрес",
-            "СводнаяИнф as \'Сводная информация\'",
-            "Актуален as \'Актуален\'"
-    }, Hidden = new string[] {
-            "Объект.Здание.Адрес",
-            "Объект.Наименование"
-    })]
+            "Объект.Здание.Район.Название"})]
     [View("УчастокСетиL", new string[] {
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
@@ -59,21 +53,14 @@ namespace TeploCorp.TeploUchet
             "ГодПрокладки as \'Год прокладки\'",
             "Объект.Наименование as \'Объект\'",
             "Объект.Здание.Район.Название",
-            "Объект.Здание.Адрес",
-            "СводнаяИнф as \'Сводная информация\'",
-            "Актуален as \'Актуален\'"}, Hidden=new string[] {
-            "Объект.Здание.Адрес",
-            "Объект.Здание.Район.Название"})]
+            "СводнаяИнф as \'Сводная инф\'",
+            "Актуален as \'Актуален\'",
+            "Объект.Здание.Адрес"
+    }, Hidden=new string[] {
+            "Объект.Здание.Район.Название",
+            "Объект.Здание.Адрес"})]
     public class УчастокСети : ICSSoft.STORMNET.DataObject
     {
-        
-        private System.Nullable<System.DateTime> fCreateTime;
-        
-        private string fCreator;
-        
-        private System.Nullable<System.DateTime> fEditTime;
-        
-        private string fEditor;
         
         private int fНомер;
         
@@ -91,132 +78,6 @@ namespace TeploCorp.TeploUchet
 
         // *** End programmer edit section *** (УчастокСети CustomMembers)
 
-        
-        /// <summary>
-        /// Время создания объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (УчастокСети.CreateTime CustomAttributes)
-
-        // *** End programmer edit section *** (УчастокСети.CreateTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> CreateTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (УчастокСети.CreateTime Get start)
-
-                // *** End programmer edit section *** (УчастокСети.CreateTime Get start)
-                System.Nullable<System.DateTime> result = this.fCreateTime;
-                // *** Start programmer edit section *** (УчастокСети.CreateTime Get end)
-
-                // *** End programmer edit section *** (УчастокСети.CreateTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (УчастокСети.CreateTime Set start)
-
-                // *** End programmer edit section *** (УчастокСети.CreateTime Set start)
-                this.fCreateTime = value;
-                // *** Start programmer edit section *** (УчастокСети.CreateTime Set end)
-
-                // *** End programmer edit section *** (УчастокСети.CreateTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Создатель объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (УчастокСети.Creator CustomAttributes)
-
-        // *** End programmer edit section *** (УчастокСети.Creator CustomAttributes)
-        [StrLen(255)]
-        public virtual string Creator
-        {
-            get
-            {
-                // *** Start programmer edit section *** (УчастокСети.Creator Get start)
-
-                // *** End programmer edit section *** (УчастокСети.Creator Get start)
-                string result = this.fCreator;
-                // *** Start programmer edit section *** (УчастокСети.Creator Get end)
-
-                // *** End programmer edit section *** (УчастокСети.Creator Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (УчастокСети.Creator Set start)
-
-                // *** End programmer edit section *** (УчастокСети.Creator Set start)
-                this.fCreator = value;
-                // *** Start programmer edit section *** (УчастокСети.Creator Set end)
-
-                // *** End programmer edit section *** (УчастокСети.Creator Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Время последнего редактирования объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (УчастокСети.EditTime CustomAttributes)
-
-        // *** End programmer edit section *** (УчастокСети.EditTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> EditTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (УчастокСети.EditTime Get start)
-
-                // *** End programmer edit section *** (УчастокСети.EditTime Get start)
-                System.Nullable<System.DateTime> result = this.fEditTime;
-                // *** Start programmer edit section *** (УчастокСети.EditTime Get end)
-
-                // *** End programmer edit section *** (УчастокСети.EditTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (УчастокСети.EditTime Set start)
-
-                // *** End programmer edit section *** (УчастокСети.EditTime Set start)
-                this.fEditTime = value;
-                // *** Start programmer edit section *** (УчастокСети.EditTime Set end)
-
-                // *** End programmer edit section *** (УчастокСети.EditTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Последний редактор объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (УчастокСети.Editor CustomAttributes)
-
-        // *** End programmer edit section *** (УчастокСети.Editor CustomAttributes)
-        [StrLen(255)]
-        public virtual string Editor
-        {
-            get
-            {
-                // *** Start programmer edit section *** (УчастокСети.Editor Get start)
-
-                // *** End programmer edit section *** (УчастокСети.Editor Get start)
-                string result = this.fEditor;
-                // *** Start programmer edit section *** (УчастокСети.Editor Get end)
-
-                // *** End programmer edit section *** (УчастокСети.Editor Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (УчастокСети.Editor Set start)
-
-                // *** End programmer edit section *** (УчастокСети.Editor Set start)
-                this.fEditor = value;
-                // *** Start programmer edit section *** (УчастокСети.Editor Set end)
-
-                // *** End programmer edit section *** (УчастокСети.Editor Set end)
-            }
-        }
         
         /// <summary>
         /// Номер.
@@ -386,7 +247,6 @@ namespace TeploCorp.TeploUchet
         // *** End programmer edit section *** (УчастокСети.СводнаяИнф CustomAttributes)
         [ICSSoft.STORMNET.NotStored()]
         [StrLen(255)]
-        //[DataServiceExpression(typeof(ICSSoft.STORMNET.Business.MSSQLDataService), "@Объект.Здание.Адрес@ + @Объект.Наименование@ + @Теплоизоляция@ + @Номер@")]
         public virtual string СводнаяИнф
         {
             get
@@ -394,7 +254,7 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (УчастокСети.СводнаяИнф Get)
                 if (Теплоизоляция != null)
                 {
-                    return Объект.Здание.Адрес + Объект.Наименование + $"{Номер}" + Теплоизоляция;
+                    return Объект.Здание.Адрес + " " + Объект.Наименование + " " + $"{Номер}" + " " + Теплоизоляция;
                 }
                 else
                 {
@@ -420,6 +280,7 @@ namespace TeploCorp.TeploUchet
         // *** End programmer edit section *** (УчастокСети.Объект CustomAttributes)
         [PropertyStorage(new string[] {
                 "Объект"})]
+        [NotNull()]
         public virtual TeploCorp.TeploUchet.Объект Объект
         {
             get
@@ -450,17 +311,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         public class Views
         {
-            
-            /// <summary>
-            /// "AuditView" view.
-            /// </summary>
-            public static ICSSoft.STORMNET.View AuditView
-            {
-                get
-                {
-                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(TeploCorp.TeploUchet.УчастокСети));
-                }
-            }
             
             /// <summary>
             /// "УчастокСетиE" view.

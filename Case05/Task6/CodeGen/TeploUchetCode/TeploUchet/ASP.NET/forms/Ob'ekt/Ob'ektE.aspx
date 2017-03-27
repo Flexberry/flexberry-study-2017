@@ -42,12 +42,9 @@ ErrorMessage="Не указано: Контрагент" EnableClientScript="tru
 <div class="descTxt">
     <ac:DatePicker ID="ctrlДатаРегистрации" runat="server"/>
 </div>
-<asp:RequiredFieldValidator ID="ctrlДатаРегистрацииValidator" runat="server" ControlToValidate="ctrlДатаРегистрации"
-ErrorMessage="Не указано: ДатаРегистрации" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlЛицСчетLabel" runat="server" Text="Лицевой счет" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlЛицСчетLabel" runat="server" Text="Лиц счет" EnableViewState="False">
 </asp:Label>
 <asp:TextBox CssClass="descTxt" ID="ctrlЛицСчет" runat="server">
 </asp:TextBox>
@@ -57,19 +54,19 @@ ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" Val
 
 </div>
 <div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь" EnableViewState="False">
+</asp:Label>
+<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
+</ac:AlphaNumericTextBox>
+
+</div>
+<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlЗданиеLabel" runat="server" Text="Здание" EnableViewState="False">
 </asp:Label>
 <ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 <asp:RequiredFieldValidator ID="ctrlЗданиеValidator" runat="server" ControlToValidate="ctrlЗдание"
 ErrorMessage="Не указано: Здание" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь" EnableViewState="False">
-</asp:Label>
-<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
-</ac:AlphaNumericTextBox>
 
 </div>
 <div class="clearfix">

@@ -23,7 +23,7 @@
             IUnityContainer container = UnityFactory.CreateContainer();
             
             // Сервис аудита.
-            AuditSetter.InitAuditService(BridgeToDS.GetDataService());
+            //AuditSetter.InitAuditService(BridgeToDS.GetDataService());
 
             // Сервис тем оформления.
             ThemeService.Current = container.Resolve<IThemeService>();

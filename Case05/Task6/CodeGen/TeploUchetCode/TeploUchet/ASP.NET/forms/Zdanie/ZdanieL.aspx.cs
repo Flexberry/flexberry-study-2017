@@ -55,6 +55,7 @@ namespace TeploCorp.TeploUchet
                                         true));
                 WebObjectListView1.LimitFunction = lf;
             };
+            Page.Validate();
         }
 
         /// <summary>

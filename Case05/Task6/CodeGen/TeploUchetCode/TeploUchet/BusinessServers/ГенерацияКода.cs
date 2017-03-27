@@ -45,6 +45,7 @@ namespace TeploCorp.TeploUchet
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъект)
+            var ds = (SQLDataService)DataServiceProvider.DataService;
             if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
                 var consumer = new Consumer()
@@ -54,7 +55,28 @@ namespace TeploCorp.TeploUchet
                     DateReg = UpdatedObject.ДатаРегистрации
                 };
                 UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
-                UpdatedObject.Здание.SetStatus(ObjectStatus.Altered);
+
+                IDataService ids =  DataServiceProvider.DataService;
+                
+                var buildKey = UpdatedObject.Здание.__PrimaryKey;
+                int OldПлощадь = 0;
+                var noToSummObject = ds.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == UpdatedObject.__PrimaryKey).Where(y => y.Актуален == true);
+                foreach (var j in noToSummObject)
+                {
+                    OldПлощадь = j.Площадь;
+                };
+                if (UpdatedObject.Площадь != OldПлощадь)
+                {
+                    //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
+                    UpdatedObject.Здание.Площади = UpdatedObject.Площадь - OldПлощадь;
+                    //находим старые площади и прибавляем
+                    var toSummObjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == buildKey).Where(y => y.Актуален == true);
+                    foreach (var j in toSummObjects)
+                    {
+                        UpdatedObject.Здание.Площади += j.Площадь;
+                    };
+                    ids.UpdateObject(UpdatedObject.Здание);
+                }
             }
             
             //ставим флаг удален 
@@ -64,13 +86,13 @@ namespace TeploCorp.TeploUchet
                 UpdatedObject.SetStatus(ObjectStatus.Altered);
                 UpdatedObject.Актуален = false;
 
-                var ds = (SQLDataService)DataServiceProvider.DataService;
-                var delobjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(k => k.Здание.__PrimaryKey == UpdatedObject.__PrimaryKey);
-                foreach (var k in delobjects)
+                //var ds = (SQLDataService)DataServiceProvider.DataService;
+                var delObjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(k => k.Здание.__PrimaryKey == UpdatedObject.__PrimaryKey);
+                foreach (var k in delObjects)
                 {
                     k.SetStatus(ObjectStatus.Deleted);
                 }
-                return delobjects.ToArray();
+                return delObjects.ToArray();
             }
 
             return new ICSSoft.STORMNET.DataObject[0];

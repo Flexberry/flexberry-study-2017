@@ -30,26 +30,16 @@ namespace TeploCorp.TeploUchet
     [BusinessServer("TeploCorp.TeploUchet.УдалениеРайона, TeploUchet(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
-    [View("AuditView", new string[] {
-            "Название as \'Название\'"})]
     [View("РайонE", new string[] {
             "Название as \'Название\'",
-            "Актуален"})]
+            "Актуален as \'Актуален\'"})]
     [View("РайонL", new string[] {
             "Название as \'Название\'",
-            "Актуален"})]
+            "Актуален as \'Актуален\'"})]
     public class Район : ICSSoft.STORMNET.DataObject
     {
         
         private string fНазвание;
-        
-        private System.Nullable<System.DateTime> fCreateTime;
-        
-        private string fCreator;
-        
-        private System.Nullable<System.DateTime> fEditTime;
-        
-        private string fEditor;
         
         private bool fАктуален = true;
         
@@ -92,132 +82,6 @@ namespace TeploCorp.TeploUchet
         }
         
         /// <summary>
-        /// Время создания объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Район.CreateTime CustomAttributes)
-
-        // *** End programmer edit section *** (Район.CreateTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> CreateTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Район.CreateTime Get start)
-
-                // *** End programmer edit section *** (Район.CreateTime Get start)
-                System.Nullable<System.DateTime> result = this.fCreateTime;
-                // *** Start programmer edit section *** (Район.CreateTime Get end)
-
-                // *** End programmer edit section *** (Район.CreateTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Район.CreateTime Set start)
-
-                // *** End programmer edit section *** (Район.CreateTime Set start)
-                this.fCreateTime = value;
-                // *** Start programmer edit section *** (Район.CreateTime Set end)
-
-                // *** End programmer edit section *** (Район.CreateTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Создатель объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Район.Creator CustomAttributes)
-
-        // *** End programmer edit section *** (Район.Creator CustomAttributes)
-        [StrLen(255)]
-        public virtual string Creator
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Район.Creator Get start)
-
-                // *** End programmer edit section *** (Район.Creator Get start)
-                string result = this.fCreator;
-                // *** Start programmer edit section *** (Район.Creator Get end)
-
-                // *** End programmer edit section *** (Район.Creator Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Район.Creator Set start)
-
-                // *** End programmer edit section *** (Район.Creator Set start)
-                this.fCreator = value;
-                // *** Start programmer edit section *** (Район.Creator Set end)
-
-                // *** End programmer edit section *** (Район.Creator Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Время последнего редактирования объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Район.EditTime CustomAttributes)
-
-        // *** End programmer edit section *** (Район.EditTime CustomAttributes)
-        public virtual System.Nullable<System.DateTime> EditTime
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Район.EditTime Get start)
-
-                // *** End programmer edit section *** (Район.EditTime Get start)
-                System.Nullable<System.DateTime> result = this.fEditTime;
-                // *** Start programmer edit section *** (Район.EditTime Get end)
-
-                // *** End programmer edit section *** (Район.EditTime Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Район.EditTime Set start)
-
-                // *** End programmer edit section *** (Район.EditTime Set start)
-                this.fEditTime = value;
-                // *** Start programmer edit section *** (Район.EditTime Set end)
-
-                // *** End programmer edit section *** (Район.EditTime Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Последний редактор объекта.
-        /// </summary>
-        // *** Start programmer edit section *** (Район.Editor CustomAttributes)
-
-        // *** End programmer edit section *** (Район.Editor CustomAttributes)
-        [StrLen(255)]
-        public virtual string Editor
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Район.Editor Get start)
-
-                // *** End programmer edit section *** (Район.Editor Get start)
-                string result = this.fEditor;
-                // *** Start programmer edit section *** (Район.Editor Get end)
-
-                // *** End programmer edit section *** (Район.Editor Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Район.Editor Set start)
-
-                // *** End programmer edit section *** (Район.Editor Set start)
-                this.fEditor = value;
-                // *** Start programmer edit section *** (Район.Editor Set end)
-
-                // *** End programmer edit section *** (Район.Editor Set end)
-            }
-        }
-        
-        /// <summary>
         /// Актуален.
         /// </summary>
         // *** Start programmer edit section *** (Район.Актуален CustomAttributes)
@@ -253,17 +117,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         public class Views
         {
-            
-            /// <summary>
-            /// "AuditView" view.
-            /// </summary>
-            public static ICSSoft.STORMNET.View AuditView
-            {
-                get
-                {
-                    return ICSSoft.STORMNET.Information.GetView("AuditView", typeof(TeploCorp.TeploUchet.Район));
-                }
-            }
             
             /// <summary>
             /// "РайонE" view.
