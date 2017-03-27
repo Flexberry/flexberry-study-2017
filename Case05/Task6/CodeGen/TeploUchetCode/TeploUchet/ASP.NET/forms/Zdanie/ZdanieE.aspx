@@ -36,6 +36,13 @@ ErrorMessage="Не указано: Район" EnableClientScript="true" Validat
 
 </div>
 <div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlПлощадиLabel" runat="server" Text="Площади" EnableViewState="False">
+</asp:Label>
+<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощади" Type="Numeric" runat="server">
+</ac:AlphaNumericTextBox>
+
+</div>
+<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>
 <asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>

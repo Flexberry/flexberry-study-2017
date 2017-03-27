@@ -44,7 +44,14 @@ namespace TeploCorp.TeploUchet
             "ТипМонтажа as \'Тип монтажа\'",
             "ГодПрокладки as \'Год прокладки\'",
             "Объект as \'Объект\'",
-            "Актуален as \'Актуален\'"})]
+            "Объект.Наименование",
+            "Объект.Здание.Адрес",
+            "СводнаяИнф as \'Сводная информация\'",
+            "Актуален as \'Актуален\'"
+    }, Hidden = new string[] {
+            "Объект.Здание.Адрес",
+            "Объект.Наименование"
+    })]
     [View("УчастокСетиL", new string[] {
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
@@ -52,7 +59,10 @@ namespace TeploCorp.TeploUchet
             "ГодПрокладки as \'Год прокладки\'",
             "Объект.Наименование as \'Объект\'",
             "Объект.Здание.Район.Название",
-            "Актуален"}, Hidden=new string[] {
+            "Объект.Здание.Адрес",
+            "СводнаяИнф as \'Сводная информация\'",
+            "Актуален as \'Актуален\'"}, Hidden=new string[] {
+            "Объект.Здание.Адрес",
             "Объект.Здание.Район.Название"})]
     public class УчастокСети : ICSSoft.STORMNET.DataObject
     {
@@ -365,6 +375,40 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (УчастокСети.Актуален Set end)
 
                 // *** End programmer edit section *** (УчастокСети.Актуален Set end)
+            }
+        }
+        
+        /// <summary>
+        /// СводнаяИнф.
+        /// </summary>
+        // *** Start programmer edit section *** (УчастокСети.СводнаяИнф CustomAttributes)
+
+        // *** End programmer edit section *** (УчастокСети.СводнаяИнф CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        [StrLen(255)]
+        //[DataServiceExpression(typeof(ICSSoft.STORMNET.Business.MSSQLDataService), "@Объект.Здание.Адрес@ + @Объект.Наименование@ + @Теплоизоляция@ + @Номер@")]
+        public virtual string СводнаяИнф
+        {
+            get
+            {
+                // *** Start programmer edit section *** (УчастокСети.СводнаяИнф Get)
+                if (Теплоизоляция != null)
+                {
+                    return Объект.Здание.Адрес + Объект.Наименование + $"{Номер}" + Теплоизоляция;
+                }
+                else
+                {
+                    return null;
+                }
+                
+                //null;
+                // *** End programmer edit section *** (УчастокСети.СводнаяИнф Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (УчастокСети.СводнаяИнф Set)
+
+                // *** End programmer edit section *** (УчастокСети.СводнаяИнф Set)
             }
         }
         

@@ -46,7 +46,8 @@ namespace TeploCorp.TeploUchet
             "ЛицСчет as \'Лицевой счет\'",
             "КодОбъекта as \'Код объекта\'",
             "Здание as \'Здание\'",
-            "Актуален"}, Hidden=new string[] {
+            "Площадь as \'Площадь\'",
+            "Актуален as \'Актуален\'"}, Hidden=new string[] {
             "КодОбъекта"})]
     [View("ОбъектL", new string[] {
             "Наименование as \'Наименование\'",
@@ -56,7 +57,8 @@ namespace TeploCorp.TeploUchet
             "ЛицСчет as \'Лиц счет\'",
             "КодОбъекта as \'Код объекта\'",
             "Здание.Район.Название",
-            "Актуален"}, Hidden=new string[] {
+            "Площадь as \'Площадь\'",
+            "Актуален as \'Актуален\'"}, Hidden=new string[] {
             "Здание.Район.Название"})]
     public class Объект : ICSSoft.STORMNET.DataObject
     {
@@ -80,6 +82,8 @@ namespace TeploCorp.TeploUchet
         private string fEditor;
         
         private bool fАктуален = true;
+        
+        private int fПлощадь;
         
         private TeploCorp.TeploUchet.Здание fЗдание;
         
@@ -404,6 +408,37 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (Объект.Актуален Set end)
 
                 // *** End programmer edit section *** (Объект.Актуален Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Площадь.
+        /// </summary>
+        // *** Start programmer edit section *** (Объект.Площадь CustomAttributes)
+
+        // *** End programmer edit section *** (Объект.Площадь CustomAttributes)
+        public virtual int Площадь
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Объект.Площадь Get start)
+
+                // *** End programmer edit section *** (Объект.Площадь Get start)
+                int result = this.fПлощадь;
+                // *** Start programmer edit section *** (Объект.Площадь Get end)
+
+                // *** End programmer edit section *** (Объект.Площадь Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Объект.Площадь Set start)
+
+                // *** End programmer edit section *** (Объект.Площадь Set start)
+                this.fПлощадь = value;
+                // *** Start programmer edit section *** (Объект.Площадь Set end)
+
+                // *** End programmer edit section *** (Объект.Площадь Set end)
             }
         }
         

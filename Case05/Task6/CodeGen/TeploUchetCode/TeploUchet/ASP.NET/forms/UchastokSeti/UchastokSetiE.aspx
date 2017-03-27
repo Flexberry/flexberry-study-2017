@@ -65,6 +65,14 @@ ErrorMessage="Не указано: ГодПрокладки" EnableClientScript=
 <ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 </div>
+<!--
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlСводнаяИнфLabel" runat="server" Text="Сводная информация" EnableViewState="False">
+</asp:Label>
+<asp:TextBox CssClass="descTxt" ID="ctrlСводнаяИнф" runat="server">
+</asp:TextBox>
+
+</div> -->
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>

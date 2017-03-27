@@ -37,11 +37,13 @@ namespace TeploCorp.TeploUchet
     [View("ЗданиеE", new string[] {
             "Адрес as \'Адрес\'",
             "Район as \'Район\'",
-            "Актуален"})]
+            "Площади as \'Площади\'",
+            "Актуален as \'Актуален\'"})]
     [View("ЗданиеL", new string[] {
             "Адрес as \'Адрес\'",
             "Район.Название as \'Район\'",
-            "Актуален"})]
+            "Актуален",
+            "Площади as \'Площади\'"})]
     public class Здание : ICSSoft.STORMNET.DataObject
     {
         
@@ -56,6 +58,8 @@ namespace TeploCorp.TeploUchet
         private string fEditor;
         
         private bool fАктуален = true;
+        
+        private int fПлощади;
         
         private TeploCorp.TeploUchet.Район fРайон;
         
@@ -251,6 +255,37 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (Здание.Актуален Set end)
 
                 // *** End programmer edit section *** (Здание.Актуален Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Площади.
+        /// </summary>
+        // *** Start programmer edit section *** (Здание.Площади CustomAttributes)
+
+        // *** End programmer edit section *** (Здание.Площади CustomAttributes)
+        public virtual int Площади
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Здание.Площади Get start)
+
+                // *** End programmer edit section *** (Здание.Площади Get start)
+                int result = this.fПлощади;
+                // *** Start programmer edit section *** (Здание.Площади Get end)
+
+                // *** End programmer edit section *** (Здание.Площади Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Здание.Площади Set start)
+
+                // *** End programmer edit section *** (Здание.Площади Set start)
+                this.fПлощади = value;
+                // *** Start programmer edit section *** (Здание.Площади Set end)
+
+                // *** End programmer edit section *** (Здание.Площади Set end)
             }
         }
         

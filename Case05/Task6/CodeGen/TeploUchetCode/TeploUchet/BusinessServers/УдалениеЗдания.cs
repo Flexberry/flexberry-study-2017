@@ -58,7 +58,18 @@ namespace TeploCorp.TeploUchet
                 }
                 return delobjects.ToArray();
             }
-            return new ICSSoft.STORMNET.DataObject[0];
+
+            //вычисление 
+            if (UpdatedObject.GetStatus() == ObjectStatus.Altered)
+            {
+                var ds = (SQLDataService)DataServiceProvider.DataService;
+                var toSummObjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(k => k.Здание.__PrimaryKey == UpdatedObject.__PrimaryKey).Where(k => k.Актуален == true);
+                foreach (var k in toSummObjects)
+                {
+                    UpdatedObject.Площади += k.Площадь;
+                }                
+            }
+                return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateЗдание)
         }
     }

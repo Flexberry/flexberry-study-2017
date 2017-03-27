@@ -66,6 +66,13 @@ ErrorMessage="Не указано: Здание" EnableClientScript="true" Valid
 
 </div>
 <div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь" EnableViewState="False">
+</asp:Label>
+<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
+</ac:AlphaNumericTextBox>
+
+</div>
+<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>
 <asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>

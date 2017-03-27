@@ -54,6 +54,7 @@ namespace TeploCorp.TeploUchet
                     DateReg = UpdatedObject.ДатаРегистрации
                 };
                 UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
+                UpdatedObject.Здание.SetStatus(ObjectStatus.Altered);
             }
             
             //ставим флаг удален 
