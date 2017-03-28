@@ -1,9 +1,8 @@
-﻿using System;
-
-namespace ICSSoft.STORMNET.Web
+﻿namespace ICSSoft.STORMNET.Web
 {
-    using ICSSoft.STORMNET.Web.AjaxControls;
+    using System;
     using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Web.AjaxControls;
     using Resources;
 
     /// <summary>

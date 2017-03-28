@@ -40,24 +40,6 @@ namespace NewPlatform.RecordBookBL {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlДисциплинаValidator;
         
         /// <summary>
-        /// ctrlДисциплина_НазваниеLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlДисциплина_НазваниеLabel;
-        
-        /// <summary>
-        /// ctrlДисциплина_Название control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlДисциплина_Название;
-        
-        /// <summary>
         /// ctrlСеместрLabel control.
         /// </summary>
         /// <remarks>
@@ -83,24 +65,6 @@ namespace NewPlatform.RecordBookBL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlСеместрValidator;
-        
-        /// <summary>
-        /// ctrlСеместр_НачалоLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlСеместр_НачалоLabel;
-        
-        /// <summary>
-        /// ctrlСеместр_Начало control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlСеместр_Начало;
         
         /// <summary>
         /// ctrlПреподавательLabel control.
@@ -146,6 +110,42 @@ namespace NewPlatform.RecordBookBL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ctrlПреподаватель_Фамилия;
+        
+        /// <summary>
+        /// ctrlПреподаватель_ИмяLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ctrlПреподаватель_ИмяLabel;
+        
+        /// <summary>
+        /// ctrlПреподаватель_Имя control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ctrlПреподаватель_Имя;
+        
+        /// <summary>
+        /// ctrlПреподаватель_ОтчествоLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ctrlПреподаватель_ОтчествоLabel;
+        
+        /// <summary>
+        /// ctrlПреподаватель_Отчество control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ctrlПреподаватель_Отчество;
         
         /// <summary>
         /// ScriptManager1 control.

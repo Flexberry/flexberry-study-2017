@@ -115,6 +115,8 @@ ErrorMessage="Не указано: Преподаватель" EnableClientScrip
                     });
 
                     NewPlatform.RecordBookBL.CheckExam.CheckChangedMarks(marksForCheck, onRequestComplete, onError);
+                } else {
+                    deferredForHandler.resolve();
                 }
             }, 'onCheckSucceed');
         });
