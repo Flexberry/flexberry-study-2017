@@ -40,7 +40,35 @@ namespace TeploCorp.TeploUchet
 
         
         // *** Start programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
+        /// <summary>
+        /// проверка есть ли були секторов в объекте по номеру и типу сети
+        /// </summary>
+        /// <param name="objectSector"></param>
+        public void chesk4doubleSector(TeploCorp.TeploUchet.УчастокСети objectSector)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            var objectKey = objectSector.__PrimaryKey;
+            var objectNumber = objectSector.Номер;
 
+            int OldПлощадь = 0;
+            var ToCheckObject = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == objectSector.__PrimaryKey).Where(y => y.Актуален == true);
+            foreach (var j in ToCheckObject)
+            {
+                OldПлощадь = j.Площадь;
+            };
+            if (object4Calc.Площадь != OldПлощадь)
+            {
+                //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
+                object4Calc.Здание.Площади = object4Calc.Площадь - OldПлощадь;
+                //находим старые площади и прибавляем
+                var toSummObjects = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == objectKey).Where(y => y.Актуален == true);
+                foreach (var j in toSummObjects)
+                {
+                    object4Calc.Здание.Площади += j.Площадь;
+                };
+                ids.UpdateObject(object4Calc.Здание);
+            }
+        }
         // *** End programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateУчастокСети(TeploCorp.TeploUchet.УчастокСети UpdatedObject)
         {
@@ -61,7 +89,13 @@ namespace TeploCorp.TeploUchet
                 }
                 return delobjects.ToArray();
             }
-            return new ICSSoft.STORMNET.DataObject[0];
+
+            if (UpdatedObject.GetStatus() == ObjectStatus.Altered)
+            {
+                chesk4doubleSector(UpdatedObject);
+            }
+
+                return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateУчастокСети)
         }
     }

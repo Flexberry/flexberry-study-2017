@@ -33,50 +33,69 @@ namespace TeploCorp.TeploUchet
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class ГенерацияКода : ICSSoft.STORMNET.Business.BusinessServer
     {
-        
+
+
         // *** Start programmer edit section *** (ГенерацияКода CustomMembers)
 
         // *** End programmer edit section *** (ГенерацияКода CustomMembers)
 
-        
-        // *** Start programmer edit section *** (OnUpdateОбъект CustomAttributes)
 
+        // *** Start programmer edit section *** (OnUpdateОбъект CustomAttributes)
+        /// <summary>
+        /// генерция кода для объекта
+        /// </summary>
+        /// <param name="object4Code"></param>
+
+        public string generateCode(TeploCorp.TeploUchet.Объект object4Code)
+        {
+            var consumer = new Consumer()
+            {
+                Name = object4Code.Наименование,
+                Account = object4Code.ЛицСчет,
+                DateReg = object4Code.ДатаРегистрации
+            };
+            return Logic1.GenerateCode(consumer);
+        }
+
+        /// <summary>
+        /// вычисление площади объекта
+        /// </summary>
+        /// <param name="object4Calc"></param>
+        public void calcArea (TeploCorp.TeploUchet.Объект object4Calc)
+        {
+            //var ds = (SQLDataService)DataServiceProvider.DataService;
+            IDataService ids = DataServiceProvider.DataService;
+            var objectKey = object4Calc.Здание.__PrimaryKey;
+            int OldПлощадь = 0;
+            var noToSummObject = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == object4Calc.__PrimaryKey).Where(y => y.Актуален == true);
+            foreach (var j in noToSummObject)
+            {
+                OldПлощадь = j.Площадь;
+            };
+            if (object4Calc.Площадь != OldПлощадь)
+            {
+                //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
+                object4Calc.Здание.Площади = object4Calc.Площадь - OldПлощадь;
+                //находим старые площади и прибавляем
+                var toSummObjects = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == objectKey).Where(y => y.Актуален == true);
+                foreach (var j in toSummObjects)
+                {
+                    object4Calc.Здание.Площади += j.Площадь;
+                };
+                ids.UpdateObject(object4Calc.Здание);
+            }
+        }
         // *** End programmer edit section *** (OnUpdateОбъект CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъект)
-            var ds = (SQLDataService)DataServiceProvider.DataService;
+            
             if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
-                var consumer = new Consumer()
-                {
-                    Name = UpdatedObject.Наименование,
-                    Account = UpdatedObject.ЛицСчет,
-                    DateReg = UpdatedObject.ДатаРегистрации
-                };
-                UpdatedObject.КодОбъекта = Logic1.GenerateCode(consumer);
-
-                IDataService ids =  DataServiceProvider.DataService;
-                
-                var buildKey = UpdatedObject.Здание.__PrimaryKey;
-                int OldПлощадь = 0;
-                var noToSummObject = ds.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == UpdatedObject.__PrimaryKey).Where(y => y.Актуален == true);
-                foreach (var j in noToSummObject)
-                {
-                    OldПлощадь = j.Площадь;
-                };
-                if (UpdatedObject.Площадь != OldПлощадь)
-                {
-                    //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
-                    UpdatedObject.Здание.Площади = UpdatedObject.Площадь - OldПлощадь;
-                    //находим старые площади и прибавляем
-                    var toSummObjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == buildKey).Where(y => y.Актуален == true);
-                    foreach (var j in toSummObjects)
-                    {
-                        UpdatedObject.Здание.Площади += j.Площадь;
-                    };
-                    ids.UpdateObject(UpdatedObject.Здание);
-                }
+                //считаем код объекта
+                UpdatedObject.КодОбъекта = generateCode(UpdatedObject);
+                //считаем площадь объектов в здании
+                calcArea(UpdatedObject);
             }
             
             //ставим флаг удален 
@@ -86,7 +105,7 @@ namespace TeploCorp.TeploUchet
                 UpdatedObject.SetStatus(ObjectStatus.Altered);
                 UpdatedObject.Актуален = false;
 
-                //var ds = (SQLDataService)DataServiceProvider.DataService;
+                var ds = (SQLDataService)DataServiceProvider.DataService;
                 var delObjects = ds.Query<Объект>(Объект.Views.ОбъектE).Where(k => k.Здание.__PrimaryKey == UpdatedObject.__PrimaryKey);
                 foreach (var k in delObjects)
                 {

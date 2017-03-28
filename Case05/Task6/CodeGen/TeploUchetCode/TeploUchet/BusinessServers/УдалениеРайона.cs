@@ -49,14 +49,6 @@ namespace TeploCorp.TeploUchet
                 DataService.LoadObject(UpdatedObject);
                 UpdatedObject.SetStatus(ObjectStatus.Altered);
                 UpdatedObject.Актуален = false;
-                /*
-                var ds = (SQLDataService)DataServiceProvider.DataService;
-                var delobjects = ds.Query<Район>(Район.Views.РайонE).Where(k => k.Объект.__PrimaryKey == UpdatedObject.__PrimaryKey);
-                foreach (var k in delobjects)
-                {
-                    k.SetStatus(ObjectStatus.Deleted);
-                }
-                return delobjects.ToArray();*/
             }
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateРайон)
