@@ -94,6 +94,33 @@ namespace TeploCorp.TeploUchet {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlТипМонтажаValidator;
         
         /// <summary>
+        /// ctrlТипСетиLabel элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ctrlТипСетиLabel;
+        
+        /// <summary>
+        /// ctrlТипСети элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ctrlТипСети;
+        
+        /// <summary>
+        /// ctrlТипСетиValidator элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlТипСетиValidator;
+        
+        /// <summary>
         /// ctrlГодПрокладкиLabel элемент управления.
         /// </summary>
         /// <remarks>
@@ -139,22 +166,13 @@ namespace TeploCorp.TeploUchet {
         protected global::ICSSoft.STORMNET.Web.AjaxControls.MasterEditorAjaxLookUp ctrlОбъект;
         
         /// <summary>
-        /// ctrlСводнаяИнфLabel элемент управления.
+        /// ctrlОбъектValidator элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlСводнаяИнфLabel;
-        
-        /// <summary>
-        /// ctrlСводнаяИнф элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlСводнаяИнф;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlОбъектValidator;
         
         /// <summary>
         /// ctrlАктуаленLabel элемент управления.

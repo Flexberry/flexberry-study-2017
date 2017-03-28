@@ -12,19 +12,18 @@ namespace TeploCorp.TeploUchet
 {
     using System;
     using System.Xml;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
-
-
-    // *** Start programmer edit section *** (Using statements)
-
     // *** End programmer edit section *** (Using statements)
 
 
     /// <summary>
-    /// УдалениеИнспектора.
+    /// Удаление инспектора.
     /// </summary>
     // *** Start programmer edit section *** (УдалениеИнспектора CustomAttributes)
 

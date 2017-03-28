@@ -35,30 +35,27 @@ namespace TeploCorp.TeploUchet
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
             "ТипМонтажа as \'Тип монтажа\'",
+            "ТипСети as \'Прокладка сети\'",
             "ГодПрокладки as \'Год прокладки\'",
             "СводнаяИнф as \'Сводная инф\'",
             "Объект as \'Объект\'",
             "Объект.Наименование as \'Наименование\'",
             "Актуален as \'Актуален\'",
-            "Объект.Здание.Район.Название",
-            "Объект.Здание.Адрес"
-    }, Hidden=new string[] {
+            "Объект.Здание.Район.Название"}, Hidden=new string[] {
+            "СводнаяИнф",
             "Объект.Наименование",
-            "Объект.Здание.Адрес",
             "Объект.Здание.Район.Название"})]
     [View("УчастокСетиL", new string[] {
             "Номер as \'Номер\'",
             "Теплоизоляция as \'Теплоизоляция\'",
             "ТипМонтажа as \'Тип монтажа\'",
+            "ТипСети as \'Прокладка участка\'",
             "ГодПрокладки as \'Год прокладки\'",
             "Объект.Наименование as \'Объект\'",
             "Объект.Здание.Район.Название",
             "СводнаяИнф as \'Сводная инф\'",
-            "Актуален as \'Актуален\'",
-            "Объект.Здание.Адрес"
-    }, Hidden=new string[] {
-            "Объект.Здание.Район.Название",
-            "Объект.Здание.Адрес"})]
+            "Актуален as \'Актуален\'"}, Hidden=new string[] {
+            "Объект.Здание.Район.Название"})]
     public class УчастокСети : ICSSoft.STORMNET.DataObject
     {
         
@@ -71,6 +68,8 @@ namespace TeploCorp.TeploUchet
         private System.DateTime fГодПрокладки;
         
         private bool fАктуален = true;
+        
+        private TeploCorp.TeploUchet.ТипыСети fТипСети;
         
         private TeploCorp.TeploUchet.Объект fОбъект;
         
@@ -269,6 +268,38 @@ namespace TeploCorp.TeploUchet
                 // *** Start programmer edit section *** (УчастокСети.СводнаяИнф Set)
 
                 // *** End programmer edit section *** (УчастокСети.СводнаяИнф Set)
+            }
+        }
+        
+        /// <summary>
+        /// ТипСети.
+        /// </summary>
+        // *** Start programmer edit section *** (УчастокСети.ТипСети CustomAttributes)
+
+        // *** End programmer edit section *** (УчастокСети.ТипСети CustomAttributes)
+        [NotNull()]
+        public virtual TeploCorp.TeploUchet.ТипыСети ТипСети
+        {
+            get
+            {
+                // *** Start programmer edit section *** (УчастокСети.ТипСети Get start)
+
+                // *** End programmer edit section *** (УчастокСети.ТипСети Get start)
+                TeploCorp.TeploUchet.ТипыСети result = this.fТипСети;
+                // *** Start programmer edit section *** (УчастокСети.ТипСети Get end)
+
+                // *** End programmer edit section *** (УчастокСети.ТипСети Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (УчастокСети.ТипСети Set start)
+
+                // *** End programmer edit section *** (УчастокСети.ТипСети Set start)
+                this.fТипСети = value;
+                // *** Start programmer edit section *** (УчастокСети.ТипСети Set end)
+
+                // *** End programmer edit section *** (УчастокСети.ТипСети Set end)
             }
         }
         

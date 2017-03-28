@@ -19,7 +19,7 @@
 	<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlНомерLabel" runat="server" Text="Номер" EnableViewState="False">
 </asp:Label>
-<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlНомер" Type="Numeric" runat="server">
+<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlНомер" Type="Numeric" runat="server" Max="2147483647">
 </ac:AlphaNumericTextBox>
 
 <asp:RequiredFieldValidator ID="ctrlНомерValidator" runat="server" ControlToValidate="ctrlНомер"
@@ -50,6 +50,18 @@ ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="tru
 
 </div>
 <div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlТипСетиLabel" runat="server" Text="Прокладка сети" EnableViewState="False">
+</asp:Label>
+<asp:DropDownList ID="ctrlТипСети" CssClass="descTxt" runat="server">
+	<asp:ListItem>Внутренняя</asp:ListItem>
+<asp:ListItem>Наружная</asp:ListItem>
+
+</asp:DropDownList>
+<asp:RequiredFieldValidator ID="ctrlТипСетиValidator" runat="server" ControlToValidate="ctrlТипСети"
+ErrorMessage="Не указано: ТипСети" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+
+</div>
+<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Год прокладки" EnableViewState="False">
 </asp:Label>
 <div class="descTxt">
@@ -57,13 +69,6 @@ ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="tru
 </div>
 <asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
 ErrorMessage="Не указано: ГодПрокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlСводнаяИнфLabel" runat="server" Text="Сводная инф" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlСводнаяИнф" runat="server">
-</asp:TextBox>
 
 </div>
 <div class="clearfix">

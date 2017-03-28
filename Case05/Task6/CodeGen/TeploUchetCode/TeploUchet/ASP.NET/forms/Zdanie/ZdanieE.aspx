@@ -27,13 +27,6 @@ ErrorMessage="Не указано: Адрес" EnableClientScript="true" Validat
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПлощадиLabel" runat="server" Text="Площади" EnableViewState="False">
-</asp:Label>
-<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощади" Type="Numeric" runat="server">
-</ac:AlphaNumericTextBox>
-
-</div>
-<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlРайонLabel" runat="server" Text="Район" EnableViewState="False">
 </asp:Label>
 <ac:MasterEditorAjaxLookUp ID="ctrlРайон" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />

@@ -20,7 +20,7 @@ namespace TeploCorp.TeploUchet
 
 
     /// <summary>
-    /// УдалениеРайона.
+    /// Удаление района.
     /// </summary>
     // *** Start programmer edit section *** (BFУдалениеРайона CustomAttributes)
 

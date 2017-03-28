@@ -12,15 +12,15 @@ namespace TeploCorp.TeploUchet
 {
     using System;
     using System.Xml;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
     using Task1.Objects;
     using Logic;
-
-    // *** Start programmer edit section *** (Using statements)
-
     // *** End programmer edit section *** (Using statements)
 
 
@@ -33,13 +33,12 @@ namespace TeploCorp.TeploUchet
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class ГенерацияКода : ICSSoft.STORMNET.Business.BusinessServer
     {
-
-
+        
         // *** Start programmer edit section *** (ГенерацияКода CustomMembers)
 
         // *** End programmer edit section *** (ГенерацияКода CustomMembers)
 
-
+        
         // *** Start programmer edit section *** (OnUpdateОбъект CustomAttributes)
         /// <summary>
         /// генерция кода для объекта

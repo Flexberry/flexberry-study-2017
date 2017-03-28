@@ -20,7 +20,7 @@ namespace TeploCorp.TeploUchet
 
 
     /// <summary>
-    /// УдалениеИнспектора.
+    /// Удаление инспектора.
     /// </summary>
     // *** Start programmer edit section *** (BFУдалениеИнспектора CustomAttributes)
 

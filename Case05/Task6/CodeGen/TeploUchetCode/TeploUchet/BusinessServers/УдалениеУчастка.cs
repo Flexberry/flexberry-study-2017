@@ -10,22 +10,20 @@
 
 namespace TeploCorp.TeploUchet
 {
+    using System;
+    using System.Xml;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
-    using System;
-    
-    using System.Xml;
-
-
-    // *** Start programmer edit section *** (Using statements)
-
     // *** End programmer edit section *** (Using statements)
 
 
     /// <summary>
-    /// УдалениеУчастка.
+    /// Удаление участка.
     /// </summary>
     // *** Start programmer edit section *** (УдалениеУчастка CustomAttributes)
 
@@ -41,34 +39,30 @@ namespace TeploCorp.TeploUchet
         
         // *** Start programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
         /// <summary>
-        /// проверка есть ли були секторов в объекте по номеру и типу сети
+        /// проверка есть ли дубли секторов в объекте по номеру и типу сети
         /// </summary>
-        /// <param name="objectSector"></param>
-        public void chesk4doubleSector(TeploCorp.TeploUchet.УчастокСети objectSector)
+        /// <param name="Sector"></param>
+        public Boolean chesk4doubleSector(TeploCorp.TeploUchet.ТипыСети Type, int Number, object Key)
         {
             IDataService ids = DataServiceProvider.DataService;
-            var objectKey = objectSector.__PrimaryKey;
-            var objectNumber = objectSector.Номер;
 
-            int OldПлощадь = 0;
-            var ToCheckObject = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == objectSector.__PrimaryKey).Where(y => y.Актуален == true);
-            foreach (var j in ToCheckObject)
+            var ToCheckSectors = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                .Where(y => y.Объект.__PrimaryKey == Key)
+                .Where(y => y.Актуален == true);
+
+            foreach (var j in ToCheckSectors)
             {
-                OldПлощадь = j.Площадь;
-            };
-            if (object4Calc.Площадь != OldПлощадь)
-            {
-                //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
-                object4Calc.Здание.Площади = object4Calc.Площадь - OldПлощадь;
-                //находим старые площади и прибавляем
-                var toSummObjects = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == objectKey).Where(y => y.Актуален == true);
-                foreach (var j in toSummObjects)
+                if (Number == j.Номер && Type == j.ТипСети)
                 {
-                    object4Calc.Здание.Площади += j.Площадь;
-                };
-                ids.UpdateObject(object4Calc.Здание);
+                    return true;
+                }
             }
+            return false;
         }
+
+        public const Int32 MaxValue = 2147483647;
+        public const Int32 MinValue = -2147483648;
+
         // *** End programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateУчастокСети(TeploCorp.TeploUchet.УчастокСети UpdatedObject)
         {
@@ -90,12 +84,30 @@ namespace TeploCorp.TeploUchet
                 return delobjects.ToArray();
             }
 
-            if (UpdatedObject.GetStatus() == ObjectStatus.Altered)
+            if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
-                chesk4doubleSector(UpdatedObject);
+                //проверить на дубли при создании или изменении
+                if (chesk4doubleSector(UpdatedObject.ТипСети, UpdatedObject.Номер, UpdatedObject.Объект.__PrimaryKey))
+                {
+                    if (UpdatedObject.Номер < MaxValue)
+                    {
+                        UpdatedObject.Номер += 1;
+                        .AjaxControls
+                    }
+                    else
+                    {
+                        UpdatedObject.Номер = 1;
+                    }  
+                    
+                    //Upda
+                    IDataService ids = DataServiceProvider.DataService;
+                    ids.UpdateObject(UpdatedObject);
+                    //UpdatedObject.SetStatus(ObjectStatus.Altered);
+                    TeploUchet.УчастокСети.Views.УчастокСетиE.Properties
+                }
             }
 
-                return new ICSSoft.STORMNET.DataObject[0];
+            return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateУчастокСети)
         }
     }

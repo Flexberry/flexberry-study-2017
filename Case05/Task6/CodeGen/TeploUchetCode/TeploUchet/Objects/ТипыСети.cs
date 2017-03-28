@@ -20,17 +20,28 @@ namespace TeploCorp.TeploUchet
 
 
     /// <summary>
-    /// Удаление здания.
+    /// Типы сети.
     /// </summary>
-    // *** Start programmer edit section *** (BFУдалениеЗдания CustomAttributes)
+    // *** Start programmer edit section *** (ТипыСети CustomAttributes)
 
-    // *** End programmer edit section *** (BFУдалениеЗдания CustomAttributes)
-    public class BFУдалениеЗдания : ICSSoft.STORMNET.Business.BFBase
+    // *** End programmer edit section *** (ТипыСети CustomAttributes)
+    public enum ТипыСети
     {
         
-        // *** Start programmer edit section *** (BFУдалениеЗдания CustomMembers)
+        /// <summary>
+        /// 
+        /// </summary>
+        // *** Start programmer edit section *** (ТипыСети.Внутренняя CustomAttributes)
 
-        // *** End programmer edit section *** (BFУдалениеЗдания CustomMembers)
+        // *** End programmer edit section *** (ТипыСети.Внутренняя CustomAttributes)
+        Внутренняя,
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        // *** Start programmer edit section *** (ТипыСети.Наружная CustomAttributes)
 
+        // *** End programmer edit section *** (ТипыСети.Наружная CustomAttributes)
+        Наружная,
     }
 }

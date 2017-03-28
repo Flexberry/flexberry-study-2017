@@ -54,7 +54,7 @@ ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" Val
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь, м2" EnableViewState="False">
 </asp:Label>
 <ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
 </ac:AlphaNumericTextBox>

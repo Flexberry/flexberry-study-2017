@@ -41,7 +41,7 @@ namespace TeploCorp.TeploUchet
     [View("ЗданиеL", new string[] {
             "Адрес as \'Адрес\'",
             "Район.Название as \'Район\'",
-            "Площади as \'Площади\'",
+            "Площади as \'Площади, м2\'",
             "Актуален as \'Актуален\'"})]
     public class Здание : ICSSoft.STORMNET.DataObject
     {

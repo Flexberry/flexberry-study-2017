@@ -10,21 +10,20 @@
 
 namespace TeploCorp.TeploUchet
 {
+    using System;
+    using System.Xml;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
-    using System;
-    using System.Xml;
-
-
-    // *** Start programmer edit section *** (Using statements)
-
     // *** End programmer edit section *** (Using statements)
 
 
     /// <summary>
-    /// УдалениеРайона.
+    /// Удаление района.
     /// </summary>
     // *** Start programmer edit section *** (УдалениеРайона CustomAttributes)
 
