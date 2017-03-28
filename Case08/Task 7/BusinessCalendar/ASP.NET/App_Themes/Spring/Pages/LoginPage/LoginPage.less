@@ -1,0 +1,46 @@
+﻿@import '../../../BaseTheme/Pages/LoginPage/LoginPage.less';
+
+/**
+ * Файл визуального оформления формы входа.
+ */
+
+
+/* Страница входа. */
+.@{loginFormPageClass} {
+    
+    /* Заголовок страницы входа. */
+    background: @loginFormPageBackgroundColor;
+
+    .@{loginFormPageHeaderClass} {
+        margin: 0 auto;
+        padding: 64px 0 16px 0;
+        color: @loginFormPageHeaderColor;
+        text-align: center;
+        text-shadow: 0 1px 1px @loginFormPageHeaderShadowColor;
+        font-size: 22px;
+    }
+
+    /* Форма входа. */
+    .@{loginFormClass} {
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+
+        /* Кнопка "Войти". */
+        .@{loginFormBtnClass} {
+            margin-top: 16px;
+            padding-right: 24px;
+            padding-left: 24px;
+            height: 37px;
+            font-size: 16px;
+        }
+
+        .@{loginFormInputClass} {
+            display: block;
+            .border-box();
+            height: 36px;
+        }
+    }
+}
+
+
+@import '_Settings.less';

@@ -1,0 +1,67 @@
+﻿/**
+ * Файл визуального оформления пейджера.
+ */
+
+@import "../../../BaseTheme/Controls/WebObjectListView/Pager.less";
+
+.@{wolvPagerClass} {
+    &.@{wolvPagerTopClass} {
+        margin: 0;
+    }
+
+    &.@{wolvPagerBottomClass} {
+        width: 100%;
+    }
+
+    input {
+        width: 48px;
+    }
+}
+
+.@{wolvPagerNavigatioButtonClass},
+.@{wolvPagerPageClass} {
+    // добавление свойств из buttons.less
+    .ics-btn();
+}
+
+// Неактивная ссылка в панели навигации.
+.@{wolvPagerNavigationDisabledClass},
+.@{wolvPagerNavigationDisabledClass}:hover,
+.@{wolvPagerNavigationDisabledClass}:active,
+.@{wolvPagerNavigationDisabledClass}:focus {
+    border-color: @wolvPageBtnDisabledBorderColor;
+    color: @wolvPageBtnDisabledColor;
+    background: @wolvPageBtnDisabledBackgroundColor;
+    cursor: not-allowed;
+}
+
+.@{wolvPagerNavigationSeparatorClass} {
+    display: none;
+}
+
+.@{wolvPagerGoToPageClass},
+.@{wolvPagerInformationClass} {
+    margin: 0 8px;
+}
+
+.@{wolvPagerGoToPageLabelClass},
+.@{wolvPagerInformationClass} {
+    padding: 4px;
+}
+
+.@{wolvPagerTextFieldClass} {
+    padding: 0;
+    border: none;
+
+    > input {
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.@{wolvPagerCurrentPageClass} {
+    // добавление свойств из buttons.less
+    .ics-btn-active();
+}
+
+@import "_Settings.less";
