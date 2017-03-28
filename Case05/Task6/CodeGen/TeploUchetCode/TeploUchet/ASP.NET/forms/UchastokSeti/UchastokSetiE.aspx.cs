@@ -5,7 +5,20 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using TeploUchet;
+    using System;
+    using System.Web.UI;
+    using ICSSoft.STORMNET.Web.Tools;
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using System.Web.UI;
+    using System.Xml;
+    using System.Xml.Linq;
+    using System.Web.UI.WebControls;
+    using TeploUchet;
+    using System.Drawing;
+
     public partial class УчастокСетиE : BaseEditForm<УчастокСети>
     {
         /// <summary>
@@ -62,7 +75,34 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            return base.PreSaveObject();
+            int number = Convert.ToInt32(ctrlНомер.StringValue);
+            ТипыСети type = ТипыСети.Внутренняя;
+            if (WebBinder.GetBindedValue(ctrlТипСети).ToString() == "Внутренняя")
+            {
+                type = ТипыСети.Внутренняя;
+            }
+            else
+            {
+                type = ТипыСети.Наружная;
+            }
+            //var obiekt = WebBinder.GetBindedValue(ctrlОбъект).ToString();
+            var obiekt = ctrlОбъект.PropertyToShowText;
+
+            if ( УдалениеУчастка.chesk4doubleSector(type, number, obiekt) )
+            {
+                WebMessageBox.Show("Есть дубликат участка сети, пожалуйста проверьте данные!");
+                ctrlОбъектLabel.ForeColor = Color.MediumVioletRed;
+                ctrlНомерLabel.ForeColor = Color.MediumVioletRed;
+                ctrlТипСетиLabel.ForeColor = Color.MediumVioletRed;
+                ErrorPage = "Дубликат";
+                return false;
+            }
+            else
+            {
+                return base.PreSaveObject();
+            }
+            //УдалениеУчастка.chesk4doubleSector(type, numer, ctrlОбъект);
+            
         }
 
         /// <summary>
@@ -70,7 +110,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         /// <returns>Объект данных, который сохранился.</returns>
         protected override DataObject SaveObject()
-        {
+        {             
             return base.SaveObject();
         }
     }

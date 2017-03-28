@@ -31,25 +31,37 @@ namespace TeploCorp.TeploUchet
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class УдалениеУчастка : ICSSoft.STORMNET.Business.BusinessServer
     {
-        
+
         // *** Start programmer edit section *** (УдалениеУчастка CustomMembers)
 
         // *** End programmer edit section *** (УдалениеУчастка CustomMembers)
 
-        
+
         // *** Start programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
         /// <summary>
         /// проверка есть ли дубли секторов в объекте по номеру и типу сети
         /// </summary>
-        /// <param name="Sector"></param>
-        public Boolean chesk4doubleSector(TeploCorp.TeploUchet.ТипыСети Type, int Number, object Key)
+        /// <param name="Type">
+        /// тип участка
+        /// </param>
+        /// <param name="Number">
+        /// номер участка
+        /// </param>
+        /// <param name="Obiekt">
+        /// объект участка
+        /// </param>
+        public static Boolean chesk4doubleSector(ТипыСети Type, int Number, string Obiekt)
         {
             IDataService ids = DataServiceProvider.DataService;
 
             var ToCheckSectors = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
-                .Where(y => y.Объект.__PrimaryKey == Key)
-                .Where(y => y.Актуален == true);
+                                .Where(x => x.Объект.Наименование == Obiekt)
+                                .Where(y => y.Актуален == true);
 
+            /*var ToCheckSectors = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                .Where(y => y.Объект.__PrimaryKey == Obiekt.__PrimaryKey)
+                .Where(y => y.Актуален == true);
+                */
             foreach (var j in ToCheckSectors)
             {
                 if (Number == j.Номер && Type == j.ТипСети)
@@ -76,7 +88,8 @@ namespace TeploCorp.TeploUchet
                 UpdatedObject.Актуален = false;
 
                 var ds = (SQLDataService)DataServiceProvider.DataService;
-                var delobjects = ds.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE).Where(x => x.Объект.__PrimaryKey == UpdatedObject.__PrimaryKey);
+                var delobjects = ds.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                            .Where(x => x.Объект.__PrimaryKey == UpdatedObject.__PrimaryKey);
                 foreach (var i in delobjects)
                 {
                     i.SetStatus(ObjectStatus.Deleted);
@@ -86,13 +99,13 @@ namespace TeploCorp.TeploUchet
 
             if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
             {
+                /*
                 //проверить на дубли при создании или изменении
                 if (chesk4doubleSector(UpdatedObject.ТипСети, UpdatedObject.Номер, UpdatedObject.Объект.__PrimaryKey))
                 {
                     if (UpdatedObject.Номер < MaxValue)
                     {
                         UpdatedObject.Номер += 1;
-                        .AjaxControls
                     }
                     else
                     {
@@ -104,7 +117,8 @@ namespace TeploCorp.TeploUchet
                     ids.UpdateObject(UpdatedObject);
                     //UpdatedObject.SetStatus(ObjectStatus.Altered);
                     TeploUchet.УчастокСети.Views.УчастокСетиE.Properties
-                }
+                        
+                }*/
             }
 
             return new ICSSoft.STORMNET.DataObject[0];
