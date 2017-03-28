@@ -1,0 +1,143 @@
+﻿@import '../../../BaseTheme/Pages/MainPage/MainPage.less';
+
+/**
+ * Файл визуального оформления основной страницы.
+ */
+
+
+/* Шапка. */
+.@{pageHeaderClass} {
+    border-bottom: 2px ridge @headerBorderColor;
+    color: @headerTextColor;    
+
+    &-image {
+        padding: 5px;
+        border: 2px solid #ff8c40;
+        .border-radius(15px);
+        background-color: #fff;        
+        box-shadow: 1px 1px 10px black;
+    }
+
+    &-caption {
+        a { color: #fff; }
+    }
+
+    &-userbar {       
+        margin: 54px 0;
+
+        #@{pageHeaderUserNameId} {
+            margin-right: 10px;
+        }
+
+        .@{pageHeaderExitBtnClass} {
+            padding: 54px 16px;
+            border-right: 2px groove #5a6c76;
+            border-left: 2px ridge #5a6c76;            
+            color: #b6c4cc;
+            -moz-box-shadow: inset 0 0 20px 1px #384248;
+            -webkit-box-shadow: inset 0 0 20px 1px #384248;
+            box-shadow: inset 0 0 20px 1px #384248;
+            -webkit-text-shadow: 0 1px 3px #000;
+            text-shadow: 0 1px 3px #000;
+
+            &:hover {
+                -moz-box-shadow: inset 0 0 20px 4px #384248;
+                -webkit-box-shadow: inset 0 0 20px 4px #384248;
+                box-shadow: inset 0 0 20px 4px #384248;
+            }
+        }
+    }
+}
+
+/* Строка навигации. */
+.@{pageNavigatorClass} {
+    border-bottom: 2px ridge #ff8c40;
+    -webkit-box-shadow: 0 0 3px 0 #000;
+    -moz-box-shadow: 0 0 3px 0 #000;
+    box-shadow: 0 0 3px 0 #000;
+
+    a {
+        color: @pageNavigatorTextColor;
+        text-decoration: none;
+        cursor: default;
+    }
+
+    a[href]:hover {
+        color: @pageNavigatorHoveredTextColor;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    span a:hover {
+        text-decoration: none;
+        color: #b2b2b2;
+    }
+}
+
+/* Кнопка скрытия-отображения меню. */
+#@{pageNavigatorShowHideBtnId} {
+    position: absolute;
+    display: block;
+    margin-top: 5px;
+    margin-left: 0;
+    width: 20px;
+    height: 15px;
+    border: solid 1px #d6d6d6;
+    background-image: url(Images/splitter2.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000;
+    cursor: pointer;
+}
+
+#@{pageNavigatorShowHideBtnId} > span {
+    display: none;
+}
+
+.@{pageMenuHiddenClass} {
+
+    #@{pageNavigatorShowHideBtnId} {
+        background-image: url(Images/splitter1.gif);
+    }
+
+    #@{pageBlockTreeId} {
+        display: none;
+    }
+
+    .page-breadcrumbs {
+        margin-left: 30px;
+    }
+}
+
+
+/* Блок меню. */
+#@{pageBlockTreeId} {
+    
+    .@{pageMenuTreeClass} {
+        margin: 2px;
+
+        td.@{pageMenuNodeClass} {            
+            height: 29px;
+        }
+    }    
+}
+
+/* Футер. */
+.@{pageFooterClass} {
+    color: #777;
+    font-weight: 300;
+    font-size: 12px;
+    clear: both;
+    .border-box();
+    border-top: 1px solid #dbdbdb;
+    background-color: #fff;
+}
+
+
+/* Количество введенных символов достигло предела. */
+textarea.notification {
+    border: 2px solid #8DA6C6;
+}
+
+
+@import '_Settings.less';

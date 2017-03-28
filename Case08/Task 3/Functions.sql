@@ -165,7 +165,8 @@ GO
 CREATE FUNCTION [dbo].[CheckMonth]
 (
 	@idExcDay INT,
-	@month INT
+	@month INT,
+	@year INT
 )
 RETURNS int
 AS
@@ -189,7 +190,7 @@ BEGIN
 		set @i = 1
 		while (@i <= @iterCount) 
 		begin
-			if (DATEPART(MM,@tempDate) = @month) begin
+			if ((DATEPART(MM,@tempDate) = @month) && (DATEPART(YY,@tempDate) = @year)) begin
 				set @check = 1
 				break
 			end
@@ -206,7 +207,7 @@ BEGIN
 	else if (@iterCount is not null) begin
 		while (@tempDate <= @endDate) 
 		begin
-			if (DATEPART(MM,@tempDate) = @month) begin
+			if ((DATEPART(MM,@tempDate) = @month) && (DATEPART(YY,@tempDate) = @year)) begin
 				set @check = 1
 				break
 			end
@@ -228,13 +229,14 @@ GO
 --
 CREATE FUNCTION [dbo].[GetDaysCount]
 (
-	@month INT
+	@month INT,
+	@year INT
 )
 RETURNS int
 AS
 BEGIN
 	declare @dayCount INT
-	select @dayCount = SUM(dbo.CheckMonth(tED.idExcDay,@month)) from tExceptionDay as tED
+	select @dayCount = SUM(dbo.CheckMonth(tED.idExcDay,@month,@year)) from tExceptionDay as tED
 	RETURN @dayCount
 END
 GO

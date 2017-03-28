@@ -1,0 +1,44 @@
+﻿@import '../../../BaseTheme/Controls/ShowHideDiv/ShowHideDiv.less';
+
+/**
+ * Файл визуального оформления контрола ShowHideDiv.
+ */
+
+
+.@{showHideDivClass} {
+    > fieldset {
+
+        > legend {
+            width: 100%;
+        }
+    }
+
+    .ics-show-hide-div-content div input[type="text"] {
+        padding-right: 0;
+        padding-left: 5px;
+    }
+
+    .@{wolvClass} {
+        margin: 0 -9px;
+    }
+}
+
+.@{showHideDivLinkClass} {
+    display: block;    
+    width: 100%;
+    height: 39px; 
+    padding: 8px 0;       
+    border: 1px solid @showHideDivBorderColor;
+    margin: 0 -5px 0 0; 
+    background: @showHideDivBackgroundColor;
+    color: @showHideDivTileColor;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        border-color: @showHideDivHoveredFocusedBorderColor;
+        color: @showHideDivHoveredFocusedTitleColor;
+    }
+}
+
+@import '_Settings.less';

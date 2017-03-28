@@ -1,0 +1,40 @@
+﻿@import "../../../BaseTheme/Controls/Forms/FormElements.less";
+
+/**
+ * Файл визуального оформления дефолтных контролов.
+ */
+
+
+/* Текстовые поля. */
+input {
+    &[type="text"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="date"],
+    &[type="time"] {
+        margin: 0;
+
+        &:focus {
+            outline: none;
+            background-color: #8fbc8f;
+            border-color: #4d81de;
+        }
+    }
+}
+
+/* Многострочные текстовые поля. */
+textarea {    
+    resize: vertical;
+}
+
+/* Выпадающие списки. */
+select {
+    &:extend(input[type=text]);
+
+    &:focus {
+        &:extend(input[type=text]:focus);
+    }
+}
+
+
+@import '_Settings.less';
