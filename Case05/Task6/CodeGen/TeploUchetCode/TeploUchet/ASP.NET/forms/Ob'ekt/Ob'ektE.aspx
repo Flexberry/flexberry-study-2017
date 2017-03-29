@@ -50,14 +50,17 @@ ErrorMessage="Не указано: Контрагент" EnableClientScript="tru
 </asp:TextBox>
 
 <asp:RequiredFieldValidator ID="ctrlЛицСчетValidator" runat="server" ControlToValidate="ctrlЛицСчет"
-ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+ErrorMessage="Не указано: Лицевой счет" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь, м2" EnableViewState="False">
-</asp:Label>
+    <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь, м2" EnableViewState="False">
+    </asp:Label>
 <ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
 </ac:AlphaNumericTextBox>
+    
+<asp:RequiredFieldValidator ID="ctrlПлощадьValidator" runat="server" ControlToValidate="ctrlПлощадь"
+ErrorMessage="Не указано: Площадь" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
 <div class="clearfix">

@@ -40,9 +40,9 @@ namespace TeploCorp.TeploUchet
         {
             string strUser = HttpContext.Current.User.Identity.Name;
             var _dataService = (SQLDataService)DataServiceProvider.DataService;
-            // получаем объект инспектор по логину
-            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); 
-            
+            // получаем объект инспектор по логину ;
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser);
+
             //все кроме инспекторов увидят не актуальные и из всех районов
             if (_Inspector != null)
             {
@@ -58,7 +58,7 @@ namespace TeploCorp.TeploUchet
                                         new VariableDef(langdef.StringType, Information.ExtractPropertyPath<УчастокСети>(x => x.Актуален)),
                                         true));
                 WebObjectListView1.LimitFunction = lf;
-            };       
+            };             
         }
 
         /// <summary>
@@ -66,6 +66,11 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+            var dublSectorListTxt = УдалениеУчастка.doubleKeys(null);
+            if (dublSectorListTxt != "")
+            {
+                WebMessageBox.Show("В объекте с наименованием: " + dublSectorListTxt + " найдены участки с одинаковыми типом сети и номером!" );
+            }
         }
     }
 }

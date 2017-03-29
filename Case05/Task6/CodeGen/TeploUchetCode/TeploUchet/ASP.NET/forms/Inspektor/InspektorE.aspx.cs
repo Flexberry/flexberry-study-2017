@@ -4,8 +4,13 @@ namespace TeploCorp.TeploUchet
 {
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
-    using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using System.Web;
+
     public partial class ИнспекторE : BaseEditForm<Инспектор>
     {
         /// <summary>
@@ -53,6 +58,27 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+            string strUser = HttpContext.Current.User.Identity.Name; //логин пользователя
+            var _dataService = (SQLDataService)DataServiceProvider.DataService; //сервис для получения объекта
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            //если есть инспектор с таким логином 
+            //ограничиваем по его району
+            if (_Inspector != null)
+            {
+                SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+                var strDistrictName = _Inspector.Район.Название;
+                //_Inspector.Район.Название; //название района инспектора
+
+                Function lf = langdef.GetFunction(langdef.funcAND,
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Район>(x => x.Название)),
+                                        strDistrictName),
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Район>(x => x.Актуален)),
+                                        true));
+                ctrlРайон.LimitFunction = lf;
+            };
         }
 
         /// <summary>
@@ -61,6 +87,19 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
+            /*
+            var adres = ctrlЛогин.ToString();
+            if (УдалениеИнспектора.chesk4double(adres))
+            {
+                WebMessageBox.Show("Есть дубликат инспектора с одинаковым логином, пожалуйста проверьте данные!");
+                ctrlЛогинLabel.ForeColor = Color.MediumVioletRed;
+                return false;
+            }
+            else
+            {
+                
+            }
+            */
             return base.PreSaveObject();
         }
 

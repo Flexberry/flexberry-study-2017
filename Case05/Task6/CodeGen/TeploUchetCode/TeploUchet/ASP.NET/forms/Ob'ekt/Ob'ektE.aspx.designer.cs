@@ -85,15 +85,6 @@ namespace TeploCorp.TeploUchet {
         protected global::ICSSoft.STORMNET.Web.AjaxControls.DatePicker ctrlДатаРегистрации;
         
         /// <summary>
-        /// ctrlДатаРегистрацииValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlДатаРегистрацииValidator;
-        
-        /// <summary>
         /// ctrlЛицСчетLabel элемент управления.
         /// </summary>
         /// <remarks>
@@ -121,22 +112,31 @@ namespace TeploCorp.TeploUchet {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЛицСчетValidator;
         
         /// <summary>
-        /// ctrlКодОбъектаLabel элемент управления.
+        /// ctrlПлощадьLabel элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlКодОбъектаLabel;
+        protected global::System.Web.UI.WebControls.Label ctrlПлощадьLabel;
         
         /// <summary>
-        /// ctrlКодОбъекта элемент управления.
+        /// ctrlПлощадь элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlКодОбъекта;
+        protected global::ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox ctrlПлощадь;
+        
+        /// <summary>
+        /// ctrlПлощадьValidator элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlПлощадьValidator;
         
         /// <summary>
         /// ctrlЗданиеLabel элемент управления.
@@ -164,5 +164,23 @@ namespace TeploCorp.TeploUchet {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlЗданиеValidator;
+        
+        /// <summary>
+        /// ctrlАктуаленLabel элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ctrlАктуаленLabel;
+        
+        /// <summary>
+        /// ctrlАктуален элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ctrlАктуален;
     }
 }

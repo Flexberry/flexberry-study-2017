@@ -31,13 +31,31 @@ namespace TeploCorp.TeploUchet
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class УдалениеИнспектора : ICSSoft.STORMNET.Business.BusinessServer
     {
-        
+
         // *** Start programmer edit section *** (УдалениеИнспектора CustomMembers)
 
         // *** End programmer edit section *** (УдалениеИнспектора CustomMembers)
 
-        
-        // *** Start programmer edit section *** (OnUpdateИнспектор CustomAttributes)
+
+        // *** Start programmer edit section *** (OnUpdateИнспектор CustomAttributes)chesk4double
+        /// <summary>
+        /// поиск дубля по логину
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Boolean chesk4double(string Value)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            var ToCheck = ids.Query<Инспектор>(Инспектор.Views.ИнспекторE)
+                                .Where(x => x.Логин == Value)
+                                .Where(y => y.Актуален == true);
+
+            if (ToCheck != null)
+            {
+                return true;
+            }
+            return false;
+        }
 
         // *** End programmer edit section *** (OnUpdateИнспектор CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateИнспектор(TeploCorp.TeploUchet.Инспектор UpdatedObject)

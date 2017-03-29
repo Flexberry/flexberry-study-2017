@@ -11,6 +11,7 @@
         /// </summary>
         protected override void ApplyWolvSettings()
         {
+
             new WOLVSettApplyer().SettingsApply(LookUpFormWOLV);
         }
     }

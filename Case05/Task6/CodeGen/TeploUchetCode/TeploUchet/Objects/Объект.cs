@@ -40,7 +40,7 @@ namespace TeploCorp.TeploUchet
             "Здание as \'Здание\'",
             "Здание.Адрес as \'Адрес\'",
             "Актуален as \'Актуален\'",
-            "Здание.Район.Название"}, Hidden=new string[] {
+            "Здание.Район.Название as \'Район\'"}, Hidden=new string[] {
             "КодОбъекта",
             "Здание.Адрес",
             "Здание.Район.Название"})]
@@ -52,7 +52,7 @@ namespace TeploCorp.TeploUchet
             "КодОбъекта as \'Код объекта\'",
             "Площадь as \'Площадь, м2\'",
             "Здание.Адрес as \'Адрес\'",
-            "Здание.Район.Название",
+            "Здание.Район.Название as \'Район\'",
             "Актуален as \'Актуален\'"}, Hidden=new string[] {
             "Здание.Район.Название"})]
     public class Объект : ICSSoft.STORMNET.DataObject
@@ -151,6 +151,7 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Объект.ДатаРегистрации CustomAttributes)
 
         // *** End programmer edit section *** (Объект.ДатаРегистрации CustomAttributes)
+        [NotNull()]
         public virtual System.DateTime ДатаРегистрации
         {
             get
@@ -277,6 +278,7 @@ namespace TeploCorp.TeploUchet
         // *** Start programmer edit section *** (Объект.Площадь CustomAttributes)
 
         // *** End programmer edit section *** (Объект.Площадь CustomAttributes)
+        [NotNull()]
         public virtual int Площадь
         {
             get

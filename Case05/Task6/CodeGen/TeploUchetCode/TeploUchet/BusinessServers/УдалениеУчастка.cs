@@ -19,6 +19,7 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
+
     // *** End programmer edit section *** (Using statements)
 
 
@@ -50,18 +51,13 @@ namespace TeploCorp.TeploUchet
         /// <param name="Obiekt">
         /// объект участка
         /// </param>
-        public static Boolean chesk4doubleSector(ТипыСети Type, int Number, string Obiekt)
+        public static Boolean check4double(ТипыСети Type, int Number, string Obiekt)
         {
             IDataService ids = DataServiceProvider.DataService;
-
             var ToCheckSectors = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
                                 .Where(x => x.Объект.Наименование == Obiekt)
                                 .Where(y => y.Актуален == true);
 
-            /*var ToCheckSectors = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
-                .Where(y => y.Объект.__PrimaryKey == Obiekt.__PrimaryKey)
-                .Where(y => y.Актуален == true);
-                */
             foreach (var j in ToCheckSectors)
             {
                 if (Number == j.Номер && Type == j.ТипСети)
@@ -71,8 +67,65 @@ namespace TeploCorp.TeploUchet
             }
             return false;
         }
+        /// <summary>
+        /// возвращает ключи объектов которые повторяются в Л представлении
+        /// для участков сетей
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static string doubleKeys (string val)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            //берем все актуальные
+            var actual = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                            .Where(y => y.Актуален == true);
+            int textL = 0;
+            //возможная длинна массива названий объектов( сумма ряда Н го порядка)
+            for (int i = 1; i < actual.Count(x => x.Актуален == true);i++) { textL += i; };
+            string[] text = new string[textL];
+            textL = 0;
 
+            //обращаемся к каждому актуальному
+            foreach ( var i in actual )
+            {
+                //у кого объект совпадает по ключу
+                //того сравниваем
+                var toCompare = ids.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                                .Where(y => y.Объект.__PrimaryKey == i.Объект.__PrimaryKey)
+                                .Where(y => y.__PrimaryKey != i.__PrimaryKey)
+                                .Where(y => y.Актуален == true)
+                                .Where(y => y.Номер == i.Номер)
+                                .Where(y => y.ТипСети == i.ТипСети);
+                
+                //актуальный со сравниваемым 
+                foreach (var j in toCompare)
+                {
+                    text[textL] = i.Объект.Наименование + ",";
+                    textL++;
+                }
+            };
+
+            //удаление повторов
+            var distinctResult = text.Where(str => text.Count(s => s == str) > 1).Distinct();
+            string resultText = "";
+            //в одну строку объект строк
+            foreach (var i in distinctResult)
+            {
+                try
+                {
+                    resultText += i.ToString();
+                }
+                catch { }
+            }
+            return resultText;
+        }
+        /// <summary>
+        /// int Max Value
+        /// </summary>
         public const Int32 MaxValue = 2147483647;
+        /// <summary>
+        /// int Min Value
+        /// </summary>
         public const Int32 MinValue = -2147483648;
 
         // *** End programmer edit section *** (OnUpdateУчастокСети CustomAttributes)
@@ -95,30 +148,6 @@ namespace TeploCorp.TeploUchet
                     i.SetStatus(ObjectStatus.Deleted);
                 }
                 return delobjects.ToArray();
-            }
-
-            if (UpdatedObject.GetStatus() == ObjectStatus.Created || UpdatedObject.GetStatus() == ObjectStatus.Altered)
-            {
-                /*
-                //проверить на дубли при создании или изменении
-                if (chesk4doubleSector(UpdatedObject.ТипСети, UpdatedObject.Номер, UpdatedObject.Объект.__PrimaryKey))
-                {
-                    if (UpdatedObject.Номер < MaxValue)
-                    {
-                        UpdatedObject.Номер += 1;
-                    }
-                    else
-                    {
-                        UpdatedObject.Номер = 1;
-                    }  
-                    
-                    //Upda
-                    IDataService ids = DataServiceProvider.DataService;
-                    ids.UpdateObject(UpdatedObject);
-                    //UpdatedObject.SetStatus(ObjectStatus.Altered);
-                    TeploUchet.УчастокСети.Views.УчастокСетиE.Properties
-                        
-                }*/
             }
 
             return new ICSSoft.STORMNET.DataObject[0];

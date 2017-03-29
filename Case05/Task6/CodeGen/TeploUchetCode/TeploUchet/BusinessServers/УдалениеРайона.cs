@@ -31,14 +31,31 @@ namespace TeploCorp.TeploUchet
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class УдалениеРайона : ICSSoft.STORMNET.Business.BusinessServer
     {
-        
+
         // *** Start programmer edit section *** (УдалениеРайона CustomMembers)
 
         // *** End programmer edit section *** (УдалениеРайона CustomMembers)
 
-        
-        // *** Start programmer edit section *** (OnUpdateРайон CustomAttributes)
 
+        // *** Start programmer edit section *** (OnUpdateРайон CustomAttributes)
+        /// <summary>
+        /// поиск дубля по названию района
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Boolean chesk4double(string Value)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            var ToCheck = ids.Query<Район>(Район.Views.РайонE)
+                                .Where(x => x.Название == Value)
+                                .Where(y => y.Актуален == true);
+
+            if (ToCheck != null )
+            {
+                return true;
+            }
+            return false;
+        }
         // *** End programmer edit section *** (OnUpdateРайон CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateРайон(TeploCorp.TeploUchet.Район UpdatedObject)
         {

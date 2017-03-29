@@ -12,8 +12,8 @@ namespace TeploCorp.TeploUchet
 {
     using System;
     using System.Xml;
-    
-    
+
+
     // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Business;
@@ -21,6 +21,7 @@ namespace TeploCorp.TeploUchet
     using System.Linq;
     using Task1.Objects;
     using Logic;
+
     // *** End programmer edit section *** (Using statements)
 
 
@@ -83,6 +84,24 @@ namespace TeploCorp.TeploUchet
                 };
                 ids.UpdateObject(object4Calc.Здание);
             }
+        }
+        /// <summary>
+        /// поиск дубля по наименованию
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Boolean chesk4double(string Value)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            var ToCheck = ids.Query<Объект>(Объект.Views.ОбъектE)
+                                .Where(x => x.Наименование == Value)
+                                .Where(y => y.Актуален == true);
+            var xxx = ToCheck.Count();
+            if (ToCheck.Count() != 0 )
+            {
+                return true;
+            }
+            return false;
         }
         // *** End programmer edit section *** (OnUpdateОбъект CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъект(TeploCorp.TeploUchet.Объект UpdatedObject)

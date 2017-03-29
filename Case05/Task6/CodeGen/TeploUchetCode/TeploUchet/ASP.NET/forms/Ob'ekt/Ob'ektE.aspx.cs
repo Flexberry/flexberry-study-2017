@@ -4,8 +4,13 @@ namespace TeploCorp.TeploUchet
 {
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
-    using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using System.Web;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+
     public partial class ОбъектE : BaseEditForm<Объект>
     {
         /// <summary>
@@ -53,6 +58,38 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+            if (ctrlЛицСчет.Text == "0")
+            {
+                ctrlЛицСчет.Text = null;
+                ctrlЛицСчетValidator.IsValid = false;
+            }
+            
+            if (ctrlПлощадь.StringValue == "0")
+            {
+                ctrlПлощадь.Text = null;
+                ctrlПлощадьValidator.IsValid = false;
+            }
+
+            string strUser = HttpContext.Current.User.Identity.Name;
+            var _dataService = (SQLDataService)DataServiceProvider.DataService;
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            if (_Inspector != null)
+            {
+                SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+                string strDistrictName = _Inspector.Район.Название; //название района инспектора
+
+                Function lf = langdef.GetFunction(langdef.funcAND,
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Здание>(x => x.Район.Название)),
+                                        strDistrictName),
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Здание>(x => x.Актуален)),
+                                        true));
+                ctrlЗдание.LimitFunction = lf;
+            };
+
+
         }
 
         /// <summary>

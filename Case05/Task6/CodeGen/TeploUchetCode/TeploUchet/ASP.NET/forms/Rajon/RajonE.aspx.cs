@@ -5,7 +5,8 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    using System.Drawing;
+
     public partial class РайонE : BaseEditForm<Район>
     {
         /// <summary>
@@ -60,7 +61,8 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            return base.PreSaveObject();
+            
+                return base.PreSaveObject();
         }
 
         /// <summary>

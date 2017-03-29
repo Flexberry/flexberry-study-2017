@@ -2,22 +2,18 @@
 
 namespace TeploCorp.TeploUchet
 {
-    using ICSSoft.STORMNET;
+    using System;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    using TeploUchet;
-    using System;
-    using System.Web.UI;
-    using ICSSoft.STORMNET.Web.Tools;
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using System.Web.UI;
-    using System.Xml;
-    using System.Xml.Linq;
-    using System.Web.UI.WebControls;
-    using TeploUchet;
-    using System.Drawing;
+
+    using Resources;
+    using System.Web;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET;
 
     public partial class УчастокСетиE : BaseEditForm<УчастокСети>
     {
@@ -49,7 +45,6 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PreApplyToControls()
         {
-            //ctrlОбъект.PropertyToShow = Information.ExtractPropertyPath<Здание>(x => x.Адрес);
         }
 
         /// <summary>
@@ -67,6 +62,30 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+            if (ctrlНомер.StringValue == "0")
+            {
+                ctrlНомер.StringValue = null;
+                ctrlНомерValidator.IsValid = false;
+            }
+
+            string strUser = HttpContext.Current.User.Identity.Name;
+            var _dataService = (SQLDataService)DataServiceProvider.DataService;
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            if (_Inspector != null)
+            {
+                SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
+                string strDistrictName = _Inspector.Район.Название; //название района инспектора
+
+                Function lf = langdef.GetFunction(langdef.funcAND,
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Объект>(x => x.Здание.Район.Название)),
+                                        strDistrictName),
+                                    langdef.GetFunction(langdef.funcEQ,
+                                        new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Объект>(x => x.Актуален)),
+                                        true));
+                ctrlОбъект.LimitFunction = lf;
+            };
         }
 
         /// <summary>
@@ -75,34 +94,7 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            int number = Convert.ToInt32(ctrlНомер.StringValue);
-            ТипыСети type = ТипыСети.Внутренняя;
-            if (WebBinder.GetBindedValue(ctrlТипСети).ToString() == "Внутренняя")
-            {
-                type = ТипыСети.Внутренняя;
-            }
-            else
-            {
-                type = ТипыСети.Наружная;
-            }
-            //var obiekt = WebBinder.GetBindedValue(ctrlОбъект).ToString();
-            var obiekt = ctrlОбъект.PropertyToShowText;
-
-            if ( УдалениеУчастка.chesk4doubleSector(type, number, obiekt) )
-            {
-                WebMessageBox.Show("Есть дубликат участка сети, пожалуйста проверьте данные!");
-                ctrlОбъектLabel.ForeColor = Color.MediumVioletRed;
-                ctrlНомерLabel.ForeColor = Color.MediumVioletRed;
-                ctrlТипСетиLabel.ForeColor = Color.MediumVioletRed;
-                ErrorPage = "Дубликат";
-                return false;
-            }
-            else
-            {
-                return base.PreSaveObject();
-            }
-            //УдалениеУчастка.chesk4doubleSector(type, numer, ctrlОбъект);
-            
+            return base.PreSaveObject();
         }
 
         /// <summary>

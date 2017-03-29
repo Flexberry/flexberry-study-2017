@@ -26,19 +26,36 @@ namespace TeploCorp.TeploUchet
     /// Удаление здания.
     /// </summary>
     // *** Start programmer edit section *** (УдалениеЗдания CustomAttributes)
-
+   
     // *** End programmer edit section *** (УдалениеЗдания CustomAttributes)
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class УдалениеЗдания : ICSSoft.STORMNET.Business.BusinessServer
     {
-        
+
         // *** Start programmer edit section *** (УдалениеЗдания CustomMembers)
 
         // *** End programmer edit section *** (УдалениеЗдания CustomMembers)
 
-        
-        // *** Start programmer edit section *** (OnUpdateЗдание CustomAttributes)
 
+        // *** Start programmer edit section *** (OnUpdateЗдание CustomAttributes)
+        /// <summary>
+        /// поиск дубля по адресу
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Boolean chesk4double(string Value)
+        {
+            IDataService ids = DataServiceProvider.DataService;
+            var ToCheck = ids.Query<Здание>(Здание.Views.ЗданиеE)
+                                .Where(x => x.Адрес == Value)
+                                .Where(y => y.Актуален == true);
+
+            if (ToCheck != null)
+            {
+                return true;
+            }
+            return false;
+        }
         // *** End programmer edit section *** (OnUpdateЗдание CustomAttributes)
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateЗдание(TeploCorp.TeploUchet.Здание UpdatedObject)
         {
