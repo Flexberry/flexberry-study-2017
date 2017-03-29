@@ -1,0 +1,48 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол ShowHideDiv. 
+ */
+
+@import (reference) '_Variables.less';
+
+
+.@{showHideDivClass} {
+    > fieldset {
+        .border-box();        
+        clear: both;
+        margin-bottom: 10px;
+
+        fieldset {
+            .border-box();
+            margin: 0;
+            clear: both;
+        }
+    }
+}
+
+.@{showHideDivContentClass} {
+    padding: 4px;
+}
+
+.@{showHideDivIconClass} {
+    .font-icon-style();
+
+    &:before {
+        margin-left: 5px;
+        font-size: @showHideDivIconSize;
+
+        .@{showHideDivExpandedClass} & {
+            content: "\f139";
+            color: @showHideDivIconCloseColor;
+        }
+
+        .@{showHideDivCollapsedClass} & {
+            content: "\f13a";
+            color: @showHideDivIconOpenColor;
+        }
+    }
+}
+
+.@{showHideDivLinkClass} {
+    .border-box();
+}

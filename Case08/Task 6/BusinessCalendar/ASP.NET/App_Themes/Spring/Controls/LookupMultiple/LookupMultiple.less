@@ -1,0 +1,45 @@
+﻿@import '../../../BaseTheme/Controls/LookupMultiple/LookupMultiple.less';
+
+/**
+* Тема Spring.
+* Контрол LookupMultiple. 
+*/
+
+
+.@{lookupMainMultipleClass} {
+    // Поле с кнопками
+    .@{lookupBtnClass} {
+        display: inline-block;
+        position: relative;
+        right: 0;
+        margin-top: 0;
+        margin-right: 0;
+        float: none;
+
+        &:last-child {
+            .border-radius-right(7px);
+        }
+    }
+
+    .ics-lookup-btn-lookup {
+        margin-right: -5px;
+    }
+
+    .form-group {
+
+        input[type="text"] {
+            .border-radius-right(0);
+            height: 30px;
+        }
+
+        .input-group-addon {
+            display: table-cell;
+            width: 1%;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+@import '_Settings.less';

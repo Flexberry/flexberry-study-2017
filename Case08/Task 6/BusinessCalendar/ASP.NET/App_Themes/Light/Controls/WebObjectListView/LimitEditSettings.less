@@ -1,0 +1,42 @@
+﻿/* Файл визуального оформления блока с ограничениями. */
+
+.@{wolvLimitEditBlockClass} {
+    border: 1px solid @wolvLimitEditBlockBorderColor;
+
+    .@{wolvLimitEditRowClass} .@{wolvLimitEditTextClass} {
+        padding: 0;
+        width: auto;
+    }
+
+    .@{wolvLimitEditBtnClass} input[type=submit] {
+        padding: 6px;
+        border: 1px solid @wolvLimitEditBtnBorderColor;
+        .border-radius(4px);
+        .background-image(#fff,#cecece);
+        -moz-box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        -webkit-box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        box-shadow: inset 0 0 1px 1px @wolvLimitEditBtnBoxShadowColor;
+        color: #333;
+        text-decoration: none;
+        -webkit-text-shadow: 0 1px 1px @wolvLimitEditBtnTextShadowColor;
+        text-shadow: 0 1px 1px @wolvLimitEditBtnTextShadowColor;
+        cursor: pointer;
+
+        &:hover {
+            background: @wolvLimitEditBtnHoveredBackgroundColor;
+            text-decoration: none;
+            filter: none;
+            color: @wolvLimitEditBtnHoveredTextColor;
+        }
+
+        &:active,
+        &:focus {
+            .background-image(#cecece,#fff);
+            -webkit-box-shadow: inset 1px 1px 1px @wolvLimitEditBtnActiveBoxShadowColor;
+            box-shadow: inset 1px 1px 1px @wolvLimitEditBtnActiveBoxShadowColor;
+            outline: none;
+        }
+    }
+}
+
+@import (reference) "_Settings.less";
