@@ -100,7 +100,7 @@ namespace TeploCorp.TeploUchet {
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlЛицСчет;
+        protected global::ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox ctrlЛицСчет;
         
         /// <summary>
         /// ctrlЛицСчетValidator элемент управления.

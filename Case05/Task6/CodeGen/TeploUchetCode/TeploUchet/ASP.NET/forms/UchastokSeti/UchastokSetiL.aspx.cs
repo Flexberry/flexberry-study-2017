@@ -58,7 +58,8 @@ namespace TeploCorp.TeploUchet
                                         new VariableDef(langdef.StringType, Information.ExtractPropertyPath<УчастокСети>(x => x.Актуален)),
                                         true));
                 WebObjectListView1.LimitFunction = lf;
-            };             
+            };
+                         
         }
 
         /// <summary>

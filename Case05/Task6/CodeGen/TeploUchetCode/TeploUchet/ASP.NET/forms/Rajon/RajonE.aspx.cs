@@ -6,6 +6,10 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
     using System.Drawing;
+    using System.Web;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
 
     public partial class РайонE : BaseEditForm<Район>
     {
@@ -30,6 +34,18 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            string strUser = HttpContext.Current.User.Identity.Name; //логин пользователя
+            var _dataService = (SQLDataService)DataServiceProvider.DataService; //сервис для получения объекта
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            //если есть инспектор с таким логином 
+            //ограничиваем по его району
+            if (_Inspector != null)
+            {
+                ctrlАктуален.Visible = false;
+                ctrlАктуаленLabel.Visible = false;
+            }
+            
         }
 
         /// <summary>

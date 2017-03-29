@@ -34,6 +34,16 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            string strUser = HttpContext.Current.User.Identity.Name; //логин пользователя
+            var _dataService = (SQLDataService)DataServiceProvider.DataService; //сервис для получения объекта
+            var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
+
+            //если есть инспектор с таким логином 
+            //ограничиваем по его району
+            if (_Inspector != null)
+            {
+                ctrlАктуален.Visible = false;
+            }
         }
 
         /// <summary>
@@ -78,6 +88,9 @@ namespace TeploCorp.TeploUchet
                                         new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Район>(x => x.Актуален)),
                                         true));
                 ctrlРайон.LimitFunction = lf;
+
+                ctrlАктуален.Visible = false;
+                ctrlАктуаленLabel.Visible = false;
             };
         }
 

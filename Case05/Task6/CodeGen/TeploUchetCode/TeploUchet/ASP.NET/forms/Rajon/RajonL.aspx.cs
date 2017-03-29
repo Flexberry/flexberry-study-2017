@@ -57,6 +57,8 @@ namespace TeploCorp.TeploUchet
                                         new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Район>(x => x.Актуален)),
                                         true));
                 WebObjectListView1.LimitFunction = lf;
+                WebObjectListView1.Operations.Delete = false;
+                WebObjectListView1.Operations.DeleteInRow = false;
             };
         }
 

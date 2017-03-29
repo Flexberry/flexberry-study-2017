@@ -10,6 +10,8 @@ namespace TeploCorp.TeploUchet
     using ICSSoft.STORMNET.Business.LINQProvider;
     using System.Linq;
     using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET.Web.AjaxControls;
+    using System;
 
     public partial class ОбъектE : BaseEditForm<Объект>
     {
@@ -34,6 +36,10 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            ctrlЛицСчет.Max = Int32.MaxValue;
+            ctrlЛицСчет.Min = 0;
+            ctrlПлощадь.Max = Int32.MaxValue;
+            ctrlПлощадь.Min = 0;
         }
 
         /// <summary>
@@ -41,6 +47,13 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void PreApplyToControls()
         {
+            //ctrlЗдание.EnableViewState = false;
+            //AjaxGroupEdit.GetControlForEdit(ctrlЗдание, input,)
+            //ctrlЗдание.PropertyToShow.en = false;
+
+            
+                
+
         }
 
         /// <summary>
@@ -48,7 +61,24 @@ namespace TeploCorp.TeploUchet
         /// которые не обрабатываются WebBinder.
         /// </summary>
         protected override void PostApplyToControls()
-        {
+        {/*
+            if (ctrlЛицСчет.Text != "" && ctrlЛицСчет.Text != null)
+            {
+                try
+                {
+                    //int u = int.Parse(ctrlЛицСчет.Text);
+                    ulong p = ulong.Parse(ctrlЛицСчет.Text);
+                    //return base.PreSaveObject();
+                }
+                catch
+                {
+                    ctrlЛицСчет.Text = null;
+                    WebMessageBox.Show("Проверьте номер лицевого счета, допустимы только цифры!");
+                    ctrlЛицСчетValidator.IsValid = false;
+                }
+            }
+            */
+            
             ctrlЗдание.PropertyToShow = Information.ExtractPropertyPath<Здание>(x => x.Адрес);
             Page.Validate();
         }
@@ -58,9 +88,9 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
-            if (ctrlЛицСчет.Text == "0")
+            if (ctrlЛицСчет.StringValue == "0")
             {
-                ctrlЛицСчет.Text = null;
+                ctrlЛицСчет.StringValue = null;
                 ctrlЛицСчетValidator.IsValid = false;
             }
             
@@ -98,7 +128,22 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            return base.PreSaveObject();
+            try
+            {
+                //int u = int.Parse(ctrlЛицСчет.Text);
+                ulong p = ulong.Parse(ctrlЛицСчет.Text);
+                return base.PreSaveObject();
+            }
+            catch
+            {
+                //ctrlЛицСчет.Text = "";
+                WebMessageBox.Show("Проверьте номер лицевого счета, допустимы только цифры!");
+                return false;
+            }
+            
+            return false;
+            //return base.PreSaveObject();
+
         }
 
         /// <summary>

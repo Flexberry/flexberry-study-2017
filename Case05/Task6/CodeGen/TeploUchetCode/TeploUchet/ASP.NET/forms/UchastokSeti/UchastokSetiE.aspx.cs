@@ -14,6 +14,8 @@ namespace TeploCorp.TeploUchet
     using System.Linq;
     using ICSSoft.STORMNET.FunctionalLanguage;
     using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Web.Tools;
+    using System.Drawing;
 
     public partial class УчастокСетиE : BaseEditForm<УчастокСети>
     {
@@ -38,6 +40,8 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            ctrlНомер.Max = Int32.MaxValue;
+            ctrlНомер.Min = 0;
         }
 
         /// <summary>

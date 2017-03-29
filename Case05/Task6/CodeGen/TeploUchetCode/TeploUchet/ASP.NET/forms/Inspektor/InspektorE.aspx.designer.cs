@@ -13,33 +13,6 @@ namespace TeploCorp.TeploUchet {
     public partial class ИнспекторE {
         
         /// <summary>
-        /// ctrlIDLabel элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlIDLabel;
-        
-        /// <summary>
-        /// ctrlID элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlID;
-        
-        /// <summary>
-        /// ctrlIDValidator элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlIDValidator;
-        
-        /// <summary>
         /// ctrlФамилияLabel элемент управления.
         /// </summary>
         /// <remarks>
@@ -166,12 +139,21 @@ namespace TeploCorp.TeploUchet {
         protected global::ICSSoft.STORMNET.Web.AjaxControls.MasterEditorAjaxLookUp ctrlРайон;
         
         /// <summary>
-        /// ctrlРайонValidator элемент управления.
+        /// ctrlАктуаленLabel элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlРайонValidator;
+        protected global::System.Web.UI.WebControls.Label ctrlАктуаленLabel;
+        
+        /// <summary>
+        /// ctrlАктуален элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ctrlАктуален;
     }
 }
