@@ -27,7 +27,7 @@ namespace IIS.BusinessCalendar
     // *** Start programmer edit section *** (ExceptionDay CustomAttributes)
 
     // *** End programmer edit section *** (ExceptionDay CustomAttributes)
-    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
+    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAnyEvent)]
     [AutoAltered()]
     [Caption("Exception day")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]

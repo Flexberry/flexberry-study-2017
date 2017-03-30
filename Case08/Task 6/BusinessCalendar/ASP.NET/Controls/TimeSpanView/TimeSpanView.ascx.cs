@@ -27,8 +27,17 @@ namespace IIS.BusinessCalendar.Controls.TimeSpanView
             get
             {
                 var jsArray = TimeSpansJson.Value;
-                JavaScriptSerializer ser = new JavaScriptSerializer();
-                return ser.Deserialize<List<TimeSpan>>(jsArray);
+                List<TimeSpan> result;
+                if(jsArray != "")
+                {
+                    JavaScriptSerializer ser = new JavaScriptSerializer();
+                    result = ser.Deserialize<List<TimeSpan>>(jsArray);
+                }
+                else
+                {
+                    result = new List<TimeSpan>();
+                }
+                return result;
             }
             set
             {

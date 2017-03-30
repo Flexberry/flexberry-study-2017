@@ -171,6 +171,7 @@
     <Compile Include="RecurrenceType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TSSaveHelper.cs" />
     <Compile Include="Week.cs">
       <SubType>Code</SubType>
     </Compile>

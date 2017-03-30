@@ -52,6 +52,9 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
+            ICSSoft.STORMNET.Web.Tools.PageContentManager.AttachExternalFile("/shared/script/jquery-1.7.2.min.js");
+            ICSSoft.STORMNET.Web.Tools.PageContentManager.AttachExternalFile("/JavaScript/validation.js");
+            ICSSoft.STORMNET.Web.Tools.PageContentManager.AttachExternalFile("/JavaScript/exception-day-form.js");
         }
 
         /// <summary>
@@ -69,6 +72,10 @@ namespace IIS.BusinessCalendar
         /// <returns>Объект данных, который сохранился.</returns>
         protected override DataObject SaveObject()
         {
+            if((DataObject != null) && (ctrlWorkTimeSpans.Status == ObjectStatus.Altered))
+            {
+                TSSaveHelper.SaveTimeSpans(DataObject);
+            }
             return base.SaveObject();
         }
     }

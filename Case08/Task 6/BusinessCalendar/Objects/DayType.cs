@@ -12,10 +12,11 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
-
-
-    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
+
     // *** End programmer edit section *** (Using statements)
 
 
@@ -32,16 +33,18 @@ namespace IIS.BusinessCalendar
         /// 
         /// </summary>
         // *** Start programmer edit section *** (DayType.HolyDay CustomAttributes)
-        [Caption("Выходной")]
+
         // *** End programmer edit section *** (DayType.HolyDay CustomAttributes)
+        [Caption("Выходной")]
         HolyDay,
         
         /// <summary>
         /// 
         /// </summary>
         // *** Start programmer edit section *** (DayType.CustomWorkTime CustomAttributes)
-        [Caption("Рабочий")]
+
         // *** End programmer edit section *** (DayType.CustomWorkTime CustomAttributes)
+        [Caption("Рабочий")]
         CustomWorkTime,
     }
 }

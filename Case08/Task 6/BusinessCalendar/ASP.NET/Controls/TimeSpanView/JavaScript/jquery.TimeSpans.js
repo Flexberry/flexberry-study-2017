@@ -3,7 +3,10 @@
     var attr = {
         timeSpans: [],
         elemToStore: {},
-        inputStatus:{},
+        inputStatus: {},
+        table: {},
+        tableBody: {},
+        tableParent: {},
         status : {
             Altered : 1,
             UnAltered : 0
@@ -15,10 +18,9 @@
 
         /**
          * Метод для создания таблицы временных промежутков
-         * @param container
          * 
          */
-        craateTable: function (container) {
+        create: function () {
             var table = document.createElement("table");
             table.id = "TimeSpansTable";
             var thead = document.createElement("thead");
@@ -34,7 +36,7 @@
             th3.setAttribute("class", "textMiddle smallCell background-center btn-add border-standart font-big");
             th3.innerText = "+";
             th3.onclick = function () {
-                methods.addRow(container, "", "", "", "");
+                methods.addRow("", "", "", "");
             }
             var tbody = document.createElement("tbody");
 
@@ -45,10 +47,12 @@
             table.appendChild(thead);
             table.appendChild(tbody);
 
-            if (container[0].firstChild !== null) {
-                container[0].removeChild(container.firstChild);
+            if (attr.tableParent.firstChild !== null) {
+                attr.tableParent.removeChild(attr.tableParent.firstChild);
             }
-            container[0].appendChild(table);
+            attr.tableParent.appendChild(table);
+            attr.table = table;
+            attr.tableBody = tbody;
         },
         /**
          * Метод считывает временные промежутки со скрытого поля
@@ -69,8 +73,8 @@
          * @param {number} endTimeM минуты окончания
          * @param {number} container
          */
-        addRow: function (container,upTimeH, upTimeM, endTimeH, endTimeM) {
-            var i = container[0].firstChild.rows.length;
+        addRow: function (upTimeH, upTimeM, endTimeH, endTimeM) {
+            var i = attr.table.rows.length;
 
             var tr = document.createElement("tr");
             tr.id = "tr_" + i;
@@ -87,7 +91,7 @@
             txtUpTimeH.id = "startTime_" + i;
             txtUpTimeH.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
-                methods.storeData.apply(container);
+                methods.storeData();
             }
 
             var span = document.createElement("span");
@@ -103,7 +107,7 @@
             txtUpTimeM.id = "startTimeM_" + i;
             txtUpTimeM.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
-                methods.storeData.apply(container);
+                methods.storeData();
             }
 
             td1.appendChild(txtUpTimeH);
@@ -123,7 +127,7 @@
             txtEndTimeH.id = "startTime_" + i;
             txtEndTimeH.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
-                methods.storeData.apply(container);
+                methods.storeData();
             }
 
             var span1 = document.createElement("span");
@@ -139,7 +143,7 @@
             txtEndTimeM.id = "startTimeM_" + i;
             txtEndTimeM.onchange = function () {
                 attr.currentStatus = attr.status.Altered;
-                methods.storeData.apply(container);
+                methods.storeData();
             }
 
             td2.appendChild(txtEndTimeH);
@@ -152,14 +156,14 @@
             td3.onclick = function () {
                 $(td3).closest('tr').remove();
                 attr.currentStatus = attr.status.Altered;
-                methods.storeData.apply(container);
+                methods.storeData();
             }
 
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
 
-            container[0].getElementsByTagName("tbody")[0].appendChild(tr);
+            attr.tableBody.appendChild(tr);
         },
         /**
          * Метод для заполнения таблицы временных промежутков
@@ -167,7 +171,7 @@
         fillTable: function () {
             var tsCount = attr.timeSpans.length;
             for (var i = 0; i < tsCount; i++) {
-                methods.addRow(this, attr.timeSpans[i].StartTimeH, attr.timeSpans[i].StartTimeM, attr.timeSpans[i].EndTimeH, attr.timeSpans[i].EndTimeM);
+                methods.addRow(attr.timeSpans[i].StartTimeH, attr.timeSpans[i].StartTimeM, attr.timeSpans[i].EndTimeH, attr.timeSpans[i].EndTimeM);
             }
             attr.currentStatus = attr.status.UnAltered;
         },
@@ -178,7 +182,7 @@
          */
         readDataFromView: function () {
             var result = [];
-            var tbody = this[0].getElementsByTagName("tbody")[0];
+            var tbody = attr.tableBody;
             var rowsCount = tbody.rows.length;
             for (var i = 0; i < rowsCount; i++) {
                 var row = tbody.rows[i];
@@ -198,16 +202,29 @@
             return result;
         },
         /**
+         * Метод удаляет все временные промежутки
+         */
+        dispose: function(){
+            attr.tableParent.innerHTML = "";
+            attr.table = {};
+            attr.tableBody = {};
+            attr.elemToStore.value = "";
+            attr.inputStatus.value = attr.status.Altered;
+            attr.timeSpans = [];
+        },
+        /**
          * Метод для инициализации таблицы временных промежутков
          * @param {DOM} elemToStore таблица временных промежутков
          */
-        init: function (elemToStore,inputStatus) {
+        init: function (elemToStore, inputStatus) {
             attr.elemToStore = elemToStore;
             attr.inputStatus = inputStatus;
-            methods.readDataFromHidden();
-            methods.craateTable(this);
-            methods.fillTable.apply(this);
             attr.currentStatus = attr.status.UnAltered;
+            attr.tableParent = this[0];
+
+            methods.create();
+            methods.readDataFromHidden();
+            methods.fillTable.apply(this);
         },
         /**
          * Функция возвращает текущее состояние объекта
@@ -219,8 +236,9 @@
         /**
          * Функция сохраняет массив временных промежутков в скрытом поле
          */
-        storeData: function() {
-            $(attr.elemToStore).val(JSON.stringify(methods.readDataFromView.apply(this)));
+        storeData: function () {
+            attr.timeSpans = methods.readDataFromView();
+            $(attr.elemToStore).val(JSON.stringify(attr.timeSpans));
             $(attr.inputStatus).val(attr.currentStatus);
             return;
         }

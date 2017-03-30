@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace IIS.BusinessCalendar
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Converter
     {
         /// <summary>

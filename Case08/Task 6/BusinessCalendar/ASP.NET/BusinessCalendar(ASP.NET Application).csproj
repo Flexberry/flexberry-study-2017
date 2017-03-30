@@ -582,6 +582,8 @@
     <Compile Include="forms\Calendar\CalendarE.aspx.designer.cs">
       <DependentUpon>CalendarE.aspx</DependentUpon>
     </Compile>
+    <Content Include="JavaScript\exception-day-form.js" />
+    <Content Include="JavaScript\validation.js" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />
     <Content Include="shared\jstreeThemes\apple\d.png" />
     <Content Include="shared\jstreeThemes\apple\dot_for_ie.gif" />

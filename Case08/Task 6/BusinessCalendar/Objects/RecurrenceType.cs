@@ -12,10 +12,11 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
-
-
-    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
+
     // *** End programmer edit section *** (Using statements)
 
 
@@ -32,32 +33,36 @@ namespace IIS.BusinessCalendar
         /// 
         /// </summary>
         // *** Start programmer edit section *** (RecurrenceType.Daily CustomAttributes)
-        [Caption("Ежедневно")]
+
         // *** End programmer edit section *** (RecurrenceType.Daily CustomAttributes)
+        [Caption("Ежедневно")]
         Daily,
         
         /// <summary>
         /// 
         /// </summary>
         // *** Start programmer edit section *** (RecurrenceType.Weekly CustomAttributes)
-        [Caption("Еженедельно")]
+
         // *** End programmer edit section *** (RecurrenceType.Weekly CustomAttributes)
+        [Caption("Еженедельно")]
         Weekly,
         
         /// <summary>
         /// 
         /// </summary>
         // *** Start programmer edit section *** (RecurrenceType.Monthly CustomAttributes)
-        [Caption("Ежемесячно")]
+
         // *** End programmer edit section *** (RecurrenceType.Monthly CustomAttributes)
+        [Caption("Ежемесячно")]
         Monthly,
         
         /// <summary>
         /// 
         /// </summary>
         // *** Start programmer edit section *** (RecurrenceType.Yearly CustomAttributes)
-        [Caption("Ежегодно")]
+
         // *** End programmer edit section *** (RecurrenceType.Yearly CustomAttributes)
+        [Caption("Ежегодно")]
         Yearly,
     }
 }

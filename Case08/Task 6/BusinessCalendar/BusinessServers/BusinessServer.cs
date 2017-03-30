@@ -12,8 +12,8 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
-
-
+    
+    
     // *** Start programmer edit section *** (Using statements)
     using System.Collections.Generic;
     using System.Linq;
@@ -32,12 +32,12 @@ namespace IIS.BusinessCalendar
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class BusinessServer : ICSSoft.STORMNET.Business.BusinessServer
     {
-
+        
         // *** Start programmer edit section *** (BusinessServer CustomMembers)
 
         // *** End programmer edit section *** (BusinessServer CustomMembers)
 
-
+        
         // *** Start programmer edit section *** (OnUpdateExceptionDay CustomAttributes)
         /// <summary>
         /// 
@@ -48,96 +48,19 @@ namespace IIS.BusinessCalendar
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateExceptionDay(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateExceptionDay)
-            switch (UpdatedObject.GetStatus())
-            {
-                case ObjectStatus.Created:
-                    {
-                        fillWorkTimeDefinition(UpdatedObject);
-
-                    }
-                    break;
-                case ObjectStatus.Deleted:
-                    {
-                        deleteExsTimeSpans(UpdatedObject);
-                    }
-                    break;
-                case ObjectStatus.UnAltered:
-                    {
-
-                    }
-                    break;
-                case ObjectStatus.Altered:
-                    {
-                        deleteExsTimeSpans(UpdatedObject);
-                        fillWorkTimeDefinition(UpdatedObject);
-                    }
-                    break;
-                default:
-                    break;
-            }
-
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateExceptionDay)
         }
+        
+        // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition CustomAttributes)
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="updatedObject"></param>
-        private void fillWorkTimeDefinition(IIS.BusinessCalendar.ExceptionDay updatedObject)
+        // *** End programmer edit section *** (OnUpdateWorkTimeDefinition CustomAttributes)
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWorkTimeDefinition(IIS.BusinessCalendar.WorkTimeDefinition UpdatedObject)
         {
-            List<TimeSpan> wtss = updatedObject.WorkTimeSpans;
-            if (wtss != null)
-            {
-                using (var ds = (SQLDataService)DataServiceProvider.DataService)
-                {
-                    if (updatedObject.WorkTimeDefinition == null)
-                    {
-                        updatedObject.WorkTimeDefinition = new WorkTimeDefinition();
-                        ds.UpdateObject(updatedObject.WorkTimeDefinition);
-                    }
-                    List<DataObject> wtsList = new List<DataObject>();
+            // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition)
 
-                    foreach (TimeSpan ts in wtss)
-                    {
-                        WorkTimeSpan wts = new WorkTimeSpan();
-                        wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM*0.01);
-                        wts.EndTime = (decimal)(ts.EndTimeH + ts.EndTimeM*0.01);
-                        wts.WorkTimeDefinition = updatedObject.WorkTimeDefinition;
-                        wtsList.Add(wts);
-                    }
-                    var dataObjects = wtsList.ToArray();
-                    ds.UpdateObjects(ref dataObjects);
-                }
-            }
-            else
-            {
-                updatedObject.WorkTimeDefinition = null;
-            }
-        }
-
-        /// <summary>
-        /// Метод удаляет временные промежутки, которые уже храняться в базе данных
-        /// </summary>
-        /// <param name="updatedObject">Изменяемый день-исключение</param>
-        private void deleteExsTimeSpans(IIS.BusinessCalendar.ExceptionDay updatedObject)
-        {
-            if (updatedObject.WorkTimeDefinition != null)
-            {
-                using (var ds = (SQLDataService)DataServiceProvider.DataService)
-                {
-                    IQueryable<WorkTimeSpan> wtsQuery = ds.Query<WorkTimeSpan>();
-                    IQueryable<WorkTimeSpan> query = wtsQuery.Where<WorkTimeSpan>(w => w.WorkTimeDefinition == updatedObject.WorkTimeDefinition);
-                    List<DataObject> wtsList = query.Cast<DataObject>().ToList();
-                    foreach (DataObject wts in wtsList)
-                    {
-                        wts.SetStatus(ObjectStatus.Deleted);
-                    }
-                    var dataObjects = wtsList.ToArray();
-                    ds.UpdateObjects(ref dataObjects);
-                }
-            }
+            return new ICSSoft.STORMNET.DataObject[0];
+            // *** End programmer edit section *** (OnUpdateWorkTimeDefinition)
         }
     }
 }

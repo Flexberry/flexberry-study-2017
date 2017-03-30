@@ -1,3 +1,3 @@
 ﻿$(document).ready(function () {
-    $('.TSVContainer').TimeSpans("init", hidden,inputStatus);
+    $(tsvContainer).TimeSpans("init", hidden,inputStatus);
 })

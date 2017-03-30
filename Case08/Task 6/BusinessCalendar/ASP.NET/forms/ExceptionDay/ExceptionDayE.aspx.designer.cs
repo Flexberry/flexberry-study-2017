@@ -49,6 +49,15 @@ namespace IIS.BusinessCalendar {
         protected global::System.Web.UI.WebControls.DropDownList ctrlDayType;
         
         /// <summary>
+        /// ctrlWorkTimeSpans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::IIS.BusinessCalendar.Controls.TimeSpanView.TimeSpanView ctrlWorkTimeSpans;
+        
+        /// <summary>
         /// ctrlRecurrenceTypeLabel control.
         /// </summary>
         /// <remarks>
@@ -164,50 +173,5 @@ namespace IIS.BusinessCalendar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ctrlCalendarValidator;
-        
-        /// <summary>
-        /// ctrlCalendar_NameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlCalendar_NameLabel;
-        
-        /// <summary>
-        /// ctrlCalendar_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ctrlCalendar_Name;
-        
-        /// <summary>
-        /// ctrlWorkTimeDefinitionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ctrlWorkTimeDefinitionLabel;
-        
-        /// <summary>
-        /// ctrlWorkTimeDefinition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ICSSoft.STORMNET.Web.AjaxControls.MasterEditorAjaxLookUp ctrlWorkTimeDefinition;
-        
-        /// <summary>
-        /// ctrlWorkTimeSpans control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::IIS.BusinessCalendar.Controls.TimeSpanView.TimeSpanView ctrlWorkTimeSpans;
     }
 }
