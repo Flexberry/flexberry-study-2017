@@ -1,0 +1,136 @@
+﻿/**
+ * Стили базовой темы.
+ * Тулбар в таблице. 
+ */
+
+@import (reference) 'WolvClasses.less';
+
+
+/* Иконки в шапке WOLV. */
+.@{wolvMiniToolBarParentClass} a {
+    .font-icon-style();
+    margin: 3px;
+    font-size: 16px;
+    color: @tableToolbarHeaderBtnColor;
+    /**
+     * "Отметить все".
+     */
+    &.@{selectAllOnPageBtnClass} {
+        &:before {
+            content: "\f046";
+        }
+
+        &:hover {
+            color: @tableToolbarHeaderBtnColor;
+            opacity: 0.9;
+            text-decoration: none;
+        }
+    }
+    /**
+     * "Отметить все на всех страницах".
+     */
+    &.@{selectAllOnAllPagesBtnClass} {
+        font-family: IcsFont;
+        font-size: 22px;        
+        padding-top: 1px;
+        padding-left: 3px;
+
+        &:before {
+            content: "\0063";
+        }
+
+        &:hover {
+            color: @tableToolbarHeaderBtnColor;
+            opacity: 0.9;
+            text-decoration: none;
+        }
+    }
+    /**
+     * "Установить сортировку по умолчанию".
+     */
+    &.@{resetSortClass} {
+
+        &:before {
+            content: "\f0dc";
+        }
+
+        &:hover {
+            color: @tableToolbarHeaderBtnColor;
+            opacity: 0.9;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Иконки в строке WOLV. */
+.@{wolvMiniToolBarClass} {
+    text-align: center;
+
+    .@{wolvCheckBoxClass} {
+        width: 15px;
+        height: 15px;
+        margin: 0 5px;
+        vertical-align: middle;
+    }
+
+    .@{wolvMiniToolBarBtnsClass} {
+        .font-icon-style();
+        margin: 3px 5px;
+        color: @tableToolbarBtnColor;
+        font-size: @tableToolbarSize;
+
+        .checkedline & {
+            color: @tableToolbarBtnChecklineColor;
+        }
+
+        /**
+         * Кнопка "Редактировать".
+         */
+        &.@{wolvEditBtnClass} {
+            &:before {
+                content: "\f040";
+            }
+
+            &:hover {
+                color: @tableToolbarEditBtnHoverColor;
+            }
+        }
+        /**
+         * Кнопка "Создать на основе."
+         */
+        &.@{wolvPrototypeBtnClass} {
+            &:before {
+                content: "\f067";
+            }
+
+            &:hover {
+                color: @tableToolbarPrototypeBtnHoverColor;
+            }
+        }
+        /**
+         * Кнопка "Просмотреть".
+         */
+        &.@{wolvViewBtnClass} {
+
+            &:before {
+                content: "\f06e";
+            }
+
+            &:hover {
+                color: @tableToolbarViewBtnHoverColor;
+            }
+        }
+        /**
+         * Кнопка "Удалить".
+         */
+        &.@{wolvDeleteBtnClass} {
+            &:before {
+                content: "\f014";
+            }
+
+            &:hover {
+                color: @tableToolbarDeleteBtnHoverColor;
+            }
+        }
+    }
+}

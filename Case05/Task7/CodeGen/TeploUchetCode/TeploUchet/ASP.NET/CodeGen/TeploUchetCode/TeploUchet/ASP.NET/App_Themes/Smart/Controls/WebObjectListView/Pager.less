@@ -1,0 +1,160 @@
+﻿/**
+ * Файл визуального оформления пейджера.
+ */
+
+@import "../../../BaseTheme/Controls/WebObjectListView/Pager.less";
+
+// Верхний контейнер панели навигации.
+&.@{wolvPagerTopClass} {
+    .@{wolvPagerGoToPageTopClass} {
+        display: none;
+    }
+}
+
+// Нижний контейнер панели навигации.
+&.@{wolvPagerBottomClass} {
+    display: block;
+}
+
+// Контейнер с переключателями страниц.
+.@{wolvPagerPagesClass} {
+    margin-right: 3px;
+    // Текущая страница
+    > span.@{wolvPagerCurrentPageClass} {
+        padding: 5px 8px;
+        //  Текущая страница с тектовым полем
+        &.@{wolvPagerTextFieldClass} {
+            padding: 0;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+    }
+}
+
+// Группы панели навигации.
+.@{wolvPagerPagesClass},
+.@{wolvPagerNavigationClass},
+.@{wolvPagerItemsOnPageClass},
+.@{wolvPagerGoToPageClass} {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.@{wolvPagerPagesClass} a + a,
+.@{wolvPagerPagesClass} span + a,
+.@{wolvPagerPagesClass} a + span,
+.@{wolvPagerPagesClass} span + span,
+.@{wolvPagerNavigationClass} a + a,
+.@{wolvPagerNavigationClass} span + a,
+.@{wolvPagerNavigationClass} a + span,
+.@{wolvPagerNavigationClass} span + span {
+    margin-left: 4px !important;
+}
+
+// Выделенная ссылка в панели навигации.
+.@{wolvPagerPageClass},
+.@{wolvPagerNavigatioButtonClass} {
+    &:hover {
+        background: @wolvPagerNavigatorHoveredBackgroundColor;
+        color: @wolvPagerNavigatortTextHoveredColor;
+        text-decoration: none;
+        filter: none;
+    }
+    // Ссылка с фокусом в панели навигации.
+    &:focus {
+        background: @wolvPagerNavigatorFocusedBackgroundColor;
+        color: @wolvPagerNavigatorTextFocusedColor;
+        border-color: @wolvPagerNavigatorFocusedBorderColor;
+    }
+}
+
+// Нажатая/текущая ссылка в панели навигации.
+.@{wolvPagerPagesClass} > span.@{wolvPagerCurrentPageClass},
+.@{wolvPagerPagesClass} a:active,
+.@{wolvPagerNavigatioButtonClass}:active {
+    text-decoration: none;
+    .background(#0098ca, #007ea7);
+    color: @wolvPagerNavigatorTextActiveColor;
+}
+
+// Неактивная ссылка в панели навигации.
+.@{wolvPagerNavigationDisabledClass} {
+    // добавление свойств из buttons.less
+    .ics-btn-disabled();
+}
+.@{wolvPagerNavigationDisabledClass},
+.@{wolvPagerNavigationDisabledClass}:hover,
+.@{wolvPagerNavigationDisabledClass}:active,
+.@{wolvPagerNavigationDisabledClass}:focus {
+    background: @wolvPagerNavigatorDisabledBackgroundColor;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+// Разделители.
+.@{wolvPagerNavigationSeparatorClass} {
+    display: none;
+}
+
+// Контейнер с кнопками "Назад" и "Вперед".
+.@{wolvPagerNavigationClass} {
+    float: left;
+}
+
+.@{wolvPagerItemsOnPageCaptionClass} {
+    margin-right: 8px;
+}
+
+// Метка контейнера перехода по номеру страницы.
+.@{wolvPagerGoToPageLabelClass} {
+    display: none;
+}
+
+// Поле ввода контейнера перехода по номеру страницы.
+.@{wolvPagerGoToPageInputClass},
+.@{wolvPagerInlineGoToPageInputClass} {
+    width: 43px;
+    text-align: center;
+    line-height: 20px;
+    height: 30px;
+}
+
+// Ссылка в панели навигации.
+.@{wolvPagerPageClass},
+.@{wolvPagerNavigatioButtonClass},
+.@{wolvPagerPagesClass} > span {
+    border-color: @wolvPagerNavigatorTopBorderColor @wolvPagerNavigatorRightBorderColor @wolvPagerNavigatorBottomBorderColor @wolvPagerNavigatorLeftBorderColor;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.@{wolvPagerNavigatioButtonClass},
+.@{wolvPagerPageClass} {
+    /* добавление свойств из buttons.less */
+    .ics-btn();
+}
+
+.@{wolvPagerPagesClass} > .@{wolvPagerPageClass},
+.@{wolvPagerNavigationClass} > .@{wolvPagerNavigatioButtonClass} {
+    margin-left: 0;
+    .border-radius(4px);
+}
+
+
+// Боковые отступы между элементами.
+.@{wolvPagerContainerClass} + .@{wolvPagerContainerClass} {
+    margin-left: 8px;
+}
+
+.@{wolvPagerCurrentPageClass} {
+    /* добавление свойств из buttons.less */
+    .ics-btn-active();
+}
+
+
+@import (reference) "_Settings.less";

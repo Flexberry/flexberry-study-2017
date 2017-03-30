@@ -1,0 +1,134 @@
+﻿@import '../../../BaseTheme/Controls/WebObjectListView/WebObjectListView.less';
+
+/**
+ * Файл визульного оформления контрола WebObjectListView.
+ */
+
+@import 'Toolbar.less';
+@import 'Pager.less';
+@import 'ContextMenu.less';
+@import "TableToolbar.less";
+@import "LimitEditSettings.less";
+
+.@{contentClass} {
+    padding: 24px 0;
+
+    .@{contentDataClass} > table {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+}
+
+.@{objectListViewTableClass} {
+    border-collapse: collapse;
+}
+
+.@{wolvCaptionClass} > tbody > tr > td {
+    border: 1px solid @wolvTableCaptionBorderColor;
+    background: @wolvTableCaptionBackgroundColor;
+    font-weight: bold;
+    color: @wolvTableCaptionColor;
+}
+
+/* Цветовая схема. */
+.@{tableContentClass} {
+    
+    > tbody > tr {
+
+        /* Обычные строки WOLV. */
+        > td {
+            border: 1px solid @wolvTableCellBorderColor;
+            cursor: pointer;
+        }
+
+        &:hover > td {
+            color: @wolvTableCellHoveredColor;
+            background: @wolvTableCellHoveredBackgroundColor;
+        }
+
+        /* Alternate-строки WOLV. */
+        &.@{wolvOddRowClass} > td {
+            background: @wolvTableCellOddBackgroundColor;
+        }
+
+        /* Строка с выделенным объектом WOLV. */
+        > td.WOLVSO,
+        .@{wolvOddRowClass} > td.WOLVSO {
+            color: @wolvTableCellEditedColor;
+            background: @wolvTableCellEditedBackgroundColor;
+        }
+
+        /* Отмеченные строки WOLV. */
+        > td.checkedline,
+        &:hover > td.checkedline {
+            color: @wolvTableCellCheckedColor;
+            background: @wolvTableCellCheckedBackgroundColor;
+        }
+    }
+}
+
+/* Фильтрация. */
+td.@{wolvFilterCellClass} {
+    background: @wolvFilterCellBackgroundColor !important;
+}
+
+.@{wolvFilterCell} {
+    text-align: left;
+    background: @wolvFilterCellBackgroundColor !important;
+
+    select {
+        width: 50px;
+        margin: 0 0 4px 0;
+    }
+
+    select.FilterSelect,
+    select.FilterOperationSelect,
+    input[type="text"] {        
+        .border-box();
+        width: 100% !important;
+        margin: 0;
+    }
+}
+
+
+/* Тултип на форме фильтрации. */
+#@{wolvFilterTooltipClass} { 
+    padding: 16px;   
+    .border-radius(7px);
+    -moz-box-shadow: 1px 1px 10px @wolvTooltipBoxShadowColor;
+    -webkit-box-shadow: 1px 1px 10px;
+    box-shadow: 1px 1px 10px @wolvTooltipBoxShadowColor;
+}
+
+/*  WolvParametersInputControl. */
+.wolv-service-block-text {
+    margin: 3px;
+}
+
+.wolv-param-btn-block {
+    margin: 3px;
+    clear: both;
+}
+
+
+/* Вспомогательный элемент для синхронизации ширины элементов. */
+.@{wolvDataInnerForScrollClass} {
+    display: block;
+    width: 100%;
+    height: 10px;
+    line-height: 0;
+    margin-top: -10px;
+}
+
+ // Настройки иерархического отображения.
+.@{tableContentClass} {
+    > tbody > tr.@{wolvHierarchyGrayedRowClass} {
+        &:hover > td {
+            color: @bodyColor;
+            cursor: default;
+            background: none;
+        }
+    }
+}
+
+@import "_Settings.less";

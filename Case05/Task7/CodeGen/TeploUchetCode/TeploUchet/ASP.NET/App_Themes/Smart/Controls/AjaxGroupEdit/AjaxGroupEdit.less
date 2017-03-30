@@ -1,0 +1,53 @@
+﻿@import '../../../BaseTheme/Controls/AjaxGroupEdit/AjaxGroupEdit.less';
+
+/**
+ * Файл визуального оформления AjaxGroupEdit.
+ */
+
+/* Тулбар. */
+.@{ageToolbarButtonCreate},
+.@{ageToolbarButtonDelete},
+.@{ageToolbarButtonEdit},
+.@{ageToolbarButtonMoveup},
+.@{ageToolbarButtonMovedown} {
+    margin-right: 7px;
+    padding: 3px 4px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.@{wgeWrapperClass} {
+
+    .@{wgeTableClass} {
+        .@{wgeTableCaptionClass} td {
+            background-color: transparent;
+            color: @wgeCaptionTextColor;
+            font-weight: normal;
+            font-size: 13px;
+            filter: none;
+        }
+
+        .@{wgeTableCaptionClass} > td {
+            .background(#0098ca,#027da6);
+        }
+
+        tr {
+            > td {
+                border-color: @wgeTableTopBorderColor @wgeTableRightBorderColor @wgeTableBottomBorderColor @wgeTableLeftBorderColor;
+            }
+        }
+
+        .@{wgeTableDataRowClass},
+        .@{wgeTableDataAlternateRowClass} {
+            > td {
+                background: @wgeTableBackgroundColor;
+            }
+
+            &:hover > td {
+                background: @wgeTableHoveredBackgroundColor;
+            }
+        }
+    }
+}
+
+@import '_Settings.less';

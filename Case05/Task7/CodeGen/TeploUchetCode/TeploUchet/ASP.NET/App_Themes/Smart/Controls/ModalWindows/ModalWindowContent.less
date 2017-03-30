@@ -1,0 +1,57 @@
+﻿@import '../../../BaseTheme/Controls/ModalWindows/ModalWindowContent.less';
+
+/**
+ * Файл визуального оформления содержимого модальных окон.
+ */
+
+
+// Заголовок таблицы модального окна.
+.@{modalWindowTableCaptionClass} {
+    // Элемент в заголовке таблицы модального окна.
+    .@{modalWindowTableItemClass} {
+        border: 1px solid;
+        border-color: @modalWindowTableTopBorderColor @modalWindowTableRightBorderColor @modalWindowTableBottomBorderColor @modalWindowTableLeftBorderColor;
+        .background(#0098ca,#027da6);
+        color: @modalWindowTableCaptionColor;
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0098ca', endColorstr='#027da6',GradientType=0 );
+
+        .@{selectAllBtnClass},
+        .@{resetSortBtnClass} {
+            width: 15px;
+        }
+
+    }
+    .@{modalWindowTableItemClass} + .@{modalWindowTableItemClass} {
+        margin-left: 0;
+    }
+}
+
+// Колонки таблицы модального окна.
+#sortable {
+    li {
+        background: @modalWindowTableColumnsListBackgroundColor;
+    }
+}
+
+// Засеривание строк таблицы.
+.@{tableColumnsListClass} #sortable {
+
+    li.disabled {
+        background: @modalWindowTableDisabledBackgroundColor;
+
+        input[type="text"],
+        select {
+            background: @modalWindowTableControlDisabledBackgroundColor;
+            box-shadow: none;
+        }
+    }
+}
+
+// Футер модального окна.
+.@{modalWindowFooterClass} {
+    border-top: 1px solid @modalWindowTableFooterBorderColor;
+    background: @modalWindowFooterBackgroundColor;
+}
+
+
+@import '_Settings.less';
