@@ -324,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="forms\Find\FindForm.aspx" />
+    <Content Include="forms\Find\GetConsumer.ascx" />
     <Content Include="forms\Inspektor\InspektorE.aspx" />
     <Compile Include="forms\Find\FindForm.aspx.cs">
       <DependentUpon>FindForm.aspx</DependentUpon>
@@ -331,6 +332,13 @@
     </Compile>
     <Compile Include="forms\Find\FindForm.aspx.designer.cs">
       <DependentUpon>FindForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Find\GetConsumer.ascx.cs">
+      <DependentUpon>GetConsumer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Find\GetConsumer.ascx.designer.cs">
+      <DependentUpon>GetConsumer.ascx</DependentUpon>
     </Compile>
     <Compile Include="forms\Inspektor\InspektorE.aspx.cs">
       <DependentUpon>InspektorE.aspx</DependentUpon>
@@ -395,7 +403,6 @@
     <Compile Include="forms\UchastokSeti\UchastokSetiE.aspx.designer.cs">
       <DependentUpon>UchastokSetiE.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Find\GetConsumer.ascx" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -416,13 +423,6 @@
     </Compile>
     <Compile Include="forms\Rajon\RajonE.aspx.designer.cs">
       <DependentUpon>RajonE.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Find\GetConsumer.ascx.cs">
-      <DependentUpon>GetConsumer.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Find\GetConsumer.ascx.designer.cs">
-      <DependentUpon>GetConsumer.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />

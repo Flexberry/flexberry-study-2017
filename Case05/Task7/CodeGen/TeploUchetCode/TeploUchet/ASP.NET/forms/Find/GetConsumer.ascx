@@ -32,5 +32,6 @@
         <asp:Label ID="ErrorLabel" runat="server" Text="Объект не найден" ForeColor="red"></asp:Label>
     </div>
     <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" />
+    
 </asp:Panel>
 

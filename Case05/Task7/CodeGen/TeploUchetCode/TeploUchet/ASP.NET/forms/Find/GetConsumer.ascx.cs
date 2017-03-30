@@ -1,4 +1,6 @@
 ﻿using ICSSoft.STORMNET;
+using ICSSoft.STORMNET.Web.AjaxControls;
+using ICSSoft.STORMNET.Web.Controls;
 using ICSSoft.STORMNET.Business;
 using ICSSoft.STORMNET.Business.LINQProvider;
 using ICSSoft.STORMNET.FunctionalLanguage;
@@ -6,6 +8,7 @@ using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
 using System;
 using System.Linq;
 using TeploCorp.TeploUchet;
+using LookUpForm = ICSSoft.STORMNET.Web.AjaxControls.Forms.LookUpForm;
 
 namespace Web
 {
@@ -22,6 +25,13 @@ namespace Web
             LabelDateReg.Text = string.Empty;
             LabelAccount.Text = string.Empty;
             */
+        }
+        /// <summary>
+        /// Вызывается самым первым в Page_Load.
+        /// </summary>
+        protected void Preload()
+        {
+            WebObjectListView1.View = Объект.Views.ОбъектL;
         }
 
         protected void ButtonFind_OnClick(object sender, EventArgs e)
@@ -40,6 +50,7 @@ namespace Web
                 Function lf = langdef.GetFunction(langdef.funcEQ,
                                         new VariableDef(langdef.StringType, Information.ExtractPropertyPath<Объект>(x => x.КодОбъекта)),
                                         codeFromForm);
+                //MasterEditorAjaxLookUp codeForm = new MasterEditorAjaxLookUp();
                 WebObjectListView1.LimitFunction = lf;
             }
             else
@@ -47,7 +58,6 @@ namespace Web
                 //WebObjectListView1.Visible = false;
                 ErrorLabel.Visible = true;
             }
-            
         }
     }
 }
