@@ -67,6 +67,15 @@ namespace WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl body;
         
         /// <summary>
+        /// FlexberryScripts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder FlexberryScripts;
+        
+        /// <summary>
         /// pageForm control.
         /// </summary>
         /// <remarks>
@@ -236,15 +245,6 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Localize TxtSaving;
-        
-        /// <summary>
-        /// FlexberryScripts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder FlexberryScripts;
         
         /// <summary>
         /// ContentPlaceHolder0 control.

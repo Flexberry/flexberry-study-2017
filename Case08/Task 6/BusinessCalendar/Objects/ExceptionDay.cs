@@ -375,6 +375,7 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
 
         // *** End programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
+        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition WorkTimeDefinition
         {
             get

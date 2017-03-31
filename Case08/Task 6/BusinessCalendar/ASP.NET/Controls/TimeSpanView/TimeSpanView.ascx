@@ -6,10 +6,9 @@
 <div id="TSView" runat="server" class="TimeSpanView">
     <input type="hidden" id="TimeSpanViewStatus" name="tsvStatus" runat="server" value="0" />
     <input type="hidden" id="TimeSpansJson" name="tsjArray" runat="server" value="" />
-    <div id="TSVContainer" runat="server"></div>
+    <div id="TSVContainer" runat="server" data-source-control="" data-status-control="" class="TSVContainer"></div>
 </div>
+
 <script>
-    var tsvContainer = document.getElementById('<%= TSVContainer.ClientID%>');
-    var hidden = document.getElementById('<%Response.Write(TimeSpansJson.ClientID);%>');
-    var inputStatus = document.getElementById('<%Response.Write(TimeSpanViewStatus.ClientID);%>');
+     $('#<%= TSVContainer.ClientID%>').TimeSpans("init", document.getElementById('<%= TimeSpansJson.ClientID%>'), document.getElementById('<%= TimeSpanViewStatus.ClientID%>'));
 </script>

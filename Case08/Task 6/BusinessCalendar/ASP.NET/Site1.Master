@@ -21,6 +21,7 @@
     его CSS-класс прямо в разметке.
  --%>
 <body ID="body" runat="server">
+    <asp:Placeholder ID="FlexberryScripts" runat="server" />
     <form id="pageForm" runat="server" class="page-form">
         <div class="page-wrap">
             <div class="page-header">
@@ -69,7 +70,7 @@
     </form>
 
     <%-- Дополнительные блоки для подключения скриптов на страницах через PlaceholderPageContentConnector. --%>
-    <asp:Placeholder ID="FlexberryScripts" runat="server" />
+    
     <asp:ContentPlaceHolder ID="ContentPlaceHolder0" runat="server"/>
     <asp:Placeholder ID="FlexberryRawHtml" runat="server"/>
 </body>

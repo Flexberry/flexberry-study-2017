@@ -22,7 +22,7 @@
             $(tsView).TimeSpans("dispose");
         }
         else if (dropDownDayType.value === "Рабочий") {
-            $(tsView).TimeSpans("create");
+            $(tsView).TimeSpans("init", $(tsView).find('input[name="tsjArray"]')[0], $(tsView).find('input[name="tsvStatus"]')[0]);
         }
         return;
     };
@@ -112,8 +112,8 @@ function GetRecType() {
  * @param {Int} RecType Тип повторения
  * @returns {Date} конечная дата 
  */
-function CalculateEndDate(startDate, RecCount, RepStep, RecType) {
-    var resultDate = startDate;
+function CalculateEndDate(StartDate, RecCount, RepStep, RecType) {
+    var resultDate = StartDate;
     for(var i = 0;i<RecCount;i++)
     {
         switch (RecType) {
@@ -149,16 +149,16 @@ function CalculateRepCount(StartDate, EndDate, RepStep, RecType)
     {
         switch (RecType) {
             case 0:
-                startdate.setDate(startDate.getDate() + RepStep);
+                StartDate.setDate(StartDate.getDate() + RepStep);
                 break;
             case 1:
-                startDate.setDate(startDate.getDate() + RepStep * 7);
+                StartDate.setDate(StartDate.getDate() + RepStep * 7);
                 break;
             case 2:
-                startDate.setMonth(startDate.getMonth() + RepStep);
+                StartDate.setMonth(StartDate.getMonth() + RepStep);
                 break;
             case 3:
-                startDate.setFullYear(startDate.getFullYear() + RepStep);
+                StartDate.setFullYear(StartDate.getFullYear() + RepStep);
                 break;
             default:
         }

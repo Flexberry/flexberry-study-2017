@@ -83,7 +83,7 @@
             PageContentManager.AttachExternalFile("/shared/script/jquery.maskedinput-1.2.2.js");
             PageContentManager.AttachExternalFile("/shared/script/thickbox.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.maxlength.min.js");
-            PageContentManager.AttachExternalFile("/shared/script/master.page.js");
+            //PageContentManager.AttachExternalFile("/shared/script/master.page.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.alerts.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.sticky.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.ics.js");

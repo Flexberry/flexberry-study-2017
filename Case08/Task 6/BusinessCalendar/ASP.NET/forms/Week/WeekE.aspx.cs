@@ -69,6 +69,29 @@ namespace IIS.BusinessCalendar
         /// <returns>Объект данных, который сохранился.</returns>
         protected override DataObject SaveObject()
         {
+            if(DataObject != null)
+            {
+                switch (DataObject.GetStatus())
+                {
+                    case ObjectStatus.Created:
+                        TSSaveHelper.CreateTimeSpans(DataObject);
+                        break;
+                    case ObjectStatus.Deleted:
+                        TSSaveHelper.DeleteTimeSpans(DataObject);
+                        break;
+                    default:
+                        {
+                            if (ctrlMondayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Monday, DataObject.MondayTS);
+                            if (ctrlTuesdayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Tuesday, DataObject.TuesdayTS);
+                            if (ctrlWednesdayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Wednesday, DataObject.WednesdayTS);
+                            if (ctrlThursdayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Thursday, DataObject.ThursdayTS);
+                            if (ctrlFridayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Friday, DataObject.FridayTS);
+                            if (ctrlSaturdayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Saturday, DataObject.SaturdayTS);
+                            if (ctrlSundayTS.Status == ObjectStatus.Altered) TSSaveHelper.UpdateTimeSpans(DataObject.Sunday, DataObject.SundayTS);
+                        }
+                        break;
+                }
+            }
             return base.SaveObject();
         }
     }

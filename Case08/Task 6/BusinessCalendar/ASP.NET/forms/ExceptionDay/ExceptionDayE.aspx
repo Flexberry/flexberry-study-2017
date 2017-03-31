@@ -36,7 +36,6 @@
                     <asp:DropDownList ID="ctrlDayType" CssClass="descTxt" runat="server">
                         <asp:ListItem>Выходной</asp:ListItem>
                         <asp:ListItem>Рабочий</asp:ListItem>
-
                     </asp:DropDownList>
                 </div>
                 <div class="clearfix">

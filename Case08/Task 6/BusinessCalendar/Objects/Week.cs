@@ -16,7 +16,7 @@ namespace IIS.BusinessCalendar
     
     
     // *** Start programmer edit section *** (Using statements)
-
+    using System.Linq;
     // *** End programmer edit section *** (Using statements)
 
 
@@ -31,16 +31,30 @@ namespace IIS.BusinessCalendar
     [View("WeekE", new string[] {
             "Name as \'Название недели\'",
             "IsDefault as \'Стандартная\'",
-            "Calendar as \'Calendar\'",
+            "Calendar as \'Календарь\'",
             "Calendar.Name as \'Name\'",
-            "Monday as \'Понедельник\'",
-            "Tuesday as \'Вторник\'",
-            "Wednesday as \'Среда\'",
-            "Thursday as \'Четверг\'",
-            "Friday as \'Пятница\'",
-            "Saturday as \'Суббота\'",
-            "Sunday as \'Воскресенье\'"}, Hidden=new string[] {
-            "Calendar.Name"})]
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+            "MondayTS as \'Понедельник\'",
+            "TuesdayTS as \'Вторник\'",
+            "WednesdayTS as \'Среда\'",
+            "ThursdayTS as \'Четверг\'",
+            "FridayTS as \'Пятница\'",
+            "SaturdayTS as \'Суббота\'",
+            "SundayTS as \'Воскресенье\'"}, Hidden=new string[] {
+            "Calendar.Name",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"})]
     [MasterViewDefineAttribute("WeekE", "Calendar", ICSSoft.STORMNET.LookupTypeEnum.Combo, "", "Name")]
     [View("WeekL", new string[] {
             "Name as \'Название недели\'",
@@ -70,7 +84,13 @@ namespace IIS.BusinessCalendar
         private IIS.BusinessCalendar.WorkTimeDefinition fSaturday;
         
         // *** Start programmer edit section *** (Week CustomMembers)
-
+        private System.Collections.Generic.List<TimeSpan> fMondayTS;
+        private System.Collections.Generic.List<TimeSpan> fTuesdayTS;
+        private System.Collections.Generic.List<TimeSpan> fWednesdayTS;
+        private System.Collections.Generic.List<TimeSpan> fThursdayTS;
+        private System.Collections.Generic.List<TimeSpan> fFridayTS;
+        private System.Collections.Generic.List<TimeSpan> fSaturdayTS;
+        private System.Collections.Generic.List<TimeSpan> fSundayTS;
         // *** End programmer edit section *** (Week CustomMembers)
 
         
@@ -134,6 +154,251 @@ namespace IIS.BusinessCalendar
                 // *** Start programmer edit section *** (Week.IsDefault Set end)
 
                 // *** End programmer edit section *** (Week.IsDefault Set end)
+            }
+        }
+        
+        /// <summary>
+        /// MondayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.MondayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.MondayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> MondayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.MondayTS Get)
+                if (fMondayTS == null)
+                {
+                    if (!(Monday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Monday, false, false);
+                        this.fMondayTS = Converter.convertWorkTimeSpans(this.Monday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fMondayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fMondayTS;
+                // *** End programmer edit section *** (Week.MondayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.MondayTS Set)
+                this.fMondayTS = value;
+                // *** End programmer edit section *** (Week.MondayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// TuesdayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.TuesdayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.TuesdayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> TuesdayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.TuesdayTS Get)
+                if (fTuesdayTS == null)
+                {
+                    if (!(Tuesday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Tuesday, false, false);
+                        this.fTuesdayTS = Converter.convertWorkTimeSpans(this.Tuesday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fTuesdayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fTuesdayTS;
+                // *** End programmer edit section *** (Week.TuesdayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.TuesdayTS Set)
+                this.fTuesdayTS = value;
+                // *** End programmer edit section *** (Week.TuesdayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// WednesdayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.WednesdayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.WednesdayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> WednesdayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.WednesdayTS Get)
+                if (fWednesdayTS == null)
+                {
+                    if (!(Wednesday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Wednesday, false, false);
+                        this.fWednesdayTS = Converter.convertWorkTimeSpans(this.Wednesday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fWednesdayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fWednesdayTS;
+                // *** End programmer edit section *** (Week.WednesdayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.WednesdayTS Set)
+                this.fWednesdayTS = value;
+                // *** End programmer edit section *** (Week.WednesdayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// ThursdayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.ThursdayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.ThursdayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> ThursdayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.ThursdayTS Get)
+                if (fThursdayTS == null)
+                {
+                    if (!(Thursday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Thursday, false, false);
+                        this.fThursdayTS = Converter.convertWorkTimeSpans(this.Thursday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fThursdayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fThursdayTS;
+                // *** End programmer edit section *** (Week.ThursdayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.ThursdayTS Set)
+                this.fThursdayTS = value;
+                // *** End programmer edit section *** (Week.ThursdayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// FridayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.FridayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.FridayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> FridayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.FridayTS Get)
+                if (fFridayTS == null)
+                {
+                    if (!(Friday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Friday, false, false);
+                        this.fFridayTS = Converter.convertWorkTimeSpans(this.Friday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fFridayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fFridayTS;
+                // *** End programmer edit section *** (Week.FridayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.FridayTS Set)
+                this.fFridayTS = value;
+                // *** End programmer edit section *** (Week.FridayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// SaturdayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.SaturdayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.SaturdayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> SaturdayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.SaturdayTS Get)
+                if (fSaturdayTS == null)
+                {
+                    if (!(Saturday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Saturday, false, false);
+                        this.fSaturdayTS = Converter.convertWorkTimeSpans(this.Saturday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fSaturdayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fSaturdayTS;
+                // *** End programmer edit section *** (Week.SaturdayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.SaturdayTS Set)
+                this.fSaturdayTS = value;
+                // *** End programmer edit section *** (Week.SaturdayTS Set)
+            }
+        }
+        
+        /// <summary>
+        /// SundayTS.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.SundayTS CustomAttributes)
+
+        // *** End programmer edit section *** (Week.SundayTS CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        public virtual System.Collections.Generic.List<TimeSpan> SundayTS
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.SundayTS Get)
+                if (fSundayTS == null)
+                {
+                    if (!(Sunday == null))
+                    {
+                        ICSSoft.STORMNET.Business.DataServiceProvider.DataService.LoadObject(WorkTimeDefinition.Views.WorkTimeDefinitionE, this.Sunday, false, false);
+                        this.fSundayTS = Converter.convertWorkTimeSpans(this.Sunday.WorkTimeSpan.Cast<WorkTimeSpan>().ToList());
+                    }
+                    else
+                    {
+                        fSundayTS = new System.Collections.Generic.List<TimeSpan>();
+                    }
+                }
+                return fSundayTS;
+                // *** End programmer edit section *** (Week.SundayTS Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.SundayTS Set)
+                this.fSundayTS = value;
+                // *** End programmer edit section *** (Week.SundayTS Set)
             }
         }
         
