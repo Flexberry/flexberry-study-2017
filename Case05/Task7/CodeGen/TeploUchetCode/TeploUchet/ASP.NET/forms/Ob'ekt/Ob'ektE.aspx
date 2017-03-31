@@ -40,25 +40,28 @@ ErrorMessage="Не указано: Контрагент" EnableClientScript="tru
   <asp:Label CssClass="descLbl" ID="ctrlДатаРегистрацииLabel" runat="server" Text="Дата регистрации" EnableViewState="False">
 </asp:Label>
 <div class="descTxt">
-	<ac:DatePicker ID="ctrlДатаРегистрации" runat="server"/>
+    <ac:DatePicker ID="ctrlДатаРегистрации" runat="server"/>
 </div>
+<asp:RequiredFieldValidator ID="ctrlДатаРегистрацииValidator" runat="server" ControlToValidate="ctrlДатаРегистрации"
+ErrorMessage="Не указано: ДатаРегистрации" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+
 </div>
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlЛицСчетLabel" runat="server" Text="Лиц счет" EnableViewState="False">
 </asp:Label>
-<ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlЛицСчет" runat="server">
-</ac:AlphaNumericTextBox>
+        <ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlЛицСчет" runat="server">
+    </ac:AlphaNumericTextBox>
 
 <asp:RequiredFieldValidator ID="ctrlЛицСчетValidator" runat="server" ControlToValidate="ctrlЛицСчет"
-ErrorMessage="Не указано: Лицевой счет" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+ErrorMessage="Не указано: ЛицСчет" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
 <div class="clearfix">
-	<asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь, м2" EnableViewState="False">
-	</asp:Label>
+  <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь, м2" EnableViewState="False">
+</asp:Label>
 <ac:AlphaNumericTextBox CssClass="descTxt" ID="ctrlПлощадь" Type="Numeric" runat="server">
 </ac:AlphaNumericTextBox>
-	
+
 <asp:RequiredFieldValidator ID="ctrlПлощадьValidator" runat="server" ControlToValidate="ctrlПлощадь"
 ErrorMessage="Не указано: Площадь" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
@@ -66,7 +69,7 @@ ErrorMessage="Не указано: Площадь" EnableClientScript="true" Val
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlЗданиеLabel" runat="server" Text="Здание" EnableViewState="False">
 </asp:Label>
-<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true"/>
+<ac:MasterEditorAjaxLookUp ID="ctrlЗдание" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 <asp:RequiredFieldValidator ID="ctrlЗданиеValidator" runat="server" ControlToValidate="ctrlЗдание"
 ErrorMessage="Не указано: Здание" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>

@@ -34,7 +34,6 @@ namespace ICSSoft.STORMNET.Web.Controls
         /// <param name="view">Представление по которому будут зачитаны объекты данных для списка.</param>
         protected BaseListForm(View view) : base(view)
         {
-           
         }
 
         /// <summary>
@@ -43,6 +42,9 @@ namespace ICSSoft.STORMNET.Web.Controls
         protected override void Preload()
         {
             WebObjectListView1.Operations.AdjustListHeight = true;
+            WebObjectListView1.Operations.EditOnClickInRow = false;
+            WebObjectListView1.Operations.Print = false;
+            
             base.Preload();
         }
         

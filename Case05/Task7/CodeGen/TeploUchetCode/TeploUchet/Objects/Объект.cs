@@ -64,7 +64,7 @@ namespace TeploCorp.TeploUchet
         
         private System.DateTime fДатаРегистрации;
         
-        private ulong fЛицСчет;
+        private int fЛицСчет;
         
         private string fКодОбъекта;
         
@@ -184,14 +184,14 @@ namespace TeploCorp.TeploUchet
 
         // *** End programmer edit section *** (Объект.ЛицСчет CustomAttributes)
         [NotNull()]
-        public virtual ulong ЛицСчет
+        public virtual int ЛицСчет
         {
             get
             {
                 // *** Start programmer edit section *** (Объект.ЛицСчет Get start)
 
                 // *** End programmer edit section *** (Объект.ЛицСчет Get start)
-                ulong result = this.fЛицСчет;
+                int result = this.fЛицСчет;
                 // *** Start programmer edit section *** (Объект.ЛицСчет Get end)
 
                 // *** End programmer edit section *** (Объект.ЛицСчет Get end)

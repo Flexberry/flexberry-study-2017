@@ -25,7 +25,7 @@
         <div class="page-wrap">
             <div class="page-header">
                 <div class="page-header-image"><a href="/Default.aspx"></a></div>
-                <div class="page-header-caption"><a href="/Default.aspx">Электронный учет объектов теплопотребления</a></div>
+                <div class="page-header-caption"><a href="/Default.aspx">Название проекта</a></div>
                 <div class="page-header-userbar">
                     <asp:Label ID="fio" runat="server" Text="YourUserID" />
                     <asp:LinkButton CssClass="exit-btn" ID="ExitButton" runat="server" OnClick="ExitButtonClickHandler">Выход</asp:LinkButton>

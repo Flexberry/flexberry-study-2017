@@ -7,9 +7,9 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace TeploCorp.TeploUchet {
+namespace TeploCorp.TeploUchet.forms.UchastokSeti {
     
     
-    public partial class УчастокСетиL {
+    public partial class UchastokSetiMove {
     }
 }

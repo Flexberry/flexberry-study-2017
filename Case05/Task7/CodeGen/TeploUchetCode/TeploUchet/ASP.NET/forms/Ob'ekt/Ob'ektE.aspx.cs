@@ -122,22 +122,7 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            try
-            {
-                //int u = int.Parse(ctrlЛицСчет.Text);
-                ulong p = ulong.Parse(ctrlЛицСчет.Text);
-                return base.PreSaveObject();
-            }
-            catch
-            {
-                //ctrlЛицСчет.Text = "";
-                WebMessageBox.Show("Проверьте номер лицевого счета, допустимы только цифры!");
-                return false;
-            }
-            
-            //return false;
-            //return base.PreSaveObject();
-
+            return base.PreSaveObject();
         }
 
         /// <summary>

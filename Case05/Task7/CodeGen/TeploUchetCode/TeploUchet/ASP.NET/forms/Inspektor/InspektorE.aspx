@@ -65,7 +65,7 @@ ErrorMessage="Не указано: Логин" EnableClientScript="true" Validat
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlАктуаленLabel" runat="server" Text="Актуален" EnableViewState="False">
 </asp:Label>
-	<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text="" />
+<asp:CheckBox ID="ctrlАктуален" CssClass="descTxt" runat="server" Text=""/>
 </div>
 
 </div>

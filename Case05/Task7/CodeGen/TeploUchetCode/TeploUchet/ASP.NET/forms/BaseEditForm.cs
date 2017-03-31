@@ -3,7 +3,6 @@
 // потребностями проекта
 //------------------------------------------------------------------------------
 
-
 namespace ICSSoft.STORMNET.Web.Controls
 {
     /// <summary>
@@ -40,7 +39,7 @@ namespace ICSSoft.STORMNET.Web.Controls
         /// <param name="view">Представление для вычитки редактируемого объекта данных.</param>
         protected BaseEditForm(View view)
             : base(view, string.Empty)
-        {            
+        {
         }
 
         /// <summary>

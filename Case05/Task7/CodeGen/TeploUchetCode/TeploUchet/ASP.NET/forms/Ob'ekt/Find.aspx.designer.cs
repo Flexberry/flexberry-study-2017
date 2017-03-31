@@ -10,7 +10,7 @@
 namespace Web {
     
     
-    public partial class FindForm {
+    public partial class Find {
         
         /// <summary>
         /// GetConsumer1 элемент управления.

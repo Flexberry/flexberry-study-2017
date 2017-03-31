@@ -13,8 +13,9 @@
         /// <param name="wolv">WOLV который необходимо настроить.</param>
         public override void SettingsApply(AjaxControls.WebObjectListView wolv)
         {
+            wolv.Operations.EditOnClickInRow = false;
+            wolv.Operations.Print = false;
             base.SettingsApply(wolv);
-            
         }
 
         /// <summary>

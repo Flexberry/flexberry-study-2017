@@ -65,7 +65,7 @@ ErrorMessage="Не указано: ТипСети" EnableClientScript="true" Val
   <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Дата прокладки" EnableViewState="False">
 </asp:Label>
 <div class="descTxt">
-	<ac:DatePicker ID="ctrlГодПрокладки" runat="server"/>
+    <ac:DatePicker ID="ctrlГодПрокладки" runat="server"/>
 </div>
 <asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
 ErrorMessage="Не указано: ГодПрокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
