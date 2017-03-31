@@ -42,7 +42,7 @@ namespace AccauntCompare
                 }
             }
 
-            return result * 100 / 10;
+            return result * 10;
         }
     }
 }

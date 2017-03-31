@@ -94,3 +94,18 @@ label.count{
 .accordion .info_item {
   margin-bottom:1px
 }
+
+.toggle {
+width: 200px;
+margin: 0 0 14px;
+text-align: right;
+border: 1px solid #ccc;
+}
+.toggle .content {
+text-align: left;
+border: 1px solid #ccc;
+background: #eee;
+}
+.toggle .toggler {
+font-size: 11px;
+}
