@@ -324,7 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="forms\Ob%27ekt\Find.aspx" />
-    <Content Include="forms\Ob%27ekt\GetConsumer.ascx" />
+    <Content Include="Controls\GetConsumer.ascx" />
     <Content Include="forms\Inspektor\InspektorE.aspx" />
     <Compile Include="forms\Ob%27ekt\Find.aspx.cs">
       <DependentUpon>Find.aspx</DependentUpon>
@@ -333,11 +333,11 @@
     <Compile Include="forms\Ob%27ekt\Find.aspx.designer.cs">
       <DependentUpon>Find.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\Ob%27ekt\GetConsumer.ascx.cs">
+    <Compile Include="Controls\GetConsumer.ascx.cs">
       <DependentUpon>GetConsumer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Ob%27ekt\GetConsumer.ascx.designer.cs">
+    <Compile Include="Controls\GetConsumer.ascx.designer.cs">
       <DependentUpon>GetConsumer.ascx</DependentUpon>
     </Compile>
     <Compile Include="forms\Inspektor\InspektorE.aspx.cs">
@@ -355,8 +355,16 @@
     <Compile Include="forms\Rajon\RajonL.aspx.designer.cs">
       <DependentUpon>RajonL.aspx</DependentUpon>
     </Compile>
+    <Content Include="Controls\UchastokSetiM.ascx" />
     <Content Include="forms\UchastokSeti\UchastokSetiMove.aspx" />
     <Content Include="forms\Zdanie\ZdanieL.aspx" />
+    <Compile Include="Controls\UchastokSetiM.ascx.cs">
+      <DependentUpon>UchastokSetiM.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UchastokSetiM.ascx.designer.cs">
+      <DependentUpon>UchastokSetiM.ascx</DependentUpon>
+    </Compile>
     <Compile Include="forms\UchastokSeti\UchastokSetiMove.aspx.cs">
       <DependentUpon>UchastokSetiMove.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +423,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="shared\script\site.js" />
     <Content Include="Web.sitemap" />
     <Content Include="forms\Zdanie\ZdanieE.aspx" />
     <Compile Include="forms\Zdanie\ZdanieE.aspx.cs">

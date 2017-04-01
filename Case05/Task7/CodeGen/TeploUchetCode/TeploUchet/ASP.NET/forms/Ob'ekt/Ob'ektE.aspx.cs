@@ -40,6 +40,8 @@ namespace TeploCorp.TeploUchet
             ctrlЛицСчет.Min = 0;
             ctrlПлощадь.Max = Int32.MaxValue;
             ctrlПлощадь.Min = 0;
+            ctrlЛицСчет.MaxLength = 9;
+            
         }
 
         /// <summary>

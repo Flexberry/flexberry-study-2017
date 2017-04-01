@@ -6,7 +6,7 @@
       <siteMapNode title="Пользователи" url="~/flexberry/SecurityUsersList" />
       <siteMapNode title="Роли" url="~/flexberry/SecurityRolesList" />
       <siteMapNode title="Классы" url="~/flexberry/SecurityClassesList" />
-      <siteMapNode title="Лог" url="~/flexberry/LogList" />
+      <!-- <siteMapNode title="Лог" url="~/flexberry/LogList" /> -->
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
     <siteMapNode title="Электронный учет" roles="*" xmlns="">

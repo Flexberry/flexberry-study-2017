@@ -15,6 +15,7 @@
         {
             wolv.Operations.EditOnClickInRow = false;
             wolv.Operations.Print = false;
+            
             base.SettingsApply(wolv);
         }
 

@@ -809,5 +809,6 @@ namespace Resources {
                 return ResourceManager.GetString("Wrong_Form_Params", resourceCulture);
             }
         }
+        
     }
 }

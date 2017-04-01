@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web
 {
-    public partial class UchastokSetiMove : System.Web.UI.Page
+    public partial class UchastokSetiM : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {

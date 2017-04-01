@@ -37,6 +37,10 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Preload()
         {
+            WebObjectListView1.AddImageButton("findBtn", "cssClass", "Поиск объекта по коду", "findBtnClickAlert", string.Empty);
+ 
+            //ICSSoft.STORMNET.Web.AjaxControls.
+            ;
             string strUser = HttpContext.Current.User.Identity.Name;
             var _dataService = (SQLDataService)DataServiceProvider.DataService;
             var _Inspector = _dataService.Query<Инспектор>(Инспектор.Views.ИнспекторL).FirstOrDefault(x => x.Логин == strUser); // получаем объект инспектор по логину
@@ -62,6 +66,7 @@ namespace TeploCorp.TeploUchet
         /// </summary>
         protected override void Postload()
         {
+            //Resource.
         }
     }
 }

@@ -67,7 +67,9 @@ namespace TeploCorp.TeploUchet
             IDataService ids = DataServiceProvider.DataService;
             var objectKey = object4Calc.Здание.__PrimaryKey;
             int OldПлощадь = 0;
-            var noToSummObject = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.__PrimaryKey == object4Calc.__PrimaryKey).Where(y => y.Актуален == true);
+            var noToSummObject = ids.Query<Объект>(Объект.Views.ОбъектE)
+                                    .Where(y => y.__PrimaryKey == object4Calc.__PrimaryKey)
+                                    .Where(y => y.Актуален == true);
             foreach (var j in noToSummObject)
             {
                 OldПлощадь = j.Площадь;
@@ -77,7 +79,9 @@ namespace TeploCorp.TeploUchet
                 //прибавляем новую площадь и вычитаем старую компенсируя потом прибавкой её из старых значений
                 object4Calc.Здание.Площади = object4Calc.Площадь - OldПлощадь;
                 //находим старые площади и прибавляем
-                var toSummObjects = ids.Query<Объект>(Объект.Views.ОбъектE).Where(y => y.Здание.__PrimaryKey == objectKey).Where(y => y.Актуален == true);
+                var toSummObjects = ids.Query<Объект>(Объект.Views.ОбъектE)
+                                        .Where(y => y.Здание.__PrimaryKey == objectKey)
+                                        .Where(y => y.Актуален == true);
                 foreach (var j in toSummObjects)
                 {
                     object4Calc.Здание.Площади += j.Площадь;

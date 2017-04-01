@@ -2,7 +2,9 @@
 <%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Ob'ektL.aspx.cs" Inherits="TeploCorp.TeploUchet.ОбъектL" %>
 <%@ Import namespace="NewPlatform.Flexberry.Web.Page" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="<%= Constants.FormCssClass %> <%= Constants.ListFormCssClass %>">
         <h2 class="<%= Constants.FormHeaderCssClass %> <%= Constants.ListFormHeaderCssClass %>">Объект</h2>
         <div class="<%= Constants.FormControlsCssClass %> <%= Constants.ListFormControlsCssClass %>">

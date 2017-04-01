@@ -87,6 +87,7 @@
             PageContentManager.AttachExternalFile("/shared/script/jquery.alerts.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.sticky.js");
             PageContentManager.AttachExternalFile("/shared/script/jquery.ics.js");
+            PageContentManager.AttachExternalFile("/shared/script/site.js");
 
             base.OnInit(e);
         }

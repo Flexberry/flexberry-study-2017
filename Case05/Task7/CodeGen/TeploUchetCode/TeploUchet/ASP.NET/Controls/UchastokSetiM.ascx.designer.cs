@@ -7,9 +7,9 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace TeploCorp.TeploUchet {
+namespace Web {
     
     
-    public partial class ОбъектL {
+    public partial class UchastokSetiM {
     }
 }

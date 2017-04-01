@@ -31,15 +31,14 @@ namespace Web
 
         protected void ButtonFind_OnClick(object sender, EventArgs e)
         {
-            WebObjectListView web = new WebObjectListView();
-
-            //var  = ГенерацияКода.generateCode(TextBoxCode.Text);
             string codeFromForm = TextBoxCode.Text;
-            var _dataService = (SQLDataService)DataServiceProvider.DataService; //сервис для получения объекта
-            var _consumer = _dataService.Query<Объект>(Объект.Views.ОбъектL)
+            var ids = (SQLDataService)DataServiceProvider.DataService;
+
+            var _consumer = ids.Query<Объект>(Объект.Views.ОбъектL)
+                    .Where(x => x.Наименование != null)
                     .FirstOrDefault(x => x.КодОбъекта == codeFromForm); 
 
-            if ( _consumer.__PrimaryKey != null)
+            if ( _consumer != null)
             {
                 LabelName.Text = _consumer.Наименование;
                 LabelDateReg.Text = _consumer.ДатаРегистрации.Day.ToString() + ".";
