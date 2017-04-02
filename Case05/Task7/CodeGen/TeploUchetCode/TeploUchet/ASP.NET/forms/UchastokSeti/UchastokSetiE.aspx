@@ -41,8 +41,8 @@ ErrorMessage="Не указано: Теплоизоляция" EnableClientScrip
 </asp:Label>
 <asp:DropDownList ID="ctrlТипМонтажа" CssClass="descTxt" runat="server">
 	<asp:ListItem>Надземный</asp:ListItem>
-<asp:ListItem>Подземный</asp:ListItem>
-<asp:ListItem>ПоПодвалу</asp:ListItem>
+    <asp:ListItem>Подземный</asp:ListItem>
+    <asp:ListItem>ПоПодвалу</asp:ListItem>
 
 </asp:DropDownList>
 <asp:RequiredFieldValidator ID="ctrlТипМонтажаValidator" runat="server" ControlToValidate="ctrlТипМонтажа"

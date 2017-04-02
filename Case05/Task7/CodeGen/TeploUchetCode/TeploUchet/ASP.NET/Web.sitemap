@@ -16,6 +16,7 @@
       <siteMapNode title="Район" description="" url="~/forms/Rajon/RajonL.aspx" />
       <siteMapNode title="Инспектор" description="" url="~/forms/Inspektor/InspektorL.aspx" />
       <siteMapNode title="Поиск объекта по коду" description="" url="~/forms/Ob'ekt/Find.aspx" />
+      <siteMapNode title="Перемещение участков" description="" url="~/forms/UchastokSeti/UchastokSetiM.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

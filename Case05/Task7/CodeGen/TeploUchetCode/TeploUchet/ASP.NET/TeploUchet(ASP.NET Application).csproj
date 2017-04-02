@@ -356,6 +356,7 @@
       <DependentUpon>RajonL.aspx</DependentUpon>
     </Compile>
     <Content Include="Controls\UchastokSetiM.ascx" />
+    <Content Include="forms\UchastokSeti\UchastokSetiM.aspx" />
     <Content Include="forms\UchastokSeti\UchastokSetiMove.aspx" />
     <Content Include="forms\Zdanie\ZdanieL.aspx" />
     <Compile Include="Controls\UchastokSetiM.ascx.cs">
@@ -364,6 +365,13 @@
     </Compile>
     <Compile Include="Controls\UchastokSetiM.ascx.designer.cs">
       <DependentUpon>UchastokSetiM.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\UchastokSeti\UchastokSetiM.aspx.cs">
+      <DependentUpon>UchastokSetiM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\UchastokSeti\UchastokSetiM.aspx.designer.cs">
+      <DependentUpon>UchastokSetiM.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\UchastokSeti\UchastokSetiMove.aspx.cs">
       <DependentUpon>UchastokSetiMove.aspx</DependentUpon>
@@ -423,6 +431,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="shared\css\site.css" />
+    <Content Include="shared\script\jquery-1.7.2.min.js" />
+    <Content Include="shared\script\jquery-3.1.1.min.js" />
     <Content Include="shared\script\site.js" />
     <Content Include="Web.sitemap" />
     <Content Include="forms\Zdanie\ZdanieE.aspx" />
@@ -463,7 +474,6 @@
     <Content Include="shared\jstreeThemes\default\t.png" />
     <Content Include="shared\jstreeThemes\default\throbber.gif" />
     <Content Include="shared\script\exceptionpanel.js" />
-    <Content Include="shared\script\jquery-1.7.2.min.js" />
     <Content Include="shared\script\jquery-ui.min.js" />
     <Content Include="shared\script\jquery.alerts.js" />
     <Content Include="shared\script\jquery.color.js" />

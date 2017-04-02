@@ -11,7 +11,8 @@
         <asp:Localize ID="Localize1" Text="<%$ Resources: Resource, Master_Page_Title %>" runat="server"></asp:Localize>
     </title>
     <asp:ContentPlaceHolder ID="AddToHeadPlaceholder" runat="server" />
-    <script src="../../shared/script/site.js"></script>
+    
+    
 </head>
 <%--
     Тэг "body" является отдельным контролом для корректной работы PlaceholderPageContentConnector

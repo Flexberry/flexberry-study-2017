@@ -13,12 +13,12 @@ namespace Web {
     public partial class UchastokSetiMove {
         
         /// <summary>
-        /// UchastokSetiM1 элемент управления.
+        /// Move элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::Web.UchastokSetiM UchastokSetiM1;
+        protected global::Web.UchastokSetiM Move;
     }
 }

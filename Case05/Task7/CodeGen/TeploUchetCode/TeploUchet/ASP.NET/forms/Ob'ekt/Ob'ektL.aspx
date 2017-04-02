@@ -8,6 +8,7 @@
     <div class="<%= Constants.FormCssClass %> <%= Constants.ListFormCssClass %>">
         <h2 class="<%= Constants.FormHeaderCssClass %> <%= Constants.ListFormHeaderCssClass %>">Объект</h2>
         <div class="<%= Constants.FormControlsCssClass %> <%= Constants.ListFormControlsCssClass %>">
+            
             <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" />
         </div>
     </div>

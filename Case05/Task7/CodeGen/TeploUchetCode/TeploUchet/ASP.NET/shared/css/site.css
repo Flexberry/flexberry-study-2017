@@ -1,0 +1,90 @@
+﻿header {
+    display: block;
+    margin: auto;    
+    width: 300px;
+} 
+#pageBlockContent {
+    z-index: 0;
+}
+p,
+h4 {
+    
+}
+.clickable {
+    padding: 10px;
+}
+.plan,
+.object,
+.sector {
+    
+}
+.object,
+.sector {
+    bottom: 1px;
+    display: inline-block;
+    position: relative;
+}
+.plan {
+    border: 2px;
+    background-color: gray;
+    margin: 10px 0px;
+    padding: 10px 30px; 
+    border: solid 2px black;
+    min-width: 400px;
+    position: relative;
+    vertical-align: bottom;
+    min-height
+}
+.object {
+    border: 1px;
+    background-color: rosybrown;
+    min-width: 200px;
+    border: solid 1px black;
+    min-height: 150px;
+    padding: 10px;
+    vertical-align: bottom;
+}
+.sector {
+    border: dashed 1px black;
+    min-width: 150px;
+    background-image: url(../ArrowRight.png) !important;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: 30% 100%;
+    
+}
+.sector > div > span {
+    display:block;
+}
+.hidden {
+    display: none;  
+}
+.fieldset {
+    position: absolute !important;
+    background-color: white;
+    border: solid 1px black;  
+    padding: 10px;
+    margin-bottom: -5px !important;  
+    z-index: 100;
+    z-index:
+}
+.overground{
+    background-color: seagreen;
+}
+.underground{
+    background-color: navajowhite;
+}
+.basement{
+    background-color: slategrey;
+}
+.object-info {
+    display: block;
+    font-size: larger;
+}
+.object-info:last-child {
+    margin-bottom: 20px;
+}
+.fieldset > input {
+    margin-top: 5px;
+}
