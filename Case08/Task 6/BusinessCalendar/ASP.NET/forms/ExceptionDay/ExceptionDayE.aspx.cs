@@ -72,7 +72,7 @@ namespace IIS.BusinessCalendar
         /// <returns>Объект данных, который сохранился.</returns>
         protected override DataObject SaveObject()
         {
-            if((DataObject != null) && (ctrlWorkTimeSpans.Status == ObjectStatus.Altered))
+            if((DataObject != null) && ((DataObject.GetStatus() == ObjectStatus.Created)|| (ctrlWorkTimeSpans.Status == ObjectStatus.Altered)))
             {
                 TSSaveHelper.UpdateTimeSpans(DataObject);
             }
