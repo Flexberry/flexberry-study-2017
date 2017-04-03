@@ -13,328 +13,328 @@ namespace LostFound {
     public partial class FoundControl {
         
         /// <summary>
-        /// TypeMessageFirstLabel control.
+        /// TypeMessageLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeMessageFirstLabel;
+        protected global::System.Web.UI.WebControls.Label TypeMessageLostLabel;
         
         /// <summary>
-        /// TypeMessageFirst control.
+        /// TypeMessageLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TypeMessageFirst;
+        protected global::System.Web.UI.WebControls.TextBox TypeMessageLost;
         
         /// <summary>
-        /// NameFirstLabel control.
+        /// NameLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameFirstLabel;
+        protected global::System.Web.UI.WebControls.Label NameLostLabel;
         
         /// <summary>
-        /// NameFirst control.
+        /// NameLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NameFirst;
+        protected global::System.Web.UI.WebControls.TextBox NameLost;
         
         /// <summary>
-        /// AdressFirstLabel control.
+        /// AdressLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdressFirstLabel;
+        protected global::System.Web.UI.WebControls.Label AdressLostLabel;
         
         /// <summary>
-        /// AdressFirst control.
+        /// AdressLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AdressFirst;
+        protected global::System.Web.UI.WebControls.TextBox AdressLost;
         
         /// <summary>
-        /// DateFirstLabel control.
+        /// DateLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateFirstLabel;
+        protected global::System.Web.UI.WebControls.Label DateLostLabel;
         
         /// <summary>
-        /// DateFirst control.
+        /// DateLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DateFirst;
+        protected global::System.Web.UI.WebControls.TextBox DateLost;
         
         /// <summary>
-        /// TypeFirstLabel control.
+        /// TypeLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeFirstLabel;
+        protected global::System.Web.UI.WebControls.Label TypeLostLabel;
         
         /// <summary>
-        /// TypeFirst control.
+        /// TypeLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TypeFirst;
+        protected global::System.Web.UI.WebControls.TextBox TypeLost;
         
         /// <summary>
-        /// ColorFirstLabel control.
+        /// ColorLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ColorFirstLabel;
+        protected global::System.Web.UI.WebControls.Label ColorLostLabel;
         
         /// <summary>
-        /// ColorFirst control.
+        /// ColorLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ColorFirst;
+        protected global::System.Web.UI.WebControls.TextBox ColorLost;
         
         /// <summary>
-        /// SizeFirstLabel control.
+        /// SizeLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SizeFirstLabel;
+        protected global::System.Web.UI.WebControls.Label SizeLostLabel;
         
         /// <summary>
-        /// SizeFirst control.
+        /// SizeLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SizeFirst;
+        protected global::System.Web.UI.WebControls.TextBox SizeLost;
         
         /// <summary>
-        /// BreedFirstLabel control.
+        /// BreedLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BreedFirstLabel;
+        protected global::System.Web.UI.WebControls.Label BreedLostLabel;
         
         /// <summary>
-        /// BreedFirst control.
+        /// BreedLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BreedFirst;
+        protected global::System.Web.UI.WebControls.TextBox BreedLost;
         
         /// <summary>
-        /// DescriptionFirstLabel control.
+        /// DescriptionLostLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DescriptionFirstLabel;
+        protected global::System.Web.UI.WebControls.Label DescriptionLostLabel;
         
         /// <summary>
-        /// DescriptionFirst control.
+        /// DescriptionLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescriptionFirst;
+        protected global::System.Web.UI.WebControls.TextBox DescriptionLost;
         
         /// <summary>
-        /// TypeMessageSecondLabel control.
+        /// TypeMessageFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeMessageSecondLabel;
+        protected global::System.Web.UI.WebControls.Label TypeMessageFoundLabel;
         
         /// <summary>
-        /// TypeMessageSecond control.
+        /// TypeMessageFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TypeMessageSecond;
+        protected global::System.Web.UI.WebControls.TextBox TypeMessageFound;
         
         /// <summary>
-        /// NameSecondLabel control.
+        /// NameFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameSecondLabel;
+        protected global::System.Web.UI.WebControls.Label NameFoundLabel;
         
         /// <summary>
-        /// NameSecond control.
+        /// NameFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NameSecond;
+        protected global::System.Web.UI.WebControls.TextBox NameFound;
         
         /// <summary>
-        /// AdressSecondLabel control.
+        /// AdressFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdressSecondLabel;
+        protected global::System.Web.UI.WebControls.Label AdressFoundLabel;
         
         /// <summary>
-        /// AdressSecond control.
+        /// AdressFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AdressSecond;
+        protected global::System.Web.UI.WebControls.TextBox AdressFound;
         
         /// <summary>
-        /// DateSecondLabel control.
+        /// DateFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateSecondLabel;
+        protected global::System.Web.UI.WebControls.Label DateFoundLabel;
         
         /// <summary>
-        /// DateSecond control.
+        /// DateFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DateSecond;
+        protected global::System.Web.UI.WebControls.TextBox DateFound;
         
         /// <summary>
-        /// TypeSecondLabel control.
+        /// TypeFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeSecondLabel;
+        protected global::System.Web.UI.WebControls.Label TypeFoundLabel;
         
         /// <summary>
-        /// TypeSecond control.
+        /// TypeFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TypeSecond;
+        protected global::System.Web.UI.WebControls.TextBox TypeFound;
         
         /// <summary>
-        /// ColorSecondLabel control.
+        /// ColorFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ColorSecondLabel;
+        protected global::System.Web.UI.WebControls.Label ColorFoundLabel;
         
         /// <summary>
-        /// ColorSecond control.
+        /// ColorFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ColorSecond;
+        protected global::System.Web.UI.WebControls.TextBox ColorFound;
         
         /// <summary>
-        /// SizeSecondLabel control.
+        /// SizeFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SizeSecondLabel;
+        protected global::System.Web.UI.WebControls.Label SizeFoundLabel;
         
         /// <summary>
-        /// SizeSecond control.
+        /// SizeFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SizeSecond;
+        protected global::System.Web.UI.WebControls.TextBox SizeFound;
         
         /// <summary>
-        /// BreedSecondLabel control.
+        /// BreedFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BreedSecondLabel;
+        protected global::System.Web.UI.WebControls.Label BreedFoundLabel;
         
         /// <summary>
-        /// BreedSecond control.
+        /// BreedFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BreedSecond;
+        protected global::System.Web.UI.WebControls.TextBox BreedFound;
         
         /// <summary>
-        /// DescriptionSecondLabel control.
+        /// DescriptionFoundLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DescriptionSecondLabel;
+        protected global::System.Web.UI.WebControls.Label DescriptionFoundLabel;
         
         /// <summary>
-        /// DescriptionSecond control.
+        /// DescriptionFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescriptionSecond;
+        protected global::System.Web.UI.WebControls.TextBox DescriptionFound;
         
         /// <summary>
         /// Compare control.

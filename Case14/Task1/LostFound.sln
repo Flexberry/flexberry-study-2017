@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFound", "LostFound\LostFound.csproj", "{CB755CD6-A54A-40DD-B090-D6F5646EFEC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFound.Tests", "LostFound.Tests\LostFound.Tests.csproj", "{C0F003B0-4BC4-41C1-A878-D383E45BECE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analysis.Tests", "LostFound.Tests\Analysis.Tests.csproj", "{C0F003B0-4BC4-41C1-A878-D383E45BECE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analysis", "Analysis\Analysis.csproj", "{47846056-EB2C-444C-8C7F-64CC22621BCC}"
 EndProject
