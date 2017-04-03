@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,6 +27,7 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (Студент CustomAttributes)
 
     // *** End programmer edit section *** (Студент CustomAttributes)
+    [BusinessServer("IIS.Product_58826.СтудентБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("СтудентE", new string[] {
@@ -36,8 +38,8 @@ namespace IIS.Product_58826
             "Логин as \'Логин\'",
             "Пароль as \'Пароль\'",
             "АдресПочты as \'e-mail \'",
-            "ПрекратилОбучение as \'Прекратил обучение\'",
-            "ФИО"}, Hidden=new string[] {
+            "ФИО",
+            "Обучается"}, Hidden=new string[] {
             "ФИО"})]
     [View("СтудентL", new string[] {
             "Фамилия as \'Фамилия\'",
@@ -48,7 +50,8 @@ namespace IIS.Product_58826
             "Пароль as \'Пароль\'",
             "ФИО as \'ФИО\'",
             "АдресПочты as \'e-mail\'",
-            "ПрекратилОбучение as \'Прекратил обучение\'"})]
+            "Обучается",
+            "КоличествоПрограмм as \'Общее кол-во выбранных программ\'"})]
     public class Студент : ICSSoft.STORMNET.DataObject
     {
         
@@ -66,7 +69,9 @@ namespace IIS.Product_58826
         
         private string fАдресПочты;
         
-        private bool fПрекратилОбучение = false;
+        private bool fОбучается = true;
+        
+        private int fКоличествоПрограмм;
         
         // *** Start programmer edit section *** (Студент CustomMembers)
 
@@ -329,33 +334,64 @@ namespace IIS.Product_58826
         }
         
         /// <summary>
-        /// ПрекратилОбучение.
+        /// Обучается.
         /// </summary>
-        // *** Start programmer edit section *** (Студент.ПрекратилОбучение CustomAttributes)
+        // *** Start programmer edit section *** (Студент.Обучается CustomAttributes)
 
-        // *** End programmer edit section *** (Студент.ПрекратилОбучение CustomAttributes)
-        public virtual bool ПрекратилОбучение
+        // *** End programmer edit section *** (Студент.Обучается CustomAttributes)
+        public virtual bool Обучается
         {
             get
             {
-                // *** Start programmer edit section *** (Студент.ПрекратилОбучение Get start)
+                // *** Start programmer edit section *** (Студент.Обучается Get start)
 
-                // *** End programmer edit section *** (Студент.ПрекратилОбучение Get start)
-                bool result = this.fПрекратилОбучение;
-                // *** Start programmer edit section *** (Студент.ПрекратилОбучение Get end)
+                // *** End programmer edit section *** (Студент.Обучается Get start)
+                bool result = this.fОбучается;
+                // *** Start programmer edit section *** (Студент.Обучается Get end)
 
-                // *** End programmer edit section *** (Студент.ПрекратилОбучение Get end)
+                // *** End programmer edit section *** (Студент.Обучается Get end)
                 return result;
             }
             set
             {
-                // *** Start programmer edit section *** (Студент.ПрекратилОбучение Set start)
+                // *** Start programmer edit section *** (Студент.Обучается Set start)
 
-                // *** End programmer edit section *** (Студент.ПрекратилОбучение Set start)
-                this.fПрекратилОбучение = value;
-                // *** Start programmer edit section *** (Студент.ПрекратилОбучение Set end)
+                // *** End programmer edit section *** (Студент.Обучается Set start)
+                this.fОбучается = value;
+                // *** Start programmer edit section *** (Студент.Обучается Set end)
 
-                // *** End programmer edit section *** (Студент.ПрекратилОбучение Set end)
+                // *** End programmer edit section *** (Студент.Обучается Set end)
+            }
+        }
+        
+        /// <summary>
+        /// КоличествоПрограмм.
+        /// </summary>
+        // *** Start programmer edit section *** (Студент.КоличествоПрограмм CustomAttributes)
+
+        // *** End programmer edit section *** (Студент.КоличествоПрограмм CustomAttributes)
+        public virtual int КоличествоПрограмм
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Студент.КоличествоПрограмм Get start)
+
+                // *** End programmer edit section *** (Студент.КоличествоПрограмм Get start)
+                int result = this.fКоличествоПрограмм;
+                // *** Start programmer edit section *** (Студент.КоличествоПрограмм Get end)
+
+                // *** End programmer edit section *** (Студент.КоличествоПрограмм Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Студент.КоличествоПрограмм Set start)
+
+                // *** End programmer edit section *** (Студент.КоличествоПрограмм Set start)
+                this.fКоличествоПрограмм = value;
+                // *** Start programmer edit section *** (Студент.КоличествоПрограмм Set end)
+
+                // *** End programmer edit section *** (Студент.КоличествоПрограмм Set end)
             }
         }
         

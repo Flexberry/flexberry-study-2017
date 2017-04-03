@@ -46,6 +46,11 @@ ErrorMessage="Не указано: Начало" EnableClientScript="true" Valid
 ErrorMessage="Не указано: Конец" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуальностьLabel" runat="server" Text="Актуальность" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlАктуальность" CssClass="descTxt" runat="server" Text=""/>
+</div>
 <br/>
 
 </div>

@@ -87,9 +87,9 @@ ErrorMessage="Не указано: АдресПочты" EnableClientScript="tru
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПрекратилОбучениеLabel" runat="server" Text="Прекратил обучение" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlОбучаетсяLabel" runat="server" Text="Обучается" EnableViewState="False">
 </asp:Label>
-<asp:CheckBox ID="ctrlПрекратилОбучение" CssClass="descTxt" runat="server" Text=""/>
+<asp:CheckBox ID="ctrlОбучается" CssClass="descTxt" runat="server" Text=""/>
 </div>
 <br/>
 

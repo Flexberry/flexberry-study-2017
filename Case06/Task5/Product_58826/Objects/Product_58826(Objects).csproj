@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18C62B28-E2B4-4B2C-8E1F-AFC9082A8BBF}</ProjectGuid>
+    <ProjectGuid>{54CF240F-1F0B-43DE-9240-3E3B992C94E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IIS.Product_58826</RootNamespace>
@@ -121,22 +121,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Студент.cs">
+    <Compile Include="Организация.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ВыборПриоритета.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Модуль.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Семестр.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Организация.cs">
+    <Compile Include="Студент.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Договор.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Модуль.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

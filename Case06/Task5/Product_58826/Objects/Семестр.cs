@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,16 +27,19 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (Семестр CustomAttributes)
 
     // *** End programmer edit section *** (Семестр CustomAttributes)
+    [BusinessServer("IIS.Product_58826.СеместрБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("СеместрE", new string[] {
             "Номер as \'№ семестра\'",
             "Начало as \'Начало\'",
-            "Конец as \'Конец\'"})]
+            "Конец as \'Конец\'",
+            "Актуальность"})]
     [View("СеместрL", new string[] {
             "Номер as \'Семестр № \'",
             "Начало as \'с \'",
-            "Конец as \'по \'"})]
+            "Конец as \'по \'",
+            "Актуальность"})]
     public class Семестр : ICSSoft.STORMNET.DataObject
     {
         
@@ -44,6 +48,8 @@ namespace IIS.Product_58826
         private System.DateTime fНачало;
         
         private System.DateTime fКонец;
+        
+        private bool fАктуальность = true;
         
         // *** Start programmer edit section *** (Семестр CustomMembers)
 
@@ -143,6 +149,37 @@ namespace IIS.Product_58826
                 // *** Start programmer edit section *** (Семестр.Конец Set end)
 
                 // *** End programmer edit section *** (Семестр.Конец Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Актуальность.
+        /// </summary>
+        // *** Start programmer edit section *** (Семестр.Актуальность CustomAttributes)
+
+        // *** End programmer edit section *** (Семестр.Актуальность CustomAttributes)
+        public virtual bool Актуальность
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Семестр.Актуальность Get start)
+
+                // *** End programmer edit section *** (Семестр.Актуальность Get start)
+                bool result = this.fАктуальность;
+                // *** Start programmer edit section *** (Семестр.Актуальность Get end)
+
+                // *** End programmer edit section *** (Семестр.Актуальность Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Семестр.Актуальность Set start)
+
+                // *** End programmer edit section *** (Семестр.Актуальность Set start)
+                this.fАктуальность = value;
+                // *** Start programmer edit section *** (Семестр.Актуальность Set end)
+
+                // *** End programmer edit section *** (Семестр.Актуальность Set end)
             }
         }
         

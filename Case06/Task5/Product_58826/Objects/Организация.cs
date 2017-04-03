@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,20 +27,25 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (Организация CustomAttributes)
 
     // *** End programmer edit section *** (Организация CustomAttributes)
+    [BusinessServer("IIS.Product_58826.ОрганизацияБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ОрганизацияE", new string[] {
             "Название as \'Организация\'",
-            "Описание as \'Описание\'"})]
+            "Описание as \'Описание\'",
+            "Актуальность"})]
     [View("ОрганизацияL", new string[] {
             "Название as \'Организация \'",
-            "Описание as \'Описание \'"})]
+            "Описание as \'Описание \'",
+            "Актуальность"})]
     public class Организация : ICSSoft.STORMNET.DataObject
     {
         
         private string fНазвание;
         
         private string fОписание;
+        
+        private bool fАктуальность = true;
         
         // *** Start programmer edit section *** (Организация CustomMembers)
 
@@ -109,6 +115,37 @@ namespace IIS.Product_58826
                 // *** Start programmer edit section *** (Организация.Описание Set end)
 
                 // *** End programmer edit section *** (Организация.Описание Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Актуальность.
+        /// </summary>
+        // *** Start programmer edit section *** (Организация.Актуальность CustomAttributes)
+
+        // *** End programmer edit section *** (Организация.Актуальность CustomAttributes)
+        public virtual bool Актуальность
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Организация.Актуальность Get start)
+
+                // *** End programmer edit section *** (Организация.Актуальность Get start)
+                bool result = this.fАктуальность;
+                // *** Start programmer edit section *** (Организация.Актуальность Get end)
+
+                // *** End programmer edit section *** (Организация.Актуальность Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Организация.Актуальность Set start)
+
+                // *** End programmer edit section *** (Организация.Актуальность Set start)
+                this.fАктуальность = value;
+                // *** Start programmer edit section *** (Организация.Актуальность Set end)
+
+                // *** End programmer edit section *** (Организация.Актуальность Set end)
             }
         }
         

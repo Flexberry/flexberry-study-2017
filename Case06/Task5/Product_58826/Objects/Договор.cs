@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,6 +27,7 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (Договор CustomAttributes)
 
     // *** End programmer edit section *** (Договор CustomAttributes)
+    [BusinessServer("IIS.Product_58826.ДоговорБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ДоговорE", new string[] {
@@ -34,13 +36,15 @@ namespace IIS.Product_58826
             "Конец as \'Дата окончания\'",
             "Описание as \'Описание\'",
             "Организация as \'Организация\'",
-            "Организация.Название"})]
+            "Организация.Название as \' \'",
+            "Актуальность"})]
     [View("ДоговорL", new string[] {
             "Номер as \'Номер договора\'",
             "Начало as \'Дата заключения\'",
             "Конец as \'Дата окончания\'",
             "Описание as \'Описание\'",
-            "Организация.Название as \'Организация\'"})]
+            "Организация.Название as \'Организация\'",
+            "Актуальность"})]
     public class Договор : ICSSoft.STORMNET.DataObject
     {
         
@@ -51,6 +55,8 @@ namespace IIS.Product_58826
         private System.DateTime fКонец;
         
         private string fОписание;
+        
+        private bool fАктуальность = true;
         
         private IIS.Product_58826.Организация fОрганизация;
         
@@ -186,6 +192,37 @@ namespace IIS.Product_58826
                 // *** Start programmer edit section *** (Договор.Описание Set end)
 
                 // *** End programmer edit section *** (Договор.Описание Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Актуальность.
+        /// </summary>
+        // *** Start programmer edit section *** (Договор.Актуальность CustomAttributes)
+
+        // *** End programmer edit section *** (Договор.Актуальность CustomAttributes)
+        public virtual bool Актуальность
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Договор.Актуальность Get start)
+
+                // *** End programmer edit section *** (Договор.Актуальность Get start)
+                bool result = this.fАктуальность;
+                // *** Start programmer edit section *** (Договор.Актуальность Get end)
+
+                // *** End programmer edit section *** (Договор.Актуальность Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Договор.Актуальность Set start)
+
+                // *** End programmer edit section *** (Договор.Актуальность Set start)
+                this.fАктуальность = value;
+                // *** Start programmer edit section *** (Договор.Актуальность Set end)
+
+                // *** End programmer edit section *** (Договор.Актуальность Set end)
             }
         }
         

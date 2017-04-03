@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9DCC7EE-0824-4662-BD7F-2A65CA401FB2}</ProjectGuid>
+    <ProjectGuid>{1DB37C92-9200-4134-87B9-7B052EFA93CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IIS.Product_58826</RootNamespace>
@@ -42,7 +42,7 @@
       <HintPath>System.EnterpriseServices.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\BusinessServers\Product_58826(BusinessServers).csproj">
-      <Project>{37c9d0ba-1eac-4731-ad80-fa5f2d301b9a}</Project>
+      <Project>{173d3ace-cba4-4977-829a-3d546c2e11f0}</Project>
       <Name>Product_58826(BusinessServers)</Name>
     </ProjectReference>
     <Reference Include="log4net">
@@ -138,11 +138,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bfСетевыеОБразовательныеПрограммы.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="bfСтудентБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bfСеместрБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bfМодульБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bfВыборПриоритетаБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bfДоговорБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bfОрганизацияБС.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

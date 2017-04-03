@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,18 +27,21 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (ВыборПриоритета CustomAttributes)
 
     // *** End programmer edit section *** (ВыборПриоритета CustomAttributes)
+    [BusinessServer("IIS.Product_58826.ВыборПриоритетаБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [Caption("Выбор приоритета")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ВыборПриоритетаE", new string[] {
             "Студент",
-            "Студент.Фамилия",
+            "Студент.Фамилия as \' \'",
             "Студент.Имя",
             "Студент.Отчество",
-            "Студент.ФИО",
+            "Студент.ФИО as \'  \'",
             "Модуль",
-            "Модуль.Название",
-            "Приоритет"}, Hidden=new string[] {
+            "Модуль.Название as \' \'",
+            "Приоритет",
+            "Актуальность",
+            "МодульВыбран as \'Выбран для обучения\'"}, Hidden=new string[] {
             "Студент.Фамилия",
             "Студент.Имя",
             "Студент.Отчество"})]
@@ -46,24 +50,28 @@ namespace IIS.Product_58826
             "Студент.Имя",
             "Студент.Отчество",
             "Студент.ФИО as \'Студент \'",
-            "Студент.ПрекратилОбучение",
             "Модуль.Семестр.Номер as \'Семестр № \'",
             "Модуль.Название as \'Модуль \'",
             "Модуль.Описание as \'Описание\'",
             "Модуль.Организация.Название as \'Организация\'",
-            "Приоритет as \'Приоритет\'"}, Hidden=new string[] {
+            "Приоритет as \'Приоритет\'",
+            "Актуальность",
+            "МодульВыбран as \'Выбран студентом для обучения\'"}, Hidden=new string[] {
             "Студент.Фамилия",
             "Студент.Имя",
-            "Студент.Отчество",
-            "Студент.ПрекратилОбучение"})]
+            "Студент.Отчество"})]
     public class ВыборПриоритета : ICSSoft.STORMNET.DataObject
     {
         
         private int fПриоритет;
         
-        private IIS.Product_58826.Студент fСтудент;
+        private bool fАктуальность = true;
+        
+        private bool fМодульВыбран = false;
         
         private IIS.Product_58826.Модуль fМодуль;
+        
+        private IIS.Product_58826.Студент fСтудент;
         
         // *** Start programmer edit section *** (ВыборПриоритета CustomMembers)
 
@@ -103,36 +111,64 @@ namespace IIS.Product_58826
         }
         
         /// <summary>
-        /// Выбор приоритета.
+        /// Актуальность.
         /// </summary>
-        // *** Start programmer edit section *** (ВыборПриоритета.Студент CustomAttributes)
+        // *** Start programmer edit section *** (ВыборПриоритета.Актуальность CustomAttributes)
 
-        // *** End programmer edit section *** (ВыборПриоритета.Студент CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Студент"})]
-        [NotNull()]
-        public virtual IIS.Product_58826.Студент Студент
+        // *** End programmer edit section *** (ВыборПриоритета.Актуальность CustomAttributes)
+        public virtual bool Актуальность
         {
             get
             {
-                // *** Start programmer edit section *** (ВыборПриоритета.Студент Get start)
+                // *** Start programmer edit section *** (ВыборПриоритета.Актуальность Get start)
 
-                // *** End programmer edit section *** (ВыборПриоритета.Студент Get start)
-                IIS.Product_58826.Студент result = this.fСтудент;
-                // *** Start programmer edit section *** (ВыборПриоритета.Студент Get end)
+                // *** End programmer edit section *** (ВыборПриоритета.Актуальность Get start)
+                bool result = this.fАктуальность;
+                // *** Start programmer edit section *** (ВыборПриоритета.Актуальность Get end)
 
-                // *** End programmer edit section *** (ВыборПриоритета.Студент Get end)
+                // *** End programmer edit section *** (ВыборПриоритета.Актуальность Get end)
                 return result;
             }
             set
             {
-                // *** Start programmer edit section *** (ВыборПриоритета.Студент Set start)
+                // *** Start programmer edit section *** (ВыборПриоритета.Актуальность Set start)
 
-                // *** End programmer edit section *** (ВыборПриоритета.Студент Set start)
-                this.fСтудент = value;
-                // *** Start programmer edit section *** (ВыборПриоритета.Студент Set end)
+                // *** End programmer edit section *** (ВыборПриоритета.Актуальность Set start)
+                this.fАктуальность = value;
+                // *** Start programmer edit section *** (ВыборПриоритета.Актуальность Set end)
 
-                // *** End programmer edit section *** (ВыборПриоритета.Студент Set end)
+                // *** End programmer edit section *** (ВыборПриоритета.Актуальность Set end)
+            }
+        }
+        
+        /// <summary>
+        /// МодульВыбран.
+        /// </summary>
+        // *** Start programmer edit section *** (ВыборПриоритета.МодульВыбран CustomAttributes)
+
+        // *** End programmer edit section *** (ВыборПриоритета.МодульВыбран CustomAttributes)
+        public virtual bool МодульВыбран
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ВыборПриоритета.МодульВыбран Get start)
+
+                // *** End programmer edit section *** (ВыборПриоритета.МодульВыбран Get start)
+                bool result = this.fМодульВыбран;
+                // *** Start programmer edit section *** (ВыборПриоритета.МодульВыбран Get end)
+
+                // *** End programmer edit section *** (ВыборПриоритета.МодульВыбран Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ВыборПриоритета.МодульВыбран Set start)
+
+                // *** End programmer edit section *** (ВыборПриоритета.МодульВыбран Set start)
+                this.fМодульВыбран = value;
+                // *** Start programmer edit section *** (ВыборПриоритета.МодульВыбран Set end)
+
+                // *** End programmer edit section *** (ВыборПриоритета.МодульВыбран Set end)
             }
         }
         
@@ -165,6 +201,40 @@ namespace IIS.Product_58826
                 // *** Start programmer edit section *** (ВыборПриоритета.Модуль Set end)
 
                 // *** End programmer edit section *** (ВыборПриоритета.Модуль Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Выбор приоритета.
+        /// </summary>
+        // *** Start programmer edit section *** (ВыборПриоритета.Студент CustomAttributes)
+
+        // *** End programmer edit section *** (ВыборПриоритета.Студент CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Студент"})]
+        [NotNull()]
+        public virtual IIS.Product_58826.Студент Студент
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ВыборПриоритета.Студент Get start)
+
+                // *** End programmer edit section *** (ВыборПриоритета.Студент Get start)
+                IIS.Product_58826.Студент result = this.fСтудент;
+                // *** Start programmer edit section *** (ВыборПриоритета.Студент Get end)
+
+                // *** End programmer edit section *** (ВыборПриоритета.Студент Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ВыборПриоритета.Студент Set start)
+
+                // *** End programmer edit section *** (ВыборПриоритета.Студент Set start)
+                this.fСтудент = value;
+                // *** Start programmer edit section *** (ВыборПриоритета.Студент Set end)
+
+                // *** End programmer edit section *** (ВыборПриоритета.Студент Set end)
             }
         }
         

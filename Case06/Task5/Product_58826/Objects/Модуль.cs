@@ -12,6 +12,7 @@ namespace IIS.Product_58826
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,28 +27,33 @@ namespace IIS.Product_58826
     // *** Start programmer edit section *** (Модуль CustomAttributes)
 
     // *** End programmer edit section *** (Модуль CustomAttributes)
+    [BusinessServer("IIS.Product_58826.МодульБС, Product_58826(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("МодульE", new string[] {
             "Название as \'Название\'",
             "Описание as \'Описание\'",
             "Семестр as \'Семестр № \'",
-            "Семестр.Номер",
+            "Семестр.Номер as \' \'",
             "Организация as \'Организация\'",
-            "Организация.Название"})]
+            "Организация.Название as \' \'",
+            "Актуальность"})]
     [View("МодульL", new string[] {
             "Название as \'Модуль\'",
             "Описание as \'Описание\'",
             "Семестр.Начало as \'с \'",
             "Семестр.Конец as \'по \'",
             "Семестр.Номер as \'Семестр № \'",
-            "Организация.Название as \'Организация\'"})]
+            "Организация.Название as \'Организация\'",
+            "Актуальность"})]
     public class Модуль : ICSSoft.STORMNET.DataObject
     {
         
         private string fНазвание;
         
         private string fОписание;
+        
+        private bool fАктуальность = true;
         
         private IIS.Product_58826.Семестр fСеместр;
         
@@ -121,6 +127,37 @@ namespace IIS.Product_58826
                 // *** Start programmer edit section *** (Модуль.Описание Set end)
 
                 // *** End programmer edit section *** (Модуль.Описание Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Актуальность.
+        /// </summary>
+        // *** Start programmer edit section *** (Модуль.Актуальность CustomAttributes)
+
+        // *** End programmer edit section *** (Модуль.Актуальность CustomAttributes)
+        public virtual bool Актуальность
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Модуль.Актуальность Get start)
+
+                // *** End programmer edit section *** (Модуль.Актуальность Get start)
+                bool result = this.fАктуальность;
+                // *** Start programmer edit section *** (Модуль.Актуальность Get end)
+
+                // *** End programmer edit section *** (Модуль.Актуальность Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Модуль.Актуальность Set start)
+
+                // *** End programmer edit section *** (Модуль.Актуальность Set start)
+                this.fАктуальность = value;
+                // *** Start programmer edit section *** (Модуль.Актуальность Set end)
+
+                // *** End programmer edit section *** (Модуль.Актуальность Set end)
             }
         }
         

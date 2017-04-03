@@ -22,16 +22,15 @@ namespace IIS.Product_58826
     /// <summary>
     /// Сетевые о бразовательные программы.
     /// </summary>
-    // *** Start programmer edit section *** (СетевыеОБразовательныеПрограммы CustomAttributes)
+    // *** Start programmer edit section *** (BFСтудентБС CustomAttributes)
 
-    // *** End programmer edit section *** (СетевыеОБразовательныеПрограммы CustomAttributes)
-    [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
-    public class СетевыеОБразовательныеПрограммы : ICSSoft.STORMNET.Business.BusinessServer
+    // *** End programmer edit section *** (BFСтудентБС CustomAttributes)
+    public class BFСтудентБС : ICSSoft.STORMNET.Business.BFBase
     {
         
-        // *** Start programmer edit section *** (СетевыеОБразовательныеПрограммы CustomMembers)
+        // *** Start programmer edit section *** (BFСтудентБС CustomMembers)
 
-        // *** End programmer edit section *** (СетевыеОБразовательныеПрограммы CustomMembers)
+        // *** End programmer edit section *** (BFСтудентБС CustomMembers)
 
     }
 }

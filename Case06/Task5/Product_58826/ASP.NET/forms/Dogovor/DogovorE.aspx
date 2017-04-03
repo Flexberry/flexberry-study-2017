@@ -66,7 +66,7 @@ ErrorMessage="Не указано: Организация" EnableClientScript="t
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlОрганизация_НазваниеLabel" runat="server" Text="Организация.Название" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlОрганизация_НазваниеLabel" runat="server" Text=" " EnableViewState="False">
 </asp:Label>
 <asp:TextBox CssClass="descTxt" ID="ctrlОрганизация_Название" runat="server" ReadOnly="true">
 </asp:TextBox>
@@ -74,6 +74,11 @@ ErrorMessage="Не указано: Организация" EnableClientScript="t
 <asp:RequiredFieldValidator ID="ctrlОрганизация_НазваниеValidator" runat="server" ControlToValidate="ctrlОрганизация_Название"
 ErrorMessage="Не указано: Организация.Название" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
+</div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуальностьLabel" runat="server" Text="Актуальность" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlАктуальность" CssClass="descTxt" runat="server" Text=""/>
 </div>
 <br/>
 

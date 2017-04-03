@@ -5,7 +5,12 @@ namespace IIS.Product_58826
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    // *** Start programmer edit section *** (Using statements)
+    using ICSSoft.STORMNET.Business;
+    using System.Linq;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    // *** End programmer edit section *** (Using statements)
+
     public partial class ДоговорE : BaseEditForm<Договор>
     {
         /// <summary>
@@ -29,6 +34,9 @@ namespace IIS.Product_58826
         /// </summary>
         protected override void Preload()
         {
+            // *** Start programmer edit section *** (Using statements)  
+            ctrlОрганизация.MasterViewName = Организация.Views.ОрганизацияL.Name;
+            // *** End programmer edit section *** (Using statements)
         }
 
         /// <summary>
@@ -36,6 +44,13 @@ namespace IIS.Product_58826
         /// </summary>
         protected override void PreApplyToControls()
         {
+            // *** Start programmer edit section *** (Using statements)  
+            ctrlОрганизация.PropertyToShow = Information.ExtractPropertyPath<Организация>(t => t.Актуальность);
+            var ds = (SQLDataService)DataServiceProvider.DataService;
+            var actualOrganizations = ds.Query<Организация>(Организация.Views.ОрганизацияL).Where(t => t.Актуальность);
+            ctrlОрганизация.LimitFunction =
+                LinqToLcs.GetLcs(actualOrganizations.Expression, Организация.Views.ОрганизацияL).LimitFunction;
+            // *** End programmer edit section *** (Using statements)
         }
 
         /// <summary>

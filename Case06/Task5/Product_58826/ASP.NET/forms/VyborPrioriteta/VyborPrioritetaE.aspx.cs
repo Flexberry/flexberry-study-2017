@@ -5,7 +5,12 @@ namespace IIS.Product_58826
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    
+    // *** Start programmer edit section *** (Using statements)
+    using ICSSoft.STORMNET.Business;
+    using System.Linq;
+    using ICSSoft.STORMNET.Business.LINQProvider;   
+    // *** End programmer edit section *** (Using statements)
+
     public partial class ВыборПриоритетаE : BaseEditForm<ВыборПриоритета>
     {
         /// <summary>
@@ -29,6 +34,10 @@ namespace IIS.Product_58826
         /// </summary>
         protected override void Preload()
         {
+            // *** Start programmer edit section *** (Using statements)
+            ctrlСтудент.MasterViewName = Студент.Views.СтудентL.Name;
+            ctrlМодуль.MasterViewName = Модуль.Views.МодульL.Name;
+            // *** End programmer edit section *** (Using statements)
         }
 
         /// <summary>
@@ -36,6 +45,22 @@ namespace IIS.Product_58826
         /// </summary>
         protected override void PreApplyToControls()
         {
+
+            // *** Start programmer edit section *** (Using statements)             
+                ctrlСтудент.PropertyToShow = Information.ExtractPropertyPath<Студент>(t => t.ФИО);
+            var ds = (SQLDataService)DataServiceProvider.DataService;
+            var actualStudents = ds.Query<Студент>(Студент.Views.СтудентL).Where(t => t.Обучается);
+            ctrlСтудент.LimitFunction =
+                LinqToLcs.GetLcs(actualStudents.Expression, Студент.Views.СтудентL).LimitFunction;
+
+            ctrlМодуль.PropertyToShow = Information.ExtractPropertyPath<Модуль>(t => t.Название);
+            ds = (SQLDataService)DataServiceProvider.DataService;
+            var actualModules = ds.Query<Модуль>(Модуль.Views.МодульL).Where(t => t.Актуальность);
+            ctrlМодуль.LimitFunction =
+                LinqToLcs.GetLcs(actualModules.Expression, Модуль.Views.МодульL).LimitFunction;
+
+
+            // *** End programmer edit section *** (Using statements)
         }
 
         /// <summary>

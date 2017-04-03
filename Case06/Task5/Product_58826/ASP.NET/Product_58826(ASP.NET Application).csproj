@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6078F54F-CE1F-44A7-8BA8-D69A17B65544}</ProjectGuid>
+    <ProjectGuid>{4C7B7F18-C10C-4B7F-9F24-460DEF8384AE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -84,15 +84,15 @@
       <HintPath>System.Workflow.Runtime</HintPath>
     </Reference>
     <ProjectReference Include="..\Objects\Product_58826(Objects).csproj">
-      <Project>{18c62b28-e2b4-4b2c-8e1f-afc9082a8bbf}</Project>
+      <Project>{54cf240f-1f0b-43de-9240-3e3b992c94e3}</Project>
       <Name>Product_58826(Objects)</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessServers\Product_58826(BusinessServers).csproj">
-      <Project>{37c9d0ba-1eac-4731-ad80-fa5f2d301b9a}</Project>
+      <Project>{173d3ace-cba4-4977-829a-3d546c2e11f0}</Project>
       <Name>Product_58826(BusinessServers)</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessServersBF\Product_58826(BusinessServersBF).csproj">
-      <Project>{d9dcc7ee-0824-4662-bd7f-2a65ca401fb2}</Project>
+      <Project>{1db37c92-9200-4134-87b9-7b052efa93ca}</Project>
       <Name>Product_58826(BusinessServersBF)</Name>
     </ProjectReference>
     <Reference Include="AntiXssLibrary">
@@ -311,61 +311,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="forms\Modul\ModulL.aspx" />
-    <Compile Include="forms\Modul\ModulL.aspx.cs">
-      <DependentUpon>ModulL.aspx</DependentUpon>
+    <Content Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx" />
+    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx.cs">
+      <DependentUpon>VyborPrioritetaL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Modul\ModulL.aspx.designer.cs">
-      <DependentUpon>ModulL.aspx</DependentUpon>
+    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx.designer.cs">
+      <DependentUpon>VyborPrioritetaL.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Semestr\SemestrE.aspx" />
-    <Compile Include="forms\Semestr\SemestrE.aspx.cs">
-      <DependentUpon>SemestrE.aspx</DependentUpon>
+    <Content Include="forms\Dogovor\DogovorL.aspx" />
+    <Compile Include="forms\Dogovor\DogovorL.aspx.cs">
+      <DependentUpon>DogovorL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Semestr\SemestrE.aspx.designer.cs">
-      <DependentUpon>SemestrE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx" />
-    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx.cs">
-      <DependentUpon>VyborPrioritetaE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx.designer.cs">
-      <DependentUpon>VyborPrioritetaE.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Semestr\SemestrL.aspx" />
-    <Compile Include="forms\Semestr\SemestrL.aspx.cs">
-      <DependentUpon>SemestrL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Semestr\SemestrL.aspx.designer.cs">
-      <DependentUpon>SemestrL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Student\StudentL.aspx" />
-    <Compile Include="forms\Student\StudentL.aspx.cs">
-      <DependentUpon>StudentL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Student\StudentL.aspx.designer.cs">
-      <DependentUpon>StudentL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Organizaciya\OrganizaciyaL.aspx" />
-    <Compile Include="forms\Organizaciya\OrganizaciyaL.aspx.cs">
-      <DependentUpon>OrganizaciyaL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Organizaciya\OrganizaciyaL.aspx.designer.cs">
-      <DependentUpon>OrganizaciyaL.aspx</DependentUpon>
-    </Compile>
-    <Content Include="forms\Modul\ModulE.aspx" />
-    <Compile Include="forms\Modul\ModulE.aspx.cs">
-      <DependentUpon>ModulE.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Modul\ModulE.aspx.designer.cs">
-      <DependentUpon>ModulE.aspx</DependentUpon>
+    <Compile Include="forms\Dogovor\DogovorL.aspx.designer.cs">
+      <DependentUpon>DogovorL.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\Organizaciya\OrganizaciyaE.aspx" />
     <Compile Include="forms\Organizaciya\OrganizaciyaE.aspx.cs">
@@ -375,7 +335,6 @@
     <Compile Include="forms\Organizaciya\OrganizaciyaE.aspx.designer.cs">
       <DependentUpon>OrganizaciyaE.aspx</DependentUpon>
     </Compile>
-    <Content Include="Web.sitemap" />
     <Content Include="forms\Dogovor\DogovorE.aspx" />
     <Compile Include="forms\Dogovor\DogovorE.aspx.cs">
       <DependentUpon>DogovorE.aspx</DependentUpon>
@@ -384,13 +343,13 @@
     <Compile Include="forms\Dogovor\DogovorE.aspx.designer.cs">
       <DependentUpon>DogovorE.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx" />
-    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx.cs">
-      <DependentUpon>VyborPrioritetaL.aspx</DependentUpon>
+    <Content Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx" />
+    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx.cs">
+      <DependentUpon>VyborPrioritetaE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaL.aspx.designer.cs">
-      <DependentUpon>VyborPrioritetaL.aspx</DependentUpon>
+    <Compile Include="forms\VyborPrioriteta\VyborPrioritetaE.aspx.designer.cs">
+      <DependentUpon>VyborPrioritetaE.aspx</DependentUpon>
     </Compile>
     <Content Include="forms\Student\StudentE.aspx" />
     <Compile Include="forms\Student\StudentE.aspx.cs">
@@ -400,13 +359,54 @@
     <Compile Include="forms\Student\StudentE.aspx.designer.cs">
       <DependentUpon>StudentE.aspx</DependentUpon>
     </Compile>
-    <Content Include="forms\Dogovor\DogovorL.aspx" />
-    <Compile Include="forms\Dogovor\DogovorL.aspx.cs">
-      <DependentUpon>DogovorL.aspx</DependentUpon>
+    <Content Include="Web.sitemap" />
+    <Content Include="forms\Student\StudentL.aspx" />
+    <Compile Include="forms\Student\StudentL.aspx.cs">
+      <DependentUpon>StudentL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\Dogovor\DogovorL.aspx.designer.cs">
-      <DependentUpon>DogovorL.aspx</DependentUpon>
+    <Compile Include="forms\Student\StudentL.aspx.designer.cs">
+      <DependentUpon>StudentL.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Modul\ModulE.aspx" />
+    <Compile Include="forms\Modul\ModulE.aspx.cs">
+      <DependentUpon>ModulE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Modul\ModulE.aspx.designer.cs">
+      <DependentUpon>ModulE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Organizaciya\OrganizaciyaL.aspx" />
+    <Compile Include="forms\Organizaciya\OrganizaciyaL.aspx.cs">
+      <DependentUpon>OrganizaciyaL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Organizaciya\OrganizaciyaL.aspx.designer.cs">
+      <DependentUpon>OrganizaciyaL.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Semestr\SemestrL.aspx" />
+    <Compile Include="forms\Semestr\SemestrL.aspx.cs">
+      <DependentUpon>SemestrL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Semestr\SemestrL.aspx.designer.cs">
+      <DependentUpon>SemestrL.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Semestr\SemestrE.aspx" />
+    <Compile Include="forms\Semestr\SemestrE.aspx.cs">
+      <DependentUpon>SemestrE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Semestr\SemestrE.aspx.designer.cs">
+      <DependentUpon>SemestrE.aspx</DependentUpon>
+    </Compile>
+    <Content Include="forms\Modul\ModulL.aspx" />
+    <Compile Include="forms\Modul\ModulL.aspx.cs">
+      <DependentUpon>ModulL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Modul\ModulL.aspx.designer.cs">
+      <DependentUpon>ModulL.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="shared\jstreeThemes\apple\bg.jpg" />
@@ -1009,7 +1009,9 @@
     <Compile Include="App_GlobalResources\Resource.designer.cs" />
     <Compile Include="App_GlobalResources\Resource.en.designer.cs" />
     <Content Include="App_GlobalResources\Resource.en.resx" />
-    <Content Include="App_GlobalResources\Resource.resx" />
+    <Content Include="App_GlobalResources\Resource.resx">
+      <SubType>Designer</SubType>
+    </Content>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\ServiceConfig.cs" />
     <Content Include="Xml\ServiceSecurityProvider.xml" />

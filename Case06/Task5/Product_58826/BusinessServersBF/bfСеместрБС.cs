@@ -20,17 +20,17 @@ namespace IIS.Product_58826
 
 
     /// <summary>
-    /// Сетевые о бразовательные программы.
+    /// СеместрБС.
     /// </summary>
-    // *** Start programmer edit section *** (BFСетевыеОБразовательныеПрограммы CustomAttributes)
+    // *** Start programmer edit section *** (BFСеместрБС CustomAttributes)
 
-    // *** End programmer edit section *** (BFСетевыеОБразовательныеПрограммы CustomAttributes)
-    public class BFСетевыеОБразовательныеПрограммы : ICSSoft.STORMNET.Business.BFBase
+    // *** End programmer edit section *** (BFСеместрБС CustomAttributes)
+    public class BFСеместрБС : ICSSoft.STORMNET.Business.BFBase
     {
         
-        // *** Start programmer edit section *** (BFСетевыеОБразовательныеПрограммы CustomMembers)
+        // *** Start programmer edit section *** (BFСеместрБС CustomMembers)
 
-        // *** End programmer edit section *** (BFСетевыеОБразовательныеПрограммы CustomMembers)
+        // *** End programmer edit section *** (BFСеместрБС CustomMembers)
 
     }
 }

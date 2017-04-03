@@ -26,7 +26,7 @@ ErrorMessage="Не указано: Студент" EnableClientScript="true" Val
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlСтудент_ФИОLabel" runat="server" Text="Студент.ФИО" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlСтудент_ФИОLabel" runat="server" Text="  " EnableViewState="False">
 </asp:Label>
 <asp:TextBox CssClass="descTxt" ID="ctrlСтудент_ФИО" runat="server" ReadOnly="true">
 </asp:TextBox>
@@ -42,7 +42,7 @@ ErrorMessage="Не указано: Модуль" EnableClientScript="true" Valid
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlМодуль_НазваниеLabel" runat="server" Text="Модуль.Название" EnableViewState="False">
+  <asp:Label CssClass="descLbl" ID="ctrlМодуль_НазваниеLabel" runat="server" Text=" " EnableViewState="False">
 </asp:Label>
 <asp:TextBox CssClass="descTxt" ID="ctrlМодуль_Название" runat="server" ReadOnly="true">
 </asp:TextBox>
@@ -60,6 +60,16 @@ ErrorMessage="Не указано: Модуль.Название" EnableClientSc
 <asp:RequiredFieldValidator ID="ctrlПриоритетValidator" runat="server" ControlToValidate="ctrlПриоритет"
 ErrorMessage="Не указано: Приоритет" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
+</div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlАктуальностьLabel" runat="server" Text="Актуальность" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlАктуальность" CssClass="descTxt" runat="server" Text=""/>
+</div>
+<div class="clearfix">
+  <asp:Label CssClass="descLbl" ID="ctrlМодульВыбранLabel" runat="server" Text="Выбран для обучения" EnableViewState="False">
+</asp:Label>
+<asp:CheckBox ID="ctrlМодульВыбран" CssClass="descTxt" runat="server" Text=""/>
 </div>
 
 </div>
