@@ -4,108 +4,108 @@
 
 
 
-CREATE TABLE [Семестр] (
+CREATE TABLE [РЎРµРјРµСЃС‚СЂ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Номер] INT  NOT NULL,
+	 [РќРѕРјРµСЂ] INT  NOT NULL,
 
-	 [Начало] DATETIME  NOT NULL,
+	 [РќР°С‡Р°Р»Рѕ] DATETIME  NOT NULL,
 
-	 [Конец] DATETIME  NOT NULL,
+	 [РљРѕРЅРµС†] DATETIME  NOT NULL,
 
-	 [Актуальность] BIT  NULL,
+	 [РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ] BIT  NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [ВыборПриоритета] (
+CREATE TABLE [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Приоритет] INT  NOT NULL,
+	 [РџСЂРёРѕСЂРёС‚РµС‚] INT  NOT NULL,
 
-	 [Актуальность] BIT  NULL,
+	 [РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ] BIT  NULL,
 
-	 [МодульВыбран] BIT  NULL,
+	 [РњРѕРґСѓР»СЊР’С‹Р±СЂР°РЅ] BIT  NULL,
 
-	 [Модуль_m0] UNIQUEIDENTIFIER  NOT NULL,
+	 [РњРѕРґСѓР»СЊ_m0] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Студент] UNIQUEIDENTIFIER  NOT NULL,
+	 [РЎС‚СѓРґРµРЅС‚] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Студент] (
+CREATE TABLE [РЎС‚СѓРґРµРЅС‚] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Фамилия] VARCHAR(255)  NOT NULL,
+	 [Р¤Р°РјРёР»РёСЏ] VARCHAR(255)  NOT NULL,
 
-	 [Имя] VARCHAR(255)  NOT NULL,
+	 [РРјСЏ] VARCHAR(255)  NOT NULL,
 
-	 [Отчество] VARCHAR(255)  NOT NULL,
+	 [РћС‚С‡РµСЃС‚РІРѕ] VARCHAR(255)  NOT NULL,
 
-	 [ДатаРождения] DATETIME  NOT NULL,
+	 [Р”Р°С‚Р°Р РѕР¶РґРµРЅРёСЏ] DATETIME  NOT NULL,
 
-	 [Логин] VARCHAR(255)  NOT NULL,
+	 [Р›РѕРіРёРЅ] VARCHAR(255)  NOT NULL,
 
-	 [Пароль] VARCHAR(255)  NOT NULL,
+	 [РџР°СЂРѕР»СЊ] VARCHAR(255)  NOT NULL,
 
-	 [АдресПочты] VARCHAR(255)  NOT NULL,
+	 [РђРґСЂРµСЃРџРѕС‡С‚С‹] VARCHAR(255)  NOT NULL,
 
-	 [Обучается] BIT  NULL,
+	 [РћР±СѓС‡Р°РµС‚СЃСЏ] BIT  NULL,
 
-	 [КоличествоПрограмм] INT  NULL,
+	 [РљРѕР»РёС‡РµСЃС‚РІРѕРџСЂРѕРіСЂР°РјРј] INT  NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Организация] (
+CREATE TABLE [РћСЂРіР°РЅРёР·Р°С†РёСЏ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Название] VARCHAR(255)  NOT NULL,
+	 [РќР°Р·РІР°РЅРёРµ] VARCHAR(255)  NOT NULL,
 
-	 [Описание] VARCHAR(255)  NOT NULL,
+	 [РћРїРёСЃР°РЅРёРµ] VARCHAR(255)  NOT NULL,
 
-	 [Актуальность] BIT  NULL,
+	 [РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ] BIT  NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Договор] (
+CREATE TABLE [Р”РѕРіРѕРІРѕСЂ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Номер] VARCHAR(255)  NOT NULL,
+	 [РќРѕРјРµСЂ] VARCHAR(255)  NOT NULL,
 
-	 [Начало] DATETIME  NOT NULL,
+	 [РќР°С‡Р°Р»Рѕ] DATETIME  NOT NULL,
 
-	 [Конец] DATETIME  NOT NULL,
+	 [РљРѕРЅРµС†] DATETIME  NOT NULL,
 
-	 [Описание] VARCHAR(255)  NOT NULL,
+	 [РћРїРёСЃР°РЅРёРµ] VARCHAR(255)  NOT NULL,
 
-	 [Актуальность] BIT  NULL,
+	 [РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ] BIT  NULL,
 
-	 [Организация] UNIQUEIDENTIFIER  NOT NULL,
+	 [РћСЂРіР°РЅРёР·Р°С†РёСЏ] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Модуль] (
+CREATE TABLE [РњРѕРґСѓР»СЊ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Название] VARCHAR(255)  NOT NULL,
+	 [РќР°Р·РІР°РЅРёРµ] VARCHAR(255)  NOT NULL,
 
-	 [Описание] VARCHAR(255)  NOT NULL,
+	 [РћРїРёСЃР°РЅРёРµ] VARCHAR(255)  NOT NULL,
 
-	 [Актуальность] BIT  NULL,
+	 [РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ] BIT  NULL,
 
-	 [Организация_m0] UNIQUEIDENTIFIER  NOT NULL,
+	 [РћСЂРіР°РЅРёР·Р°С†РёСЏ_m0] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Семестр_m0] UNIQUEIDENTIFIER  NOT NULL,
+	 [РЎРµРјРµСЃС‚СЂ_m0] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
@@ -549,20 +549,20 @@ CREATE TABLE [STORMLR] (
 
 
 
- ALTER TABLE [ВыборПриоритета] ADD CONSTRAINT [ВыборПриоритета_FМодуль_0] FOREIGN KEY ([Модуль_m0]) REFERENCES [Модуль]
-CREATE INDEX ВыборПриоритета_IМодуль_m0 on [ВыборПриоритета] ([Модуль_m0])
+ ALTER TABLE [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°] ADD CONSTRAINT [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°_FРњРѕРґСѓР»СЊ_0] FOREIGN KEY ([РњРѕРґСѓР»СЊ_m0]) REFERENCES [РњРѕРґСѓР»СЊ]
+CREATE INDEX Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°_IРњРѕРґСѓР»СЊ_m0 on [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°] ([РњРѕРґСѓР»СЊ_m0])
 
- ALTER TABLE [ВыборПриоритета] ADD CONSTRAINT [ВыборПриоритета_FСтудент_0] FOREIGN KEY ([Студент]) REFERENCES [Студент]
-CREATE INDEX ВыборПриоритета_IСтудент on [ВыборПриоритета] ([Студент])
+ ALTER TABLE [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°] ADD CONSTRAINT [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°_FРЎС‚СѓРґРµРЅС‚_0] FOREIGN KEY ([РЎС‚СѓРґРµРЅС‚]) REFERENCES [РЎС‚СѓРґРµРЅС‚]
+CREATE INDEX Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°_IРЎС‚СѓРґРµРЅС‚ on [Р’С‹Р±РѕСЂРџСЂРёРѕСЂРёС‚РµС‚Р°] ([РЎС‚СѓРґРµРЅС‚])
 
- ALTER TABLE [Договор] ADD CONSTRAINT [Договор_FОрганизация_0] FOREIGN KEY ([Организация]) REFERENCES [Организация]
-CREATE INDEX Договор_IОрганизация on [Договор] ([Организация])
+ ALTER TABLE [Р”РѕРіРѕРІРѕСЂ] ADD CONSTRAINT [Р”РѕРіРѕРІРѕСЂ_FРћСЂРіР°РЅРёР·Р°С†РёСЏ_0] FOREIGN KEY ([РћСЂРіР°РЅРёР·Р°С†РёСЏ]) REFERENCES [РћСЂРіР°РЅРёР·Р°С†РёСЏ]
+CREATE INDEX Р”РѕРіРѕРІРѕСЂ_IРћСЂРіР°РЅРёР·Р°С†РёСЏ on [Р”РѕРіРѕРІРѕСЂ] ([РћСЂРіР°РЅРёР·Р°С†РёСЏ])
 
- ALTER TABLE [Модуль] ADD CONSTRAINT [Модуль_FОрганизация_0] FOREIGN KEY ([Организация_m0]) REFERENCES [Организация]
-CREATE INDEX Модуль_IОрганизация_m0 on [Модуль] ([Организация_m0])
+ ALTER TABLE [РњРѕРґСѓР»СЊ] ADD CONSTRAINT [РњРѕРґСѓР»СЊ_FРћСЂРіР°РЅРёР·Р°С†РёСЏ_0] FOREIGN KEY ([РћСЂРіР°РЅРёР·Р°С†РёСЏ_m0]) REFERENCES [РћСЂРіР°РЅРёР·Р°С†РёСЏ]
+CREATE INDEX РњРѕРґСѓР»СЊ_IРћСЂРіР°РЅРёР·Р°С†РёСЏ_m0 on [РњРѕРґСѓР»СЊ] ([РћСЂРіР°РЅРёР·Р°С†РёСЏ_m0])
 
- ALTER TABLE [Модуль] ADD CONSTRAINT [Модуль_FСеместр_0] FOREIGN KEY ([Семестр_m0]) REFERENCES [Семестр]
-CREATE INDEX Модуль_IСеместр_m0 on [Модуль] ([Семестр_m0])
+ ALTER TABLE [РњРѕРґСѓР»СЊ] ADD CONSTRAINT [РњРѕРґСѓР»СЊ_FРЎРµРјРµСЃС‚СЂ_0] FOREIGN KEY ([РЎРµРјРµСЃС‚СЂ_m0]) REFERENCES [РЎРµРјРµСЃС‚СЂ]
+CREATE INDEX РњРѕРґСѓР»СЊ_IРЎРµРјРµСЃС‚СЂ_m0 on [РњРѕРґСѓР»СЊ] ([РЎРµРјРµСЃС‚СЂ_m0])
 
  ALTER TABLE [STORMWEBSEARCH] ADD CONSTRAINT [STORMWEBSEARCH_FSTORMFILTERSETTING_0] FOREIGN KEY ([FilterSetting_m0]) REFERENCES [STORMFILTERSETTING]
 
