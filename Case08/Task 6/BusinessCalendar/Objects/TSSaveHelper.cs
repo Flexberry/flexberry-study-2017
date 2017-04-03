@@ -16,40 +16,29 @@ namespace IIS.BusinessCalendar
     public static class TSSaveHelper
     {
         /// <summary>
-        /// Метод помогает сохранить временные промежутки для дня-исключения
+        /// Метод обновляет временные промежутки в базе данных для дня-исключения
         /// </summary>
-        /// <param name="UpdatedObject">Изменяемы день-исключение</param>
-        public static void SaveTimeSpans(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
+        /// <param name="UpdatedObject">Изменяемый день-исключение</param>
+        public static void UpdateTimeSpans(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             switch (UpdatedObject.GetStatus())
             {
                 case ObjectStatus.Created:
                     {
-                        fillWorkTimeDefinition(UpdatedObject);
+                        fillWorkTimeDefinition(UpdatedObject.WorkTimeDefinition,UpdatedObject.WorkTimeSpans);
                     }
                     break;
                 case ObjectStatus.Deleted:
                     {
-                        deleteExsTimeSpans(UpdatedObject);
+                        deleteExsTimeSpans(UpdatedObject.WorkTimeDefinition);
                     }
                     break;
                 default:
                     {
-                        deleteExsTimeSpans(UpdatedObject);
+                        deleteExsTimeSpans(UpdatedObject.WorkTimeDefinition);
                         if (UpdatedObject.WorkTimeSpans.Count > 0)
                         {
-                            fillWorkTimeDefinition(UpdatedObject);
-                        }
-                        else
-                        {
-                            if (UpdatedObject.WorkTimeDefinition != null)
-                            {
-                                UpdatedObject.WorkTimeDefinition.SetStatus(ObjectStatus.Deleted);
-                                using (var ds = (SQLDataService)DataServiceProvider.DataService)
-                                {
-                                    ds.UpdateObject(UpdatedObject.WorkTimeDefinition);
-                                }
-                            }
+                            fillWorkTimeDefinition(UpdatedObject.WorkTimeDefinition,UpdatedObject.WorkTimeSpans);
                         }
                     }
                     break;
@@ -57,45 +46,19 @@ namespace IIS.BusinessCalendar
         }
 
         /// <summary>
-        /// Метод преобразует временные промежутки из сериализованного вида к виду, хранящемуся в базе данных и сохраняет их в WorkTimeDefinition
+        /// Метод для удаления временных промежутков и связанного с ними агрегатора из базы данных для дня-исключения
         /// </summary>
-        /// <param name="UpdatedObject">Изменяемый день-исключение</param>
-        private static void fillWorkTimeDefinition(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
+        /// <param name="exceptionDay"></param>
+        public static void DeleteTimeSpans(ExceptionDay exceptionDay)
         {
-            List<TimeSpan> wtss = UpdatedObject.WorkTimeSpans;
-            if (wtss != null)
-            {
-                using (var ds = (SQLDataService)DataServiceProvider.DataService)
-                {
-                    if (UpdatedObject.WorkTimeDefinition == null)
-                    {
-                        UpdatedObject.WorkTimeDefinition = new WorkTimeDefinition();
-                        ds.UpdateObject(UpdatedObject.WorkTimeDefinition);
-                    }
-                    List<DataObject> wtsList = new List<DataObject>();
-
-                    foreach (TimeSpan ts in wtss)
-                    {
-                        WorkTimeSpan wts = new WorkTimeSpan();
-                        wts.StartTime = (decimal)(ts.StartTimeH + ts.StartTimeM * 0.01);
-                        wts.EndTime = (decimal)(ts.EndTimeH + ts.EndTimeM * 0.01);
-                        wts.WorkTimeDefinition = UpdatedObject.WorkTimeDefinition;
-                        wtsList.Add(wts);
-                    }
-                    var dataObjects = wtsList.ToArray();
-                    ds.UpdateObjects(ref dataObjects);
-                }
-            }
-            else
-            {
-                UpdatedObject.WorkTimeDefinition = null;
-            }
+            deleteExsTimeSpans(exceptionDay.WorkTimeDefinition);
+            exceptionDay.WorkTimeDefinition.SetStatus(ObjectStatus.Deleted);
         }
         /// <summary>
-        /// 
+        /// Метод сохраняет временные промежутки в базе данных
         /// </summary>
-        /// <param name="workTimeDefinition"></param>
-        /// <param name="workTimeSpans"></param>
+        /// <param name="workTimeDefinition">Агрегатов временных промежутков</param>
+        /// <param name="workTimeSpans">Список временных промежутков</param>
         private static void fillWorkTimeDefinition(IIS.BusinessCalendar.WorkTimeDefinition workTimeDefinition, List<TimeSpan> workTimeSpans)
         {
             if (workTimeSpans.Count > 0)
@@ -118,9 +81,9 @@ namespace IIS.BusinessCalendar
         }
 
         /// <summary>
-        /// 
+        /// Метод удаляет временные промежутки, хранящиеся в базе данных
         /// </summary>
-        /// <param name="workTimeDefinition"></param>
+        /// <param name="workTimeDefinition">Агрегатор временных промежутков</param>
         private static void deleteExsTimeSpans(IIS.BusinessCalendar.WorkTimeDefinition workTimeDefinition)
         {
             using (var ds = (SQLDataService)DataServiceProvider.DataService)
@@ -136,29 +99,6 @@ namespace IIS.BusinessCalendar
                 ds.UpdateObjects(ref dataObjects);
             }
         }
-        /// <summary>
-        /// Метод удаляет временные промежутки, которые уже храняться в базе данных
-        /// </summary>
-        /// <param name="updatedObject">Изменяемый день-исключение</param>
-        private static void deleteExsTimeSpans(IIS.BusinessCalendar.ExceptionDay updatedObject)
-        {
-            if (updatedObject.WorkTimeDefinition != null)
-            {
-                using (var ds = (SQLDataService)DataServiceProvider.DataService)
-                {
-                    IQueryable<WorkTimeSpan> wtsQuery = ds.Query<WorkTimeSpan>();
-                    IQueryable<WorkTimeSpan> query = wtsQuery.Where<WorkTimeSpan>(w => w.WorkTimeDefinition == updatedObject.WorkTimeDefinition);
-                    List<DataObject> wtsList = query.Cast<DataObject>().ToList();
-                    foreach (DataObject wts in wtsList)
-                    {
-                        wts.SetStatus(ObjectStatus.Deleted);
-                    }
-                    var dataObjects = wtsList.ToArray();
-                    ds.UpdateObjects(ref dataObjects);
-                }
-            }
-        }
-
 
         /// <summary>
         /// Метод сохраняет временные промежутки для стандартной рабочей недели в базу данных
@@ -191,7 +131,7 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Метод удаляет временные промежутки из базы данных
         /// </summary>
-        /// <param name="week"></param>
+        /// <param name="week">Стандартная рабочая неделя</param>
         public static void DeleteTimeSpans(IIS.BusinessCalendar.Week week)
         {
             using (var ds = (SQLDataService)DataServiceProvider.DataService)
@@ -211,11 +151,6 @@ namespace IIS.BusinessCalendar
                 week.Friday.SetStatus(ObjectStatus.Deleted);
                 week.Saturday.SetStatus(ObjectStatus.Deleted);
                 week.Sunday.SetStatus(ObjectStatus.Deleted);
-
-                var objects = new List<DataObject>() { week.Monday, week.Tuesday, week.Wednesday, week.Thursday, week.Friday, week.Saturday, week.Sunday };
-                var dataObjects = objects.ToArray();
-
-                ds.UpdateObjects(ref dataObjects);
             }
         }
 

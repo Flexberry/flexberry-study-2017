@@ -1,28 +1,17 @@
 ﻿$(window).on("load", function () {
 
-    /*
-    var dropDownDayType
-    var dropDownRecType
-    var txtRecCount
-    var txtRepSteap
-    var txtStartDate
-    var txtEndDate
-    */
-
     var tsView = document.getElementsByClassName('TimeSpanView')[0];
 
-
     if (dropDownDayType.value === "Выходной") {
-        $(tsView).TimeSpans("dispose");
+        $(tsView).TimeSpans("hide");
     }
   
-     
     dropDownDayType.onchange = function(){
         if (dropDownDayType.value === "Выходной") {
-            $(tsView).TimeSpans("dispose");
+            $(tsView).TimeSpans("dispose").TimeSpans("hide");
         }
         else if (dropDownDayType.value === "Рабочий") {
-            $(tsView).TimeSpans("init", $(tsView).find('input[name="tsjArray"]')[0], $(tsView).find('input[name="tsvStatus"]')[0]);
+            $(tsView).TimeSpans("show");
         }
         return;
     };
@@ -35,6 +24,9 @@
         ReCalculateValues();
     }
    
+    dropDownRecType.onchange = function () {
+        ReCalculateValues();
+    }
     txtEndDate.onchange = function () {
         if ($(txtEndDate).validate("testForDate") && ($(txtStartDate).validate("testForEmpty")) && ($(txtRepStep).validate("testForPositiveInt"))) {
             var startDateArr = txtStartDate.value.split('.');
@@ -54,7 +46,7 @@
             var startDateArr = txtStartDate.value.split('.');
             var startDate = new Date(startDateArr[2], (startDateArr[1] - 1), startDateArr[0]);
 
-            var recCount = txtRecCount.value;
+            var recCount = parseInt(txtRecCount.value);
 
             var repStep = parseInt(txtRepStep.value);
 
@@ -62,7 +54,9 @@
         }
     }
 })
-
+/**
+* Метод перевычисляет поля для ввода даты начала, окончания, конечного числа повторений, в случае изменения одного из них
+*/
 function ReCalculateValues() {
     if ($(txtEndDate).validate("testForDate") && ($(txtStartDate).validate("testForDate")) && ($(txtRepStep).validate("testForPositiveInt"))) {
         var startDateArr = txtStartDate.value.split('.');
@@ -74,7 +68,7 @@ function ReCalculateValues() {
         var repStep = parseInt(txtRepStep.value);
 
         txtRecCount.value = CalculateRepCount(startDate, endDate, repStep, GetRecType());
-    } else if (($(txtStartDate).validate("testForEmpty")) && ($(txtRepStep).validate("testForPositiveInt")) && ($(txtRecCount).validate("testForPositiveInt"))) {
+    } else if (($(txtStartDate).validate("testForDate")) && ($(txtRepStep).validate("testForPositiveInt")) && ($(txtRecCount).validate("testForPositiveInt"))) {
         var startDateArr = txtStartDate.value.split('.');
         var startDate = new Date(startDateArr[2], (startDateArr[1] - 1), startDateArr[0]);
 

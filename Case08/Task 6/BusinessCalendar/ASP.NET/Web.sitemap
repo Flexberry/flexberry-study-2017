@@ -13,7 +13,6 @@
       <siteMapNode title="Календари" description="" url="~/forms/Calendar/CalendarL.aspx" />
       <siteMapNode title="Дни-исключения" description="" url="~/forms/ExceptionDay/ExceptionDayL.aspx" />
       <siteMapNode title="Недели" description="" url="~/forms/Week/WeekL.aspx" />
-      <siteMapNode title="Определение рабочего времени" description="" url="~/forms/WorkTimeDefinition/WorkTimeDefinitionL.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -13,9 +13,10 @@ namespace IIS.BusinessCalendar
     using System;
     using System.Xml;
     using ICSSoft.STORMNET;
-    
-    
+
+
     // *** Start programmer edit section *** (Using statements)
+    using ICSSoft.STORMNET.Business;
     using System.Linq;
     // *** End programmer edit section *** (Using statements)
 
@@ -24,7 +25,7 @@ namespace IIS.BusinessCalendar
     /// Week.
     /// </summary>
     // *** Start programmer edit section *** (Week CustomAttributes)
-
+    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAnyEvent)]
     // *** End programmer edit section *** (Week CustomAttributes)
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]

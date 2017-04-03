@@ -34,7 +34,19 @@ namespace IIS.BusinessCalendar
     {
         
         // *** Start programmer edit section *** (BusinessServer CustomMembers)
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="week"></param>
+        /// <returns></returns>
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWeek(IIS.BusinessCalendar.Week week)
+        {
+            if (week.GetStatus() == ObjectStatus.Deleted)
+            {
+                TSSaveHelper.DeleteTimeSpans(week);
+            }
+            return new ICSSoft.STORMNET.DataObject[0];
+        }
         // *** End programmer edit section *** (BusinessServer CustomMembers)
 
         
@@ -48,6 +60,10 @@ namespace IIS.BusinessCalendar
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateExceptionDay(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateExceptionDay)
+            if (UpdatedObject.GetStatus() == ObjectStatus.Deleted)
+            {
+                TSSaveHelper.DeleteTimeSpans(UpdatedObject);
+            }
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateExceptionDay)
         }

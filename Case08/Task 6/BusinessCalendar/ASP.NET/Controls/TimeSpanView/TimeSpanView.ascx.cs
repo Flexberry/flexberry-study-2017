@@ -12,10 +12,9 @@ namespace IIS.BusinessCalendar.Controls.TimeSpanView
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //PageContentManager.AttachExternalFile("/shared/script/jquery-1.7.2.min.js");
+            PageContentManager.AttachExternalFile("/shared/script/jquery-1.7.2.min.js");
             PageContentManager.AttachExternalFile("/Controls/TimeSpanView/JavaScript/jquery.TimeSpans.js");
             PageContentManager.AttachExternalFile("/Controls/TimeSpanView/CSS/TimeSpans.css");
-            //PageContentManager.AttachExternalFile("/Controls/TimeSpanView/JavaScript/jquery.TSRealTimeLogic.js");
             if (Page.IsPostBack)
             {
                 TimeSpansJson.Value = Request[TimeSpansJson.Name];

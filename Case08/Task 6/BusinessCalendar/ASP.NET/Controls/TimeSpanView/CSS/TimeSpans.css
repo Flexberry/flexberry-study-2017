@@ -105,3 +105,6 @@
     font-size:18pt;
     vertical-align: sub;
 }
+.hide{
+    display:none;
+}

@@ -74,7 +74,7 @@ namespace IIS.BusinessCalendar
         {
             if((DataObject != null) && (ctrlWorkTimeSpans.Status == ObjectStatus.Altered))
             {
-                TSSaveHelper.SaveTimeSpans(DataObject);
+                TSSaveHelper.UpdateTimeSpans(DataObject);
             }
             return base.SaveObject();
         }

@@ -58,6 +58,7 @@
         },
         /**
          * Метод считывает временные промежутки со скрытого поля
+         *@param {DOM} контрол для хранения json-массива временных промежутков
          */
         readDataFromHidden: function (sourceControl) {
             if (sourceControl !== {}) {
@@ -170,9 +171,6 @@
 
             tableBody.appendChild(tr);
         },
-        saveChanges : function(){
-
-        },
         /**
          * Метод для заполнения таблицы временных промежутков
          */
@@ -216,20 +214,30 @@
          * Метод удаляет все временные промежутки
          */
         dispose: function () {
-            this.find('table')[0].innerHTML = "";
+            this.find('tbody')[0].innerHTML = "";
             var tableContainer = this.find('.TSVContainer')[0];
-            var sourceControl = tableContainer.dataset.sourceControl;
-            var statusControl = tableContainer.dataset.statusControl;
-            attr.tableParent.innerHTML = "";
-            attr.table = {};
-            attr.tableBody = {};
+            var sourceControl = document.getElementById(tableContainer.dataset.sourceControl);
+            var statusControl = document.getElementById(tableContainer.dataset.statusControl);
             if (attr.timeSpans == false) {
                 statusControl.value = attr.status.UnAltered;
             } else {
                 statusControl.value = attr.status.Altered;
             }
             attr.timeSpans = [];
-            methods.storeData(attr.tableBody,sourceControl,statusControl);
+            methods.storeData({}, sourceControl, statusControl);
+            return this;
+        },
+        /**
+        * Метод скрывает контрол на разметке
+        */
+        hide:function(){
+            this.addClass('hide');
+        },
+        /**
+        * Метод показывает контрол на разметке
+        */
+        show:function(){
+            this.removeClass('hide');
         },
         /**
          * Метод для инициализации таблицы временных промежутков
@@ -269,10 +277,6 @@
      */
     $.fn.TimeSpans = function (method) {
         if (method) {
-            var TSVContainer = this.find('.TSVContainer');
-            if (!TSVContainer[0]) {
-                TSVContainer = this.closest('.TSVContainer');
-            }
             var result = methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else {
             $.error('Метод с именем ' + method + ' не существует для JQuery.TimeSpans');

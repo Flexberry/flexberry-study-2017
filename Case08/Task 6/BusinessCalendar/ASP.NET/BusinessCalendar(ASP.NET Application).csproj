@@ -509,7 +509,6 @@
     <Content Include="App_Themes\Spring\Pages\MainPage\Images\treeview-show.png" />
     <Content Include="Controls\TimeSpanView\CSS\TimeSpans.css" />
     <Content Include="Controls\TimeSpanView\JavaScript\jquery.TimeSpans.js" />
-    <Content Include="Controls\TimeSpanView\JavaScript\jquery.TSRealTimeLogic.js" />
     <Content Include="Controls\TimeSpanView\TimeSpanView.ascx" />
     <Content Include="forms\WorkTimeDefinition\WorkTimeDefinitionE.aspx" />
     <Compile Include="Controls\TimeSpanView\TimeSpanView.ascx.cs">
