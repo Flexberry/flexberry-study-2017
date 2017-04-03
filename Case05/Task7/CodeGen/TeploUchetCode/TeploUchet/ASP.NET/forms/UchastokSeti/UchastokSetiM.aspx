@@ -21,17 +21,13 @@
                 <div class="clearfix">
                     <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
                     </asp:Label>
+         
                     <ac:MasterEditorAjaxLookUp ID="ctrlОбъект" CssClass="descTxt" runat="server" ShowInThickBox="True" 
                         Autocomplete="true"/>
                     <asp:Button ID="applyBtn" runat="server" OnClick="applyBtn_Click" Text="Вывести схему" />
                 </div>
                 <br/>
-
-                <asp:DropDownList ID="sampleList" CssClass="hidden" AutoPostBack="True" OnSelectedIndexChanged="sampleList_SelectedIndexChanged" runat="server">
-                    <asp:ListItem Selected="True" Value="Надземный"> Надземный </asp:ListItem>
-                    <asp:ListItem Value="Подземный"> Подземный </asp:ListItem>
-                    <asp:ListItem Value="ПоПодвалу"> По подвалу </asp:ListItem>
-                </asp:DropDownList>
+                
 
                 <asp:Panel ID="MainPanel" runat="server" CssClass="plan" Visible="false">
                     <asp:Panel ID="ObjectPanel" runat="server" CssClass="object droppable"> </asp:Panel>

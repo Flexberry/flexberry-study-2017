@@ -152,5 +152,6 @@ $(document).ready(function () {
     $('input[type="button"]').bind("click", function () {
         var prnt = $(this).parent(); //fieldset
         prnt.addClass("hidden");
+        SaveBtn_Click($(this));
     });
 });

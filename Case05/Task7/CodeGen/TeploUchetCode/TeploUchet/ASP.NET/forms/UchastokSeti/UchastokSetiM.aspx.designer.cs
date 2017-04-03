@@ -40,15 +40,6 @@ namespace TeploCorp.TeploUchet {
         protected global::System.Web.UI.WebControls.Button applyBtn;
         
         /// <summary>
-        /// sampleList элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sampleList;
-        
-        /// <summary>
         /// MainPanel элемент управления.
         /// </summary>
         /// <remarks>

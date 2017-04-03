@@ -33,7 +33,7 @@ h4 {
     min-width: 400px;
     position: relative;
     vertical-align: bottom;
-    min-height
+    min-height: 400px;
 }
 .object {
     border: 1px;
@@ -66,8 +66,7 @@ h4 {
     border: solid 1px black;  
     padding: 10px;
     margin-bottom: -5px !important;  
-    z-index: 100;
-    z-index:
+    z-index: 20;
 }
 .overground{
     background-color: seagreen;

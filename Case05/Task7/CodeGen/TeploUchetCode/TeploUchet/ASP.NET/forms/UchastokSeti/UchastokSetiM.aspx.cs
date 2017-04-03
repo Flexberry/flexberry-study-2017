@@ -58,6 +58,142 @@ namespace TeploCorp.TeploUchet
         protected override void PostApplyToControls()
         { 
             ctrlОбъект.PropertyToShow = Information.ExtractPropertyPath<Объект>(x => x.Наименование);
+            
+            //объект выбран
+            if (ctrlОбъект.SelectedMasterPK != "")
+            {
+                MainPanel.Visible = true;
+                var objectKey = ctrlОбъект.SelectedMasterPK;
+                IDataService _dataService = DataServiceProvider.DataService;
+                var countSeti = _dataService.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                                            .Where(x => x.Актуален == true)
+                                            .Count(x => x.Объект.__PrimaryKey.ToString() == objectKey);
+                var samObject = _dataService.Query<Объект>(Объект.Views.ОбъектE)
+                                            .FirstOrDefault(x => x.__PrimaryKey.ToString() == objectKey);
+                //наименование объекта
+                Label objectTitleLabel = new Label();
+                objectTitleLabel.CssClass = " object-info";
+                objectTitleLabel.Text = "Наименование: " + samObject.Наименование;
+                //здание
+                Label objectBuildLabel = new Label();
+                objectBuildLabel.CssClass = " object-info";
+                objectBuildLabel.Text = "Адрес: " + samObject.Здание.Адрес;
+                //контрагент
+                Label objectAgentLabel = new Label();
+                objectAgentLabel.CssClass = " object-info";
+                objectAgentLabel.Text = "Контрагент: " + samObject.Контрагент;
+                //панель объекта = наименование, адрес здания, сконтрагент
+                Panel objectInfoPanel = new Panel();
+                objectInfoPanel.Controls.Add(objectTitleLabel);
+                objectInfoPanel.Controls.Add(objectBuildLabel);
+                objectInfoPanel.Controls.Add(objectAgentLabel);
+                ObjectPanel.Controls.Add(objectInfoPanel);
+
+                //участки в объекте есть
+                if (countSeti != 0)
+                {
+                    var objectSeti = _dataService.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                                                .Where(x => x.Актуален == true)
+                                                .Where(x => x.Объект.__PrimaryKey.ToString() == objectKey);
+                    //участки в виде панели = информация, панель ввода
+                    foreach (var each in objectSeti)
+                    {
+                        var eachNumber = each.Номер.ToString();
+                        //панель участка(информация) = номер, тип изоляции, номер для сортировки(hide)
+                        Panel panel = new Panel();
+                        panel.ID = each.__PrimaryKey.ToString();
+                        panel.CssClass = "sector sector-" + each.Номер.ToString() + " draggable";
+                        if (each.ТипМонтажа == ЗначенияМонтажа.Надземный) { panel.CssClass = panel.CssClass + " overground"; }
+                        if (each.ТипМонтажа == ЗначенияМонтажа.Подземный) { panel.CssClass = panel.CssClass + " underground"; }
+                        if (each.ТипМонтажа == ЗначенияМонтажа.ПоПодвалу) { panel.CssClass = panel.CssClass + " basement"; }
+
+                        // номера участка
+                        Label infoLabel = new Label();
+                        infoLabel.ID = "infoLabel-" + eachNumber;
+                        infoLabel.Text = "Участок теплосети №" + eachNumber;
+
+                        // изоляции участка
+                        Label insulationLabel = new Label();
+                        insulationLabel.ID = "infoInsulation-" + eachNumber;
+                        insulationLabel.Text = "Теплоизоляция: " + eachNumber;
+
+                        // номер участка для сортировки
+                        Label numberLabel = new Label();
+                        numberLabel.ID = "numberLabel-" + eachNumber;
+                        numberLabel.CssClass = " hidden";
+                        string aElem = "<a class='hidden index' name=" + eachNumber + "></a>";
+                        numberLabel.Text = aElem;
+
+                        //панель для информации об участке
+                        Panel infoPanel = new Panel();
+                        infoPanel.ID = "infoPanel-" + eachNumber;
+                        infoPanel.CssClass = "clickable";
+                        infoPanel.Controls.Add(infoLabel);
+                        infoPanel.Controls.Add(insulationLabel);
+                        infoPanel.Controls.Add(numberLabel);
+                        panel.Controls.Add(infoPanel);
+
+                        //панель ввода инфы = вид прокладки, теплоизоляция, дата прокладки
+                        //вид прокладки
+                        Label mountLabel = new Label();
+                        mountLabel.Text = "Вид прокладки: ";
+                        DropDownList mount = new DropDownList();
+                        mount.ID = "mountList-" + each.__PrimaryKey;
+                        mount.CssClass = mount.CssClass + " MountType";
+                        mount.DataSource = CreateDataSource();
+                        mount.DataTextField = "TextValue";
+                        mount.DataValueField = "CurrentValue";
+                        mount.DataBind();
+                        mount.SelectedValue = each.ТипМонтажа.ToString();
+
+                        //теплоизоляция
+                        Label insulationLabel2 = new Label();
+                        insulationLabel2.Text = "Тип теплоизоляции: ";
+                        TextBox infoNumber = new TextBox();
+                        infoNumber.ID = "infoNumber-" + eachNumber;
+                        infoNumber.Text = each.Номер.ToString();
+                        //датапрокладки
+                        Label dateLabel = new Label();
+                        dateLabel.Text = "Дата прокладки";
+                        DatePicker date = new DatePicker();
+                        date.Value = each.ГодПрокладки;
+                        //кнопка ок
+                        Button btn = new Button();
+                        btn.Text = "Ok";
+                        btn.OnClientClick = "OkClick";
+
+                        //панель ввода
+                        Panel inputPanel = new Panel();
+                        inputPanel.ID = "inputPanel" + eachNumber;
+                        inputPanel.CssClass = "hidden fieldset";
+                        inputPanel.Controls.Add(mountLabel);
+                        inputPanel.Controls.Add(mount);
+                        inputPanel.Controls.Add(insulationLabel2);
+                        inputPanel.Controls.Add(infoNumber);
+                        inputPanel.Controls.Add(dateLabel);
+                        inputPanel.Controls.Add(date);
+                        inputPanel.Controls.Add(btn);
+                        panel.Controls.Add(inputPanel);
+
+                        //участок создан
+                        //присвоение участка окну
+                        if (each.ТипСети == ТипыСети.Наружная)
+                        {
+                            MainPanel.Controls.Add(panel);
+                        }
+                        else
+                        {
+                            ObjectPanel.Controls.Add(panel);
+                        };
+                    }
+                }
+                else
+                {
+                    //TODO
+                    //сообщение 
+                    MainPanel.Visible = false;
+                }
+            }
             Page.Validate();
         }
         
@@ -92,15 +228,18 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
-            if (ctrlОбъект.SelectedMasterPK != "")
+            if (ctrlОбъект.SelectedMasterPK != "" && MainPanel.Controls.Count > 1 )
             {
-                return false;
+                //var MPcontrols = MainPanel.Controls;
+                LinqDataSource lq = new LinqDataSource();
+                var op = from ol in MainPanel.Controls
+                         where
+                var yu = lq.QueryCreated
+                var xx = 55 + 5;
+                
             }
-            else
-            {
-                ///TODO сообщение
-                return base.PreSaveObject();
-            }
+            ///TODO сообщение
+            return false;
         }
 
         /// <summary>
@@ -114,143 +253,32 @@ namespace TeploCorp.TeploUchet
         //клик по создать схему
         protected void applyBtn_Click(object sender, EventArgs e)
         {
-            //объект выбранв
-            if (ctrlОбъект.SelectedMasterPK != "")
-            {
-                MainPanel.Visible = true;
-                var objectKey = ctrlОбъект.SelectedMasterPK;
-                IDataService _dataService = DataServiceProvider.DataService;
-                var countSeti = _dataService.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
-                                            .Where(x => x.Актуален == true)
-                                            .Count(x => x.Объект.__PrimaryKey.ToString() == objectKey);
-                var samObject = _dataService.Query<Объект>(Объект.Views.ОбъектE)
-                                            .FirstOrDefault(x => x.__PrimaryKey.ToString() == objectKey);
-                //наименование объекта
-                Label objectTitleLabel = new Label();
-                objectTitleLabel.CssClass = " object-info";
-                objectTitleLabel.Text = "Наименование: " + samObject.Наименование;
-                //здание
-                Label objectBuildLabel = new Label();
-                objectBuildLabel.CssClass = " object-info";
-                objectBuildLabel.Text = "Адрес: " + samObject.Здание.Адрес;
-                //контрагент
-                Label objectAgentLabel = new Label();
-                objectAgentLabel.CssClass = " object-info";
-                objectAgentLabel.Text = "Контрагент: " + samObject.Контрагент;
-                //панель объекта
-                Panel objectInfoPanel = new Panel();
-                objectInfoPanel.Controls.Add(objectTitleLabel);
-                objectInfoPanel.Controls.Add(objectBuildLabel);
-                objectInfoPanel.Controls.Add(objectAgentLabel);
-                ObjectPanel.Controls.Add(objectInfoPanel);
-
-                //участки в объекте есть
-                if (countSeti != 0)
-                {
-                    var objectSeti = _dataService.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
-                                                .Where(x => x.Актуален == true)
-                                                .Where(x => x.Объект.__PrimaryKey.ToString() == objectKey);
-                    int kol = 0;
-                    //участки в виде панели
-                    foreach (var each in objectSeti)
-                    {
-                        //панель участка
-                        Panel panel = new Panel();
-                        panel.ID = each.__PrimaryKey.ToString();
-                        panel.CssClass = "sector sector-" + each.Номер.ToString() + " draggable";
-                        if (each.ТипМонтажа == ЗначенияМонтажа.Надземный) { panel.CssClass = panel.CssClass + " overground"; }
-                        if (each.ТипМонтажа == ЗначенияМонтажа.Подземный) { panel.CssClass = panel.CssClass + " underground"; }
-                        if (each.ТипМонтажа == ЗначенияМонтажа.ПоПодвалу) { panel.CssClass = panel.CssClass + " basement"; }
-
-                        // номера участка
-                        Label infoLabel = new Label();
-                        infoLabel.ID = "infoLabel-" + kol;
-                        infoLabel.Text = "Участок теплосети №" + each.Номер.ToString();
-
-                        // изоляции участка
-                        Label insulationLabel = new Label();
-                        insulationLabel.ID = "infoInsulation-" + kol;
-                        insulationLabel.Text = "Теплоизоляция: " + each.Теплоизоляция.ToString();
-
-                        // номер участка для сортировки
-                        Label numberLabel = new Label();
-                        numberLabel.ID = "numberLabel-" + kol;
-                        numberLabel.CssClass = " hidden";
-                        string aElem = "<a class='hidden index' name=" + each.Номер.ToString() + "></a>";
-                        numberLabel.Text = aElem;
-
-                        //панель для информации об участке
-                        Panel infoPanel = new Panel();
-                        infoPanel.ID = "infoPanel-" + kol;
-                        infoPanel.CssClass = "clickable";
-                        infoPanel.Controls.Add(infoLabel);
-                        infoPanel.Controls.Add(insulationLabel);
-                        infoPanel.Controls.Add(numberLabel);
-                        panel.Controls.Add(infoPanel);
-
-                        //ввод инфы
-                        //вид прокладки
-                        Label mountLabel = new Label();
-                        mountLabel.Text = "Вид прокладки: ";
-                        DropDownList mount = new DropDownList();
-                        mount = sampleList;
-                        mount.ID = "mountList-" + each.Номер.ToString();
-                        mount.CssClass = mount.CssClass + " MountType";
-                        mount.SelectedValue = each.ТипМонтажа.ToString();
-                        
-                        //теплоизоляция
-                        Label insulationLabel2 = new Label();
-                        insulationLabel2.Text = "Тип теплоизоляции: ";
-                        TextBox infoNumber = new TextBox();
-                        infoNumber.ID = "infoNumber-" + kol;
-                        infoNumber.Text = each.Номер.ToString();
-                        //датапрокладки
-                        Label dateLabel = new Label();
-                        dateLabel.Text = "Дата прокладки";
-                        DatePicker date = new DatePicker();
-                        date.Value = each.ГодПрокладки;
-                        //кнопка ок
-                        Button btn = new Button();
-                        btn.Text = "Ok";
-
-                        //панель ввода
-                        Panel inputPanel = new Panel();
-                        inputPanel.ID = "inputPanel" + kol;
-                        inputPanel.CssClass = "hidden fieldset";
-                        inputPanel.Controls.Add(mountLabel);
-                        inputPanel.Controls.Add(mount);
-                        inputPanel.Controls.Add(insulationLabel2);
-                        inputPanel.Controls.Add(infoNumber);
-                        inputPanel.Controls.Add(dateLabel);
-                        inputPanel.Controls.Add(date);
-                        inputPanel.Controls.Add(btn);
-                        panel.Controls.Add(inputPanel);
-
-                        //участок создан
-                        //присвоение участка окну
-                        if ( each.ТипСети == ТипыСети.Наружная )
-                        {
-                            MainPanel.Controls.Add(panel);
-                        }
-                        else
-                        {
-                            ObjectPanel.Controls.Add(panel);
-                        }
-                        kol++;
-                    }
-                }
-                else
-                {
-                    //TODO
-                    //сообщение 
-                    MainPanel.Visible = false;
-                }
-            }
+            
         }
-
-        protected void sampleList_SelectedIndexChanged(object sender, EventArgs e)
+        //строки для спискового элемента
+        private object CreateDataSource()
         {
+            DataTable dt = new DataTable();
+            DataRow dr;
 
+            dt.Columns.Add(new DataColumn("TextValue", typeof(string)));
+            dt.Columns.Add(new DataColumn("CurrentValue", typeof(string)));
+
+            dr = dt.NewRow();
+            dr[0] = "Надземная";
+            dr[1] = "Надземная";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            dr[0] = "Подземная";
+            dr[1] = "Подземная";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            dr[0] = "По подвалу";
+            dr[1] = "ПоПодвалу";
+            dt.Rows.Add(dr);
+            
+            DataView dv = new DataView(dt);
+            return dv;
         }
     }
 }
