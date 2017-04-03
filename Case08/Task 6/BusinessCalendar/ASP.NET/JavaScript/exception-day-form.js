@@ -126,7 +126,8 @@ function CalculateEndDate(StartDate, RecCount, RepStep, RecType) {
             default:
         }
     }
-    return resultDate;
+    var resultDateString = resultDate.getDate() + "." + (resultDate.getMonth() + 1) + "." + resultDate.getFullYear();
+    return resultDateString;
 }
 /**
  * Функция вычисляет конечное число повторений на основе заданной даты окончания

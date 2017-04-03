@@ -2,16 +2,10 @@
 
     var attr = {
         timeSpans: [],
-        elemToStore: {},
-        inputStatus: {},
-        table: {},
-        tableBody: {},
-        tableParent: {},
         status : {
             Altered : 1,
             UnAltered: 0
-        },
-        currentStatus : 0
+        }
     }
 
     var methods = {
@@ -77,7 +71,6 @@
          * @param {number} upTimeM минуты начала
          * @param {number} endTimeH часы окончания
          * @param {number} endTimeM минуты окончания
-         * @param {number} container
          */
         addRow: function (tableBody, sourceControl, statusControl, upTimeH, upTimeM, endTimeH, endTimeM) {
             var i = tableBody.rows.length;
@@ -173,6 +166,9 @@
         },
         /**
          * Метод для заполнения таблицы временных промежутков
+         * @param {DOM} tableBody тело таблицы временных промежутков
+         * @param {DOM} souceControl контрол для записи массива временных промежутков
+         * @param {DOM} statusControl контрол для записи статуса таблицы временных промежутков
          */
         fillTable: function (tableBody,sourceControl,statusControl) {
             var tsCount = attr.timeSpans.length;
@@ -183,8 +179,8 @@
         },
         /**
          * Функция считывает временные промежутки с таблицы
-         * @param {DOM} container 
-         * @returns {Array} 
+         * @param {DOM} tableBody тело таблицы временных промежутков 
+         * @returns {Array} массив временных промужутков
          */
         readDataFromView: function (tableBody) {
             var result = [];
@@ -244,11 +240,6 @@
          * @param {DOM} elemToStore таблица временных промежутков
          */
         init: function (sourceControl, statusControl) {
-            attr.elemToStore = sourceControl;
-            attr.inputStatus = statusControl;
-            attr.currentStatus = attr.status.UnAltered;
-            attr.tableParent = this[0];
-
             this[0].setAttribute('data-source-control', sourceControl.id);
             this[0].setAttribute('data-status-control', statusControl.id);
             methods.create.apply(this);
@@ -256,14 +247,10 @@
             methods.fillTable(this.find('tbody')[0],sourceControl,statusControl);
         },
         /**
-         * Функция возвращает текущее состояние объекта
-         * @returns {Number} 1 - изменён, 0 - не изменён
-         */
-        getStatus: function() {
-            return attr.currentStatus;
-        },
-        /**
          * Функция сохраняет массив временных промежутков в скрытом поле
+         * @param {DOM} тело таблицы временных промежутков
+         * @param {DOM} контрол для записи массива временных промежутков
+         * @param {DOM} контрол для записи текущего состояния таблицы временных промежутков
          */
         storeData: function (tableBody,sourceControl,statusControl) {
             attr.timeSpans = methods.readDataFromView(tableBody);

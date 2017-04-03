@@ -34,19 +34,7 @@ namespace IIS.BusinessCalendar
     {
         
         // *** Start programmer edit section *** (BusinessServer CustomMembers)
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="week"></param>
-        /// <returns></returns>
-        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWeek(IIS.BusinessCalendar.Week week)
-        {
-            if (week.GetStatus() == ObjectStatus.Deleted)
-            {
-                TSSaveHelper.DeleteTimeSpans(week);
-            }
-            return new ICSSoft.STORMNET.DataObject[0];
-        }
+
         // *** End programmer edit section *** (BusinessServer CustomMembers)
 
         
@@ -60,12 +48,72 @@ namespace IIS.BusinessCalendar
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateExceptionDay(IIS.BusinessCalendar.ExceptionDay UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateExceptionDay)
-            if (UpdatedObject.GetStatus() == ObjectStatus.Deleted)
+            if(UpdatedObject.GetStatus() == ObjectStatus.Deleted)
             {
-                TSSaveHelper.DeleteTimeSpans(UpdatedObject);
+                DataServiceProvider.DataService.LoadObject(ExceptionDay.Views.ExceptionDayE, UpdatedObject, false, false);
+                if (UpdatedObject.WorkTimeDefinition != null)
+                {
+                    TSSaveHelper.DeleteTimeSpans(UpdatedObject);
+                    WorkTimeDefinition tempWts = UpdatedObject.WorkTimeDefinition;
+                    UpdatedObject.WorkTimeDefinition = null;
+                    DataServiceProvider.DataService.UpdateObject(UpdatedObject);
+                    UpdatedObject.SetStatus(ObjectStatus.Deleted);
+                    return new DataObject[2] { tempWts, UpdatedObject };
+                } 
+                else
+                {
+                    UpdatedObject.SetStatus(ObjectStatus.Deleted);
+                }
             }
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateExceptionDay)
+        }
+        
+        // *** Start programmer edit section *** (OnUpdateWeek CustomAttributes)
+        /// <summary>
+        /// Метод обрабатывает дополнительную логику обновления "Стандартной рабочей недели" в базе данных
+        /// </summary>
+        /// <param name="UpdatedObject">Изменяема неделя</param>
+        /// <returns></returns>
+        // *** End programmer edit section *** (OnUpdateWeek CustomAttributes)
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWeek(IIS.BusinessCalendar.Week UpdatedObject)
+        {
+            // *** Start programmer edit section *** (OnUpdateWeek)
+            if(UpdatedObject.GetStatus() == ObjectStatus.Deleted)
+            {
+                DataServiceProvider.DataService.LoadObject(Week.Views.WeekE, UpdatedObject, false, false);
+                if((UpdatedObject.Monday != null)||(UpdatedObject.Tuesday != null)||(UpdatedObject.Wednesday != null)||(UpdatedObject.Thursday != null) ||(UpdatedObject.Friday != null) ||(UpdatedObject.Saturday != null) ||(UpdatedObject.Sunday != null))
+                {
+                    TSSaveHelper.DeleteTimeSpans(UpdatedObject);
+
+                    WorkTimeDefinition tempMon = UpdatedObject.Monday;
+                    WorkTimeDefinition tempTue = UpdatedObject.Tuesday;
+                    WorkTimeDefinition tempWed = UpdatedObject.Wednesday;
+                    WorkTimeDefinition tempThu = UpdatedObject.Thursday;
+                    WorkTimeDefinition tempFri = UpdatedObject.Friday;
+                    WorkTimeDefinition tempSun = UpdatedObject.Sunday;
+                    WorkTimeDefinition tempSat = UpdatedObject.Saturday;
+
+                    UpdatedObject.Monday = null;
+                    UpdatedObject.Tuesday = null;
+                    UpdatedObject.Wednesday = null;
+                    UpdatedObject.Thursday = null;
+                    UpdatedObject.Friday = null;
+                    UpdatedObject.Saturday = null;
+                    UpdatedObject.Sunday = null;
+                    DataServiceProvider.DataService.UpdateObject(UpdatedObject);
+
+                    UpdatedObject.SetStatus(ObjectStatus.Deleted);
+                    
+                    return new DataObject[8] { tempMon, tempTue, tempWed, tempThu, tempFri, tempSat, tempSun, UpdatedObject };
+                }
+                else
+                {
+                    UpdatedObject.SetStatus(ObjectStatus.Deleted);
+                }
+            }
+            return new ICSSoft.STORMNET.DataObject[0];
+            // *** End programmer edit section *** (OnUpdateWeek)
         }
         
         // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition CustomAttributes)
@@ -74,7 +122,7 @@ namespace IIS.BusinessCalendar
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateWorkTimeDefinition(IIS.BusinessCalendar.WorkTimeDefinition UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateWorkTimeDefinition)
-
+            
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateWorkTimeDefinition)
         }

@@ -25,7 +25,12 @@ namespace IIS.BusinessCalendar
             {
                 case ObjectStatus.Created:
                     {
-                        fillWorkTimeDefinition(UpdatedObject.WorkTimeDefinition,UpdatedObject.WorkTimeSpans);
+                        using (var ds = (SQLDataService)DataServiceProvider.DataService)
+                        {
+                            UpdatedObject.WorkTimeDefinition = new WorkTimeDefinition();
+                            ds.UpdateObject(UpdatedObject);
+                        }
+                        fillWorkTimeDefinition(UpdatedObject.WorkTimeDefinition, UpdatedObject.WorkTimeSpans);
                     }
                     break;
                 case ObjectStatus.Deleted:
@@ -51,8 +56,11 @@ namespace IIS.BusinessCalendar
         /// <param name="exceptionDay"></param>
         public static void DeleteTimeSpans(ExceptionDay exceptionDay)
         {
-            deleteExsTimeSpans(exceptionDay.WorkTimeDefinition);
-            exceptionDay.WorkTimeDefinition.SetStatus(ObjectStatus.Deleted);
+            if(exceptionDay.WorkTimeDefinition != null)
+            {
+                deleteExsTimeSpans(exceptionDay.WorkTimeDefinition);
+                exceptionDay.WorkTimeDefinition.SetStatus(ObjectStatus.Deleted);
+            } 
         }
         /// <summary>
         /// Метод сохраняет временные промежутки в базе данных

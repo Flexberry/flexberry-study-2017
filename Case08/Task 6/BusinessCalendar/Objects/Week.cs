@@ -12,11 +12,11 @@ namespace IIS.BusinessCalendar
 {
     using System;
     using System.Xml;
-    using ICSSoft.STORMNET;
-
-
-    // *** Start programmer edit section *** (Using statements)
     using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET;
+    
+    
+    // *** Start programmer edit section *** (Using statements)
     using System.Linq;
     // *** End programmer edit section *** (Using statements)
 
@@ -25,8 +25,9 @@ namespace IIS.BusinessCalendar
     /// Week.
     /// </summary>
     // *** Start programmer edit section *** (Week CustomAttributes)
-    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAnyEvent)]
+
     // *** End programmer edit section *** (Week CustomAttributes)
+    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("WeekE", new string[] {
@@ -409,7 +410,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Tuesday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Tuesday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Tuesday
         {
             get
@@ -441,7 +441,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Thursday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Thursday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Thursday
         {
             get
@@ -473,7 +472,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Monday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Monday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Monday
         {
             get
@@ -505,7 +503,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Sunday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Sunday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Sunday
         {
             get
@@ -537,7 +534,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Friday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Friday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Friday
         {
             get
@@ -601,7 +597,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Wednesday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Wednesday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Wednesday
         {
             get
@@ -633,7 +628,6 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Saturday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Saturday CustomAttributes)
-        [NotNull()]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Saturday
         {
             get

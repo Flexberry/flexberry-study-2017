@@ -27,7 +27,7 @@ namespace IIS.BusinessCalendar
     // *** Start programmer edit section *** (WorkTimeDefinition CustomAttributes)
 
     // *** End programmer edit section *** (WorkTimeDefinition CustomAttributes)
-    [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
+    //[BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [Caption("Work time definition")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
