@@ -99,6 +99,7 @@ namespace TeploCorp.TeploUchet
                     foreach (var each in objectSeti)
                     {
                         var eachNumber = each.Номер.ToString();
+                        var eachKey = each.__PrimaryKey.ToString();
                         //панель участка(информация) = номер, тип изоляции, номер для сортировки(hide)
                         Panel panel = new Panel();
                         panel.ID = each.__PrimaryKey.ToString();
@@ -138,7 +139,7 @@ namespace TeploCorp.TeploUchet
                         Label mountLabel = new Label();
                         mountLabel.Text = "Вид прокладки: ";
                         DropDownList mount = new DropDownList();
-                        mount.ID = "mountList-" + each.__PrimaryKey;
+                        mount.ID = "mountList-" + eachKey;
                         mount.CssClass = mount.CssClass + " MountType";
                         mount.DataSource = CreateDataSource();
                         mount.DataTextField = "TextValue";
@@ -150,18 +151,19 @@ namespace TeploCorp.TeploUchet
                         Label insulationLabel2 = new Label();
                         insulationLabel2.Text = "Тип теплоизоляции: ";
                         TextBox infoNumber = new TextBox();
-                        infoNumber.ID = "infoNumber-" + eachNumber;
+                        infoNumber.ID = "infoNumber-" + eachKey;
                         infoNumber.Text = each.Номер.ToString();
                         //датапрокладки
                         Label dateLabel = new Label();
                         dateLabel.Text = "Дата прокладки";
                         DatePicker date = new DatePicker();
+                        date.ID = "date-" + eachKey; 
                         date.Value = each.ГодПрокладки;
                         //кнопка ок
                         Button btn = new Button();
                         btn.Text = "Ok";
                         btn.OnClientClick = "OkClick";
-
+                                                
                         //панель ввода
                         Panel inputPanel = new Panel();
                         inputPanel.ID = "inputPanel" + eachNumber;
@@ -228,15 +230,26 @@ namespace TeploCorp.TeploUchet
         /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
         protected override bool PreSaveObject()
         {
+            var p = MainPanel.Controls.Count; //удалить 
             if (ctrlОбъект.SelectedMasterPK != "" && MainPanel.Controls.Count > 1 )
             {
-                //var MPcontrols = MainPanel.Controls;
-                LinqDataSource lq = new LinqDataSource();
-                var op = from ol in MainPanel.Controls
-                         where
-                var yu = lq.QueryCreated
-                var xx = 55 + 5;
-                
+                int col = MainPanel.Controls.Count;
+                int sectorsNumb = 0;
+                int[] sectorIndex = null;
+                for (int i = 0; i < col; i++)
+                {
+                    if (MainPanel.Controls[i].ID.Contains("mountList-") )
+                    {
+                        var keyFromMountList = MainPanel.Controls[i].GetType();
+                        keyFromMountList xuz = new keyFromMountList();
+                    }
+                    if ( MainPanel.Controls[i].ID.Contains("sector"))
+                    {
+
+                    }
+                };
+                for (int i = 0; )
+
             }
             ///TODO сообщение
             return false;
