@@ -1,0 +1,105 @@
+﻿
+table.calendar{
+    text-align:center;
+    font-size:14pt;
+    font-weight:bold;
+    outline:none;
+    border-color:#337ab7;
+    border-style:solid;
+    font-family:sans-serif;
+}
+.colorStandart{
+    background-color:#337ab7;
+    color:white;
+}
+.calendarDayNameRow{
+    background-color: #337ab7;
+    color:white;
+    text-align: center;
+}
+.textWhite{
+    color: white;
+}
+.calendarMonthNameCell{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+.btnStandart{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    border-style:solid;
+    color:#080808;
+    outline: none;
+    background-color:white;
+    cursor:pointer;
+    transition-duration:200ms;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+.btnStandart:hover{
+    background-color:#337ab7;
+    color:white;
+}
+.btnStandart:active{
+    box-shadow: #337ab7;
+    color:white;
+}
+.btnMedium{
+    width:40px;
+    height:40px;
+}
+.btnSmall{
+    width: 30px;
+    height: 30px;
+}
+.workDay{
+    color:white;
+    background-color:#428bca;
+}
+.holiday{
+    color:white;
+    background-color:#e16c5b;
+}
+.empty{
+    width:40px;
+    height:40px;
+}
+tr.calendarFooter{
+    font-weight:bold;
+    font-size:14pt;
+}
+td.calendarDay.workDay{
+    background-color:#c09853;
+    color:white;
+}
+.glyphiconStyle{
+    font-family: 'Glyphicons Halflings';
+    border-style: hidden;
+    vertical-align: middle;
+    text-align: center;
+}
+.inputSmall{
+    width:60px;
+    height: 25px;
+    text-align: center;
+}
+.smallCell{
+    height: 30px;
+    width: 40px;
+}
+.rotate180{
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+.glyphicon-chevron-up{
+    background:url(../Icons/glyphicons-chevron-up.png) no-repeat;
+}
+.glyphicon-chevron-down{
+    background:url(../Icons/glyphicons-chevron-down.png) no-repeat;
+}
+.background-center{
+    background-position: center center;
+}
