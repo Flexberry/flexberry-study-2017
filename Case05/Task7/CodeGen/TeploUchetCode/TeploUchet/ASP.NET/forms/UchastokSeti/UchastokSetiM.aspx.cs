@@ -102,7 +102,7 @@ namespace TeploCorp.TeploUchet
                         var eachKey = each.__PrimaryKey.ToString();
                         //панель участка(информация) = номер, тип изоляции, номер для сортировки(hide)
                         Panel panel = new Panel();
-                        panel.ID = each.__PrimaryKey.ToString();
+                        panel.ID = "panel-" + eachKey;
                         panel.CssClass = "sector sector-" + each.Номер.ToString() + " draggable";
                         if (each.ТипМонтажа == ЗначенияМонтажа.Надземный) { panel.CssClass = panel.CssClass + " overground"; }
                         if (each.ТипМонтажа == ЗначенияМонтажа.Подземный) { panel.CssClass = panel.CssClass + " underground"; }
@@ -150,9 +150,9 @@ namespace TeploCorp.TeploUchet
                         //теплоизоляция
                         Label insulationLabel2 = new Label();
                         insulationLabel2.Text = "Тип теплоизоляции: ";
-                        TextBox infoNumber = new TextBox();
-                        infoNumber.ID = "infoNumber-" + eachKey;
-                        infoNumber.Text = each.Номер.ToString();
+                        TextBox insulation = new TextBox();
+                        insulation.ID = "insulation-" + eachKey;
+                        insulation.Text = each.Номер.ToString();
                         //датапрокладки
                         Label dateLabel = new Label();
                         dateLabel.Text = "Дата прокладки";
@@ -171,7 +171,7 @@ namespace TeploCorp.TeploUchet
                         inputPanel.Controls.Add(mountLabel);
                         inputPanel.Controls.Add(mount);
                         inputPanel.Controls.Add(insulationLabel2);
-                        inputPanel.Controls.Add(infoNumber);
+                        inputPanel.Controls.Add(insulation);
                         inputPanel.Controls.Add(dateLabel);
                         inputPanel.Controls.Add(date);
                         inputPanel.Controls.Add(btn);
@@ -231,25 +231,47 @@ namespace TeploCorp.TeploUchet
         protected override bool PreSaveObject()
         {
             var p = MainPanel.Controls.Count; //удалить 
-            if (ctrlОбъект.SelectedMasterPK != "" && MainPanel.Controls.Count > 1 )
+
+            if (ctrlОбъект.SelectedMasterPK != "" )
             {
-                int col = MainPanel.Controls.Count;
-                int sectorsNumb = 0;
-                int[] sectorIndex = null;
-                for (int i = 0; i < col; i++)
+                var objectKey = ctrlОбъект.SelectedMasterPK;
+                IDataService _dataService = DataServiceProvider.DataService;
+                var Seti = _dataService.Query<УчастокСети>(УчастокСети.Views.УчастокСетиE)
+                                            .Where(x => x.Актуален == true)
+                                            .Where(x => x.Объект.__PrimaryKey.ToString() == objectKey);
+                foreach (var each in Seti)
                 {
-                    if (MainPanel.Controls[i].ID.Contains("mountList-") )
+                    var eachKey = each.__PrimaryKey.ToString();
+                    //тип прокладки
+                    var mountListCTRL = MainPanel.FindControl("mountList-" + eachKey);
+                    var mntCtrl = (DropDownList)mountListCTRL;
+                    if ( each.ТипМонтажа.ToString() != mntCtrl.SelectedValue )
                     {
-                        var keyFromMountList = MainPanel.Controls[i].GetType();
-                        keyFromMountList xuz = new keyFromMountList();
+                        if (mntCtrl.SelectedValue == "Надземная") { each.ТипМонтажа = ЗначенияМонтажа.Надземный; }
+                        if (mntCtrl.SelectedValue == "Подземная") { each.ТипМонтажа = ЗначенияМонтажа.Подземный; }
+                        if (mntCtrl.SelectedValue == "ПоПодвалу") { each.ТипМонтажа = ЗначенияМонтажа.ПоПодвалу; }
                     }
-                    if ( MainPanel.Controls[i].ID.Contains("sector"))
-                    {
+                    //теплоизоляция
+                    var insulationCTRL = MainPanel.FindControl("insulation-" + eachKey);
+                    TextBox insCTRL = (TextBox)insulationCTRL;
+                    if (each.Теплоизоляция != insCTRL.Text) { each.Теплоизоляция = insCTRL.Text; }
 
-                    }
-                };
-                for (int i = 0; )
+                    //дата прокладки
+                    var dateCTRL = MainPanel.FindControl("date-" + eachKey);
+                    DatePicker dtCTRL = (DatePicker)dateCTRL;
+                    dtCTRL.OnlyDate = true;
+                    if (each.ГодПрокладки != dtCTRL.Value) { each.ГодПрокладки = dtCTRL.Value; }
+                    //вид сети
+                    var typeCTRL =  MainPanel.FindControl("panel-" + eachKey);
+                    Panel tpCTRL = (Panel)typeCTRL;
 
+                    //вне объкта = наружная
+                    if ( tpCTRL.CssClass.ToString().Contains("plans") && each.ТипСети.ToString() != "Наружная")
+                        { each.ТипСети = ТипыСети.Наружная; }
+                    //в объекте = внутренняя
+                    if ( tpCTRL.CssClass.ToString().Contains("objects") && each.ТипСети.ToString() == "Наружная")
+                        { each.ТипСети = ТипыСети.Внутренняя; }
+                }
             }
             ///TODO сообщение
             return false;
@@ -295,3 +317,4 @@ namespace TeploCorp.TeploUchet
         }
     }
 }
+ 

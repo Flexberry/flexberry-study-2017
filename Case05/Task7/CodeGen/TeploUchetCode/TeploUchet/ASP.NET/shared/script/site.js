@@ -78,6 +78,8 @@ $(document).ready(function () {
                 drop: function () {
                     console.log("Start Add Sector in Object+++++++++++");
                     $(this).append(addsector); // добавляем сектор в объект
+                    addsector.addClass("objects");
+                    addsector.removeClass("plans");
 
                     var col = $('.sector', $(this)); //все элементы сектор в объекте
                     col.each(function (index, element) {
@@ -101,7 +103,7 @@ $(document).ready(function () {
                     };
                     console.log("End to add sectors");
                     console.log("End to Add in Object-----------");
-
+                    //сортируем план по порядку
                     buildScheme($(this));
                 },
 
@@ -109,6 +111,8 @@ $(document).ready(function () {
                 out: function () {
                     console.log("Start Add Sector in plan+++++++++++");
                     $('.plan').append(addsector); // добавляем сектор в схему
+                    addsector.addClass("plans");
+                    addsector.removeClass("objects");
 
                     var col = $('.plan > .sector'); //получаем все элементы сектор
                     col.each(function (index, element) {
