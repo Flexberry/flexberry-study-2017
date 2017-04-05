@@ -61,16 +61,16 @@ ErrorMessage="Не указано: ТипМонтажа" EnableClientScript="tru
 ErrorMessage="Не указано: ТипСети" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
 </div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Дата прокладки" EnableViewState="False">
-</asp:Label>
-<div class="descTxt">
-    <ac:DatePicker ID="ctrlГодПрокладки" runat="server"/>
-</div>
-<asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
-ErrorMessage="Не указано: ГодПрокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
+    <div class="clearfix">
+        <asp:Label CssClass="descLbl" ID="ctrlГодПрокладкиLabel" runat="server" Text="Дата прокладки" EnableViewState="False">
+        </asp:Label>
+        <div class="descTxt">
+            <ac:DatePicker ID="ctrlГодПрокладки" runat="server" />
+        </div>
+        <asp:RequiredFieldValidator ID="ctrlГодПрокладкиValidator" runat="server" ControlToValidate="ctrlГодПрокладки"
+            ErrorMessage="Не указана: дата прокладки" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
-</div>
+    </div>
 <div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlОбъектLabel" runat="server" Text="Объект" EnableViewState="False">
 </asp:Label>

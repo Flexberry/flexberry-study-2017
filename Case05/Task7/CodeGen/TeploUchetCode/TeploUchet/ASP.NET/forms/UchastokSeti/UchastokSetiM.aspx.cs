@@ -157,6 +157,7 @@ namespace TeploCorp.TeploUchet
                         Label dateLabel = new Label();
                         dateLabel.Text = "Дата прокладки";
                         DatePicker date = new DatePicker();
+                        date.DateFormat = "dd.mm.yyyy";
                         date.ID = "date-" + eachKey; 
                         date.Value = each.ГодПрокладки;
                         //кнопка ок
@@ -259,7 +260,7 @@ namespace TeploCorp.TeploUchet
                     //дата прокладки
                     var dateCTRL = MainPanel.FindControl("date-" + eachKey);
                     DatePicker dtCTRL = (DatePicker)dateCTRL;
-                    dtCTRL.OnlyDate = true;
+                    //dtCTRL.OnlyDate = true;
                     if (each.ГодПрокладки != dtCTRL.Value) { each.ГодПрокладки = dtCTRL.Value; }
                     //вид сети
                     var typeCTRL =  MainPanel.FindControl("panel-" + eachKey);
@@ -271,6 +272,7 @@ namespace TeploCorp.TeploUchet
                     //в объекте = внутренняя
                     if ( tpCTRL.CssClass.ToString().Contains("objects") && each.ТипСети.ToString() == "Наружная")
                         { each.ТипСети = ТипыСети.Внутренняя; }
+                    return base.PreSaveObject();
                 }
             }
             ///TODO сообщение
