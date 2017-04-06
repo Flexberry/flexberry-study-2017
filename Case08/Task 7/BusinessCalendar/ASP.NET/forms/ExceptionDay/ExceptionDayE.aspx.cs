@@ -95,5 +95,21 @@ namespace IIS.BusinessCalendar
             }
             return base.SaveObject();
         }
+        protected override void PostSaveObject()
+        {
+            try
+            {
+                bool openModal = (string)Request["_flex-md"].ToLower() == "true";
+                if (openModal)
+                {
+                    Response.Redirect("/forms/ExceptionDayRedirecter.aspx?ReturnURL=" + Request["ReturnURL"]);
+                }
+            }
+            catch (System.NullReferenceException)
+            {
+                throw;
+            }
+            base.PostSaveObject();
+        }
     }
 }

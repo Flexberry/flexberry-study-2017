@@ -413,7 +413,8 @@ namespace IIS.BusinessCalendar
                 EndDate = this.EndDate.Subtract(new DateTime(1970, 1, 1, 0, 0, 0,DateTimeKind.Utc)).TotalMilliseconds,
                 RecurrenceCount = this.RecurrenceCount,
                 RepeatStep = this.RepeatStep,
-                RecurrenceType = this.RecurrenceType.ToString()
+                RecurrenceType = this.RecurrenceType.ToString(),
+                Name = this.Name
             };
         }
 

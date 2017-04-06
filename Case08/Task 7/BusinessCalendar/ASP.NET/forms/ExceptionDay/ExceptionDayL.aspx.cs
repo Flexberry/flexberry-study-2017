@@ -4,6 +4,9 @@ namespace IIS.BusinessCalendar
     using System;
     using System.Linq;
     using System.Collections.Generic;
+    using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Web.Controls;
 
@@ -11,6 +14,7 @@ namespace IIS.BusinessCalendar
 
     public partial class ExceptionDayL : BaseListForm<ExceptionDay>
     {
+        private Function ExceptionDayLimiter;
         /// <summary>
         /// Конструктор без параметров,
         /// инициализирует свойства, соответствующие конкретной форме.
@@ -35,6 +39,11 @@ namespace IIS.BusinessCalendar
         {
             WebObjectListView1.Operations.OpenEditorInNewWindow = true;
             WebObjectListView1.Operations.OpenEditorInModalWindow = true;
+            var ld = SQLWhereLanguageDef.LanguageDef;
+            ExceptionDayLimiter = ld.GetFunction(ld.funcEQ,
+                                                new VariableDef(ld.GuidType, Information.ExtractPropertyPath<ExceptionDay>(e => e.Calendar.__PrimaryKey)),
+                                                Request["CalendarID"]);
+            WebObjectListView1.LimitFunction = this.ExceptionDayLimiter;
         }
 
         /// <summary>
@@ -42,11 +51,31 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Postload()
         {
+            bindCalendarDataSource();
+        }
+
+        protected void WebObjectListView1_ObjectsDeleted(ICSSoft.STORMNET.Web.AjaxControls.WebObjectListView sender, ICSSoft.STORMNET.Web.Tools.WOLVFeatures.WolvObjectDeletedEventArgs args)
+        {
+            bindCalendarDataSource();
+        }
+
+        protected void WebObjectListView1_ObjectAdding(ICSSoft.STORMNET.Web.AjaxControls.WebObjectListView sender, ICSSoft.STORMNET.Web.Tools.WOLVFeatures.WolvEventArgs args)
+        {
+            bindCalendarDataSource();
+        }
+
+        protected void WebObjectListView1_ObjectEditing(ICSSoft.STORMNET.Web.AjaxControls.WebObjectListView sender, ICSSoft.STORMNET.Web.Tools.WOLVFeatures.WolvObjectEditingEventArgs args)
+        {
+            bindCalendarDataSource();
+        }
+
+        private void bindCalendarDataSource()
+        {
             using (var ds = (SQLDataService)DataServiceProvider.DataService)
             {
                 List<ExceptionDay> exceptionDays = ds.LoadObjects(ExceptionDay.Views.ExceptionDayE).Cast<ExceptionDay>().ToList();
                 List<ExcDay> excDays = Converter.ExceptionDaysToShort(exceptionDays);
-                ctrlCalendarView.DataSource = excDays;            
+                ctrlCalendarView.DataSource = excDays;
             }
         }
     }

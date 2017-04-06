@@ -36,5 +36,9 @@ namespace IIS.BusinessCalendar
         /// Тип повторения
         /// </summary>
         public string RecurrenceType { get; set; }
+        /// <summary>
+        /// Название дня исключения
+        /// </summary>
+        public string Name { get; set; }
     }
 }

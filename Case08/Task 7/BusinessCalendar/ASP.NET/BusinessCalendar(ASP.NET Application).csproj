@@ -514,6 +514,7 @@
     <Content Include="Controls\TimeSpanView\JavaScript\jquery.TimeSpans.js" />
     <Content Include="Controls\TimeSpanView\TimeSpanView.ascx" />
     <Content Include="CSS\Site.css" />
+    <Content Include="forms\ExceptionDayRedirecter.aspx" />
     <Content Include="forms\WorkTimeDefinition\WorkTimeDefinitionE.aspx" />
     <Compile Include="Controls\Calendar\CalendarView.ascx.cs">
       <DependentUpon>CalendarView.ascx</DependentUpon>
@@ -528,6 +529,13 @@
     </Compile>
     <Compile Include="Controls\TimeSpanView\TimeSpanView.ascx.designer.cs">
       <DependentUpon>TimeSpanView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ExceptionDayRedirecter.aspx.cs">
+      <DependentUpon>ExceptionDayRedirecter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ExceptionDayRedirecter.aspx.designer.cs">
+      <DependentUpon>ExceptionDayRedirecter.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\WorkTimeDefinition\WorkTimeDefinitionE.aspx.cs">
       <DependentUpon>WorkTimeDefinitionE.aspx</DependentUpon>

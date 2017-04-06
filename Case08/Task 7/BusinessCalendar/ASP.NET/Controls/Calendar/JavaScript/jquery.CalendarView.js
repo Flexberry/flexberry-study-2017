@@ -79,16 +79,30 @@
                 tdCalendarYearNumber.innerText = attributes.curYear;
 
                 var btnPrevMonth = document.createElement("button");
-                btnPrevMonth.setAttribute("class","btnStandart btnMedium glyphiconStyle glyphicon-chevron-up background-center");
+                btnPrevMonth.setAttribute("class", "btnStandart btnMedium fa fa-chevron-down background-center");
+                btnPrevMonth.setAttribute("aria-hidden", "true");
                 btnPrevMonth.onclick = function () {
                     methods.goPrevMonth(container, sourceControl);
                 }
-                tdCalendarPrevMonth.appendChild(btnPrevMonth);
+                //tdCalendarPrevMonth.appendChild(btnPrevMonth);
+
+                tdCalendarPrevMonth.setAttribute("class", " btnMedium fa-chevron-up background-center glyphiconStyle btn-navigation");
+                tdCalendarPrevMonth.setAttribute("aria-hidden", "true");
+                tdCalendarPrevMonth.onclick = function () {
+                    methods.goPrevMonth(container, sourceControl);
+                }
 
                 var btnNextMonth = document.createElement("button");
-                btnNextMonth.setAttribute("class","btnStandart btnMedium glyphiconStyle glyphicon-chevron-down background-center");
+                btnNextMonth.setAttribute("class","btnMedium fa fa-chevron-down");
+                btnNextMonth.setAttribute("aria-hidden", "true");
                 btnNextMonth.onclick = function () { methods.goNextMonth(container, sourceControl); }
-                tdCalendarNextMonth.appendChild(btnNextMonth);
+                //tdCalendarNextMonth.appendChild(btnNextMonth);
+                
+                tdCalendarNextMonth.setAttribute("class", "btnMedium fa-chevron-down background-center glyphiconStyle btn-navigation");
+                tdCalendarNextMonth.setAttribute("aria-hidden", "true");
+                tdCalendarNextMonth.onclick = function () {
+                    methods.goNextMonth(container, sourceControl);
+                }
 
                 trCalendarHead.appendChild(tdCalendarMonthName);
                 trCalendarHead.appendChild(tdCalendarYearNumber);
@@ -115,7 +129,8 @@
                         var td = document.createElement("td");
                         var btn = document.createElement("button");
                         btn.setAttribute("data-currentDate",dateStart.getTime());
-                        btn.setAttribute("data-dayId","");
+                        btn.setAttribute("data-dayId", "");
+                        btn.setAttribute("data-title", "Пусто");
                         btn.setAttribute("id","btnDay_" + btnDayId.toString());
                         btn.setAttribute("class","btnStandart btnMedium");
                         btn.type = "button";
@@ -245,23 +260,22 @@
          * @param {DOM} btn кнопка дня - календаря
          */
         openEditForm: function (btn) {
+            
             var ExcDayId = $(btn).data("dayid");
             var URL = "";
-            if (ExcDayId !== ""){
-                URL = "ExceptionDayE.aspx?PK=" + ExcDayId + "&_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
+            if (ExcDayId !== "") {
+                URL = "ExceptionDayE.aspx?PK=" + ExcDayId + "&ReturnURL=" + location.href + "&_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
             } else {
-                URL = "ExceptionDayE.aspx?_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
-            }
+                URL = "ExceptionDayE.aspx?ReturnURL=" + location.href + "&_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
+            };
             $.ics.dialog.modal({
                 href: URL,
                 modal: false,
-                height: 600,
                 width: 700,
-                callback: function () {
-                    $('#' + WolVID).icsWolv("refresh");
-                }
-            })
+                height: 600
+            });
         },
+        
         /**
          * Метод убирает день-исключение из html-разметки календаря с учетом повторений
          * 
@@ -313,6 +327,10 @@
             var stringDate = date.getTime();
             if (Option) {
                 $("button[data-currentdate=\"" + stringDate + "\"]").data("dayid", day.PrimaryKey);
+                var btn = $("button[data-currentdate=\"" + stringDate + "\"]")[0];
+                if(btn){
+                    btn.dataset.title = day.Name;
+                }
                 $("button[data-currentdate=\"" + stringDate + "\"]").addClass("holiday");
             } else {
                 $("button[data-currentdate=\"" + stringDate + "\"]").data("dayid", "");

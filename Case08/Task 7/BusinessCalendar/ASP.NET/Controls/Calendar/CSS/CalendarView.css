@@ -23,13 +23,29 @@ table.calendar{
 .calendarMonthNameCell{
     text-align: center;
     font-family: sans-serif;
+    background-color:white;
     font-size: 24px;
+}
+.btn-navigation{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    color:#080808;
+    outline: none;
+    background-color:white;
+    cursor:pointer;
+    transition-duration:200ms;
+}
+.btn-navigation:hover {
+    background-color:#337ab7;
+    color:white;
 }
 .btnStandart{
     display:table-cell;
     vertical-align:middle;
     text-align:center;
     border-style:solid;
+    border-color:#337ab7;
     color:#080808;
     outline: none;
     background-color:white;
@@ -42,6 +58,24 @@ table.calendar{
     background-color:#337ab7;
     color:white;
 }
+.btnStandart:hover::after {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: auto;
+    top: auto;
+    height: 20px;
+    background-color: aqua;
+    color: black;
+    width: auto;
+    box-shadow: 0px 0px 14px 2px rgba(81,100,219,1);
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 10px;
+}
+
 .btnStandart:active{
     box-shadow: #337ab7;
     color:white;
@@ -75,8 +109,7 @@ td.calendarDay.workDay{
     color:white;
 }
 .glyphiconStyle{
-    font-family: 'Glyphicons Halflings';
-    border-style: hidden;
+    font: normal normal normal 14px/1 FontAwesome;
     vertical-align: middle;
     text-align: center;
 }

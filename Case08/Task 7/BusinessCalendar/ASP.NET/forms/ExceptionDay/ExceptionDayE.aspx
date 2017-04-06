@@ -104,5 +104,6 @@
         var txtEndDate = document.getElementById('<%= ctrlEndDate.ClientID%>');
         var closeBtn = document.getElementById('<%= CancelBtn.ClientID%>');
         var saveAndCloseBtn = document.getElementById('<%= SaveAndCloseBtn.ClientID%>');
+
     </script>
 </asp:Content>

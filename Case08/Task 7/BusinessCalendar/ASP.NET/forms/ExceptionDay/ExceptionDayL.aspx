@@ -9,7 +9,10 @@
             <div class="marginStandart">
                 <ac:CalendarView ID="ctrlCalendarView" runat="server" />
             </div>
-            <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" />
+            <ac:WebObjectListView ID="WebObjectListView1" runat="server" Visible="true" 
+                OnObjectsDeleted="WebObjectListView1_ObjectsDeleted" 
+                OnObjectAdding="WebObjectListView1_ObjectAdding" 
+                OnObjectEditing="WebObjectListView1_ObjectEditing"/>
         </div>
     </div>
     
