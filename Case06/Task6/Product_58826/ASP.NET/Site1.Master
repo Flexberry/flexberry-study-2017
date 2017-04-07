@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <%-- Мета-тэг X-UA-Compatible должен быть самым первым. --%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        <asp:ContentPlaceHolder ID="PageTitlePlaceholder" runat="server" />
+        <asp:Localize ID="Localize1" Text="<%$ Resources: Resource, Master_Page_Title %>" runat="server"></asp:Localize>
+    </title>
+    <asp:ContentPlaceHolder ID="AddToHeadPlaceholder" runat="server" />
+    <asp:Placeholder ID="FlexberryStyles" runat="server" />
+</head>
+<%--
+    Тэг "body" является отдельным контролом для корректной работы PlaceholderPageContentConnector
+    при отсутствии плейсхолдеров "FlexberryScripts" и "FlexberryRawHtml" ("body" должен быть
+    отдельным контролом, а не входить в LiteralControl).
+    Если PlaceholderPageContentConnector не используется, то можно убрать runat="server" и устанавливать
+    его CSS-класс прямо в разметке.
+ --%>
+<body ID="body" runat="server">
+    <form id="pageForm" runat="server" class="page-form">
+        <div class="page-wrap">
+            <div class="page-header">
+                <div class="page-header-image"><a href="/Default.aspx"></a></div>
+                <div class="page-header-caption"><a href="/Default.aspx">Название проекта</a></div>
+                <div class="page-header-userbar">
+                    <asp:Label ID="fio" runat="server" Text="YourUserID" />
+                    <asp:LinkButton CssClass="exit-btn" ID="ExitButton" runat="server" OnClick="ExitButtonClickHandler">Выход</asp:LinkButton>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <a href="#" runat="server" id="pageTreeViewShowHideBtn" onclick="ShowHideNavigate(); return false;"><span id="treeviewHideSpan" runat="server">
+                    <asp:Localize ID="TreeviewHideText" runat="server" Text="<%$ Resources: Resource, Menu_Hide %>"></asp:Localize></span><span id="treeviewShowSpan" runat="server"><asp:Localize ID="TreeviewShowText" runat="server" Text="<%$ Resources: Resource, Menu_Show %>"></asp:Localize></span></a>
+                <asp:SiteMapPath ID="SiteMapPath" runat="server" CssClass="page-breadcrumbs" SkinID="SiteMapPath" />
+            </div>
+            <div id="pageBlockTreeview" runat="server">
+                <div class="treeview-wrapper">
+                    <ac:IcsTreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" SkinID="NavigateTreeView" />
+                </div>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" ShowStartingNode="False" runat="server" />
+            </div>
+            <div id="pageBlockContent" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+            </div>
+            <div class="page-empty"></div>
+        </div>
+        <div class="page-footer">
+            <asp:DropDownList ID="themesList" OnSelectedIndexChanged="OnThemeChangedHandler" AutoPostBack="True" runat="server">
+                <asp:ListItem />
+                <asp:ListItem Value="Default" />
+                <asp:ListItem Value="Spring" />
+                <asp:ListItem Value="Smart" />
+                <asp:ListItem Value="Light" />
+            </asp:DropDownList>
+            <asp:Localize ID="CopyrightText" Text="<%$ Resources: Resource, Footer_Copyright %>" runat="server" />
+        </div>
+        <asp:HiddenField ID="Menu" runat="server" />
+        <asp:HiddenField ID="Menu_copy" runat="server" />
+
+        <div id="hiddenContent">
+            <div id="TB_saveDialog">
+                <div ID="ImgLoading"></div>
+                <asp:Localize ID="TxtSaving" Text="<%$ Resources: Resource, Saving %>" runat="server">Сохранение...</asp:Localize>
+            </div>
+        </div>
+    </form>
+
+    <%-- Дополнительные блоки для подключения скриптов на страницах через PlaceholderPageContentConnector. --%>
+    <asp:Placeholder ID="FlexberryScripts" runat="server" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder0" runat="server"/>
+    <asp:Placeholder ID="FlexberryRawHtml" runat="server"/>
+</body>
+</html>

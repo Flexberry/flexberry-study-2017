@@ -1,0 +1,45 @@
+﻿<%-- ------ Theme Spring Style ------ --%>
+
+<asp:SiteMapPath SkinID="SiteMapPath" PathSeparator=" » " runat="server" />
+
+<%-- Site1.master --%>
+<ac:IcsTreeView runat="server" SkinID="NavigateTreeView" CssClass="ics-treeview">
+    <ParentNodeStyle CssClass="ics-treeview-node-parent" Font-Bold="False" />
+    <HoverNodeStyle CssClass="ics-treeview-node-hover" Font-Underline="False" />
+    <SelectedNodeStyle CssClass="ics-treeview-node-selected" Font-Underline="False" />
+    <NodeStyle CssClass="ics-treeview-node" ForeColor="Black" />
+</ac:IcsTreeView>
+<asp:CustomValidator runat="server" ForeColor="Red" CssClass="validator validator-custom" />
+<asp:RequiredFieldValidator runat="server" ForeColor="Red" CssClass="validator validator-field-required" />
+<asp:CompareValidator runat="server" ForeColor="Red" CssClass="validator validator-compare" />
+<asp:RangeValidator runat="server" ForeColor="Red" CssClass="validator validator-range" />
+<asp:RegularExpressionValidator runat="server" ForeColor="Red" CssClass="validator validator-regexp" />
+<asp:ValidationSummary runat="server" ForeColor="Red" CssClass="validator validator-summary" />
+<%-- Site1.master --%>
+
+<%-- Page --%>
+<asp:ImageButton SkinID="SaveBtn" runat="server"  ImageUrl="~/App_Themes/Spring/Images/transparent.png" CssClass="button-save" ToolTip="Сохранить" />
+<asp:ImageButton SkinID="SaveAndCloseBtn" runat="server" ImageUrl="~/App_Themes/Spring/Images/transparent.png" CssClass="button-saveclose" ToolTip="Сохранить и закрыть" />
+<asp:ImageButton SkinID="CancelBtn" runat="server" ImageUrl="~/App_Themes/Spring/Images/transparent.png" CssClass="button-close" ToolTip="Закрыть" />
+<%-- Page --%>
+
+<%-- WebObjectListView --%>
+<ac:WebObjectListView runat="server"
+    TopPagerPagesVisible="False"
+    TopPagerGoToPageVisible="False" 
+    TopPagerInlineGoToPage="False"
+    BottomPagerGoToPageVisible="False"
+    BottomPagerInlineGoToPage="True"
+    TopPagerFirstPagesCount="2"
+    TopPagerFirstPagesWithoutSkippingCount="2"
+    TopPagerLastPagesCount="1"
+    TopPagerLastPagesWithoutSkippingCount="2"
+    BottomPagerFirstPagesCount="2"
+    BottomPagerFirstPagesWithoutSkippingCount="2"
+    BottomPagerLastPagesCount="1"
+    BottomPagerLastPagesWithoutSkippingCount="2"
+ />
+
+<%-- WebObjectListView --%>
+
+<asp:Image runat="server" SkinID="404Image" ImageUrl="~/App_Themes/Spring/Images/404.png"/>

@@ -1,0 +1,21 @@
+﻿@import '../../../BaseTheme/Controls/Messages/AlertMessage.less';
+
+/**
+ * Файл визуального оформления модальных окон с сообщениями.
+ */
+
+// Модальное окно.
+#@{alertContainerId} {
+    background-color: @modalWindowBackgroundColor;
+    color: @modalWindowContentColor;
+    -moz-box-shadow: 1px 1px 10px @modalWindowShadowColor;
+    -webkit-box-shadow: 1px 1px 10px @modalWindowShadowColor;
+    box-shadow: 1px 1px 10px @modalWindowShadowColor;
+
+    // Заголовок модального окна.
+    #@{alertTitleId} {
+        color: @modalWindowTitleColor;        
+    }
+}
+
+@import '_Settings.less';
