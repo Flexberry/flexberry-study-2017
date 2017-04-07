@@ -30,15 +30,6 @@
                     <asp:CheckBox ID="ctrlIsDefault" CssClass="descTxt" runat="server" Text="" />
                 </div>
                 <div class="clearfix">
-                    <asp:Label CssClass="descLbl" ID="ctrlCalendarLabel" runat="server" Text="Calendar" EnableViewState="False">
-                    </asp:Label>
-                    <ac:MasterEditorAjaxDropDown ID="ctrlCalendar" CssClass="descTxt" runat="server" EnablePostBack="false" />
-
-                    <asp:RequiredFieldValidator ID="ctrlCalendarValidator" runat="server" ControlToValidate="ctrlCalendar"
-                        ErrorMessage="Не указано: Calendar" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-                </div>
-                <div class="clearfix">
                     <asp:Label CssClass="descLbl" ID="ctrlMondayLabel" runat="server" Text="Понедельник" EnableViewState="False">
                     </asp:Label>
                     <ac:TimeSpanView ID="ctrlMondayTS" runat="server" />

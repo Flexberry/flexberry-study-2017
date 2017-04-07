@@ -36,6 +36,16 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void PreApplyToControls()
         {
+            if(Request["PK"] != null)
+            {
+                BtnDays.Visible = true;
+                BtnWeek.Visible = true;
+            }
+            else
+            {
+                BtnDays.Visible = false;
+                BtnWeek.Visible = false;
+            }
         }
 
         /// <summary>
@@ -72,12 +82,27 @@ namespace IIS.BusinessCalendar
             return base.SaveObject();
         }
 
-        protected void BtnGoDays_Click(object sender, System.EventArgs e)
+        protected void BtnDays_Click(object sender, System.EventArgs e)
         {
             try
             {
                 string PK = Request["PK"];
+                Session["CalendarID"] = Request["PK"];
                 Response.Redirect("~/forms/ExceptionDay/ExceptionDayL.aspx?CalendarID=" + PK);
+            }
+            catch (System.NullReferenceException)
+            {
+                throw;
+            }
+        }
+
+        protected void BtnWeek_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                string PK = Request["PK"];
+                Session["CalendarID"] = Request["PK"];
+                Response.Redirect("~/forms/Week/WeekL.aspx?CalendarID=" + PK);
             }
             catch (System.NullReferenceException)
             {

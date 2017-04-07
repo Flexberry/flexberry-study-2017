@@ -42,7 +42,20 @@ namespace IIS.BusinessCalendar
         private IIS.BusinessCalendar.WorkTimeDefinition fWorkTimeDefinition;
         
         // *** Start programmer edit section *** (WorkTimeSpan CustomMembers)
-
+        /// <summary>
+        /// Метод возвращает временной промежуток без циклических ссылок
+        /// </summary>
+        /// <returns></returns>
+        public TimeSpan ToShort()
+        {
+            return new TimeSpan()
+            {
+                StartTimeH = (int)Math.Truncate(this.StartTime),
+                StartTimeM = (int)((this.StartTime - Math.Truncate(this.StartTime)) * 100),
+                EndTimeH = (int)Math.Truncate(this.EndTime),
+                EndTimeM = (int)((this.EndTime - Math.Truncate(this.EndTime)) * 100)
+            };
+        }
         // *** End programmer edit section *** (WorkTimeSpan CustomMembers)
 
         

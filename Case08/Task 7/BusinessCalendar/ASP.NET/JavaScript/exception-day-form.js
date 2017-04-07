@@ -27,17 +27,7 @@
         ReCalculateValues();
     }
     txtEndDate.onchange = function () {
-        if ($(txtEndDate).validate("testForDate") && ($(txtStartDate).validate("testForEmpty")) && ($(txtRepStep).validate("testForPositiveInt"))) {
-            var startDateArr = txtStartDate.value.split('.');
-            var startDate = new Date(startDateArr[2], (startDateArr[1] - 1), startDateArr[0]);
-
-            var endDateArr = txtEndDate.value.split('.');
-            var endDate = new Date(endDateArr[2], (endDateArr[1] - 1), endDateArr[0]);
-
-            var repStep = parseInt(txtRepStep.value);
-
-            txtRecCount.value = CalculateRepCount(startDate, endDate, repStep, GetRecType());
-        }
+        ReCalculateValues();
     }
 
     txtRecCount.onchange = function () {

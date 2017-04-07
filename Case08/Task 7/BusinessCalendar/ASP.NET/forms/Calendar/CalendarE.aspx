@@ -23,8 +23,13 @@
 </asp:TextBox>
 
 </div>
-<div class="clearfix">
-    <asp:Button Text="Перейдти к дням" ID="BtnGoDays" OnClick="BtnGoDays_Click" runat="server" />
+<div class="margin-left-long">
+    <asp:LinkButton ID="BtnDays" OnClick="BtnDays_Click" runat="server" data-title="Перейти к дням-исключениям" CssClass="btn-large" EnableTheming="False">
+        <i class="fa-calendar font-normal" aria-hidden="true"></i>
+    </asp:LinkButton>
+    <asp:LinkButton ID="BtnWeek" OnClick="BtnWeek_Click" runat="server" data-title="Перейти к описанию рабочей недели" CssClass="btn-large" EnableTheming="False">
+        <i class="fa-briefcase font-normal" aria-hidden="true"></i>
+    </asp:LinkButton>
 </div>
 
 </div>

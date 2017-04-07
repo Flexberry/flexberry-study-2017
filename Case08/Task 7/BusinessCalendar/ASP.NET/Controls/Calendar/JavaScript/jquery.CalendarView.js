@@ -128,8 +128,8 @@
                     for(var cellNumber = 0; cellNumber < 7; cellNumber++){
                         var td = document.createElement("td");
                         var btn = document.createElement("button");
-                        btn.setAttribute("data-currentDate",dateStart.getTime());
-                        btn.setAttribute("data-dayId", "");
+                        btn.dataset.currentDate = dateStart.getTime();
+                        btn.dataset.dayId = "";
                         btn.setAttribute("data-title", "Пусто");
                         btn.setAttribute("id","btnDay_" + btnDayId.toString());
                         btn.setAttribute("class","btnStandart btnMedium");
@@ -261,21 +261,31 @@
          */
         openEditForm: function (btn) {
             
-            var ExcDayId = $(btn).data("dayid");
+            var ExcDayId = $(btn).data("day-id");
             var URL = "";
             if (ExcDayId !== "") {
                 URL = "ExceptionDayE.aspx?PK=" + ExcDayId + "&ReturnURL=" + location.href + "&_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
             } else {
                 URL = "ExceptionDayE.aspx?ReturnURL=" + location.href + "&_flex-nw=True&_flex-md=True&DisableSaveAndCloseBtn=true&DisableCloseBtn=true";
+                if (btn.dataset.currentDate != null) {
+                    URL += "&date=" + btn.dataset.currentDate;
+                }
             };
-            $.ics.dialog.modal({
+            var calendarModal = $.ics.dialog.modal({
                 href: URL,
                 modal: false,
                 width: 700,
                 height: 600
             });
+            $('#CalendarView').data("CalendarModal", calendarModal);
         },
-        
+        /**
+         * Метод закрывает окно редактирования дня-исключения
+         */
+        closeEditForm : function(){
+            var calendarModal = $('#CalendarView').data("CalendarModal");
+            calendarModal.close();
+        },
         /**
          * Метод убирает день-исключение из html-разметки календаря с учетом повторений
          * 
@@ -308,7 +318,7 @@
                     methods.markDay(date, day, true);
                 }
             } else {
-                while (date < dayEnd) {
+                while (date <= dayEnd) {
                     methods.markDay(date, day, true);
                 }
             }
@@ -326,15 +336,15 @@
         markDay: function(date, day, Option){
             var stringDate = date.getTime();
             if (Option) {
-                $("button[data-currentdate=\"" + stringDate + "\"]").data("dayid", day.PrimaryKey);
-                var btn = $("button[data-currentdate=\"" + stringDate + "\"]")[0];
+                $("button[data-current-date=\"" + stringDate + "\"]").data("day-id", day.PrimaryKey);
+                var btn = $("button[data-current-date=\"" + stringDate + "\"]")[0];
                 if(btn){
                     btn.dataset.title = day.Name;
                 }
-                $("button[data-currentdate=\"" + stringDate + "\"]").addClass("holiday");
+                $("button[data-current-date=\"" + stringDate + "\"]").addClass("holiday");
             } else {
-                $("button[data-currentdate=\"" + stringDate + "\"]").data("dayid", "");
-                $("button[data-currentdate=\"" + stringDate + "\"]").removeClass("holiday");
+                $("button[data-current-date=\"" + stringDate + "\"]").data("day-id", "");
+                $("button[data-current-date=\"" + stringDate + "\"]").removeClass("holiday");
             }
             switch (day.RecurrenceType) {
                 case "Daily":

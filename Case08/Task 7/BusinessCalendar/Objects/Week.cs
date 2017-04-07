@@ -25,7 +25,7 @@ namespace IIS.BusinessCalendar
     /// Week.
     /// </summary>
     // *** Start programmer edit section *** (Week CustomAttributes)
-
+    
     // *** End programmer edit section *** (Week CustomAttributes)
     [BusinessServer("IIS.BusinessCalendar.BusinessServer, BusinessCalendar(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
@@ -61,7 +61,10 @@ namespace IIS.BusinessCalendar
     [View("WeekL", new string[] {
             "Name as \'Название недели\'",
             "IsDefault as \'Стандартная\'",
-            "Calendar.Name as \'Календарь\'"})]
+            "Calendar",
+            "Calendar.Name as \'Календарь\'"}, Hidden=new string[] {
+            "Calendar",
+            "Calendar.Name"})]
     public class Week : ICSSoft.STORMNET.DataObject
     {
         
@@ -69,21 +72,21 @@ namespace IIS.BusinessCalendar
         
         private bool fIsDefault;
         
-        private IIS.BusinessCalendar.WorkTimeDefinition fTuesday;
-        
-        private IIS.BusinessCalendar.WorkTimeDefinition fThursday;
-        
-        private IIS.BusinessCalendar.WorkTimeDefinition fMonday;
-        
         private IIS.BusinessCalendar.WorkTimeDefinition fSunday;
-        
-        private IIS.BusinessCalendar.WorkTimeDefinition fFriday;
         
         private IIS.BusinessCalendar.Calendar fCalendar;
         
         private IIS.BusinessCalendar.WorkTimeDefinition fWednesday;
         
+        private IIS.BusinessCalendar.WorkTimeDefinition fMonday;
+        
         private IIS.BusinessCalendar.WorkTimeDefinition fSaturday;
+        
+        private IIS.BusinessCalendar.WorkTimeDefinition fTuesday;
+        
+        private IIS.BusinessCalendar.WorkTimeDefinition fFriday;
+        
+        private IIS.BusinessCalendar.WorkTimeDefinition fThursday;
         
         // *** Start programmer edit section *** (Week CustomMembers)
         private System.Collections.Generic.List<TimeSpan> fMondayTS;
@@ -407,102 +410,11 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Week.
         /// </summary>
-        // *** Start programmer edit section *** (Week.Tuesday CustomAttributes)
-
-        // *** End programmer edit section *** (Week.Tuesday CustomAttributes)
-        public virtual IIS.BusinessCalendar.WorkTimeDefinition Tuesday
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Week.Tuesday Get start)
-
-                // *** End programmer edit section *** (Week.Tuesday Get start)
-                IIS.BusinessCalendar.WorkTimeDefinition result = this.fTuesday;
-                // *** Start programmer edit section *** (Week.Tuesday Get end)
-
-                // *** End programmer edit section *** (Week.Tuesday Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Week.Tuesday Set start)
-
-                // *** End programmer edit section *** (Week.Tuesday Set start)
-                this.fTuesday = value;
-                // *** Start programmer edit section *** (Week.Tuesday Set end)
-
-                // *** End programmer edit section *** (Week.Tuesday Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Week.
-        /// </summary>
-        // *** Start programmer edit section *** (Week.Thursday CustomAttributes)
-
-        // *** End programmer edit section *** (Week.Thursday CustomAttributes)
-        public virtual IIS.BusinessCalendar.WorkTimeDefinition Thursday
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Week.Thursday Get start)
-
-                // *** End programmer edit section *** (Week.Thursday Get start)
-                IIS.BusinessCalendar.WorkTimeDefinition result = this.fThursday;
-                // *** Start programmer edit section *** (Week.Thursday Get end)
-
-                // *** End programmer edit section *** (Week.Thursday Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Week.Thursday Set start)
-
-                // *** End programmer edit section *** (Week.Thursday Set start)
-                this.fThursday = value;
-                // *** Start programmer edit section *** (Week.Thursday Set end)
-
-                // *** End programmer edit section *** (Week.Thursday Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Week.
-        /// </summary>
-        // *** Start programmer edit section *** (Week.Monday CustomAttributes)
-
-        // *** End programmer edit section *** (Week.Monday CustomAttributes)
-        public virtual IIS.BusinessCalendar.WorkTimeDefinition Monday
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Week.Monday Get start)
-
-                // *** End programmer edit section *** (Week.Monday Get start)
-                IIS.BusinessCalendar.WorkTimeDefinition result = this.fMonday;
-                // *** Start programmer edit section *** (Week.Monday Get end)
-
-                // *** End programmer edit section *** (Week.Monday Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Week.Monday Set start)
-
-                // *** End programmer edit section *** (Week.Monday Set start)
-                this.fMonday = value;
-                // *** Start programmer edit section *** (Week.Monday Set end)
-
-                // *** End programmer edit section *** (Week.Monday Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Week.
-        /// </summary>
         // *** Start programmer edit section *** (Week.Sunday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Sunday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Sunday"})]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Sunday
         {
             get
@@ -531,40 +443,11 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Week.
         /// </summary>
-        // *** Start programmer edit section *** (Week.Friday CustomAttributes)
-
-        // *** End programmer edit section *** (Week.Friday CustomAttributes)
-        public virtual IIS.BusinessCalendar.WorkTimeDefinition Friday
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Week.Friday Get start)
-
-                // *** End programmer edit section *** (Week.Friday Get start)
-                IIS.BusinessCalendar.WorkTimeDefinition result = this.fFriday;
-                // *** Start programmer edit section *** (Week.Friday Get end)
-
-                // *** End programmer edit section *** (Week.Friday Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Week.Friday Set start)
-
-                // *** End programmer edit section *** (Week.Friday Set start)
-                this.fFriday = value;
-                // *** Start programmer edit section *** (Week.Friday Set end)
-
-                // *** End programmer edit section *** (Week.Friday Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Week.
-        /// </summary>
         // *** Start programmer edit section *** (Week.Calendar CustomAttributes)
 
         // *** End programmer edit section *** (Week.Calendar CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Calendar"})]
         [NotNull()]
         public virtual IIS.BusinessCalendar.Calendar Calendar
         {
@@ -597,6 +480,8 @@ namespace IIS.BusinessCalendar
         // *** Start programmer edit section *** (Week.Wednesday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Wednesday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Wednesday"})]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Wednesday
         {
             get
@@ -625,9 +510,44 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Week.
         /// </summary>
+        // *** Start programmer edit section *** (Week.Monday CustomAttributes)
+
+        // *** End programmer edit section *** (Week.Monday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Monday"})]
+        public virtual IIS.BusinessCalendar.WorkTimeDefinition Monday
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.Monday Get start)
+
+                // *** End programmer edit section *** (Week.Monday Get start)
+                IIS.BusinessCalendar.WorkTimeDefinition result = this.fMonday;
+                // *** Start programmer edit section *** (Week.Monday Get end)
+
+                // *** End programmer edit section *** (Week.Monday Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.Monday Set start)
+
+                // *** End programmer edit section *** (Week.Monday Set start)
+                this.fMonday = value;
+                // *** Start programmer edit section *** (Week.Monday Set end)
+
+                // *** End programmer edit section *** (Week.Monday Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Week.
+        /// </summary>
         // *** Start programmer edit section *** (Week.Saturday CustomAttributes)
 
         // *** End programmer edit section *** (Week.Saturday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Saturday"})]
         public virtual IIS.BusinessCalendar.WorkTimeDefinition Saturday
         {
             get
@@ -650,6 +570,105 @@ namespace IIS.BusinessCalendar
                 // *** Start programmer edit section *** (Week.Saturday Set end)
 
                 // *** End programmer edit section *** (Week.Saturday Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Week.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.Tuesday CustomAttributes)
+
+        // *** End programmer edit section *** (Week.Tuesday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Tuesday"})]
+        public virtual IIS.BusinessCalendar.WorkTimeDefinition Tuesday
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.Tuesday Get start)
+
+                // *** End programmer edit section *** (Week.Tuesday Get start)
+                IIS.BusinessCalendar.WorkTimeDefinition result = this.fTuesday;
+                // *** Start programmer edit section *** (Week.Tuesday Get end)
+
+                // *** End programmer edit section *** (Week.Tuesday Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.Tuesday Set start)
+
+                // *** End programmer edit section *** (Week.Tuesday Set start)
+                this.fTuesday = value;
+                // *** Start programmer edit section *** (Week.Tuesday Set end)
+
+                // *** End programmer edit section *** (Week.Tuesday Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Week.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.Friday CustomAttributes)
+
+        // *** End programmer edit section *** (Week.Friday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Friday"})]
+        public virtual IIS.BusinessCalendar.WorkTimeDefinition Friday
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.Friday Get start)
+
+                // *** End programmer edit section *** (Week.Friday Get start)
+                IIS.BusinessCalendar.WorkTimeDefinition result = this.fFriday;
+                // *** Start programmer edit section *** (Week.Friday Get end)
+
+                // *** End programmer edit section *** (Week.Friday Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.Friday Set start)
+
+                // *** End programmer edit section *** (Week.Friday Set start)
+                this.fFriday = value;
+                // *** Start programmer edit section *** (Week.Friday Set end)
+
+                // *** End programmer edit section *** (Week.Friday Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Week.
+        /// </summary>
+        // *** Start programmer edit section *** (Week.Thursday CustomAttributes)
+
+        // *** End programmer edit section *** (Week.Thursday CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Thursday"})]
+        public virtual IIS.BusinessCalendar.WorkTimeDefinition Thursday
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Week.Thursday Get start)
+
+                // *** End programmer edit section *** (Week.Thursday Get start)
+                IIS.BusinessCalendar.WorkTimeDefinition result = this.fThursday;
+                // *** Start programmer edit section *** (Week.Thursday Get end)
+
+                // *** End programmer edit section *** (Week.Thursday Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Week.Thursday Set start)
+
+                // *** End programmer edit section *** (Week.Thursday Set start)
+                this.fThursday = value;
+                // *** Start programmer edit section *** (Week.Thursday Set end)
+
+                // *** End programmer edit section *** (Week.Thursday Set end)
             }
         }
         

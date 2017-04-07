@@ -3,7 +3,14 @@
 namespace IIS.BusinessCalendar
 {
     using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
     using ICSSoft.STORMNET.Web.Controls;
+    using System.Collections.Generic;
+    using ICSSoft.STORMNET.Collections;
+    using System.Linq;
+
+    using System;
     using ICSSoft.STORMNET.Web.AjaxControls;
     
     public partial class ExceptionDayE : BaseEditForm<ExceptionDay>
@@ -61,6 +68,13 @@ namespace IIS.BusinessCalendar
                     SaveAndCloseBtn.Visible = false;
                 }
             }
+            if((Request["date"] != null)&&(DataObject == null))
+            {
+                ctrlStartDate.Value = new DateTime(1970, 1, 1, 0, 0, 0)
+                                    .AddMilliseconds(Convert.ToInt64(Request["date"]));
+                ctrlEndDate.Value = new DateTime(1970, 1, 1, 0, 0, 0)
+                    .AddMilliseconds(Convert.ToInt64(Request["date"]));
+            }
             Page.Validate();
         }
 
@@ -90,7 +104,16 @@ namespace IIS.BusinessCalendar
         protected override DataObject SaveObject()
         {
             if((DataObject != null) && ((DataObject.GetStatus() == ObjectStatus.Created)|| (ctrlWorkTimeSpans.Status == ObjectStatus.Altered)))
-            {
+            {   
+                using (var ds = (SQLDataService)DataServiceProvider.DataService)
+                {
+                    object calendarID = Session["CalendarID"];
+                    Calendar calendar = ds.Query<Calendar>()
+                                                    .Where(c => c.__PrimaryKey == calendarID)
+                                                    .First();
+                    ds.LoadObject(calendar);
+                    DataObject.Calendar = calendar;
+                }
                 TSSaveHelper.UpdateTimeSpans(DataObject);
             }
             return base.SaveObject();
@@ -99,7 +122,7 @@ namespace IIS.BusinessCalendar
         {
             try
             {
-                bool openModal = (string)Request["_flex-md"].ToLower() == "true";
+                bool openModal = "true".Equals(Request["_flex-md"], StringComparison.InvariantCultureIgnoreCase);
                 if (openModal)
                 {
                     Response.Redirect("/forms/ExceptionDayRedirecter.aspx?ReturnURL=" + Request["ReturnURL"]);

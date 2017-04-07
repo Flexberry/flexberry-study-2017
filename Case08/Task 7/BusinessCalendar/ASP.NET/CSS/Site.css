@@ -4,3 +4,38 @@
     margin-right:20px;
     margin-bottom:20px;
 }
+.margin-left-long{
+    margin-left:100px;
+}
+.btn-large{
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border-radius: 6px;
+    transition-duration:200ms;
+    font:normal normal normal 50pt FontAwesome;
+    text-decoration:none;
+}
+.btn-large:hover::after{
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: auto;
+    top: auto;
+    height: 20px;
+    background-color: rgba(175, 173, 255, 1);
+    color: black;
+    width: auto;
+    font-weight: bold;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 10pt;
+}
+.font-normal{
+    font-style:normal;
+}

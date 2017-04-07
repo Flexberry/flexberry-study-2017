@@ -2,7 +2,10 @@
 
 namespace IIS.BusinessCalendar
 {
+    using System.Linq;
     using ICSSoft.STORMNET;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
     
@@ -74,6 +77,15 @@ namespace IIS.BusinessCalendar
                 switch (DataObject.GetStatus())
                 {
                     case ObjectStatus.Created:
+                        using (var ds = (SQLDataService)DataServiceProvider.DataService)
+                        {
+                            object calendarId = Session["CalendarID"];
+                            Calendar calendar = ds.Query<Calendar>()
+                                            .Where(c => c.__PrimaryKey == calendarId)
+                                            .First();
+                            ds.LoadObject(calendar);
+                            DataObject.Calendar = calendar;
+                        }                      
                         TSSaveHelper.CreateTimeSpans(DataObject);
                         break;
                     case ObjectStatus.Deleted:

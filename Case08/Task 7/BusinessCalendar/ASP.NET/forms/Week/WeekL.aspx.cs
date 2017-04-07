@@ -2,8 +2,10 @@
 namespace IIS.BusinessCalendar
 {
     using System;
+    using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
-
+    using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
     using Resources;
 
     public partial class WeekL : BaseListForm<Week>
@@ -30,6 +32,19 @@ namespace IIS.BusinessCalendar
         /// </summary>
         protected override void Preload()
         {
+            WebObjectListView1.Operations.OpenEditorInNewWindow = true;
+            WebObjectListView1.Operations.OpenEditorInModalWindow = true;
+            
+            if(Request["CalendarID"] != null)
+            {
+                var ld = SQLWhereLanguageDef.LanguageDef;
+                object calendarID = Request["CalendarID"];
+
+                WebObjectListView1.LimitFunction = ld.GetFunction(ld.funcEQ,
+                                                    new VariableDef(ld.GuidType, Information.ExtractPropertyName<Week>(w => w.Calendar)),
+                                                    Request["CalendarID"]);
+            }    
+            
         }
 
         /// <summary>

@@ -11,7 +11,6 @@ namespace IIS.BusinessCalendar.forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ExceptionDayURL.Value = Request["ReturnURL"];
         }
     }
 }

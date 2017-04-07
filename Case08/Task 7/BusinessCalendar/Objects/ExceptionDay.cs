@@ -44,7 +44,9 @@ namespace IIS.BusinessCalendar
             "Calendar.Name as \'Название календаря\'",
             "WorkTimeDefinition as \'Определение рабочего времени\'",
             "WorkTimeDefinition.SumTime as \'Сумма рабочего времени\'"}, Hidden=new string[] {
+            "Calendar",
             "Calendar.Name",
+            "WorkTimeDefinition",
             "WorkTimeDefinition.SumTime"})]
     [MasterViewDefineAttribute("ExceptionDayE", "Calendar", ICSSoft.STORMNET.LookupTypeEnum.Combo, "", "Name")]
     [View("ExceptionDayL", new string[] {
@@ -56,8 +58,13 @@ namespace IIS.BusinessCalendar
             "EndDate as \'Дата окончания\'",
             "RecurrenceCount as \'Количество повторений\'",
             "WorkTimeSpans as \'Временные промежутки\'",
+            "Calendar",
             "Calendar.Name as \'Название\'",
-            "WorkTimeDefinition.SumTime as \'Сумма рабочего времени\'"})]
+            "WorkTimeDefinition.SumTime as \'Сумма рабочего времени\'"}, Hidden=new string[] {
+            "WorkTimeSpans",
+            "Calendar",
+            "Calendar.Name",
+            "WorkTimeDefinition.SumTime"})]
     public class ExceptionDay : ICSSoft.STORMNET.DataObject
     {
         
@@ -75,12 +82,31 @@ namespace IIS.BusinessCalendar
         
         private int fRecurrenceCount;
         
-        private IIS.BusinessCalendar.Calendar fCalendar;
-        
         private IIS.BusinessCalendar.WorkTimeDefinition fWorkTimeDefinition;
+        
+        private IIS.BusinessCalendar.Calendar fCalendar;
         
         // *** Start programmer edit section *** (ExceptionDay CustomMembers)
         private System.Collections.Generic.List<TimeSpan> fWorkTimeSpans;
+
+        /// <summary>
+        /// Метод возвращает "День-исключение" без циклических ссылок
+        /// </summary>
+        /// <returns></returns>
+        public ExcDay ToShort()
+         { 
+             return new ExcDay()
+             { 
+                 PrimaryKey = this.__PrimaryKey.ToString(), 
+                 StartDate = this.StartDate.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds, 
+                 EndDate = this.EndDate.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds, 
+                 RecurrenceCount = this.RecurrenceCount, 
+                 RepeatStep = this.RepeatStep, 
+                 RecurrenceType = this.RecurrenceType.ToString(), 
+                 Name = this.Name 
+             }; 
+         }
+
         // *** End programmer edit section *** (ExceptionDay CustomMembers)
 
         
@@ -340,38 +366,6 @@ namespace IIS.BusinessCalendar
         /// <summary>
         /// Exception day.
         /// </summary>
-        // *** Start programmer edit section *** (ExceptionDay.Calendar CustomAttributes)
-
-        // *** End programmer edit section *** (ExceptionDay.Calendar CustomAttributes)
-        [NotNull()]
-        public virtual IIS.BusinessCalendar.Calendar Calendar
-        {
-            get
-            {
-                // *** Start programmer edit section *** (ExceptionDay.Calendar Get start)
-
-                // *** End programmer edit section *** (ExceptionDay.Calendar Get start)
-                IIS.BusinessCalendar.Calendar result = this.fCalendar;
-                // *** Start programmer edit section *** (ExceptionDay.Calendar Get end)
-
-                // *** End programmer edit section *** (ExceptionDay.Calendar Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (ExceptionDay.Calendar Set start)
-
-                // *** End programmer edit section *** (ExceptionDay.Calendar Set start)
-                this.fCalendar = value;
-                // *** Start programmer edit section *** (ExceptionDay.Calendar Set end)
-
-                // *** End programmer edit section *** (ExceptionDay.Calendar Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Exception day.
-        /// </summary>
         // *** Start programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
 
         // *** End programmer edit section *** (ExceptionDay.WorkTimeDefinition CustomAttributes)
@@ -401,23 +395,39 @@ namespace IIS.BusinessCalendar
         }
         
         /// <summary>
-        /// Метод "сокращает день-исключение", отделяя от него циклические ссылки
+        /// Exception day.
         /// </summary>
-        /// <returns>Вовзвращает сокращённый "день-исключение"</returns>
-        public ExcDay ToShort()
-        {
-            return new ExcDay()
-            {
-                PrimaryKey = this.__PrimaryKey.ToString(),
-                StartDate = this.StartDate.Subtract(new DateTime(1970, 1, 1, 0, 0, 0,DateTimeKind.Utc)).TotalMilliseconds,
-                EndDate = this.EndDate.Subtract(new DateTime(1970, 1, 1, 0, 0, 0,DateTimeKind.Utc)).TotalMilliseconds,
-                RecurrenceCount = this.RecurrenceCount,
-                RepeatStep = this.RepeatStep,
-                RecurrenceType = this.RecurrenceType.ToString(),
-                Name = this.Name
-            };
-        }
+        // *** Start programmer edit section *** (ExceptionDay.Calendar CustomAttributes)
 
+        // *** End programmer edit section *** (ExceptionDay.Calendar CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Calendar"})]
+        [NotNull()]
+        public virtual IIS.BusinessCalendar.Calendar Calendar
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ExceptionDay.Calendar Get start)
+
+                // *** End programmer edit section *** (ExceptionDay.Calendar Get start)
+                IIS.BusinessCalendar.Calendar result = this.fCalendar;
+                // *** Start programmer edit section *** (ExceptionDay.Calendar Get end)
+
+                // *** End programmer edit section *** (ExceptionDay.Calendar Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ExceptionDay.Calendar Set start)
+
+                // *** End programmer edit section *** (ExceptionDay.Calendar Set start)
+                this.fCalendar = value;
+                // *** Start programmer edit section *** (ExceptionDay.Calendar Set end)
+
+                // *** End programmer edit section *** (ExceptionDay.Calendar Set end)
+            }
+        }
+        
         /// <summary>
         /// Class views container.
         /// </summary>

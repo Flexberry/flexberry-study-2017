@@ -18,6 +18,10 @@
     
     <script>
         var WolVID = <%= WebObjectListView1.ClientID%>;
+        function closeEditForm(){
+            $('#<%= ctrlCalendarView.ClientID%>').CalendarView('closeEditForm');
+            window.location.reload();
+        };
     </script>
 </asp:Content>
 

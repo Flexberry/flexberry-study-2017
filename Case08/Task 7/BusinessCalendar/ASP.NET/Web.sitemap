@@ -11,8 +11,6 @@
     </siteMapNode>
     <siteMapNode title="Календарь" roles="*" xmlns="">
       <siteMapNode title="Календари" description="" url="~/forms/Calendar/CalendarL.aspx" />
-      <siteMapNode title="Дни-исключения" description="" url="~/forms/ExceptionDay/ExceptionDayL.aspx" />
-      <siteMapNode title="Недели" description="" url="~/forms/Week/WeekL.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
