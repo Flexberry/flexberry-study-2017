@@ -1,0 +1,45 @@
+﻿@import "../../../BaseTheme/Controls/Forms/FormElements.less";
+
+/**
+ * Файл визуального оформления дефолтных контролов.
+ */
+
+
+/* Текстовые поля. */
+input {
+    &[type="text"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="date"],
+    &[type="time"] {
+        font-size: 14px;
+
+        &:focus {
+            border-color: #f60;
+            background: #fdc;
+            outline: none;
+        }
+    }
+}
+
+
+/* Неактивные текстовые поля и выпадающие списки. */
+input, textarea, select {
+    .@{disableClass}, .@{readonlyClass},
+    &[disabled], &[readonly] {
+        cursor: not-allowed;
+    }
+}
+
+
+/* Выпадающие списки. */
+select {
+    padding: 4px 6px;
+    border: 1px inset #fff;
+    .border-radius(4px);
+    background: #f2f2f2;
+
+    &:focus {
+        &:extend(input[type=text]:focus);
+    }
+}

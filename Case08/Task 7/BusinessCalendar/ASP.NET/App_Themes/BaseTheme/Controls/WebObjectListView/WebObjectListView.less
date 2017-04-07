@@ -1,0 +1,155 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол WebObjectListView. 
+ */
+@import (reference) 'WolvClasses.less';
+
+@import "ContextMenu.less";
+@import "Pager.less";
+@import "Toolbar.less";
+@import "TableToolbar.less";
+
+@import "ViewColumnProvider.less";
+@import "HierarchySettings.less";
+@import "LimitEditSettings.less";
+
+// Ресайзеры колонок.
+.@{colresizeGrip} {
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    cursor: col-resize;        
+}
+
+.@{colresizeGripForIe} {
+    position: absolute;
+    width: 0;
+}
+
+.@{colresizeDraggedGrip} {
+    width: 1px;
+    border-left: 1px @colresizeColor dotted;
+}
+
+.@{colresizeTableCell} {
+    overflow-x: hidden;
+}
+
+.@{colresizeLastColumn} {
+    width: auto;
+}
+
+
+/* Фильтрация. */
+td.@{wolvFilterCellClass} {
+    text-align: center;
+
+    .@{wolvFilterIconClass} {
+        cursor: pointer;
+        .font-icon-style();
+
+        &:before {
+            content: "\f0b0";
+            font-size: @wolvFilterIconSize;
+            color: @wolvFilterIconColor;
+        }
+
+        &:after {
+            content: "\f056";
+            margin-left: -5px;
+            vertical-align: bottom;
+            font-size: @wolvMinusIconSize;
+            color: @wolvMinusIconColor;
+        }
+    }
+}
+
+/* Тултип на форме фильтрации. */
+#@{wolvFilterTooltipClass} {
+    position: absolute;
+    border: 1px solid @wolvTooltipBorderColor;
+    background-color: @wolvTooltipBackgroundColor;
+}
+
+.@{wolvCellValue} {
+
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Сортировка. */
+.@{wolvColumnSortOrderClass} {
+    color: @wolvSortColor;
+    font-size: 0.7em;
+}
+
+.@{wolvColumnSortDirectionClass} {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+
+    &.@{wolvColumnSortAscClass} {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid @wolvSortColor;
+    }
+
+    &.@{wolvColumnSortDescClass} {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid @wolvSortColor;
+    }
+}
+
+.@{wolvColumnHeaderClass},
+.@{wrapperCellDataClass} {
+    cursor: pointer;
+}
+
+/* Перенос слов в заголовках. */
+.@{wolvColumnHeaderClass} {
+    word-wrap: break-word;
+    word-break: normal;
+    -ms-word-wrap: break-word;
+    -ms-word-break: normal;
+}
+
+/* Фиксированная шапка. */
+.@{wolvFixHeader} {
+    .@{contentCaptionClass} {
+        overflow: hidden;
+    }
+
+    .@{contentDataClass} {
+        overflow: auto;
+    }
+
+    .@{contentClass} {
+        overflow: visible;
+    }
+}
+
+.@{wolvNofixHeader} {
+    .@{contentCaptionClass} {
+        overflow: visible;
+        margin-right: 0;
+    }
+
+    .@{contentDataClass} {
+        overflow: visible;
+    }
+
+    .@{contentClass} {
+        overflow: auto;
+    }
+}
+
+// Настройки отображения невыбираемых родителей в иерархическом представлении WOLV.
+.@{wolvHierarchyGrayedRowClass} .@{wrapperCellDataClass} {
+    cursor: default;
+}
+
+@import '_Variables.less';

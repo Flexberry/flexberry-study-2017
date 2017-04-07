@@ -1,0 +1,35 @@
+﻿@import '../../../BaseTheme/Controls/ShowHideDiv/ShowHideDiv.less';
+
+/**
+ * Файл визуального оформления контрола ShowHideDiv.
+ */
+
+
+.@{showHideDivClass} {
+    margin: 0;
+}
+
+.@{showHideDivLinkClass} {
+    text-decoration: none;
+
+    &:hover {
+        color: @showHideDivHoveredCaptionColor;
+
+        .ics-show-hide-div-caption {
+            border-bottom: 1px dashed @showHideDivHoveredCaptionColor;
+        }
+    }
+}
+
+.@{showHideDivCaptionClass} {
+    font-size: 18px;
+    border-bottom: 1px dashed @showHideDivCaptionBorderColor;
+    vertical-align: middle;
+}
+
+.@{showHideDivCollapsedClass} > fieldset {
+    border: none;
+}
+
+
+@import (reference) '_Settings.less';

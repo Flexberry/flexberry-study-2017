@@ -1,0 +1,52 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол FileControl. 
+ */
+
+
+.@{filecontrolMainClass} {
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.@{filecontrolButton} {
+    margin-top: 0;
+    margin-left: 5px;
+    width: @filecontrolButtonSize;
+    height: @filecontrolButtonSize;
+    padding: 0;
+    display: inline-block;
+    .border-box();    
+
+    i {
+        vertical-align: middle;
+    }
+}
+
+/**
+ * Стиль иконки для кнопки "Выбрать файл"
+ */
+
+.@{selectfileButton} i {
+    color: @selectfileButtonIconColor;
+}
+
+/**
+ * Стиль иконки для кнопки "Скачать файл"
+ */
+
+.@{downloadfileButton} i {
+    color: @downloadfileButtonIconColor;
+}
+
+/**
+ * Стиль иконки для кнопки "Сбросить выбранный файл"
+ */
+
+.@{removefileButton} i {
+    color: @removefileButtonIconColor;
+}
+
+
+@import (reference) '_Variables.less';
+

@@ -1,0 +1,79 @@
+﻿/**
+* Стили базовой темы.
+* Форма редактирования. 
+*/
+
+@import (reference) '_Variables.less';
+@import (reference) '../../Controls/Forms/_Variables.less';
+
+.@{editFormClass} {
+    max-width: 100%;
+    margin: 0 auto;
+
+    .@{editControlClass} {
+        margin: 0 24px;
+    }
+
+    .@{clearfixClass} {
+        clear: both;
+        overflow: hidden;
+        width: 100%;
+        margin: 8px 0;
+
+        .@{descLblClass} {
+            float: left;
+            width: 130px;
+            padding: 4px 10px;
+            margin: 2px 0;
+            text-align: right;
+        }
+
+        .@{descTxtClass} {
+            .border-box();
+            float: left;
+            width: 200px;
+            margin: 0;
+
+            > input {
+                min-height: 30px;
+            }
+        }
+    }
+}
+
+.@{editToolbarClass} {
+    width: 100%;
+}
+
+.@{btnSaveClass},
+.@{btnSaveCloseClass},
+.@{btnCloseClass} {
+    margin-right: 5px;
+    background-repeat: no-repeat;    
+}
+
+.@{tableClass} {
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    tr {
+        &:first-child td {
+            text-align: center;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+        &:nth-child(even) td {
+            background: @tableEvenBg;
+        }
+
+        td {
+            border: solid 1px;
+            border-color: @tableCellBorderColor;
+            background: @tableCellBg;
+        }
+    }
+}

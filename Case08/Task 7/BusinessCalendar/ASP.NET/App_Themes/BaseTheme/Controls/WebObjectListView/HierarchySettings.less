@@ -1,0 +1,47 @@
+﻿/**
+ * Файл визуального оформления настроек иерархического отображения.
+ */
+
+
+.@{wolvCellValue} .@{wolvHierarchyClass} {
+    float: left; // Необходимо для отображения текста и иконки иерархии в один ряд.
+    padding-left: 2px;
+    margin-right: 2px;
+    .font-icon-style();
+    color: @wolvHierarchyIconColor;
+    font-size: @wolvHierarchyIconFontSize;
+
+    &.@{wolvHierarchyCollapsedClass}:before {
+        content: "\f0fe";
+    }
+
+    &.@{wolvHierarchyExpandedClass}:before {
+        content: "\f146";
+    }
+
+    &.@{wolvHierarchyExternalClass} {
+        margin-right: 0;
+        width: 0;
+        height: 1px;
+    }
+}
+
+// Стиль элементов, которые недоступны для выбора (родители, на которых наложено ограничение).
+.@{tableContentClass} .@{wolvHierarchyGrayedRowClass} {
+    .@{wolvHierarchyClass}:before, .@{wrapperCellDataClass} span {
+        opacity: 0.5;
+    }
+}
+
+// Отступ у элементов иерархии.
+.generate-hierarchy-level-class(@n, @i: 1) when (@i =< @n) {
+    .ics-wolv-hierarchy-level-@{i} {
+        margin-left: @i * @wolvHierarchyIconFontSize;
+    }
+
+    .generate-hierarchy-level-class(@n, (@i + 1));
+}
+
+.generate-hierarchy-level-class(9);
+
+@import (reference) "WolvClasses.less";
