@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+<property name="MondayTS">
+  <control id="ctrlMondayTS" prop="MondayTS">
+  </control>
+</property>
+<property name="TuesdayTS">
+  <control id="ctrlTuesdayTS" prop="TuesdayTS">
+  </control>
+</property>
+<property name="WednsdayTS">
+  <control id="ctrlWednsdayTS" prop="WednsdayTS">
+  </control>
+</property>
+<property name="ThuesdayTS">
+  <control id="ctrlThuesdayTS" prop="ThuesdayTS">
+  </control>
+</property>
+<property name="FridayTS">
+  <control id="ctrlFridayTS" prop="FridayTS">
+  </control>
+</property>
+<property name="SaturdayTS">
+  <control id="ctrlSaturdayTS" prop="SaturdayTS">
+  </control>
+</property>
+<property name="SundayTS">
+  <control id="ctrlSundayTS" prop="SundayTS">
+  </control>
+</property>
+</root>

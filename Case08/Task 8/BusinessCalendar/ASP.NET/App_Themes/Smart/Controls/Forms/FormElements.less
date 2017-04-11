@@ -1,0 +1,81 @@
+﻿@import "../../../BaseTheme/Controls/Forms/FormElements.less";
+
+/**
+ * Файл визуального оформления дефолтных контролов.
+ */
+
+/* Текстовые поля. */
+input {
+    &[type="text"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="date"],
+    &[type="time"] {
+        display: inline-block;
+        margin: 0;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+
+        &:focus {
+            outline: none;
+            border-color: #fff;
+            background-color: #f0f0f0;
+            background: #f0f0f0;
+        }
+    }
+}
+
+/* Выпадающие списки. */
+select {
+    position: relative;
+    display: inline-block;
+    padding: 3px 6px;
+    border: 1px solid #ccc;
+    border-color: @input-border-color;
+    margin: 0;
+    .border-radius(4px);
+    background: @input-bg;
+    color: #333;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+label {
+    vertical-align: middle;
+}
+
+/* Группировка элементов формы. */
+#pageBlockContent {
+    div.descTxt {
+        display: inline-block;
+    }
+
+    label {
+        vertical-align: middle;
+    }
+
+    fieldset {
+        border: 1px solid #fff;
+        .border-radius(4px);
+        margin: 0;
+
+        > legend {
+            padding: 0 4px;
+            margin: 0;
+            color: #666;
+            font-weight: bold;
+        }
+    }
+}
+
+
+@import '_Settings.less';
