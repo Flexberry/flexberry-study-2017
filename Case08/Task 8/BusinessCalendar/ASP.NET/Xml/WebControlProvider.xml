@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WebControlProvider.xsd">
+  <propertytype name="Boolean">
+    <control typename="System.Web.UI.WebControls.CheckBox, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" property="Checked" codefile=""/>
+  </propertytype>
+  <propertytype name="Int32">
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile="" />
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name ="NullableInt">
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile="" />
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name ="Int32?">
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile="" />
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.AlphaNumericTextBox, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name="NullableDateTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name="DateTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name="DateTime?">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+    <filtercontrol typename="ICSSoft.STORMNET.Web.AjaxControls.DatePicker, ICSSoft.STORMNET.Web.AjaxControls" codefile=""/>
+  </propertytype>
+  <propertytype name="Contact">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.ContactControl, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+  </propertytype>
+  <propertytype name="Event">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.EventControl, ICSSoft.STORMNET.Web.AjaxControls" property="Text" codefile=""/>
+  </propertytype>
+  <propertytype name="File">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FileControlView, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile=""/>
+    <editcontrol typename="ICSSoft.STORMNET.Web.AjaxControls.FileControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile=""/>
+  </propertytype>
+
+  <customproperty class="AuditEntity" property="OperationTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
+  </customproperty>
+  <customproperty class="AuditEntity" property="ObjectType.Name">
+    <control typename="NewPlatform.Flexberry.Web.Controls.DataObjectTypeCaption, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
+  </customproperty>
+  <customproperty class="AuditEntity" property="CreateTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
+  </customproperty>
+  <customproperty class="AuditEntity" property="EditTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
+  </customproperty>
+  <customproperty class="AuditField" property="AuditEntity.OperationTime">
+    <control typename="ICSSoft.STORMNET.Web.AjaxControls.FormattedDateTimeControl, ICSSoft.STORMNET.Web.AjaxControls" property="Value" codefile="" />
+  </customproperty>
+</root>

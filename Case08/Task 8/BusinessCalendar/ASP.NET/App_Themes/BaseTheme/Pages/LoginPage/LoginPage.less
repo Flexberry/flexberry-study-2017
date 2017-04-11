@@ -1,0 +1,101 @@
+﻿/**
+ * Стили базовой темы.
+ * Форма входа.
+ */
+
+@import (reference) '_Variables.less';
+
+/*#region "Запомнить меня" и "Забыли пароль".*/
+.@{loginFormRememberMeClass},
+.@{loginFormForgotPasswordClass} {
+    float: left;
+    width: 50%;
+}
+
+.@{loginFormRememberMeClass} label,
+.@{loginFormForgotPasswordClass} a {
+    display: inline;
+    margin: 0 4px;
+    padding: 2px 0;
+    vertical-align: middle;
+}
+/* "Запомнить меня". */
+.@{loginFormRememberMeClass} input[type="checkbox"] {
+    margin: 0;
+    position: relative;
+    top: 4px;
+}
+
+/* "Забыли пароль?". */
+.@{loginFormForgotPasswordClass} {
+    vertical-align: middle;
+    text-align: right;
+}
+
+/*#endregion*/
+
+/*#region Всплывающий текст при неудачном входе.*/
+.@{loginFormFailureTextClass} {
+    position: absolute;
+    display: block;
+    margin-top: 20px;
+    margin-left: 325px;
+    padding: 14px;
+    width: 220px;
+    border: 1px solid @loginFormFailureTextBorderColor;
+    .border-radius(12px);
+    color: @loginFormFailureTextColor;
+    background-color: @loginFormFailureTextBackgroundColor;
+
+    &:after,
+    &:before {
+        position: absolute;
+        top: 10px;
+        right: 100%;
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        content: " ";
+        pointer-events: none;
+    }
+
+    &:before {
+        border-color: transparent @loginFormFailureTextBorderColor transparent transparent;
+        border-width: 10px;
+    }
+
+    &:empty {
+        display: none;
+    }
+}
+/*#endregion*/
+
+/* Форма входа. */
+.@{loginFormClass} {
+    .border-box();
+    width: @loginFormInnerWidth;
+    margin: 0 auto;
+    padding: @loginFormInnerPadding;
+    background: @loginFormInnerBackgroundColor;
+    .border-radius(@loginFormInnerBorderRadius);
+    overflow: hidden;
+    /* Заголовок формы */
+    h2 {
+        margin: @loginFormInnerHeaderMargin;
+        color: @loginFormInnerHeaderColor;
+        font-size: @loginFormInnerHeaderSize;
+        text-align: center;
+    }
+    /* Кнопка "Войти". */
+    .@{loginFormBtnClass} {
+        float: right;
+    }
+
+    .@{loginFormInputClass} {
+        width: 100%;
+    }
+
+    .validator {
+        color: @loginFormFailureTextColor !important; /* перекрытие внутренних стилей*/
+    }
+}

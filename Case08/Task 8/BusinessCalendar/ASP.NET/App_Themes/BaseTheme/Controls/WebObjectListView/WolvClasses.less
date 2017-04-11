@@ -1,0 +1,167 @@
+/**
+ * Классы и идентификаторы для тулбара в шапке таблицы.
+ * CaptionToolbar.less.
+ */
+@wolvMiniToolBarParentClass: miniToolbar;                           // Тулбар в шапке таблицы
+@selectAllOnPageBtnClass: selectAllOnPageBtn;                       // Кнопка "Отметить все".
+@selectAllOnAllPagesBtnClass: selectAllOnAllPagesBtn;               // Кнопка "Отметить все на всех страницах".
+@resetSortClass: resetSort;                                         // Кнопка "Установить сортировку по умолчанию".
+
+/**
+ * Классы и идентификаторы для контекстного меню.
+ * ContextMenu.less.
+ */
+@contextMenuClass: context-menu-list;                               // Контекстное меню.
+@contextMenuItemClass: context-menu-item;                           // Элемент в контекстном меню.
+@contextMenuSubmenuClass: context-menu-submenu;                     // Подменю.
+
+/**
+ * Классы и идентификаторы для пейджера.
+ * Pager.less.
+ */
+@wolvPagerClass: ics-wolv-pager;                                                    // Пейджер.
+@wolvPagerTopClass: ics-wolv-pager-top;                                             // Верхний пейджер.
+@wolvPagerBottomClass: ics-wolv-pager-bottom;                                       // Нижний пейджер.
+@wolvPagerPagesClass: ics-wolv-pager-pages;                                         // Контейнер с переключателями страниц.
+@wolvPagerCurrentPageClass: ics-wolv-pager-current-page;                            // Текущая страница.
+@wolvPagerNavigationClass: ics-wolv-pager-navigation;
+@wolvPagerNavigatioButtonClass: ics-wolv-pager-navigation-button;                   // Кнопка на панели навигации.
+@wolvPagerPageClass: ics-wolv-pager-page;                                           // Страница в контйенере переключения страниц.
+@wolvPagerItemsOnPageClass: ics-wolv-pager-items-on-page;                           // Количество строк в таблице на странице.
+@wolvPagerNavigationDisabledClass: ics-wolv-pager-navigation-disabled;              // Неактивная ссылка в панели навигации.
+@wolvPagerNavigationSeparatorClass: ics-wolv-pager-navigation-separator;            // Разделитель на панели навигации.
+@wolvPagerGoToPageLabelClass: ics-wolv-pager-go-to-page-label;                      // Метка контейнера перехода по номеру страницы.
+@wolvPagerGoToPageInputClass: ics-wolv-pager-go-to-page-input;
+@wolvPagerInformationClass: ics-wolv-pager-information;                             // Результаты.
+@wolvPagerItemsOnPageListClass: ics-wolv-pager-items-on-page-list;                  // Количество строк таблице, указанное в комбобоксе.
+@wolvPagerItemsOnPageCaptionClass: ics-wolv-pager-items-on-page-caption;
+@wolvPagerGoToPageClass: ics-wolv-pager-go-to-page;                                 // Переход на страницу.
+@wolvPagerGoToPageTopClass: ics-wolv-pager-go-to-page-top;
+@wolvPagerTextFieldClass: ics-wolv-pager-inline-go-to-page;                         // Текущая страница с текстовым полем.
+@wolvPagerContainerClass: ics-wolv-pager-container;                                 // Элементы пейджера.
+@wolvPagerInlineGoToPageInputClass: ics-wolv-pager-inline-go-to-page-input;
+
+
+/**
+ * Классы и идентификаторы для тулбара в таблице.
+ * TableToolbar.less.
+ */
+@wolvMiniToolBarClass: actions;                                                     // Тулбар для каждой строки в таблице.
+@wolvCheckBoxClass: ics-wolv-row-checkbox;                                          // Чекбокс.
+@wolvMiniToolBarBtnsClass: ics-wolv-row-button;                                     // Кнопки в тулбаре в таблице.
+@wolvEditBtnClass: ics-wolv-row-button-edit;                                        // Кнопка "Редактировать".
+@wolvDeleteBtnClass: ics-wolv-row-button-delete;                                    // Кнопка "Удалить".
+@wolvPrototypeBtnClass: ics-wolv-row-button-prototype;                              // Кнопка "Создать на основе".
+@wolvViewBtnClass: ics-wolv-row-button-view;                                        // Кнопка "Просмотреть".
+
+/**
+ * Классы и идентификаторы для основного тулбара.
+ * Toolbar.less.
+ */
+@wolvToolbarClass: ics-wolv-toolbar;                                                        // Тулбар.
+@wolvToolbarBtnClass: ics-wolv-toolbar-button;                                              // Кнопка тулбара.
+@wolvToolbarBtnIconClass: ics-wolv-toolbar-button-icon;                                     // Иконка кнопки тулбара.
+@wolvToolbarCaptionClass: ics-wolv-toolbar-button-caption;                                  // Заголовок кнопки тулбара.
+@wolvToolbarSeparatorClass: ics-wolv-toolbar-separator;                                     // Разделитель.
+@wolvToolbarRefreshBtnClass: ics-wolv-toolbar-button-refresh;                               // Кнопка "Обновить".
+@wolvToolbarCreateBtnClass: ics-wolv-toolbar-button-create;                                 // Кнопка "Добавить".
+@wolvToolbarEditBtnClass: ics-wolv-toolbar-button-edit;                                     // Кнопка редактирования записи.
+@wolvToolbarDeleteBtnClass: ics-wolv-toolbar-button-delete;                                 // Кнопка "Удалить".
+@wolvToolbarUseSelectedBtnClass: ics-wolv-toolbar-button-use-selected;                      // Кнопка для выбора отмеченных записей в лукапах.
+@wolvToolbarSearchBtnClass: ics-wolv-toolbar-button-search;                                 // Кнопка поиска.
+@wolvToolbarFilterBtnClass: ics-wolv-toolbar-button-filter;                                 // Кнопка фильтрации.
+@wolvToolbarLimitEditBtnClass: ics-wolv-toolbar-button-limit-edit;                          // Кнопка редактирования ограничений.
+@wolvToolbarPrintBtnClass: ics-wolv-toolbar-button-print;                                   // Кнопка печати данных.
+@wolvToolbarConfigureColumnsBtnClass: ics-wolv-toolbar-button-configure-columns;            // Кнопка настроек столбцов.
+@wolvToolbarExportExcelBtnClass: ics-wolv-toolbar-button-export-excel;                      // Кнопка экспорта в Excel.
+@wolvToolbarExportXmlBtnClass: ics-wolv-toolbar-button-export-xml;                          // Кнопка экспорта в XML.
+@wolvToolbarHierarchyBtnClass: ics-wolv-toolbar-button-hierarchy;                           // Кнопка вкл/выкл древовидного режима WOLV.
+@wolvToolbarHierarchyCollapseAllBtnClass: ics-wolv-toolbar-button-hierarchy-collapse-all;   // Кнопка сворачивания всех узлов в древовидном режиме WOLV.
+@wolvToolbarHierarchyExpandAllBtnClass: ics-wolv-toolbar-button-hierarchy-expand-all;       // Кнопка разворачивания всех узлов в древовидном режиме WOLV.
+@wolvToolbarLimitOptionsBtnClass: ics-wolv-toolbar-button-limit-options;                    // Кнопка опций ограничений.
+@wolvToolbarExportExcelOptionsBtnClass: ics-wolv-toolbar-button-export-excel-options;       // Кнопка опций настроек экспорта.
+@wolvToolbarConfigureColumnsOptionsBtnClass: ics-wolv-toolbar-button-configure-columns-options; // Кнопка опций настроек отображения столбцов.
+@wolvToolbarSplitBtnClass: ics-wolv-toolbar-split-button;                                   // Сплит-кнопка.
+@wolvToolbarDynamiContainerClass: ics-wolv-toolbar-dynamic-container;                       // Контейнер для динамически добавляемых элементов тулбара.
+@wolvToolbarSearchPanelClass: ics-wolv-toolbar-search-panel;                                // WOLV панель поиска.
+@wolvSearchPanelsearchBtnClass: SearchBtn;                                                  // Кнопка поиска на панели поиска.
+@wolvToolbarGroupClass: ics-wolv-toolbar-group;                                             // Группы кнопок в тулбаре.
+@wolvToolbarDynamicContainer: ics-wolv-toolbar-dynamic-container;
+@wolvToolbarActiveBtnClass: ics-wolv-toolbar-button-active;                                 // Активная кнопка
+
+/**
+ * Классы и идентификаторы для WOLV.
+ * WebObjectListView.less.
+ */
+@wolvClass: ics-wolv;                                                               // Основной класс WOLV.
+@contentClass: ics-wolv-content;                                                    // Содержимое WOLV.
+@contentDataClass: wolv-data-wrapper;                                               // Таблица.
+@tableContentClass: wolv-data-table;                                                // Таблицы с данными.
+@wolvListTableClass: ListTable;
+@wolvWrapClass: wolv_wrap;
+@contentCaptionClass: wolv-caption-wrapper;                                         // Заголовок таблицы.
+@menuDisabledClass: wolv-disabled-menu;                                             // Класс скрытия меню.
+@wolvTableToolbarBtnsClass: wolv-buttons-in-row;                                    // Врапер тулбара для каждой строки в таблице.
+@objectListViewTableClass: ObjectListViewTable;
+@objectListViewCaptionCellClass: ObjectListViewCaptionCell;
+@wolvHeaderClass: ics-wolv-header;                                                  // Шапка wolv.
+@wolvColumnHeaderClass: ics-wolv-column-header;                                     // Заголовок колонок.
+@wolvColumnSortOrderClass: ics-wolv-column-sort-order;                              // Порядок сортировки.
+@wolvColumnSortDirectionClass: ics-wolv-column-sort-direction;                      // Иконка сортировки.
+@wolvColumnSortAscClass: ics-wolv-column-sort-asc;
+@wolvColumnSortDescClass: ics-wolv-column-sort-desc;
+@wolvOddRowClass: ObjectListViewAlternateCell;                                      // Нечетная строка.
+@wolvFilterCell: FilterCell;                                                        // Ячейка фильтрацииics-wolv-hierarchy-collapsed.
+@wolvDataInnerForScrollClass: wolv-data-inner-for-scroll;                           // Вспомогательный элемент для синхронизации ширины элементов.
+@wolvCaptionClass: wolv-caption-table;                                              // Заголовок таблицы.
+@wolvFilterTooltipClass: tooltip;                                                   // Всплывающая подсказка при наведение на поле ввода в ячейки фильтрации.
+@wolvFilterIconClass: clrFilters;                                                   // Иконка фильтрации.
+@wolvFilterSelectClass: FilterSelect;                                               // Комбобокс в ячейке фильтрации.
+@wolvFilterCellClass: tableCellFilter;                                              // Ячейка с иконкой фильтрации.
+@colresizeGrip: colresize-grip;
+@colresizeGripForIe: colresize-ie-fake-grip;                                        // Хак для IE.
+@colresizeDraggedGrip: colresize-dragged-grip;
+@colresizeTableCell: colresize-table-cell;
+@colresizeLastColumn: colresize-last-column;
+
+
+/**
+ * Классы и идентификаторы для настроек иерархического отображения.
+ * HierarchySettings.less.
+ */
+@wolvCellValue: ObjectListViewCellValue;
+@wolvHierarchyClass: ics-wolv-hierarchy;                                            // Иерархический режим отображения.
+@wrapperCellDataClass: wrapper-cell-data;
+@wolvHierarchyNodeClass: ics-wolv-hierarchy-node;                                   // Узел иерархии.
+@wolvHierarchyChildClass: ics-wolv-hierarchy-child;                                 // Потомки.
+@wolvHierarchyCollapsedClass: ics-wolv-hierarchy-collapsed;
+@wolvHierarchyExpandedClass: ics-wolv-hierarchy-expanded;
+@wolvHierarchyExternalClass: ics-wolv-hierarchy-external;
+@wolvHierarchyGrayedRowClass: ics-wolv-hierarchy-row-grayed;
+
+
+/**
+ * Классы и идентификаторы для настроек ViewColumnProvider (отображение колонок таблицы в WebObjectListView).
+ * ViewColumnProvider.less
+ */
+@wolvRightOrientedCellClass: ObjectListViewCellRight;
+@wolvLeftOrientedCellClass: ObjectListViewCellLeft;
+@wolvCenterOrientedCellClass: ObjectListViewCellCenter;
+@wolvSortDisabledClass: ics-wolv-column-sort-disabled;
+@wolvOverflowWordWrapCellClass: ics-wolv-cell-overflow-wordwrap;
+@wolvOverflowWordEllipsisCellClass: ics-wolv-cell-overflow-wordellipsis;
+
+/**
+ * Классы и идентификаторы для настроек ограничений.
+ * LimitEditSettings.less.
+ */
+@wolvLimitEditBlockClass: wolv-service-block-table;                                 // Блок с настройками ограничений.
+@wolvLimitEditRowClass: wolv-param-row;                                             // Строка в блоке ограничений.
+@wolvLimitEditBtnClass: wolv-param-btn-block;                                       // Кнопка "Применить огранчиение".
+@wolvLimitEditTextClass: descLbl;                                                   // Название поля ограничения.
+
+/**
+ * Классы и идентификаторы для фиксированной шапки.
+ */
+@wolvFixHeader: ics-wolv-fix-header;
+@wolvNofixHeader: ics-wolv-no-fix-header;
