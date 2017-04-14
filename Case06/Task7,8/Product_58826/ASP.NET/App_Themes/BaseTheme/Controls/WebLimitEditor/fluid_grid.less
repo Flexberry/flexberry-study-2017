@@ -1,0 +1,141 @@
+/*
+	Variable Grid System (Fluid Version).
+	Learn more ~ http://www.spry-soft.com/grids/
+	Based on 960 Grid System - http://960.gs/ & 960 Fluid - http://www.designinfluences.com/
+
+	Licensed under GPL and MIT.
+*/
+.generate-grid(@n, @i: 1) when (@i =< @n) {
+    .grid_@{i} {
+        width: (@i * 100% / @n);
+    }
+
+    .generate-grid(@n, (@i + 1));
+}
+
+.generate-prefix(@n, @i: 1) when (@i =< @n) {
+    .prefix_@{i} {
+        width: (@i * 100% / (@n+1));
+    }
+
+    .generate-prefix(@n, (@i + 1));
+}
+
+.generate-suffix(@n, @i: 1) when (@i =< @n) {
+    .suffix_@{i} {
+        width: (@i * 100% / (@n+1));
+    }
+
+    .generate-suffix(@n, (@i + 1));
+}
+
+.generate-push(@n, @i: 1) when (@i =< @n) {
+    .push_@{i} {
+        width: (@i * 100% / (@n+1));
+    }
+
+    .generate-push(@n, (@i + 1));
+}
+
+.generate-pull(@n, @i: 1) when (@i =< @n) {
+    .pull_@{i} {
+        width: ((-1) * @i * 100% / (@n+1));
+    }
+
+    .generate-pull(@n, (@i + 1));
+}
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.container_12 {
+    width: 100%;
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+    display: inline;
+    float: left;
+    position: relative;
+}
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+    margin-left: 0;
+}
+
+.omega {
+    margin-right: 0;
+}
+
+.container_12 {
+    /* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+    .generate-grid(12);
+    /* Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+    .generate-prefix(11);
+    /* Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+    .generate-suffix(11);
+    /* Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+    .generate-push(11);
+    /* Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+    .generate-pull(11);
+}
+
+
+/* Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+/* http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack */
+
+.clearfix {
+    display: inline-block;
+
+    &:after {
+        clear: both;
+        content: ' ';
+        display: block;
+        font-size: 0;
+        line-height: 0;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}

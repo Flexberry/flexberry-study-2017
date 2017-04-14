@@ -1,0 +1,31 @@
+﻿/* Рабочий стол */
+.desktop-page {
+    background-color: #f1f7ff;
+}
+.desktop {
+    margin: 0 auto;
+    overflow: auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.desktop a {
+    float: left;
+    margin: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.desktop div {
+    width: 125px;
+    height: 125px;
+    margin: 5px auto;
+    line-height: 125px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.desktop img {
+    vertical-align: middle;
+}
+/* Рабочий стол */
