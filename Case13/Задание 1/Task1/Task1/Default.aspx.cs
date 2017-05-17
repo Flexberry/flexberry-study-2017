@@ -9,6 +9,7 @@ namespace Task1
 {
     public partial class _Default : Page
     {
+        // Текст для сравнения текстовых форм.
         public string[] tempText =
         {
         "PMasalkin",
@@ -23,9 +24,11 @@ namespace Task1
         "http:\\www.temp.ru"
         };
 
+        // Список сайтов.
         public string[] site =
         {"ics.permy.ru", "www.googla.ru", "www.shmandex.ru", "www.mail.ru", "www.sto.ru"};
 
+        // Список пользователь.
         public string[,] accaunts = new string[,]
         {
              {
@@ -112,6 +115,7 @@ namespace Task1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Обновление значений в текстбоксах.
             if (firstTextBox.Text == string.Empty)
             {
                 firstTextBox.Text = StringArrToString(tempText);
@@ -123,6 +127,7 @@ namespace Task1
 
             accauntsCompare = AccautToCompareStringArray(accaunts);
 
+            // Создание таблицы пользователей по сайтам.
             Table1.CellSpacing = 0;
             Table1.CellSpacing = 0;
             Table1.BorderWidth = 2;
@@ -155,6 +160,11 @@ namespace Task1
             anserLabel.Text = "Совпадение " + AccauntCompare.Compare.AccauntCompare(StringToArrString(firstTextBox.Text), StringToArrString(secondTextBox.Text)).ToString() + "%";
         }
 
+        /// <summary>
+        /// Метод StringArrToString() преобразование массива в стоку
+        /// </summary>
+        /// <param name="stringarr">Массив для преобразования</param>
+        /// <returns>Текстовую переменную</returns>  
         private string StringArrToString(string[] stringarr)
         {
             string text = string.Empty;
@@ -172,6 +182,11 @@ namespace Task1
             return text;
         }
 
+        /// <summary>
+        /// Метод StringToArrString() преобразование стоки в массив
+        /// </summary>
+        /// <param name="stringarr">Строка для преобразования</param>
+        /// <returns>Массив строк</returns>  
         private string[] StringToArrString(string stringarr)
         {
             string[] text;
@@ -180,15 +195,24 @@ namespace Task1
             return text;
         }
 
+        /// <summary>
+        /// Метод AccautToCompareStringArray() массива пользователей в таблицу пользователей по сайтам
+        /// </summary>
+        /// <param name="stringarr">Входной массив пользователей</param>
+        /// <returns>Массив пользователей по сайтам</returns>  
         private string[,] AccautToCompareStringArray(string[,] stringarr)
         {
             string[,] result;
 
-            for (int i = 0; i < stringarr.Length; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = i+1; j < stringarr.Length; j++)
+                for (int j = i+1; j < 10; j++)
                 {
-                    
+                    for (int k = 0; j < 9; k++)
+                    {
+
+                        
+                    }
                 }
             }
 
