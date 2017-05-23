@@ -1,5 +1,5 @@
 <html>
- <head> 
+ <head>
   <script>
 	var userProfile = ["Логин 1", "Mail 1", "Фамилия 1", "Имя 1", "Отчество 1", "м", "01.02.1992", "Город 1", "Страна 1", "temp.site.com",
 					   "Логин 2", "Mail 2", "Фамилия 2", "Имя 2", "Отчество 2", "м", "02.02.2992", "Город 2", "Страна 2", "temp.site.com",
@@ -7,7 +7,7 @@
 					   "Логин 4", "Mail 4", "Фамилия 4", "Имя 4", "Отчество 4", "м", "04.02.4992", "Город 4", "Страна 4", "temp.site.com",
 					   "Логин 5", "Mail 5", "Фамилия 5", "Имя 5", "Отчество 5", "м", "05.02.5992", "Город 5", "Страна 5", "temp.site.com"];
 	var userProfileType = ["Логин", "Mail", "Фамилия", "Имя", "Отчество", "Пол", "Дата рождения", "Город", "Страна", "Сайт"];
-  </script>  
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript">
     ! function(i) {
@@ -21,6 +21,96 @@
       })
     }(jQuery);
    </script>
+   <script type="text/javascript">
+   // Набор функций
+   var base = {
+       // Поиск элементов по классу
+       findClass: function(str, node) {
+            if(document.getElementsByClassName) return (node || document).getElementsByClassName(str);
+            else {
+                 var node = node || document, list = node.getElementsByTagName('*'), length = list.length, Class = str.split(/\s+/), classes = Class.length, array = [], i, j, key;
+                 for(i = 0; i < length; i++) {
+                       key = true;
+                       for(j = 0; j < classes; j++) if(list[i].className.search('\\b' + Class[j] + '\\b') == -1) key = false;
+                       if(key) array.push(list[i]);
+                 }
+                 return array;
+            }
+       },
+       // Добавление обработчиков событий
+       bind: function(node, type, listener) {
+           if(node.addEventListener) node.addEventListener(type, listener, false);
+       },
+       // Реализация DOMContentLoaded
+       init: [],
+       ready: function() {
+           if(!arguments.callee.done) {
+               arguments.callee.done = true;
+               if(this.timer) clearInterval(this.timer);
+               var i, length = this.init.length;
+               for(i = 0; i < length; i++) this.init[i]();
+               this.init = [];
+           }
+       },
+       check: function() {
+           var _this = this, listener = function() {
+               _this.ready();
+           };
+           if(document.addEventListener) document.addEventListener('DOMContentLoaded', listener, false);
+           if(/KHTML|WebKit/i.test(navigator.userAgent)) this.timer = setInterval(function() {
+               if(/loaded|complete/.test(document.readyState)) base.ready();
+           }, 10);
+           this.bind(window, 'load', listener);
+       }
+   };
+
+   // Функции для работы с панельками
+   var toggler = {
+       process: function() {
+           var i, list = base.findClass('toggler'), length = list.length;
+           for(i = 0; i < length; i++) base.bind(list[i], 'click', this.toggle);
+           list = base.findClass('content');
+           length = list.length;
+           for(i = 0; i < length; i++) list[i].style.display = 'none';
+       },
+       toggle: function() {
+           var content = base.findClass('content', this.parentNode)[0], e = arguments[0] || window.event;
+           if(content.style.display == 'block') {
+               content.style.display = 'none';
+               this.innerHTML = 'Показать';
+           }
+           else {
+               content.style.display = 'block';
+               this.innerHTML = 'Скрыть';
+           }
+           e.preventDefault ? e.preventDefault() : e.returnValue = false;
+       }
+   };
+
+   // Ищем блоки с классом «toggle» по событию DOMContentLoaded
+   base.init.push(function() {
+       toggler.process();
+   });
+
+   // Запускаем проверку готовности DOM
+   base.check();
+   </script>
+   <style type="text/css">
+   .toggle {
+   width: 200px;
+   margin: 0 0 14px;
+   text-align: right;
+   border: 1px solid #ccc;
+   }
+   .toggle .content {
+   text-align: left;
+   border: 1px solid #ccc;
+   background: #eee;
+   }
+   .toggle .toggler {
+   font-size: 11px;
+   }
+   </style>
   <title>Пример веб-страницы</title>
  </head>
  <link rel="stylesheet" href="css/style.css">
@@ -28,19 +118,21 @@
   <ul class="liinline">
    <script>
     var l = userProfile.length;
+    document.writeln("<div>");
     for (var i = 0; i < l/10; i++) {
      document.writeln("<li><div>");
      for (var j = 0; j < 5; j++) {
       document.write(userProfileType[j] + ": " + userProfile[i*10+j] + "<br>");
      }
-     document.write("<div class=\"accordion\"><section class=\"accordion_item\"><h5 class=\"title_block\">Дополнительно</h3><div class=\"info\">")
-     for (var j = 5; j < 10; j++) {
-      document.write(userProfileType[j] + ": " + userProfile[i*10+j] + "<br>");
-     }
-     document.write("</div></section><div>")
+     document.write("<div class=\"toggle\"><div class=\"content\">");
+       for (var j = 5; j < 10; j++) {
+        document.write(userProfileType[j] + ": " + userProfile[i*10+j] + "<br>");
+       }
+     document.write("</div><a class=\"toggler\" href=\"#\">Показать</a></div>");
      document.write("</div></li>");
     }
     document.write("<br>" + "<br>" + "<label class=\"count\">" +"Колличество профилей: " + l/10 + "</label>");
+    document.writeln("</div>");
    </script>
    </ul>
   </div>
