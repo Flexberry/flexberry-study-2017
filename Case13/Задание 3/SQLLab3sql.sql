@@ -20,7 +20,7 @@ CREATE TABLE profile (
   surname VARCHAR(45) NULL,
   name VARCHAR(45) NULL,
   patronymic VARCHAR(45) NULL,
-  gender VARCHAR(2) NULL,
+  gender VARCHAR(1) NULL,
   birthday DATE NULL,
   sity VARCHAR(45) NULL,
   country VARCHAR(45) NULL,
@@ -67,7 +67,7 @@ CREATE TABLE network (
 alter table network add constraint con_network_web unique (name, website)
 
 
-INSERT INTO userBase  (login, password)
+INSERT INTO userBase
 VALUES 
 ( 'login1', 'mail1'),
 ( 'login2', 'mail2'),
@@ -83,14 +83,14 @@ VALUES
 ( 0, 'login2', 'mail2', 'surname2', 'name2', '', 'f', '2.02.2002', 'sity2', 'country2', 'website2', '1'),
 ( 0, 'login4', 'mail2', 'surname2', 'name2', '', 'f', '2.05.2002', 'sity2', 'country2', 'website2', '2');
 
-INSERT INTO contact(UserId, ContactId)
+INSERT INTO contact
 VALUES 
 ('1', '2'),
 ('1', '3'),
 ('2', '1'),
 ('3', '2');
 
-INSERT INTO network( name, website)
+INSERT INTO network
 VALUES 
 ( 'vk', 'vk.com'),
 ( 'facebook', 'facebook.com'),
