@@ -25,7 +25,7 @@ namespace Task1
         };
 
         // Список сайтов.
-        public string[] site =
+        public string[] siteArr =
         {"ics.permy.ru", "www.googla.ru", "www.shmandex.ru", "www.mail.ru", "www.sto.ru"};
 
         // Список пользователь.
@@ -46,13 +46,13 @@ namespace Task1
             },
             {
                 "PMasalkin1",
-                "pashamasalkin@yandex.ru",
+                "pashamasalkin@yandex.ru1",
                 "Масалкин",
                 "Павел",
                 "Алексеевич",
                 "м",
                 "1994",
-                "Краснокамск",
+                "Краснокамск2",
                 "Россия",
                 "http:\\www.temp.ru",
                 "www.shmandex.ru"
@@ -75,21 +75,21 @@ namespace Task1
                 "pashamasalkin@yandex.ru",
                 "Масалкин",
                 "Павел",
-                "Алексеевич",
-                "м",
+                "Алексеевичый",
+                "рептилойд",
                 "1994",
                 "Краснокамск",
                 "Россия",
                 "http:\\www.temp.ru",
-                "www.googla.ru"
+                "ics.permy.ru"
             },
             {
                 "PMasalkin2",
                 "pashamasalkin@yandex.ru",
                 "Масалкин",
                 "Павел",
-                "Алексеевич",
-                "м",
+                "Алексеевичый",
+                "рептилойд",
                 "1994",
                 "Краснокамск",
                 "Россия",
@@ -99,15 +99,28 @@ namespace Task1
             {
                 "PMasalkin3",
                 "pashamasalkin@yandex.ru",
-                "Масалкин",
+                "Масалкинf",
                 "Павел",
-                "Алексеевич",
-                "м",
-                "1994",
+                "Алексеевич3",
+                "Вакум",
+                "-1994",
                 "Краснокамск",
                 "Россия",
-                "http:\\www.temp.ru",
+                "http:\\www.temp.ru1",
                 "www.googla.ru"
+            },
+                        {
+                "PMasalkin3",
+                "pashamasalkin@yandex.ru",
+                "Масалкинf",
+                "Павел",
+                "Алексеевич3",
+                "Вакум",
+                "-1994",
+                "Краснокамск",
+                "Россия",
+                "http:\\www.temp.ru1",
+                "www.mail.ru"
             },
         };
 
@@ -132,26 +145,47 @@ namespace Task1
             Table1.CellSpacing = 0;
             Table1.BorderWidth = 2;
             Table1.GridLines = GridLines.Both;
-            for (int i = 0; i < 5; i++)
+
+            // Заголовки.
+            TableRow row1 = new TableRow();
+            for (int j = 0; j < siteArr.Length; j++)
             {
-                TableRow row = new TableRow();
-                for (int j = 0; j < 5; j++)
+                TableCell cell = new TableCell();
+                cell.Text = siteArr[j];
+                cell.HorizontalAlign = HorizontalAlign.Center;
+                cell.Height = 26;
+                cell.Width = 26;
+                row1.Cells.Add(cell);
+            }
+            Table1.Rows.Add(row1);
+
+            // Данные.
+            for (int i = 0; i < accauntsCompare.Length / (accaunts.Length / 11); i++)
+            {
+                // Проверка на наличие значений в строке.
+                bool rowHaveValue= false;
+                for (int k = 0; k < siteArr.Length; k++)
                 {
-                    TableCell cell = new TableCell();
-                    if(i == 0)
+                    if(accauntsCompare[i, k]!=null)
                     {
-                        cell.Text = site[j];
+                        rowHaveValue = true;
                     }
-                    else
-                    {
-                        cell.Text = accauntsCompare[i-1, j];
-                    }
-                    cell.HorizontalAlign = HorizontalAlign.Center;
-                    cell.Height = 26;
-                    cell.Width = 26;
-                    row.Cells.Add(cell);
                 }
-                Table1.Rows.Add(row);
+
+                if (rowHaveValue)
+                {
+                    TableRow row2 = new TableRow();
+                    for (int j = 0; j < siteArr.Length; j++)
+                    {
+                        TableCell cell = new TableCell();
+                        cell.Text = accauntsCompare[i, j];
+                        cell.HorizontalAlign = HorizontalAlign.Center;
+                        cell.Height = 26;
+                        cell.Width = 26;
+                        row2.Cells.Add(cell);
+                    }
+                    Table1.Rows.Add(row2);
+                }
             }
         }
 
@@ -196,29 +230,98 @@ namespace Task1
         }
 
         /// <summary>
-        /// Метод AccautToCompareStringArray() массива пользователей в таблицу пользователей по сайтам
+        /// Метод AccautToCompareStringArray() преобразует массив пользователей в массив пользователей по сайтам
         /// </summary>
         /// <param name="stringarr">Входной массив пользователей</param>
         /// <returns>Массив пользователей по сайтам</returns>  
         private string[,] AccautToCompareStringArray(string[,] stringarr)
         {
-            string[,] result;
+            //Колличество столбцов в stingarr.
+            int stringArrLength = stringarr.Length / 11;
 
-            for (int i = 0; i < 5; i++)
+            // Массив определяющий, в какую строку будет записана строка stringarr.
+            int[] resultStringArr = new int[stringArrLength];
+
+            // Результат.
+            string[,] result = new string[stringArrLength, siteArr.Length];
+
+            // Последняя не заполенная строка в resultStringArr.
+            int resultLength = 0;
+
+            // Перебор stringarr.
+            for (int i = 0; i < stringArrLength; i++)
             {
-                for (int j = i+1; j < 10; j++)
-                {
-                    for (int k = 0; j < 9; k++)
-                    {
+                bool end=false;
 
-                        
+                for (int j = 0; j < i; j++)
+                {
+                    // Если находится профиль, похожий >= 80%, то добавляем.
+                    if (!end && i!=j)
+                    {
+                        if (AcciuntCompareAtOneArray(stringarr, i, j)>=80)
+                        {
+                            int k = resultStringArr[j];
+                            if (result[k, SiteTableNumber(stringarr[i, 10])] == null)
+                            {
+                                result[k, SiteTableNumber(stringarr[i, 10])] = stringarr[i, 0];
+                                resultStringArr[i] = resultLength;
+                                end = true;
+                            }
+                        }                        
                     }
+
+                }
+                // Если не находится профиль, похожий >= 80%, то создаём новую строку.
+                if (!end)
+                {
+                    result[resultLength, SiteTableNumber(stringarr[i, 10])] = stringarr[i, 0];
+                    resultStringArr[i] = resultLength;
+                    resultLength++;
+                }
+            }
+            
+            return result;
+        }
+
+        /// <summary>
+        /// Метод SiteTableNumber() возвращает номер сети в таблице
+        /// </summary>
+        /// <param name="site">соц сеть</param>
+        /// <returns>номер сети</returns>  
+        private int SiteTableNumber(string site)
+        {
+            for(int i=0;i< siteArr.Length;i++)
+            {
+                if(site==siteArr[i])
+                {
+                    return i;
                 }
             }
 
-            result = stringarr;
+            return 0;
+        } 
 
-            return result;
+        /// <summary>
+        /// Метод  AcciuntCompareAtOneArray() выполняет сравнение строк массива
+        /// </summary>
+        /// <param name="site">соц сеть</param>
+        /// <param name="i">номер строки массива</param>
+        /// <param name="j">номер строки массива</param>
+        /// <returns>Результат сравнения в процента</returns>  
+        private int AcciuntCompareAtOneArray(string[,] stringarr,int i, int j)
+        {
+            string[] arr1 = new string[10];
+            string[] arr2 = new string[10];
+
+            for (int k = 0; k < 10; k++)
+            {
+                arr1[k] = stringarr[i, k];
+                arr2[k] = stringarr[j, k];
+            }
+
+
+            return AccauntCompare.Compare.AccauntCompare(arr1, arr2);
         }
+
     }
 }

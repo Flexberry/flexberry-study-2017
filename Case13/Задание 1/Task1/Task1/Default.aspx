@@ -45,14 +45,6 @@
           position: relative;
           transition: all 0.5s ease;
         }
-        .table_blur tbody:hover td {
-          color: transparent;
-          text-shadow: 0 0 3px #a09f9d;
-        }
-        .table_blur tbody:hover tr:hover td {
-          color: #444444;
-          text-shadow: none;
-        }
         .bot8 {
           background-color: #FFFFFF;
             border: 1px solid #CCCCCC;
