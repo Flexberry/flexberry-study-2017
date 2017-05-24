@@ -121,7 +121,7 @@ namespace Task1
                 "Россия",
                 "http:\\www.temp.ru1",
                 "www.mail.ru"
-            },
+            }
         };
 
         public string[,] accauntsCompare;

@@ -21,6 +21,11 @@ namespace AccauntCompare
         /// <returns>Результат сравнения в процентах</returns>  
         public static int AccauntCompare(string[] innerText1, string[] innerText2)
         {
+            if(innerText1 == null || innerText2 == null)
+            {
+                return 0;
+            }
+
             // Результат срвнения.
             int result = 0;
 
@@ -32,9 +37,15 @@ namespace AccauntCompare
             {
                 for (int j = 0; j < innerText2.Length; j++)
                 {
-                    if (innerText1[i].Equals(innerText2[j]))
+                    if (innerText1[i] != null && innerText2[j] != null)
                     {
-                        result++;
+                        if (innerText1[i] != string.Empty && innerText2[j] != string.Empty)
+                        {
+                            if (innerText1[i].Equals(innerText2[j]))
+                            {
+                                result++;
+                            }
+                        }
                     }
                 }
             }

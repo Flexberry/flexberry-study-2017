@@ -80,8 +80,8 @@ VALUES
 ( 1, 'login4', 'mail4', 'surname4', '', 'patronymic4', 'f', '4.02.2004', 'sity4', 'country4', 'website4', '1'),
 ( 1, 'login5', 'mail5', 'surname5', 'name5', 'patronymic5', 'm', '5.02.2005', 'sity5', 'country5', 'website5', '2'),
 ( 2, 'login1', 'mail1', 'surname1', 'name1', 'patronymic1', 'm', '12.12.2000', 'sity1', 'country1', 'website1', '0'),
-( 0, 'login2', 'mail2', 'surname2', 'name2', '', 'f', '2.02.2002', 'sity2', 'country2', 'website2', '1'),
-( 0, 'login4', 'mail2', 'surname2', 'name2', '', 'f', '2.05.2002', 'sity2', 'country2', 'website2', '2');
+( 3, 'login2', 'mail2', 'surname2', 'name2', '', 'f', '2.02.2002', 'sity2', 'country2', 'website2', '1'),
+( 2, 'login4', 'mail2', 'surname2', 'name2', '', 'f', '2.05.2002', 'sity2', 'country2', 'website2', '2');
 
 INSERT INTO contact
 VALUES 
@@ -92,16 +92,17 @@ VALUES
 
 INSERT INTO network
 VALUES 
-( 'vk', 'vk.com'),
-( 'facebook', 'facebook.com'),
-( 'google', 'google.com');
+( 'vk', 'kv.com'),
+( 'facebook', 'footbook.com'),
+( 'google', 'gugle.com');
 
 /*
 1)  SELECT Top 2 User_id1, COUNT(User_id1) From dbo.contact  GROUP BY User_id1 
 
 2)  SELECT TOP 1  surname, COUNT(surname) count  From dbo.profile GROUP BY surname Order By count DESC
 
-3)  Select  dbo.userBase.id, dbo.profile.name, DATEPART(YEAR, birthday), gender, Count(*) as profile_count  FROM dbo.userBase INNER JOIN dbo.profile
+3)  Select  dbo.userBase.id, dbo.profile.name, DATEPART(YEAR, birthday), gender, Count(*) as profile_count  FROM dbo.userBase 
+	INNER JOIN dbo.profile
     ON dbo.userBase.id=dbo.profile.User_id	
 	group by dbo.userBase.id, dbo.profile.name, DATEPART(YEAR, birthday), gender
 	ORDER BY profile_count DESC
@@ -109,9 +110,9 @@ VALUES
 4)  Declare 
 		@contact_count real,
 		@user_count real
-SELECT @contact_count=Count(user_ID1) From dbo.contact
-SELECT @user_count=Count(id) From dbo.userBase
-PRINT @contact_count/@user_count
+	SELECT @contact_count=Count(user_ID1) From dbo.contact
+	SELECT @user_count=Count(id) From dbo.userBase
+	PRINT @contact_count/@user_count
 
 5)	Declare 
 		@percon_count INT
