@@ -6,7 +6,7 @@ CREATE TABLE userBase (
   login VARCHAR(45) NULL,
   password VARCHAR(45) NULL)
 
-  alter table userBase  add constraint con_userBase_mail unique (mail)
+  alter table userBase  add constraint con_userBase_password unique (password)
 
 
 -- -----------------------------------------------------
@@ -26,6 +26,7 @@ CREATE TABLE profile (
   country VARCHAR(45) NULL,
   website VARCHAR(45) NULL,
   network VARCHAR(45) NULL,
+  networkkey VARCHAR(45) NULL,
   PRIMARY KEY (id, User_id),
   INDEX fk_Profile_User_idx (User_id ASC),
   CONSTRAINT fk_Profile_User
@@ -64,7 +65,7 @@ CREATE TABLE network (
   name VARCHAR(45) NULL,
   website VARCHAR(45) NULL);
 
-alter table network add constraint con_network_web unique (name, website)
+alter table network add constraint con_network_website unique (name, website)
 
 
 INSERT INTO userBase
@@ -77,11 +78,11 @@ VALUES
 
 INSERT INTO profile
 VALUES 
-( 1, 'login4', 'mail4', 'surname4', '', 'patronymic4', 'f', '4.02.2004', 'sity4', 'country4', 'website4', '1'),
-( 1, 'login5', 'mail5', 'surname5', 'name5', 'patronymic5', 'm', '5.02.2005', 'sity5', 'country5', 'website5', '2'),
-( 2, 'login1', 'mail1', 'surname1', 'name1', 'patronymic1', 'm', '12.12.2000', 'sity1', 'country1', 'website1', '0'),
-( 3, 'login2', 'mail2', 'surname2', 'name2', '', 'f', '2.02.2002', 'sity2', 'country2', 'website2', '1'),
-( 2, 'login4', 'mail2', 'surname2', 'name2', '', 'f', '2.05.2002', 'sity2', 'country2', 'website2', '2');
+( 1, 'login4', 'mail4', 'surname4', '', 'patronymic4', 'f', '4.02.2004', 'sity4', 'country4', 'website4', '1', '142435345'),
+( 1, 'login5', 'mail5', 'surname5', 'name5', 'patronymic5', 'm', '5.02.2005', 'sity5', 'country5', 'website5', '2', '14242345'),
+( 2, 'login1', 'mail1', 'surname1', 'name1', 'patronymic1', 'm', '12.12.2000', 'sity1', 'country1', 'website1', '0', '14235345'),
+( 3, 'login2', 'mail2', 'surname2', 'name2', '', 'f', '2.02.2002', 'sity2', 'country2', 'website2', '1', '14233532345'),
+( 2, 'login4', 'mail2', 'surname2', 'name2', '', 'f', '2.05.2002', 'sity2', 'country2', 'website2', '2', '14125345');
 
 INSERT INTO contact
 VALUES 
@@ -97,7 +98,8 @@ VALUES
 ( 'google', 'gugle.com');
 
 /*
-1)  SELECT Top 2 User_id1, COUNT(User_id1) From dbo.contact  GROUP BY User_id1 
+1)  Declare @n as int = 1
+	SELECT Top(@n) User_id1, COUNT(User_id1) From dbo.contact  GROUP BY User_id1 
 
 2)  SELECT TOP 1  surname, COUNT(surname) count  From dbo.profile GROUP BY surname Order By count DESC
 
