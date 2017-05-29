@@ -362,5 +362,14 @@ namespace AjaxCorporation.LostFound {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Result;
+        
+        /// <summary>
+        /// ExeptionBlock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ModelErrorMessage ExeptionBlock;
     }
 }

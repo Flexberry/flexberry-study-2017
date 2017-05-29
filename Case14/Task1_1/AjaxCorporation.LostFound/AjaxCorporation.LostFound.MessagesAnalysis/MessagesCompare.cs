@@ -8,6 +8,14 @@
     /// </summary>
     public static class MessagesCompare
     {
+        // Тип сообщения можнт быть "Потеряно" или "Найдено".
+        // Контрольные типы сообщений.
+        public static string messageLost = "Потеряно";
+        public static string messageFound = "Найдено";
+
+        // Константа для обозначения 100%.
+        public const int fullPercent = 100;
+
         // Проверка соответствия сообщений в виде массива строк.
         public static double Compare(string[] lost, string[] found)
         {
@@ -63,10 +71,6 @@
             }
 
             // Проверка существования обязательного поля "Тип сообщения".
-            // Тип сообщения можнт быть "Потеряно" или "Найдено".
-            // Контрольные типы сообщений.
-            string messageLost = "Потеряно";
-            string messageFound = "Найдено";
 
             // Если тип сообщения из массива не соответствует контрольному,
             // вывести исключение.
@@ -81,9 +85,6 @@
             string dateLost = lost[3]?.Trim()?.ToLower();
             string dateFound = found[3]?.Trim()?.ToLower();
 
-            // Переменная для проверки равенства третьих элементов массивов (даты).
-            bool isdateCorrectEqual = false;
-
             // Проверка третьего элемента на null.
             bool isdateLostEmpty = string.IsNullOrEmpty(dateLost);
             bool isdateFoundEmpty = string.IsNullOrEmpty(dateFound);
@@ -95,72 +96,57 @@
                 throw new Exception("Дата сообщения не заполнена.");
             }
 
-            if (lenghtLost == lenghtFound)
+            // Проверка степени идентичности массивов.
+            for (int i = 1; i < messagesElementsCount; i++)
             {
-                // Переменная, в которую вернется распарсенная дата.
-                DateTime dateLostValue;
-                DateTime dateFoundValue;
-
-                // Приведение даты к формату DateTime.
-                DateTime.TryParse(dateLost, out dateLostValue);
-                DateTime.TryParse(dateFound, out dateFoundValue);
-
-                // Проверка полученных дат на идентичность,
-                // с целю включения в подсчет совпадений элементов массива
-                // или исключения из него.
-                isdateCorrectEqual = Equals(dateLostValue, dateFoundValue);
-            }
-
-            // Если длина массивов совпадает, провести проверку на соответствие
-            // полученных строк. Из расчетов исключаются пустые строки.
-            if (lenghtLost == lenghtFound)
-            {
-                for (int i = 1; i < messagesElementsCount; i++)
+                for (int j = 1; j < messagesElementsCount; j++)
                 {
-                    for (int j = 1; j < messagesElementsCount; j++)
+                    // Пропуск третьего элемента массива,
+                    // так как он обрабатывается отдельно.
+                    if (i == 3 && j == 3)
                     {
-                        // Пропуск третьего элемента массива,
-                        // так как он обрабатывается отдельно.
-                        if (i == 3 && j == 3)
-                        {
-                            continue;
-                        }
+                        continue;
+                    }
 
-                        // Значения элементов массивов для проверки идентичности
-                        // и подсчета количества совпадений.
-                        var lostMessageElement = lost[i]?.Trim()?.ToLower();
-                        var foundMessageElement = found[j]?.Trim()?.ToLower();
+                    // Значения элементов массивов для проверки идентичности
+                    // и подсчета количества совпадений.
+                    var lostMessageElement = lost[i]?.Trim()?.ToLower();
+                    var foundMessageElement = found[j]?.Trim()?.ToLower();
 
-                        // Проверка элементов массива на null (такие элементы исключаются из подсчета совпадений).
-                        bool isLostMessageElementEmpty = string.IsNullOrEmpty(lostMessageElement);
-                        bool isFoundMessageElementEmpty = string.IsNullOrEmpty(foundMessageElement);
+                    // Проверка элементов массива на null (такие элементы исключаются из подсчета совпадений).
+                    bool isLostMessageElementEmpty = string.IsNullOrEmpty(lostMessageElement);
+                    bool isFoundMessageElementEmpty = string.IsNullOrEmpty(foundMessageElement);
 
-                        // Если элемены совпали, увеличить счетчик совпадений на 1.
-                        if (lostMessageElement == foundMessageElement && !isLostMessageElementEmpty && !isFoundMessageElementEmpty)
-                        {
-                            countMatches = countMatches + 1;
-                        }
+                    // Если элемены совпали, увеличить счетчик совпадений на 1.
+                    if (lostMessageElement == foundMessageElement && !isLostMessageElementEmpty && !isFoundMessageElementEmpty)
+                    {
+                        countMatches = countMatches + 1;
                     }
                 }
+            }
 
-                // Если даты равны, включить в подсчет совпадений элементов массива.
-                if (isdateCorrectEqual)
-                {
-                    countMatches = countMatches + 1;
-                }
+            // Переменная, в которую вернется распарсенная дата.
+            DateTime dateLostValue;
+            DateTime dateFoundValue;
 
-                // Константа для обозначения 100%.
-                const int fullPercent = 100;
+            // Приведение даты к формату DateTime.
+            DateTime.TryParse(dateLost, out dateLostValue);
+            DateTime.TryParse(dateFound, out dateFoundValue);
 
-                // Подсчет процента совпадений в массивах по результатам сравнения.
-                equalityPercent = (countMatches * fullPercent / (messagesElementsCount - 1));
+            // Если даты равны, включить в подсчет совпадений элементов массива.
+            if (dateLostValue == dateFoundValue)
+            {
+                countMatches = countMatches + 1;
+            }
 
-                // Если процент совпадений больше 100 (в случае наличия идентичных элементов в отдельном массиве),
-                // установить процент равный 100.
-                if (equalityPercent > fullPercent)
-                {
-                    equalityPercent = fullPercent;
-                }
+            // Подсчет процента совпадений в массивах по результатам сравнения.
+            equalityPercent = (countMatches * fullPercent / (messagesElementsCount - 1));
+
+            // Если процент совпадений больше 100 (в случае наличия идентичных элементов в отдельном массиве),
+            // установить процент равный 100.
+            if (equalityPercent > fullPercent)
+            {
+                equalityPercent = fullPercent;
             }
 
             return equalityPercent;

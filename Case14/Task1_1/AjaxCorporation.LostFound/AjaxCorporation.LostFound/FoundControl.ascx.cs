@@ -14,17 +14,24 @@
         /// <param name="e"></param>
         protected void Compare_OnClick(object sender, EventArgs e)
         {
-            // Наполение массивов.
-            string[] lost = new string[9] { TypeMessageLost.Text, NameLost.Text, AdressLost.Text, DateLost.Text, TypeLost.Text, ColorLost.Text, SizeLost.Text, BreedLost.Text, DescriptionLost.Text };
+            try
+            {
+                // Наполение массивов.
+                string[] lost = new string[9] { TypeMessageLost.Text, NameLost.Text, AdressLost.Text, DateLost.Text, TypeLost.Text, ColorLost.Text, SizeLost.Text, BreedLost.Text, DescriptionLost.Text };
 
-            string[] found = new string[9] { TypeMessageFound.Text, NameFound.Text, AdressFound.Text, DateFound.Text, TypeFound.Text, ColorFound.Text, SizeFound.Text, BreedFound.Text, DescriptionFound.Text };
+                string[] found = new string[9] { TypeMessageFound.Text, NameFound.Text, AdressFound.Text, DateFound.Text, TypeFound.Text, ColorFound.Text, SizeFound.Text, BreedFound.Text, DescriptionFound.Text };
 
-            // Проверка совпадений строк массива.
-            double resultCompare = MessagesCompare.Compare(lost, found);
+                // Проверка совпадений строк массива.
+                double resultCompare = MessagesCompare.Compare(lost, found);
 
-            // Вывод полученного процента совпадений.
-            string resultCompareText = resultCompare.ToString("F");
-            Result.Text = resultCompareText;
+                // Вывод полученного процента совпадений.
+                string resultCompareText = resultCompare.ToString("F");
+                Result.Text = resultCompareText;
+            }
+            catch(Exception ex)
+            {
+                ExeptionBlock.Text = ex.Message;
+            }
         }
     }
 }

@@ -118,3 +118,4 @@
             <asp:TextBox ID="Result" runat="server" ReadOnly="True" Text=""></asp:TextBox></td>
     </tr>
 </table>
+<asp:ModelErrorMessage ID="ExeptionBlock" runat="server" ForeColor="Red"/>

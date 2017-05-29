@@ -12,9 +12,6 @@
     /// </summary>
     public class MessagesCompareTest
     {
-        // Константа для обозначения 100%.
-        const int fullPercent = 100;
-
         // Проверка случая с полностью идентичными массивами строк.
         [Fact]
         public void FullArrayEqual()
@@ -25,7 +22,7 @@
             string[] found = new string[9] { "Найдено", "Кошка", "Ивановская, 4", "01.02.2000", "Животное", "Пятнистая", "Маленькая", "Беспородная", "Белая с рыжими и черными пятнами" };
 
             // При полной идентичности массивов строк совпадение должно равняться 100%.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
@@ -45,7 +42,7 @@
             string[] found = new string[9] { "Найдено", " Кошка", "Ивановская, 4 ", "01.02.2000", "Животное", "Пятнистая", "Маленькая", "Беспородная", " Белая с рыжими и черными пятнами" };
 
             // При полной идентичности массивов строк совпадение должно равняться 100%.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
@@ -66,7 +63,7 @@
             string[] found = new string[9] { "Найдено", "Кошка", "Ивановская, 4", "01.02.2000", "Животное", "Пятнистая", "маленькая", "Беспородная", " Белая с рыжими и черными пятнами" };
 
             // При полной идентичности массивов строк совпадение должно равняться 100%.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
@@ -147,7 +144,7 @@
             string[] found = new string[9] { "Найдено", "01.02.2000", "Животное", "Кошка", "Ивановская, 4", "Пятнистая", "Маленькая", "Беспородная", "Белая с рыжими и черными пятнами" };
 
             // При полной идентичности массивов строк совпадение должно равняться 100%.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
@@ -189,7 +186,7 @@
 
             // Если 2 и более строки в массивах совпадают, то итоговый процент может превысить 100%,
             // задано условие, что в таких случаях процент совпадения считать равным 100%.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
@@ -353,7 +350,7 @@
 
             // При полной идентичности массивов строк совпадение должно равняться 100%.
             // В данном случае идентичность должна быть полной.
-            double expectedPercent = fullPercent;
+            double expectedPercent = MessagesCompare.fullPercent;
 
             // Act.
             double actualPercent = MessagesCompare.Compare(lost, found);
