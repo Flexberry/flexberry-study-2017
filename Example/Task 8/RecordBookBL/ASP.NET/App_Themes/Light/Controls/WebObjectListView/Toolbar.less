@@ -1,0 +1,41 @@
+﻿/**
+ * Файл визуального оформления основного тулбара.
+ */
+
+
+/* Основной тулбар. */
+.@{wolvHeaderClass} {
+    background: @wolvToolbarBackgroundColor;
+    padding: 5px 15px;
+}
+
+.@{wolvToolbarCaptionClass},
+.@{wolvToolbarSeparatorClass} {
+    display: none;
+}
+
+// Кнопка удаления.
+// Отключенная.
+.@{wolvToolbarDeleteBtnClass}.ics-wolv-toolbar-button-delete-disabled,
+.@{wolvToolbarDeleteBtnClass}.ics-wolv-toolbar-button-delete-disabled:active {
+    background: #cecece;
+}
+
+/* WOLV панель поиска. */
+.@{wolvToolbarSearchPanelClass} {
+    margin: 8px 0;
+
+    br {
+        display: none;
+    }
+
+    /* Кнопка поиска. */
+    .@{wolvSearchPanelsearchBtnClass} {
+        /* добавление свойств из buttons.less */
+        .ics-btn-active();
+        height: 30px;
+    }
+}
+
+
+@import (reference) "_Settings.less";

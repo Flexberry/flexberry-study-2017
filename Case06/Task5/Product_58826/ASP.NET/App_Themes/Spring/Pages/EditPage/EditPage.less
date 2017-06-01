@@ -1,0 +1,80 @@
+﻿@import '../../../BaseTheme/Pages/EditPage/EditPage.less';
+
+/* Файл визуального оформления формы редактирования. */
+
+.@{descTxtClass}:not(.ui-autocomplete-input) {
+    width: 180px;
+}
+
+/* Основной тулбар формы редактирования.*/
+.@{editToolbarClass} {
+    padding: 7px 24px;
+
+    .@{btnSaveClass},
+    .@{btnSaveCloseClass},
+    .@{btnCloseClass} {
+        display: -moz-box;
+        display: inline-block;
+        height: 32px;
+        padding: 0;
+        outline: none;
+        border: none;
+        background-position: 0 0;
+        background-image: url('Images/edit-form-toolbar-btns.png');
+        color: transparent;
+    }
+    /* Кнопка "Сохранить".*/
+    .@{btnSaveClass} {
+        width: 108px;        
+        background-position: 0 -32px;
+
+        &:hover {
+            background-position: -324px -32px;
+        }
+
+        &:active {
+            background-position: -108px -32px;
+        }
+
+        &:focus {
+            background-position: -108px -32px;
+        }
+    }
+
+    /* Кнопка "Сохранить и закрыть".*/
+    .@{btnSaveCloseClass} {
+        width: 173px;        
+        background-position: 0 0;
+
+        &:hover {
+            background-position: -519px 0;
+        }
+
+        &:active {
+            background-position: -173px 0;
+        }
+
+        &:focus {
+            background-position: -173px 0;
+        }
+    }
+    /* Кнопка "Закрыть".*/
+    .@{btnCloseClass} {
+        width: 90px;        
+        background-position: 0 -64px;
+
+        &:hover {
+            background-position: -270px -64px;
+        }
+
+        &:active {
+            background-position: -90px -64px;
+        }
+
+        &:focus {
+            background-position: -90px -64px;
+        }
+    }
+}
+
+@import '_Settings.less';

@@ -1,0 +1,108 @@
+﻿@import '../../../BaseTheme/Controls/Buttons/Buttons.less';
+
+/**
+ * Файл визуального оформления кнопок.
+ * Тема Light.
+ */
+
+
+.@{buttonClass} {
+    .background-image(#fff,#cecece);
+    text-decoration: none;
+
+    &:hover {
+        background: @buttonHoverBackground;
+        color: @buttonTextColor;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #f60;
+    }
+
+    &:active {
+        .background-image(#cecece,#fff);
+        color: @buttonTextColor;    
+        -webkit-box-shadow: inset 1px 1px 1px @buttonBoxShadowColor;
+        box-shadow: inset 1px 1px 1px @buttonBoxShadowColor;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcecece', endColorstr='#ffffffff', GradientType=0);
+    }
+}
+
+/* Кнопки. */
+.ics-btn,
+#popup_panel input[type="button"] {
+    display: inline-block;
+    background-color: #e5e5e5;
+    background-image: none !important;
+    color: #4c4c4c;
+    padding: 4px 12px;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-bottom-color: #b3b3b3;
+    .border-radius(4px);
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    -webkit-text-shadow: 0 1px 1px #fff;
+    text-shadow: 0 1px 1px #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 #fff,0 1px 2px #000;
+    -moz-box-shadow: inset 0 1px 0 #fff,0 1px 2px #000;
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 #fff,0 1px 2px #000;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+
+    /* Кнопка выделенная. */
+    &:hover {
+        color: #333;
+        text-decoration: none;
+        background-position: 0 -15px;
+        -webkit-transition: background-position .1s linear;
+        -moz-transition: background-position .1s linear;
+        -o-transition: background-position .1s linear;
+        transition: background-position .1s linear;
+    }
+
+    /* Нажатая кнопка. */
+    &:active {
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 2px 4px #000,0 1px 2px #000;
+        -moz-box-shadow: inset 0 2px 4px #000,0 1px 2px #000;
+        -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+        box-shadow: inset 0 2px 4px #000,0 1px 2px #000;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    /* Кнопка с фокусом. */
+    &:focus {
+        outline: none;
+        border-color: #f60;
+    }
+}
+
+/* Неактивная кнопка. */
+input[type="button"],
+input[type="submit"] {
+    &[disabled], &:disabled {
+        background: #f0f0f0;
+        color: #999;
+        cursor: default;
+    }
+}
+
+/* Миксин кнопок с классом 'ics-btn' 
+   в состоянии active. */
+.ics-btn-active() {
+    &:extend(.ics-btn:active);
+}
+
+
+@import "_Settings.less";

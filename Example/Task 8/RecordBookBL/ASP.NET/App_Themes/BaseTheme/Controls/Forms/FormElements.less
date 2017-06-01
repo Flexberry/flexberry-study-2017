@@ -1,0 +1,155 @@
+﻿/**
+ * Стили базовой темы.
+ * Дефолтные контролы.
+ */
+
+
+
+/**
+ * 1. Сброс браузерных стилей.
+ * 2. в FireFox'e размер шрифта в textarea значительно больше других полей.
+ */
+textarea, input, select {
+    font-family: inherit; /* 1 */
+    font-size: 1em; /* 2 */
+}
+
+// Текстовые поля.
+input {
+    &[type="text"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="date"],
+    &[type="time"] {
+        .border-box();
+        padding: @padding-base-vertical @padding-base-horizontal;
+        border: 1px solid;
+        border-color: @input-border-color;
+        .border-radius(@input-border-radius);
+        background: @input-bg;
+        height: @input-height-base;
+
+        .disabled();
+        .readonly(); 
+        
+        td & {
+        width: 100%;
+    }    
+    }
+    // pseudo-element for clear field, >=IE10
+    &::-ms-clear {
+        width: 0;
+        height: 0;
+    }
+    // pseudo-element for password field, >=IE10
+    &::-ms-reveal {
+        display: none;
+    }  
+}
+
+// Неактивные текстовые поля и выпадающие списки.
+.disabled() {
+    &.@{disableClass}, &[disabled],
+    &.@{disableClass}:focus, &[disabled]:focus {
+        border-color: @disabled-border-color;
+        background: @disabled-bg;
+        color: @disabled-color;
+    }
+}
+
+.readonly() {
+    &.@{readonlyClass}, &[readonly],
+    &.@{readonlyClass}:focus, &[readonly]:focus {
+        border-color: @readonly-border-color;
+        background: @readonly-bg;
+        color: @readonly-color;
+    }
+}
+
+.uneditable-input {
+    &:extend(input[type=text][disabled]);
+}
+
+// Неактивные чекбокс.
+input[type="checkbox"] {
+    .@{disableClass}, .@{readonlyClass},
+    &[disabled], &[readonly] {
+        background: transparent;
+    }
+}
+
+// Многострочные текстовые поля.
+textarea {
+    &:extend(input[type=text]);
+    height: inherit;
+
+    &:focus {
+        &:extend(input[type=text]:focus);
+    }
+    .disabled();
+    .readonly();
+
+    td & {
+        width: 100%;
+    }
+}
+
+// Выпадающие списки.
+select {
+  .disabled();
+  .readonly();
+}
+
+// Валидаторы.
+.validator-summary {
+    display: block;
+    padding: 10px 0;
+    margin: 10px 0;    
+    background-color: @exceptionTitleBgColor;
+    border-color: @exceptionTitleBorderColor;
+
+    ul {
+        margin: 0;
+        color: @errorTextColor;
+    }
+}
+
+/**
+ * 1. Убрать расстояние между ячейками таблицы.
+ */
+table {
+    border-collapse: collapse; /* 1 */
+}
+
+/** Хак, fieldset имеется большую ширину, чем родительский контейнер,
+    из-за чего у волва не появляется скролл.
+ */
+// Chrome, IE
+fieldset {
+    position: relative;
+    min-width: 0;
+}
+// Firefox
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+        width: 100%;
+    }
+}
+
+/**
+ * AjaxIndicator
+ */
+
+.loading-indicator-small {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../../Images/indicator.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    span& {
+        height: @input-height-base;
+    }
+}

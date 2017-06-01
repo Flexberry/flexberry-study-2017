@@ -1,0 +1,113 @@
+﻿@import '../../../BaseTheme/Pages/MainPage/MainPage.less';
+
+/**
+ * Файл визуального оформления основной страницы.
+ */
+
+
+/* Шапка. */
+.@{pageHeaderClass} {    
+    &-userbar {        
+        margin: 13px 0;
+    }
+}
+
+
+/* Строка навигации. */
+.@{pageNavigatorClass} {
+    border-top: 2px groove @navigatorBorderTopColor;
+    border-bottom: 2px ridge @navigatorBorderBottomColor;
+
+    .page {
+        &-breadcrumbs a {
+            color: @navigatorBreadcrumbsColor;
+            text-decoration: none;
+        }
+
+        &-breadcrumbs a[href]:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+
+
+/* Кнопка скрытия-отображения меню. */
+#@{pageNavigatorShowHideBtnId},
+a[id*='@{pageNavigatorShowHideBtnId}'] {
+    position: relative;
+    right: 5px;
+    z-index: 50;
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    background-image: url(Images/treeview-show.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    > span {
+        display: none;
+    }
+
+    &-sticky-wrapper {
+        float: left;
+    }
+}
+
+.@{pageMenuHiddenClass} {
+    #@{pageNavigatorShowHideBtnId},
+    a[id*='@{pageNavigatorShowHideBtnId}'] {
+        background-image: url(Images/treeview-hide.png);
+    }
+
+    #@{pageBlockTreeId},
+    div[id*='@{pageBlockTreeId}'] {
+        display: none;
+    }
+}
+
+
+/* Блок меню. */
+#@{pageBlockTreeId} {    
+        
+    .@{pageMenuTreeClass} {
+        margin: 2px;
+
+        tr:hover td {
+            background-color: @menuNodeHoveredBackgroundColor;
+        }
+
+        td.@{pageMenuNodeClass} {
+            height: 29px;
+        }
+    }
+}
+
+
+/* Контент (правый блок). */
+#@{pageContentId} {
+    .border-box();
+    margin-bottom: 0;
+    padding: 0;
+    min-height: 60px;
+
+    > div:not(.ics-form) {
+        margin-left: 24px;
+        margin-top: 10px;
+    }
+
+    .@{pageContentHeaderClass} {
+        margin-left: 24px;
+    }
+}
+
+
+/* Подвал. */
+.@{pageFooterClass} {
+    .border-box();
+    border-top: 1px solid @footerBorderTopColor;
+    background-color: @footerBackgroundColor;
+}
+
+
+@import '_Settings.less';

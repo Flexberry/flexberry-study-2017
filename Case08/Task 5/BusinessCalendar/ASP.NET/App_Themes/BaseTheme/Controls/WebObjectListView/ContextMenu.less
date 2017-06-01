@@ -1,0 +1,106 @@
+﻿/**
+ * Стили базовой темы.
+ * Контекстное меню. 
+ */
+
+.@{contextMenuClass} {
+    position: absolute;
+    padding: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    list-style-type: none;
+    font-size: 11px;
+}
+
+
+.@{menuDisabledClass}.@{contextMenuItemClass}.hover {
+    background-color: #ccc;
+    cursor: default;
+}
+
+.@{contextMenuItemClass} {
+    padding: 2px 2px 2px 24px;
+    position: relative;
+    .user-noselect();
+    background-color: #ccc;
+
+    &.icon {
+        min-height: 18px;
+        background-repeat: no-repeat;
+        background-position: 4px 2px;
+    }
+
+    > label > input,
+    > label > textarea {
+        .user-select(text);
+    }
+
+    &.hover {
+        cursor: pointer;
+
+        .context-menu-list {
+            display: block;
+            min-width: 100%;
+        }
+    }
+
+    &.disabled {
+        color: #666;
+    }
+
+    > .context-menu-list {
+        display: none;
+        right: -5px;
+        top: 5px;
+    }
+
+    &.disabled.hover {
+        cursor: default;
+        background-color: #ccc;
+    }
+}
+
+.context-menu-separator {
+    padding-bottom: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.@{contextMenuSubmenuClass}:after {
+    color: #666;
+    content: "\f105";
+    .font-icon-style();
+    float: right;
+}
+
+.style-context-menu-input-label() {
+    display: block;    
+    .border-box();
+    width: 100%;
+}
+
+.context-menu-input > label {
+    .style-context-menu-input-label;
+
+    > * {
+        vertical-align: top;
+    }
+
+    > input[type="checkbox"],
+    > input[type="radio"] {
+        margin-left: -17px;
+    }
+
+    > span {
+        margin-left: 5px;
+    }
+
+    > input[type="text"], > textarea, > select {
+        .style-context-menu-input-label;
+    }
+}
+
+.context-menu-accesskey {
+    text-decoration: underline;
+}
+
+@import (reference) "WolvClasses.less";

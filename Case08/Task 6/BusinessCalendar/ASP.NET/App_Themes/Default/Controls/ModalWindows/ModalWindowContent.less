@@ -1,0 +1,65 @@
+﻿@import '../../../BaseTheme/Controls/ModalWindows/ModalWindowContent.less';
+
+/**
+ * Файл визуального оформления содержимого модальных окон.
+ */
+
+
+// Заголовок таблицы модального окна.
+.@{modalWindowTableCaptionClass} {
+    // Элемент в заголовке таблицы модального окна.
+    .@{modalWindowTableItemClass} {
+        background: #e7ecf6;
+        background: -moz-linear-gradient(top, #e7ecf6 1%, #eff2f6 50%, #e2e8f5 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#e7ecf6), color-stop(50%,#eff2f6), color-stop(100%,#e2e8f5));
+        background: -webkit-linear-gradient(top, #e7ecf6 1%,#eff2f6 50%,#e2e8f5 100%);
+        background: -o-linear-gradient(top, #e7ecf6 1%,#eff2f6 50%,#e2e8f5 100%);
+        background: -ms-linear-gradient(top, #e7ecf6 1%,#eff2f6 50%,#e2e8f5 100%);
+        background: linear-gradient(to bottom, #e7ecf6 1%,#eff2f6 50%,#e2e8f5 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7ecf6', endColorstr='#e2e8f5',GradientType=0 );
+
+        .@{selectAllBtnClass},
+        .@{resetSortBtnClass} {
+            width: 15px;
+        }  
+    }
+
+    .@{modalWindowTableItemClass} + .@{modalWindowTableItemClass} {
+        margin-left: -1px;
+    }
+}
+
+// Колонки таблицы модального окна.*/
+#sortable {
+    li {
+        background: #fff;
+
+        &:nth-child(even) {
+            background: #e7ecf6;
+        }
+    }
+}
+
+// Засеривание строк таблицы.
+.@{tableColumnsListClass} #sortable {
+
+    li.disabled {
+        background: #ccc;
+
+        input[type="text"],
+        select {
+            background: #ddd;
+            box-shadow: none;
+        }
+    }
+}
+
+
+// Футер модального окна.*/
+.@{modalWindowFooterClass} {
+    border-top: 1px solid #aaa;
+    background: #E8E8E8;
+}
+
+
+@import '_Settings.less';

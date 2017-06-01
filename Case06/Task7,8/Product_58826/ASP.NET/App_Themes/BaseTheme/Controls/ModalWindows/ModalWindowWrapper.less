@@ -1,0 +1,232 @@
+﻿/**
+ * Стили базовой темы.
+ * Оболочка модальных окон.
+ */
+
+@import (reference) '_Variables.less';
+
+/* Затемненный фон. */
+#@{overlayBackgroundId} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+
+    &.TB_overlayBG {
+        background-color: @modalWindowOverlayBackgroundColor;
+        -moz-opacity: 0.45;
+        opacity: 0.45;
+        filter: alpha(opacity=45);
+    }
+}
+
+#@{modalWindowId} {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    display: none;
+    border-style: solid;
+    border-width: @modalWindowBorderWidth;
+    border-color: @modalWindowBorderColor;
+    .border-radius(@modalWindowBorderRadius);
+    background: @modalWindowBackgroundColor;
+    text-align: left;
+
+    #@{modalWindowTitleTextId} {
+        float: left;
+        padding: 7px 0 5px 10px;
+    }
+    /* Картинка/текст в заголовке модального окна. */
+    #@{modalWindowTitleImageId} {
+        padding: @modalWindowTitleImageIdPadding;
+        text-align: right;
+    }
+
+    #@{modalWindowAjaxContentId} {
+        clear: both;
+        overflow: auto;
+        padding: 2px 15px 15px;
+        text-align: left;
+        line-height: 1.4em;
+    }
+
+    #TB_Image {
+        display: block;
+        margin: 15px 0 0 15px;
+        border: 1px solid;
+        border-color: #666 #ccc #ccc #666;
+    }
+
+    #@{modalWindowContentId} {
+        clear: both;
+        border: none;
+        margin-bottom: -1px;
+        margin-top: 1px;
+        _margin-bottom: 1px;
+    }
+
+    #TB_iframeContent {
+        #pageBlockTreeview, .page-header, .page-navigation {
+            display: none !important;
+        }
+    }
+}
+
+#TB_secondLine {
+    font-size: 10px;
+    color: #666;
+}
+
+#TB_caption {
+    height: 25px;
+    padding: 7px 30px 10px 25px;
+    float: left;
+}
+
+#TB_closeWindow {
+    height: 25px;
+    padding: 11px 25px 10px 0;
+    float: right;
+}
+
+#@{modalWindowAjaxContentId} {
+    .TB_modal {
+        padding: 15px;
+    }
+
+    p {
+        padding: 5px 0;
+    }
+}
+
+#@{modalWindowTitleCloseImageId} {
+    cursor: pointer;
+}
+
+#TB_load {
+    position: fixed;
+    z-index: 103;
+    top: 50%;
+    left: 50%;    
+    display: none;    
+    width: 208px;
+    height: 13px;    
+    margin: -6px 0 0 -104px;
+}
+
+#TB_loadAnimation {
+    background: url(Images/loading.gif);
+    width: 32px;
+    height: 32px;
+}
+
+* html #TB_load,* html #TB_HideSelect {
+    position: absolute;
+}
+
+#TB_HideSelect {
+    position: fixed;
+    z-index: 99;    
+    top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;    
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;    
+}
+
+.modal-open {
+    overflow: hidden;
+    width: 100%;
+}
+
+.ui-dialog.@{modalMainClass} {
+    .border-box();
+    padding: 0;
+    outline: none;
+    background: @modal-bg;
+    border-style: solid;
+    border-width: @modal-border-width;
+    border-color: @modal-border-color;
+    .border-radius(@modal-border-radius);
+
+    .ui-dialog-titlebar {
+        border: none;
+        .border-radius(0);
+        background: @modal-header-bg;
+    }
+
+    .ui-dialog-title {
+        color: @modal-title-font-color;
+        font-size: @modal-title-font-size;
+        font-weight: @modal-title-font-weight;
+    }
+
+    .ui-dialog-titlebar-close {
+        top: inherit;
+        margin: 0;
+        padding: 0;
+        float: right;
+        background: none;
+        border: none;
+
+        &:hover .ui-icon-closethick {
+            cursor: pointer;
+            filter: alpha(opacity=50);
+            opacity: .5;
+        }
+    }
+
+    .ui-icon-closethick {
+        top: inherit;
+        margin-top: -4px;
+        background: none;
+        width: inherit;
+        height: inherit;
+        text-indent: inherit;
+        font-size: 21px;
+        font-weight: 700;
+        color: #000;
+        line-height: 1;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+
+        &:before {
+            content: '×';
+        }
+    }
+
+    #@{pageBlockTreeId},div[id*='@{pageBlockTreeId}'] .@{pageHeaderClass}, .@{pageNavigatorClass}, .@{pageFooterClass} {
+        display: none;
+    }
+
+    #@{pageContentId},
+    div[id*='@{pageContentId}'] {
+        border: none;
+    }
+
+    .@{modalContentClass} {
+        overflow: hidden;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .@{modalIframeClass} {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+div.ui-widget-overlay {
+    position: fixed;
+    z-index: 101; 
+    background: #000;
+    opacity: 0.65;    
+}

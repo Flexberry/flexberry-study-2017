@@ -1,0 +1,98 @@
+﻿/**
+ * Стили базовой темы.
+ * Страница и модальное окно ошибки.
+ */
+
+@import (reference) '_Variables.less';
+
+/* Страница с ошибкой. */
+.@{exceptionPanelClass} {
+    width: 100%;
+
+    &.@{exceptionHideClass} {
+        display: none;
+    }
+
+    &.@{exceptionVisibleClass} {
+        display: block;
+    }
+
+    .@{exceptionTitleClass} {
+        display: block;
+        padding: 10px;
+        margin: 10px 0;
+        color: @errorTextColor;
+        background-color: @exceptionTitleBgColor;
+        border-color: @exceptionTitleBorderColor;
+    }
+
+    .@{showCollapseExeptionClass} {
+        width: 100%;
+        cursor: pointer;
+        color: @errorTextColor;
+        font-weight: 700;
+    }
+
+    .@{exceptionTextClass} {
+        padding: 10px;
+        border-left: 5px solid @errorTextColor;
+        width: 100%;
+        background: @exceptionTextBgColor;
+        .border-box();
+    }
+
+    .@{stackTraceClass} {
+        color: #505050;
+    }
+}
+
+/* Всплывающее окно с ошибкой. */
+.@{errorModalWindowClass} {
+
+    .@{errorCaptionClass} {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .@{errorContentClass} {
+        padding-bottom: 20px;
+
+        .@{exceptionPanelClass} {
+
+            .@{errorMsgLblClass},
+            .@{collapsiblePnlClass} {
+                word-wrap: break-word;
+                -ms-word-wrap: break-word;
+                margin-left: 0;
+
+                .@{exceptionTypeClass} {
+                    color: @errorTextColor;
+                }
+            }
+        }
+    }
+
+    .@{errorToolbarClass} {
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        width: 95%;
+        background: @errorToolbarBgColor;        
+        text-align: right;
+
+        .@{errorOkBtnClass} {
+            width: 75px;
+            margin-bottom: 5px;
+        }
+    }
+
+    .@{errorListClass} {
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .@{errorSelectClass} {
+        float: left;
+        width: 48px;
+    }
+}

@@ -1,0 +1,137 @@
+﻿/**
+ * Файл содержащий базовые переменные темы Default.
+ */
+
+
+//== Цвета.
+//
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@basic-color-first          : #e2e8f5;                    // светло-сиреневый (шапка, пункты бокового меню, волв)
+@basic-color-second         : @gray-lighter;              // светло-серый (навигация, контролы, подвал)
+@basic-color-third          : #000074;                    // темно-синий (заголовок в шапке, ссылки)
+
+/*@brand-primary:         #e2e8f5;       // Основной цвет.
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;*/
+
+
+//== Настройки страницы.
+//
+
+@body-bg                  : #fff;
+@text-color               : @gray-light;
+@line-height-base         : 16px;
+
+/* Шапка. */
+@header-bg                : @basic-color-first;
+@header-color             : @text-color;
+
+/* Строка навигации. */
+@nav-bg                 : @basic-color-second;
+@nav-color              : @gray-dark;
+
+
+/* Боковое меню. */
+@sidebar-bg                     : lighten(@basic-color-first, 5%); //#f2f4fa f5f7fc;
+@sidebar-color                  : @gray-dark;
+@sidebar-bg-elem-hover          : lighten(@basic-color-first, 50%); //#e7ecf6 e7ecf6;
+@sidebar-bg-elem-current        : @sidebar-bg;
+@sidebar-color-elem-hover       : @gray-base;
+@sidebar-color-elem-current     : @sidebar-color;
+
+/* Блок контента. */
+@content-bg               : @body-bg;
+@content-color            : @text-color;
+
+/* Подвал. */
+@footer-bg                : @basic-color-second;
+@footer-color             : @text-color;
+
+
+//== Типография.
+//
+
+/* Ссылки. */
+@link-color         : @basic-color-third; 
+@link-color-hover   : @link-color;
+@link-color-active  : @link-color;
+@link-color-visited : @link-color;
+
+/* Заголовки. */
+/*@heading-color    : @gray-darker;*/
+@heading-weight   : bold;
+
+/* Шрифт. */
+@font-family-text     : "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-headings : "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+ 
+/* Размер шрифтов. */
+@font-size-larger     : 1.5em;
+@font-size-large      : 1.25em;
+@font-size-base       : 14px;
+@font-size-small      : 0.85em;
+@font-size-mini       : 0.75em;
+
+
+//== Таблицы.
+//
+
+/*@table-cell-padding:            ;
+@table-bg:                      ;
+@table-bg-hover:                ;
+@table-bg-active:               @table-bg-hover;*/
+@table-border-color    : #8da6c6;
+
+
+//== Кнопки.
+//
+/*
+@btn-bg: ;
+@btn-color: ;
+@btn-bg-hover: ;
+@btn-color-hover: ;
+@btn-font-size: ;
+@btn-font-weight: ;
+@btn-padding: ;*/
+
+
+//== Форма редактирования.
+//
+@input-height-base          : 22px; 
+@padding-base-vertical      : 1px;
+@padding-base-horizontal    : 1px;
+@input-bg                   : #eee;
+@input-border-color         : #bbb;
+@input-border-radius        : 2px;
+@disabled-bg                : #ddd;
+@disabled-color             : #545454;
+@disabled-border-color      : #bbb;
+@readonly-bg                : #ddd;
+@readonly-color             : #545454;
+@readonly-border-color      : #bbb;
+
+
+//== Пейджер.
+//
+@pager-height               : @input-height-base; // Высота элементов в пейжере WOLV'а.
+
+
+//== Модальные окна.
+//
+@modal-bg                   : #fff;
+@modal-header-bg            : #e8e8e8;
+@modal-border-color         : #73afed;
+@modal-border-width         : 4px;
+@modal-border-radius        : 0;
+@modal-title-font-size      : 14px;
+@modal-title-font-color     : #333;
+@modal-title-font-weight    : 400;

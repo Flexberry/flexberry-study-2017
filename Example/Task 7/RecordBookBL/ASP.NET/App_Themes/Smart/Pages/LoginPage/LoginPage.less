@@ -1,0 +1,61 @@
+﻿@import '../../../BaseTheme/Pages/LoginPage/LoginPage.less';
+
+/**
+ * Файл визуального оформления формы входа.
+ */
+
+
+/* Заголовок страницы входа. */
+.@{loginFormPageHeaderClass} {
+    margin: 0 auto;
+    margin-bottom: 34px;
+    padding: 64px 0 16px 0;
+    text-align: center;
+}
+
+
+/* Форма входа. */
+.@{loginFormClass} {
+
+    .@{loginFormInputClass}:focus,
+    .@{loginFormInputClass} {
+        .border-box();
+        padding: 17px 14px 16px 14px;
+        border: 1px solid @loginFormInputBorderColor;
+        border-width: 1px 0 0 0;
+        .border-radius(5px);
+        .background(#0189b7,#0099cc);
+        color: @loginFormInputTextColor;
+        font-size: 14px;
+    }
+
+    .@{loginFormBtnClass} {        
+        width: 100px;
+        padding: 11px 24px;
+        border: 1px solid transparent;
+        border-bottom-color: @loginFormBtnBorderColor;
+        margin-top: 5px;
+        .background(#0098cb,#017da6);
+        color: @loginFormBtnTextColor;
+        box-shadow: 0 3px 1px #005572, 0 5px 3px 1px #000;    
+        font-size: 14px;
+        text-transform: uppercase;
+        line-height: 25px;        
+
+        &:active {
+            box-shadow: 0 1px 3px 1px @loginFormBtnActivBoxShadowColor;
+        }
+    }
+    /* Поле "Логин". */
+    input#LoginUser_UserName {
+        margin-bottom: 10px;
+    }
+}
+
+/* Всплывающий текст при неудачном входе. */
+.@{loginFormFailureTextClass} {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+@import '_Settings.less';

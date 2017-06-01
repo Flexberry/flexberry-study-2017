@@ -1,0 +1,87 @@
+﻿
+.background (@color-1,@color-2) {
+    background: -moz-linear-gradient(top, @color-1 0, @color-2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0,@color-1), color-stop(100%,@color-2));
+    background: -webkit-linear-gradient(top, @color-1 0,@color-2 100%);
+    background: -o-linear-gradient(top, @color-1 0,@color-2 100%);
+    background: -ms-linear-gradient(top, @color-1 0,@color-2 100%);
+    background: linear-gradient(to bottom, @color-1 0,@color-2 100%);
+}
+
+.background-image (@color-1,@color-2) {
+    background-image: -moz-linear-gradient(top, @color-1, @color-2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color-1), to(@color-2));
+    background-image: -webkit-linear-gradient(top, @color-1, @color-2);
+    background-image: -o-linear-gradient(top, @color-1, @color-2);
+    background-image: linear-gradient(to bottom, @color-1, @color-2);
+}
+
+.border-box() {
+     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+         -ms-box-sizing: border-box;
+          -o-box-sizing: border-box;
+             box-sizing: border-box;
+}
+
+.user-noselect() {
+     -webkit-user-select: none;
+      -khtml-user-select: none;
+        -moz-user-select: -moz-none;
+          -o-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+}
+
+.user-select(@select) {
+     -webkit-user-select: @select;
+      -khtml-user-select: @select;
+        -moz-user-select: @select;
+          -o-user-select: @select;
+         -ms-user-select: @select;
+             user-select: @select;
+}
+
+.border-radius(@radius) {
+     -webkit-border-radius: @radius;
+        -moz-border-radius: @radius;
+             border-radius: @radius;
+}
+
+.border-radius-left(@radius) {
+     -webkit-border-bottom-left-radius: @radius;
+         -moz-border-radius-bottomleft: @radius;
+            -moz-border-radius-topleft: @radius;
+        -webkit-border-top-left-radius: @radius;
+                border-top-left-radius: @radius;
+             border-bottom-left-radius: @radius;
+}
+
+.border-radius-right(@radius) {
+    -webkit-border-bottom-right-radius: @radius;
+        -moz-border-radius-bottomright: @radius;
+            border-bottom-right-radius: @radius;
+           -moz-border-radius-topright: @radius;
+       -webkit-border-top-right-radius: @radius;
+               border-top-right-radius: @radius;    
+}
+
+/* Стили для вставки шрифтовых иконок в свои классы. */
+.font-icon-style() {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    text-decoration: none;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+
+.rotate (@degrees) {
+    -webkit-transform: rotate(@degrees);
+       -moz-transform: rotate(@degrees);
+        -ms-transform: rotate(@degrees);
+         -o-transform: rotate(@degrees);
+               filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}

@@ -1,0 +1,57 @@
+﻿@import '../../../BaseTheme/Controls/ModalWindows/ModalWindowContent.less';
+
+/**
+ * Файл визуального оформления содержимого модальных окон.
+ */
+
+
+// Заголовок таблицы модального окна.
+.@{modalWindowTableCaptionClass} {
+    // Элемент в заголовке таблицы модального окна.
+    .@{modalWindowTableItemClass} {
+        background: @modalWindowTableItemBackgroundColor;
+
+        .@{selectAllBtnClass},
+        .@{resetSortBtnClass} {
+            width: 15px;
+        }
+    }
+}
+
+// Колонки таблицы модального окна.
+#sortable {
+    li {
+        background: @modalWindowTableColumnsListBorderColor;
+
+        &:hover {
+            color: @modalWidnowTableColumnsListHoveredColor;
+            background: @modalWidnowTableColumnsListHoveredBackgroundColor;
+        }      
+
+        &:nth-child(even) {
+            background: @modalWindowTableColumnsListOddBackgroundColor;
+        }
+    }
+}
+
+// Засеривание строк таблицы.
+.@{tableColumnsListClass} #sortable {
+
+    li.disabled {
+        background: @modalWindowTableColumnsListDisabledBackgroundColor;
+
+        input[type="text"],
+        select {
+            background: @modalWindowTableColumnsLDisabledSelectBakgroundColor;
+            box-shadow: none;
+        }
+    }
+}
+
+// Футер модального окна.
+.@{modalWindowFooterClass} {
+    background-color: @modalWindowFooterBackgroundColor;
+}
+
+
+@import '_Settings.less';

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!-- Пример
+  <property name="Школа">
+    <control id="ctrlШкола" prop="SelectedMasterPK" masterview="ШколаL">
+    </control>
+  </property>
+  -->
+  <property name="WorkTimeSpans">
+    <control id="ctrlWorkTimeSpans" prop="WorkTimeSpans">
+    </control>
+  </property>
+</root>

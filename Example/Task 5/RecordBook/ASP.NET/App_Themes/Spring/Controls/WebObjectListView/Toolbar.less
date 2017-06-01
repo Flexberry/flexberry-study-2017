@@ -1,0 +1,87 @@
+﻿/**
+ * Файл визуального оформления основного тулбара.
+ */
+
+
+// Основной тулбар.
+.@{wolvHeaderClass} {
+    border-top: 1px solid @wolvToolbarHeaderBorderColor;
+    border-bottom: 1px solid @wolvToolbarHeaderBorderColor;
+    background-color: @wolvToolbarHeaderBackgroundColor;
+    z-index: 999;
+    padding: 7px 23px;
+}
+
+.@{wolvToolbarActiveBtnClass},
+.@{wolvToolbarActiveBtnClass}:hover {
+    .background-image(#cecece, #ffffff);
+    -webkit-box-shadow: inset 1px 1px 1px @wolvToolbarBtnActiveBoxShadowColor;
+    box-shadow: inset 1px 1px 1px @wolvToolbarBtnActiveBoxShadowColor;
+}
+
+.@{wolvToolbarCaptionClass} {
+    .@{wolvToolbarSearchBtnClass} &, 
+    .@{wolvToolbarFilterBtnClass} &, 
+    .@{wolvToolbarLimitEditBtnClass} &, 
+    .@{wolvToolbarConfigureColumnsBtnClass} &,
+    .@{wolvToolbarExportExcelBtnClass} &,
+    .@{wolvToolbarExportXmlBtnClass} &,
+    .@{wolvToolbarHierarchyBtnClass} &,
+    .@{wolvToolbarHierarchyCollapseAllBtnClass} &,
+    .@{wolvToolbarHierarchyExpandAllBtnClass} &,
+    .@{wolvToolbarLimitOptionsBtnClass} span &,
+    .@{wolvToolbarExportExcelOptionsBtnClass} span &, 
+    .@{wolvToolbarConfigureColumnsOptionsBtnClass} span &, 
+    .@{wolvToolbarEditBtnClass} & {
+        display: none;
+    }
+}
+
+// Контейнер для динамически добавляемых элементов тулбара.
+.@{wolvToolbarDynamiContainerClass} .@{wolvToolbarCaptionClass} {
+    display: inline-block;
+}
+
+// Панель поиска.
+.@{wolvToolbarSearchPanelClass} {
+    margin-bottom: 8px;
+
+    span {        
+        display: inline-block;
+        margin: 6px;
+    }
+
+    br {
+        display: none;
+    }
+
+    // Кнопка поиска.
+    .@{wolvSearchPanelsearchBtnClass} {
+        height: 30px;
+        border: 1px solid @wolvToolbarBtnBorderColor;
+        .border-radius(4px);
+        color: #333;
+        .background-image(#fff, #cecece);
+        -moz-box-shadow: inset 0 0 1px 1px @wolvToolbarBoxShadowColor;
+        -webkit-box-shadow: inset 0 0 1px 1px @wolvToolbarBoxShadowColor;
+        box-shadow: inset 0 0 1px 1px @wolvToolbarBoxShadowColor;
+        text-shadow: 0 1px 1px @wolvToolbarTextShadowColor;
+
+        &:hover {
+            background: @wolvToolbarBtnHoveredBackgroundColor;
+            color: @wolvToolbarBtnHoveredTextColor;
+            filter: none;
+            cursor: pointer;
+        }
+
+        &:active {
+            outline: none;
+            .background-image(#cecece, #fff);
+            -webkit-box-shadow: inset 1px 1px 1px @wolvToolbarBtnActiveBoxShadowColor;
+            box-shadow: inset 1px 1px 1px @wolvToolbarBtnActiveBoxShadowColor;
+        }
+    }
+}
+
+
+@import "_Settings.less";

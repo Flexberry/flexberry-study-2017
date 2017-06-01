@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="CSS/Site.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.map"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery-validation/dist/jquery.validate.js"></script>
+
+    <script src="JS/validation.js"></script>
+    <script src="JS/businessCalendar.js"></script>
+    <script src="JS/pageLoad.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Система управления проектами - календарь</h1>
+    </div>
+    <div class="container body-content">
+        <div class="row offsetTop">
+            <div class="col-md-6">
+                <div id="businessCalendar">
+                </div>
+                    <!-- Modal Edit View -->
+                    <div id="myModal" class="modal fade" data-focus-on="input:first" role="dialog">
+                    <div class="modal-dialog modal-md">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">
+                                    <label for="dayTitle">Название:</label>
+                                    <input id="dayTitle" type="text" class="textStandart textLong textOffset titleDay" />
+                                    <label id="dayTitleErr" class="textError">Поле "Название:" не может быть пустым</label>
+                                </h4>
+                            </div>
+                            <div class="modal-body" style="overflow-y:scroll;">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="radio">
+                                                <label><input id="noWorkTimeCheck" type="radio" name="choiseDayTipe" value="0" />Нерабочее время</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input id="workTimeCheck" type="radio" name="choiseDayTipe" checked="checked" value="1"/>Рабочее время</label>
+                                            </div>
+                                            <div class="panel-body text-center">
+                                                <table class="table table-bordered table-hover" id="WorkTimeSpansTable">
+                                                    <thead>
+                                                        <tr class="calendarDayNameRow">
+                                                            <th class="textMiddle">Время начала(чч:мм)</th>
+                                                            <th class="textMiddle">Время окончания(чч:мм)</th>
+                                                            <th class="smallCell"><button type="button" class="glyphiconStyle glyphicon-plus btnStandart btnSmall" id="btnAddTS" ></button></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="startDate">Дата начала:</label>
+                                            <input id="startDate" type="text" value="" data-date-format="dd.mm.yyyy" class="datepicker textStandart textOffset textMedium" >
+                                            <label id="startDateErr" class="textError">Указываемая дата должна иметь формат:"дд.мм.гггг"</label>
+                                            <div class="radio">
+                                                <p><label><input type="radio" name="iterType" checked="checked" value="0"/>Ежедневно</label></p>
+                                                <p><label><input type="radio" name="iterType" value="1"/>Еженедельно</label></p>
+                                                <p><label><input type="radio" name="iterType" value="2"/>Ежемесячно</label></p>
+                                                <p><label><input type="radio" name="iterType" value="3"/>Ежегодно</label></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="radio">
+                                                <label for="repeatCount">Переодичность:</label>
+                                                <input type="number" id="repeatCount" min="0" class="textStandart textOffset textMedium"/>
+                                                <label id="repeatCountErr" class="textError">Значение должно быть положительным целым числом</label>
+                                            </div>  
+                                            <div class="radio">
+                                                <label for="repeatCountEnd"><input id="repeatCounterCheck" type="radio" name="choiseMethod" value="0" />Окончание после:</label>
+                                                <input type="number" id="repeatCountEnd" min="0" class="textStandart textOffset textMedium"/>
+                                                <label id="repeatCountEndErr" class="textError">Значение должно быть положительным целым числом</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="endDateInput"><input id="endDateCheck" type="radio" name="choiseMethod" value="1"/>Дата окончания:</label>
+                                                <input id="endDateInput" type="text" value="" data-date-format="dd/mm/yyyy" class="textStandart textOffset datepicker textMedium"/>
+                                                <label id="endDateErr" class="textError">Указываемая дата должна иметь формат:"дд.мм.гггг"</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btnDeleteDay" type="button" class="btn btn-danger" data-dismiss="modal" disabled="disabled">Удалить</button>
+                                <button type="button" id="btnStoreDay" class="btn btn-success">Сохранить</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div> 
+            </div>
+            
+        </div>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,157 @@
+﻿/**
+ * Файл визуального оформления пейджера.
+ */
+
+@import "../../../BaseTheme/Controls/WebObjectListView/Pager.less";
+
+.@{wolvPagerBottomClass} {
+    display: block;
+    padding: 7px 23px;
+}
+// Контейнер с переключателями страниц.
+.@{wolvPagerPagesClass} {
+    /* Текущая страница */
+    /* Отдельный стиль для блока текущей страницы с инпутом для ввода номера страницы. */
+    > span.@{wolvPagerCurrentPageClass}.@{wolvPagerTextFieldClass} {
+        padding: 0;
+        border: none;
+    }
+}
+
+.@{wolvPagerPagesClass} > .@{wolvPagerPageClass},
+.@{wolvPagerNavigationClass} > .@{wolvPagerNavigatioButtonClass} {
+    margin-left: 0;
+    .border-radius(0);
+}
+
+.@{wolvPagerPagesClass} > .@{wolvPagerPageClass}:first-child,
+.@{wolvPagerNavigationClass} > .@{wolvPagerNavigatioButtonClass}:first-child {
+    margin-left: 0;
+    .border-radius-left(4px);
+}
+
+.@{wolvPagerPagesClass} > .@{wolvPagerPageClass}:last-child,
+.@{wolvPagerNavigationClass} > .@{wolvPagerNavigatioButtonClass}:last-child {
+    margin-left: 0;
+    .border-radius-right(4px);
+}
+
+// Группы панели навигации.
+.@{wolvPagerPagesClass} a + a,
+.@{wolvPagerPagesClass} span + a,
+.@{wolvPagerPagesClass} a + span,
+.@{wolvPagerPagesClass} span + span,
+.@{wolvPagerNavigationClass} a + a,
+.@{wolvPagerNavigationClass} span + a,
+.@{wolvPagerNavigationClass} a + span,
+.@{wolvPagerNavigationClass} span + span {
+    margin-left: -1px !important;
+}
+
+// Выделенная ссылка в панели навигации.
+.@{wolvPagerPageClass}:hover,
+.@{wolvPagerNavigatioButtonClass}:hover {
+    background: @wolvPagerBtnHoveredBackgroundColor;
+}
+
+// Ссылка с фокусом в панели навигации.
+.@{wolvPagerPageClass}:focus,
+.@{wolvPagerNavigatioButtonClass}:focus {
+    background: @wolvPagerBtnFocusedBackgroundColor;
+    border-color: @wolvPagerBtnFocusedBorderColor;
+    position: relative;
+}
+
+// Неактивная ссылка в панели навигации.
+.@{wolvPagerNavigationDisabledClass},
+.@{wolvPagerNavigationDisabledClass}:hover,
+.@{wolvPagerNavigationDisabledClass}:active,
+.@{wolvPagerNavigationDisabledClass}:focus {
+    background: @wolvPagerBtnDisabledBackgroundColor;
+    color: @wolvPagerBtnDisabledTextColor;
+    cursor: not-allowed;
+    border: 1px solid @wolvPagerBtnDisabledBorderColor;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+// Нажатая/текущая ссылка в панели навигации.
+.@{wolvPagerPagesClass} > span.@{wolvPagerCurrentPageClass},
+.@{wolvPagerPagesClass} a:active,
+.@{wolvPagerNavigatioButtonClass}:active {
+    .background-image(#cecece, #ffffff);
+    -webkit-box-shadow: inset 1px 1px 1px rgba(128, 128, 128, 0.5);
+    box-shadow: inset 1px 1px 1px rgba(128, 128, 128, 0.5);
+}
+
+// Разделители.
+.@{wolvPagerNavigationSeparatorClass} {
+    display: none;
+}
+
+// Ссылка в панели навигации.
+.@{wolvPagerPageClass},
+.@{wolvPagerNavigatioButtonClass},
+.@{wolvPagerPagesClass} > span {
+    display: inline-block;
+    margin: 0;
+    padding: 4px 6px;
+    border: 1px solid @wolvPagerBtnBorderColor;
+    .border-radius(4px);
+    .background-image(#ffffff, #cecece);
+    color: @wolvPagerBtnTextColor;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 0 1px 1px @wolvPagerBtnBoxShadowColor;
+    -moz-box-shadow: inset 0 0 1px 1px @wolvPagerBtnBoxShadowColor;
+    box-shadow: inset 0 0 1px 1px @wolvPagerBtnBoxShadowColor;
+}
+
+.@{wolvPagerPagesClass} > span {
+    .border-radius(0);
+}
+
+
+// Текстовое поле внутри текущей страницы.
+.@{wolvPagerCurrentPageClass} > input {
+    width: 40px;
+    text-align: center;
+}
+
+.@{wolvPagerCurrentPageClass} > input:focus {
+    position: relative;
+}
+
+input[type="text"] {
+    .@{wolvPagerPageClass} > & {
+        .border-radius(0);
+        margin: 0;
+    }
+
+    .@{wolvPagerPageClass}:last-child > & {
+        .border-radius-right(4px);
+    }
+
+    .@{wolvPagerPageClass}:first-child > & {
+        .border-radius-left(4px);
+    }
+}
+
+// Метка контейнера перехода по номеру страницы.
+.@{wolvPagerGoToPageLabelClass} {
+    display: none;
+}
+
+
+.@{wolvPagerInformationClass} {
+    vertical-align: top;
+    line-height: 32px;
+    padding: 0 8px;
+}
+
+@import "_Settings.less";

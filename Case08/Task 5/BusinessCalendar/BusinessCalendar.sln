@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessCalendar(ASP.NET Application)", "ASP.NET\BusinessCalendar(ASP.NET Application).csproj", "{10FEEA9F-EF11-40FA-BE65-5CFCFA7119EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessCalendar(Objects)", "Objects\BusinessCalendar(Objects).csproj", "{958BA446-46CB-42DA-8269-45DB503EAAE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+Debug|Any CPU = Debug|Any CPU
+Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10FEEA9F-EF11-40FA-BE65-5CFCFA7119EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FEEA9F-EF11-40FA-BE65-5CFCFA7119EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FEEA9F-EF11-40FA-BE65-5CFCFA7119EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FEEA9F-EF11-40FA-BE65-5CFCFA7119EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958BA446-46CB-42DA-8269-45DB503EAAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958BA446-46CB-42DA-8269-45DB503EAAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958BA446-46CB-42DA-8269-45DB503EAAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958BA446-46CB-42DA-8269-45DB503EAAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

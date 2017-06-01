@@ -1,0 +1,47 @@
+﻿/** 
+  * Файл визуального оформления настроек для отображения колонок в таблице.
+ */
+
+
+// Выравнивание содержимого столбцов.
+.@{wolvRightOrientedCellClass} {
+    text-align: right;
+}
+
+.@{wolvLeftOrientedCellClass} {
+    text-align: left;
+}
+
+.@{wolvCenterOrientedCellClass} {
+    text-align: center;
+}
+
+// Изменение курсора, при запрете изменения сортировки.
+.@{wolvSortDisabledClass} .@{wolvColumnHeaderClass} {
+    cursor: default;
+}
+
+
+// Параметры видимости текста в ячейке.
+
+// Содержимое ячеек будет переноситься на новую строку, если не влезает по ширине ячейки.
+.@{wolvOverflowWordWrapCellClass} {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+}
+
+// Содержимое ячеек будет обрезаться, если не влезает по ширине ячейки. 
+// К концу строки добавляется многоточие.
+.@{wolvOverflowWordEllipsisCellClass} {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+
+@import (reference) "WolvClasses.less";

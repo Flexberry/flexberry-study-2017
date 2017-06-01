@@ -1,0 +1,24 @@
+﻿@import "../../../BaseTheme/Controls/ModalWindows/ModalWindowWrapper.less";
+
+/**
+ * Файл визуального оформления оболочки модальных окон. 
+ */
+
+
+/* Модальное окно. */
+#@{modalWindowId} {
+    
+    /* Заголовок модального окна. */
+    #@{modalWindowTitleId} {
+        background-color: @modalWindowTitleBackgroundColor;
+        height: 27px;
+        
+        /* Текст в заголовке модального окна. */
+        #@{modalWindowTitleTextId} {
+            font-size: 24px;
+            color: @modalWindowTitleTextColor;
+        }
+    }
+}
+
+@import '_Settings.less';

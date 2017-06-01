@@ -1,0 +1,176 @@
+﻿/**
+ * Стили базовой темы.
+ * Основная страница.
+ */
+
+@import (reference) '_Variables.less';
+
+html, 
+.page-form  {
+    height: 100%;
+}
+
+body { 
+    padding: 0;
+    margin: 0;
+    background: @bodyBackground;
+    color: @bodyColor;
+    font-family: @bodyFontFamily;
+    font-size: @bodyFontSize;
+    line-height: @bodyLineHeight;
+    
+     a {
+        color: @linksColor;
+        text-decoration: @linksTextDecoration;
+
+        &:hover {
+            color: @linksHoveredColor;
+            text-decoration: @linksHoveredTextDecoration;
+        }
+
+        &:focus {
+            color: @linksFocusedColor;
+            outline: @linksFocusedOutline;            
+        }
+    }
+}
+
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -@pageFooterHeight;
+
+    &:after {
+        content: "";
+        display: block;
+        height: @pageFooterHeight;
+    }
+}
+
+/* Шапка */
+.@{pageHeaderClass} {
+    padding: 0 20px;
+    background: @pageHeaderBg;
+
+    &-image {
+        display: inline-block;
+        margin: 10px;
+        width: 90px;
+        height: 90px;
+        background-image: url(Images/app-logo.png);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+    }
+
+    &-caption {
+        display: inline-block;
+        a { font-size: 24px; }
+    }
+
+    &-userbar {
+        float: right;
+    }
+}
+
+/* Строка навигации */
+.@{pageNavigatorClass} {
+    padding-left: 20px;
+    height: @navigatorHeight;
+    line-height: @navigatorLineHeight;
+    color: @navigatorColor;
+    background: @navigatorBackground;
+    font-size: @navigatorFontSize;
+    font-weight: @navigatorFontWeight;
+
+    .breadcrumb, .page-breadcrumbs {
+        margin-left: @navigatorBreadcrumbMarginLeft;
+    }
+}
+
+/* Блок меню. */
+#@{pageBlockTreeId},
+div[id*='@{pageBlockTreeId}'] {
+    display: inline-block;
+    float: left;
+    margin-right: -1px;
+    border-right: 1px solid @menuBorderColor;
+    width: 255px;
+
+
+    a[href*="SkipLink"] {
+        display: none;
+    }
+
+    td.@{pageMenuNodeClass} {
+        width: 100%;
+        white-space: normal !important;
+
+        a { text-decoration: none; }
+    }
+}
+
+/* Контент (правый блок). */
+#@{pageContentId},
+div[id*='@{pageContentId}']
+ {    
+    overflow: hidden;    
+    border-left: 1px solid @menuBorderColor;
+}
+
+/* Подвал */
+.@{pageFooterClass} {    
+    .border-box();
+    height: @pageFooterHeight;    
+    padding: @footerPadding;
+    clear: both;
+}
+
+.ac_results {
+    z-index: 99999;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #000;
+    background-color: #fff;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+        list-style-position: outside;
+    }
+
+    li {
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 2px 5px;
+        font: #f0f0f0;
+        font-size: 12px;
+        line-height: 16px;
+        cursor: default;
+    }
+}
+
+.ac_loading,
+.ui-autocomplete-loading {
+    background-color: #fff;
+    background-image: url(Images/indicator.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.ac_odd {
+    background-color: #eee;
+}
+
+.ac_over {
+    background-color: #0A246A;
+    color: #fff;
+}
+
+/* Стиль для выделения в предиктивном вводе текста. */
+.ics-autocompete-selected {
+    font-weight: bold;
+    color: #00f;
+}

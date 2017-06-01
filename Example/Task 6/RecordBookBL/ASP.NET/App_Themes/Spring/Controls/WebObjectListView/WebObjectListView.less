@@ -1,0 +1,110 @@
+﻿@import '../../../BaseTheme/Controls/WebObjectListView/WebObjectListView.less';
+
+/**
+ * Файл визульного оформления контрола WebObjectListView.
+ */
+
+@import 'Toolbar.less';
+@import 'Pager.less';
+@import 'ContextMenu.less';
+@import "TableToolbar.less";
+@import "LimitEditSettings.less";
+@import "HierarchySettings.less";
+
+.@{contentClass} {
+    margin: 24px;
+
+    .@{contentDataClass} > table {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+}
+
+.@{objectListViewTableClass} {
+    border-collapse: collapse;
+}
+
+// Цветовая схема.
+.@{wolvCaptionClass} > tbody > tr > td {
+    border: 1px solid @wolvTableCaptionBorderColor;
+    background: @wolvTableCellOddBackgroundColor;
+}
+
+.@{tableContentClass} {
+    > tbody > tr {
+
+        /*  Обычные строки WOLV. */
+        > td {
+            border: 1px solid @wolvTableCellBorderColor;
+            cursor: pointer;
+        }
+
+        &:hover > td {
+            background: @wolvTableCellHoveredBackgroundColor;
+        }
+
+        /*  Alternate-строки WOLV. */
+       &.@{wolvOddRowClass} > td {
+            background: @wolvTableCellOddBackgroundColor;
+        }
+
+        /*  Строка с выделенным объектом WOLV. */
+        > td.WOLVSO,
+        .@{wolvOddRowClass} > td.WOLVSO {
+            background: @wolvTableCellEditedBackgroundColor;
+        }
+
+        /* Отмеченные строки WOLV. */ 
+        > td.checkedline,
+        &:hover > td.checkedline {
+            color: @wolvTableCellCheckedColor;
+            background: @wolvTableCellCheckedBackgroundColor;
+        }
+    }
+}
+
+// Фильтрация.
+.@{wolvFilterCell} {
+    select {
+        margin: 0 0 4px 0;
+    }
+
+    select.@{wolvFilterSelectClass},
+    select.FilterOperationSelect,
+    input[type="text"] {
+        .border-box();
+        width: 100%;        
+        min-height: 30px;
+        margin: 0;
+    }
+}
+
+// Тултип на форме фильтрации.
+#@{wolvFilterTooltipClass} {
+    padding: 16px;
+    .border-radius(7px);    
+    -moz-box-shadow: 1px 1px 10px @wolvTooltipBoxShadowColor;
+    -webkit-box-shadow: 1px 1px 10px @wolvTooltipBoxShadowColor;
+    box-shadow: 1px 1px 10px @wolvTooltipBoxShadowColor;
+}
+
+// Вспомогательный элемент для синхронизации ширины элементов.
+.@{wolvDataInnerForScrollClass} {
+    display: block;
+    width: 100%;
+    height: 10px;
+    line-height: 0;
+    margin-top: -10px;
+}
+
+ // Настройки иерархического отображения.
+.@{tableContentClass} {
+    > tbody > tr.@{wolvHierarchyGrayedRowClass} {
+        &:hover > td {
+            cursor: default;
+            background: none;
+        }
+    }
+}
+
+@import "_Settings.less";

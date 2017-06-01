@@ -1,0 +1,34 @@
+﻿<%-- Site1.master --%>
+<asp:ImageButton runat="server" SkinID="headerButton" ImageUrl="images/theme/header-button.png" CssClass="header-button visible-phone" />
+
+<ac:IcsTreeView CssClass="ics-treeview" runat="server" SkinID="NavigateTreeView">
+    <RootNodeStyle CssClass="ics-treeview-node-root" />    
+    <ParentNodeStyle CssClass="ics-treeview-node-parent" />
+    <LeafNodeStyle CssClass="ics-treeview-node-leaf" />
+    <HoverNodeStyle CssClass="ics-treeview-node-hover" />
+    <SelectedNodeStyle CssClass="ics-treeview-node-selected" />
+    <NodeStyle Font-Bold="True" CssClass="ics-treeview-node" />
+</ac:IcsTreeView>
+
+<asp:CustomValidator runat="server" ForeColor="Red" CssClass="validator validator-custom" />
+<asp:RequiredFieldValidator runat="server" ForeColor="Red" CssClass="validator validator-field-required" />
+<asp:CompareValidator runat="server" ForeColor="Red" CssClass="validator validator-compare" />
+<asp:RangeValidator runat="server" ForeColor="Red" CssClass="validator validator-range" />
+<asp:RegularExpressionValidator runat="server" ForeColor="Red" CssClass="validator validator-regexp" />
+<asp:ValidationSummary runat="server" CssClass="validator validator-summary" />
+
+<asp:Image runat="server" ImageUrl="~/App_Themes/Smart/Images/loading.gif" SkinID="Loading" CssClass="pull-left"/>
+
+<%-- Site1.master --%>
+
+<%-- Page --%>
+    <asp:ImageButton SkinID="SaveBtn" runat="server" ImageUrl="~/App_Themes/Smart/Images/transparent.png" CssClass="button-save" ToolTip="Сохранить"/>
+    <asp:ImageButton SkinID="SaveAndCloseBtn" runat="server" ImageUrl="~/App_Themes/Smart/Images/transparent.png" CssClass="button-saveclose" ToolTip="Сохранить и закрыть" />
+    <asp:ImageButton SkinID="CancelBtn" runat="server" ImageUrl="~/App_Themes/Smart/Images/transparent.png" CssClass="button-close" ToolTip="Закрыть" />
+<%-- Page --%>
+
+<%-- Hinter --%>
+<ac:Hinter runat="server" ImageUrl="images/quest.gif" SkinID="HintImage" />
+<%-- Hinter --%>
+
+<asp:Image runat="server" SkinID="404Image" ImageUrl="~/App_Themes/Smart/Images/404.png"/>

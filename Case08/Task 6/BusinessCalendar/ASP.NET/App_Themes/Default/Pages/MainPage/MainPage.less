@@ -1,0 +1,88 @@
+﻿@import '../../../BaseTheme/Pages/MainPage/MainPage.less';
+
+/**
+ * Файл визуального оформления основной страницы.
+ */
+
+
+.page-empty {
+    overflow: auto;
+    padding-bottom: 32px;
+}
+
+/* Шапка. */
+.@{pageHeaderClass} {
+    &-caption {
+        a {
+            color: @link-color;
+            vertical-align: middle;            
+        }
+    }
+
+    &-userbar {       
+        margin: 13px 0;
+    }
+}
+
+/* Строка навигации. */
+.@{pageNavigatorClass} {    
+    a { color: @gray-dark;}
+}
+
+/* Контент. */
+#@{pageContentId} {
+    padding: 8px;
+
+    .@{pageContentHeaderClass} {
+        display: block;        
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 16px;
+        padding: 8px;
+        margin: 0 0 8px 0;
+        background-color: @basic-color-second;
+    }
+}
+
+/* Блок меню. */
+#@{pageBlockTreeId} { 
+    background: @menuBackground;
+        
+    .@{pageMenuTreeClass} a {
+        color: @gray-dark;
+    }
+
+    a.@{pageMenuNodeClass},
+    a > span.@{pageMenuNodeClass} {
+        display: block;
+        padding: 8px;
+
+        &:hover {            
+            color: @menuHoveredColor;
+            background-color: @menuHoveredBackground;            
+        }
+    }
+
+    a > span.@{pageMenuNodeClass} {
+        background-color: @menuHeaderBackground;
+    }
+
+}
+
+
+/* Подвал. */
+.@{pageFooterClass} {
+    background-color: @footerBackground;
+    overflow: hidden;
+
+    a { color: @gray-dark; }
+}
+
+
+.page-form.treeview-hidden #pageBlockTreeview,
+.page-form.treeview-hidden #treeviewHideSpan,
+.page-form.treeview-visible #treeviewShowSpan {
+    display: none;
+}
+
+@import '_Settings.less';

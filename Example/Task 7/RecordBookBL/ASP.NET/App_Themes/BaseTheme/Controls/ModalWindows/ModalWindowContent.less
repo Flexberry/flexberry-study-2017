@@ -1,0 +1,188 @@
+﻿/**
+ * Стили базовой темы.
+ * Содержимое модальных окон.
+ */
+
+
+@import (reference) '_Variables.less';
+
+.@{modalWindowContentsClass} {
+    form {
+        overflow-x: hidden;
+        margin: 0 auto;
+        width: 675px;
+    }
+}
+// Заголовок таблицы модального окна.
+.@{modalWindowTableCaptionClass} {
+    display: table;
+    // Иначе при sticky, шапка будет уезжать на всю ширину окна.
+    width: 675px;
+    table-layout: fixed;
+
+
+    .@{modalWindowTableItemClass} {
+        .border-box();
+        display: table-cell;
+        padding: 5px;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid @table-border-color;
+        border-right: 0;
+
+        .@{selectAllBtnClass},
+        .@{resetSortBtnClass} {
+            .font-icon-style();
+            cursor: pointer;
+            color: @tableToolbarHeaderBtnColor;
+        }
+
+        &.@{checkBoxItemClass} {
+            .@{selectAllBtnClass} {
+
+                &:before {
+                    content: "\f046";
+                }
+
+                &:hover {
+                    opacity: 0.9;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &.@{captionResetSortClass} {
+            width: 89px;
+            border-right: 1px solid @table-border-color;
+
+            .@{resetSortBtnClass} {
+
+                &:before {
+                    content: "\f0dc";
+                }
+
+                &:hover {
+                    opacity: 0.9;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+// Футер модального окна.
+.@{modalWindowFooterClass} {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 8px;
+
+    .@{footerSettingsNameClass} {
+        padding-right: 5px;
+        padding-left: 8px;
+    }
+
+    #@{footerSettingsNameControlId} {
+        margin-right: 10px;
+    }
+
+    .@{footerExportSettingClass} {
+        padding: 5px;
+    }
+
+    .@{footerOkBtnClass} {
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+
+span.@{hidePriorityClass} {
+    display: none;
+}
+
+.@{hidePriorityClass} {
+    visibility: hidden;
+}
+
+.@{checkBoxItemClass} {
+    width: 42px;
+}
+
+.@{sortOrderWrapperClass},
+.@{sortOrderClass} {
+    width: 177px;
+}
+
+.@{sortPriorityWrapperClass},
+.@{sortPriorityClass} {
+    width: 185px;
+}
+
+.@{propertyNameWrapperClass},
+.@{propertyNameClass} {
+    width: 178px;
+}
+
+.@{sortBtnsClass} {
+    width: 88px;
+}
+
+#sortable {
+    margin: 0;
+    padding: 0;
+    border: 1px solid @table-border-color;
+    border-right: none;
+
+    li {
+        display: table;
+        cursor: move;
+        width: 100%;
+        table-layout: fixed;
+        height: 40px;
+        border-bottom: 1px solid;
+        border-color: @table-border-color;
+    }
+
+    .@{checkBoxItemClass} {
+        input {
+            margin: 0;
+            height: inherit;
+        }
+    }
+
+    .@{sortOrderWrapperClass} {
+        .@{sortOrderClass} {
+            width: 64px;
+        }
+    }
+
+    .@{sortPriorityWrapperClass} {
+        .@{sortPriorityClass} {
+            width: 64px;
+            text-align: right;
+        }
+    }
+
+    .@{propertyNameWrapperClass} {
+        .@{propertyNameClass} {
+            width: 160px;
+        }
+    }
+
+    .@{sortBtnsClass} {
+        input {
+            margin: 0 2px;
+        }
+    }
+}
+
+.configure-item > * {
+    .border-box();
+    display: table-cell;
+    border-right: 1px solid;
+    border-color: @table-border-color;
+    vertical-align: middle;
+    text-align: center;
+}

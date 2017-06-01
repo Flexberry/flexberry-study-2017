@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ViewColumnProvider.xsd">
+    <!-- Пример
+    <basetype name="System.DateTime" width="120" />
+    <type name="IIS.ДошкольноеОбразование.Ребенок">
+      <toolbar fixedwidth="" minwidth="" />
+      <property name="Фамилия" width="120" filter="false" />
+      <property name="Имя" width="120"  filter="true" filteroperations="false"/>
+    </type>
+    -->
+</root>

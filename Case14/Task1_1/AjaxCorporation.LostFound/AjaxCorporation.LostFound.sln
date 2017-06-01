@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxCorporation.LostFound", "AjaxCorporation.LostFound\AjaxCorporation.LostFound.csproj", "{414B19FD-0D90-4343-AA00-C104C935EF77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxCorporation.LostFound.MessagesAnalysis", "AjaxCorporation.LostFound.MessagesAnalysis\AjaxCorporation.LostFound.MessagesAnalysis.csproj", "{08E5BE8C-409D-4AD5-8A0C-9EFD14AB75A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxCorporation.LostFound.MessagesAnalysis.Tests", "AjaxCorporation.LostFound.MessagesAnalysis.Tests\AjaxCorporation.LostFound.MessagesAnalysis.Tests.csproj", "{2572C96F-6735-42C5-9820-E44E9EE5E4E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{414B19FD-0D90-4343-AA00-C104C935EF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414B19FD-0D90-4343-AA00-C104C935EF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414B19FD-0D90-4343-AA00-C104C935EF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414B19FD-0D90-4343-AA00-C104C935EF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E5BE8C-409D-4AD5-8A0C-9EFD14AB75A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E5BE8C-409D-4AD5-8A0C-9EFD14AB75A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E5BE8C-409D-4AD5-8A0C-9EFD14AB75A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E5BE8C-409D-4AD5-8A0C-9EFD14AB75A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2572C96F-6735-42C5-9820-E44E9EE5E4E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2572C96F-6735-42C5-9820-E44E9EE5E4E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2572C96F-6735-42C5-9820-E44E9EE5E4E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2572C96F-6735-42C5-9820-E44E9EE5E4E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

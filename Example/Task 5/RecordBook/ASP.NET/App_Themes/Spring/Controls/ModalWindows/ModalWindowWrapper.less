@@ -1,0 +1,47 @@
+﻿@import "../../../BaseTheme/Controls/ModalWindows/ModalWindowWrapper.less";
+
+/**
+ * Файл визуального оформления оболочки модальных окон. 
+ */
+
+
+/* Модальное окно. */
+#@{modalWindowId} {
+    -moz-box-shadow: 1px 1px 10px @modalWindowShadowColor;
+    -webkit-box-shadow: 1px 1px 10px @modalWindowShadowColor;
+    box-shadow: 1px 1px 10px @modalWindowShadowColor;
+
+    /* Заголовок модального окна. */
+    #@{modalWindowTitleId} {
+        margin: 0 0 0 10px;
+
+        /* Текст в заголовке модального окна. */
+        #@{modalWindowTitleTextId} {
+            color: @modalWindowTitleTextColor;
+            font-size: 20px;
+        }
+
+        /* Картинка в заголовке модального окна. */
+        #@{modalWindowTitleImageId} {
+
+            /* Иконка "Закрыть или [Esc]. */
+            #@{modalWindowTitleCloseImageId} {
+                cursor: pointer;
+                display: inline-block;
+                height: 30px;
+                width: 0;
+                padding-left: 30px;
+                overflow: hidden;
+                background: transparent url(Images/close-btn.png);
+                background-position: 0 0;
+
+                &:hover {
+                    background-position: 100% 100%;
+                }
+            }
+        }
+    }
+}
+
+
+@import '_Settings.less';

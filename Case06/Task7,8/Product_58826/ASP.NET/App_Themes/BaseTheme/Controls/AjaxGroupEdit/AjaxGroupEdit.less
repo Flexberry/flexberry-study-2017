@@ -1,0 +1,151 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол AjaxGroupEdit. 
+ */
+
+@import (reference) '_Variables.less';
+
+/* Тулбар. */
+.@{ageToolbar} {
+    display: block;
+    margin: 6px 0;
+}
+
+.@{ageToolbarButtonCreate},
+.@{ageToolbarButtonDelete},
+.@{ageToolbarButtonEdit},
+.@{ageToolbarButtonMoveup},
+.@{ageToolbarButtonMovedown} {
+    .font-icon-style();
+    vertical-align: middle;
+    height: @input-height-base;
+    .border-box();
+}
+
+.@{ageToolbarButtonCreate} {
+    &:before {
+        content: "\f067";
+        color: @ageToolbarButtonCreateIconColor;
+    }
+}
+
+.@{ageToolbarButtonDelete} {
+    &:before {
+        content: "\f014";
+        color: @ageToolbarButtonDeleteIconColor;
+    }
+}
+
+.@{ageToolbarButtonEdit} {
+    &:before {
+        content: "\f040";
+        color: @ageToolbarButtonEditIconColor;
+    }
+}
+
+.@{ageToolbarButtonMoveup} {
+    &:before {
+        content: "\f062";
+        color: @ageToolbarButtonMoveupIconColor;
+    }
+}
+
+.@{ageToolbarButtonMovedown} {
+    &:before {
+        content: "\f063";
+        color: @ageToolbarButtonMovedownIconColor;
+    }
+}
+
+
+/* Содержимое. */
+.@{wgeWrapperClass} {
+    padding-bottom: 20px;
+
+    td {
+        padding: 0;
+    }
+
+    .@{wgeTableParentClass} {
+        overflow: auto;
+    }
+
+    .@{wgeTableToolbarBtnsClass} {
+        .@{buttonClass} {
+            vertical-align: middle;
+        }
+
+        * {
+            margin: 3px;
+            margin-right: 0;
+        }
+
+        input[type="checkbox"] {
+            vertical-align: middle;
+            width: inherit;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        #indicator {
+            color: red;
+        }
+    }
+    // Датапикер в АГЕ.
+    .@{datepickerClass} {
+        display: inline-block;
+        width: 95%;
+        float: left;
+    }
+
+    .validator-datePicker {
+        color: red;
+        font-size: 24px;
+        line-height: 24px;
+        float: right;
+    }
+}
+
+.@{wgeTableClass} {
+    table-layout: fixed;
+
+    > tbody > tr > td {
+        position: relative;
+        overflow: hidden;
+        padding: 1px;
+    }
+
+    .@{wgeTableCaptionClass} td {
+        border-color: @wgeTableCaptionBorderColor;
+    }
+
+    .@{wgeTableWrapperCellDataClass} {
+        padding: 1px;
+
+        .@{lookupClass} span {
+            padding: 0 4px;
+            line-height: 24px;
+        }
+
+        .@{wgeTableCellValidator} {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 1;
+            font-size: 24px;
+            line-height: 22px;
+        }
+
+        .@{wgeTableInputClass}:focus {
+            position: inherit;
+        }
+    }
+}
+
+/* Сортировка. */
+.@{ageSortNumber} {
+    font-size: 0.7em;
+    padding-right: 3px;
+}

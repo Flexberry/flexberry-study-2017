@@ -22,7 +22,7 @@ namespace Web.Tests
             };
             
             //правильное решение
-            var expectedCode = "170101РогаКоп12345";
+            var expectedCode = "170101РогаКоп56789";
 
             ///Запуск теста.
             var Code = Logic1.GenerateCode(TestConsumer);
@@ -189,6 +189,49 @@ namespace Web.Tests
 
             ///Сравнение.
             Assert.Contains("Не заполнены все поля формы", ex.Message);
+        }
+
+        //
+        [Fact]
+        public void TC_L1_Correct_t1()
+        {
+            ///Тестовые данные.
+            var TestConsumer = new Consumer()
+            {
+                Name = "Test0001",
+                DateReg = new DateTime(2017, 03, 31),
+                Account = 1234567890,
+            };
+
+            //правильное решение
+            var expectedCode = "170331Test00067890";
+
+            ///Запуск теста.
+            var Code = Logic.Logic1.GenerateCode(TestConsumer);
+
+            ///Сравнение.
+            Assert.Equal(expectedCode, Code);
+        }
+        //
+        [Fact]
+        public void TC_L1_Correct_t2()
+        {
+            ///Тестовые данные.
+            var TestConsumer = new Consumer()
+            {
+                Name = "Test0002",
+                DateReg = new DateTime(2017, 03, 31),
+                Account = 1234567890,
+            };
+
+            //правильное решение
+            var expectedCode = "170331Test00067890";
+
+            ///Запуск теста.
+            var Code = Logic.Logic1.GenerateCode(TestConsumer);
+
+            ///Сравнение.
+            Assert.Equal(expectedCode, Code);
         }
     }
 }

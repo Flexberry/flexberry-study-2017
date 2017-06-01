@@ -1,0 +1,32 @@
+﻿<%-- Light Theme --%>
+
+<%-- Site1.master --%>
+<ac:IcsTreeView runat="server" Height="100%" NodeIndent="10" SkinID="NavigateTreeView">
+    <RootNodeStyle CssClass="treeview-root-node" />    
+    <ParentNodeStyle CssClass="treeview-parent-node" />
+    <LeafNodeStyle CssClass="treeview-leaf-node" />
+    <HoverNodeStyle CssClass="treeview-hover-node" />
+    <SelectedNodeStyle CssClass="treeview-selected-node" />
+    <NodeStyle CssClass="ics-treeview-node" />
+</ac:IcsTreeView>
+<asp:CustomValidator runat="server" ForeColor="Red" CssClass="validator validator-custom" />
+<asp:RequiredFieldValidator runat="server" ForeColor="Red" CssClass="validator validator-field-required" />
+<asp:CompareValidator runat="server" ForeColor="Red" CssClass="validator validator-compare" />
+<asp:RangeValidator runat="server" ForeColor="Red" CssClass="validator validator-range" />
+<asp:RegularExpressionValidator runat="server" ForeColor="Red" CssClass="validator validator-regexp" />
+<asp:ValidationSummary runat="server" CssClass="validator validator-summary" />
+<asp:Image runat="server" ImageUrl="images/loading.gif" SkinID="Loading" CssClass="pull-left"/>
+<asp:SiteMapPath SkinID="SiteMapPath" PathSeparator=" » " runat="server" />
+<%-- Site1.master --%>
+
+<%-- Page --%>
+<asp:ImageButton SkinID="SaveBtn" runat="server" ImageUrl="~/App_Themes/Light/Images/transparent.png"  CssClass="button button-save"/>
+<asp:ImageButton SkinID="SaveAndCloseBtn" runat="server" ImageUrl="~/App_Themes/Light/Images/transparent.png" CssClass="button button-saveclose" />
+<asp:ImageButton SkinID="CancelBtn" runat="server" ImageUrl="~/App_Themes/Light/Images/transparent.png" CssClass="button button-close" />
+<%-- Page --%>
+
+<%-- Hinter --%>
+<ac:Hinter runat="server" ImageUrl="~/App_Themes/Default/Images/quest.gif" SkinID="HintImage" />
+<%-- Hinter --%>
+
+<asp:Image runat="server" SkinID="404Image" ImageUrl="~/App_Themes/Default/Images/404.png"/>
