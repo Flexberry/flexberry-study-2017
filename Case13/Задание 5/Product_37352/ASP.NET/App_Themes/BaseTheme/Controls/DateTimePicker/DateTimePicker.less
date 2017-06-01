@@ -1,0 +1,63 @@
+﻿/**
+ * Стили базовой темы.
+ * Контрол DateTimePicker. 
+ */
+
+@import (reference) '_Variables.less';
+
+.@{datepickerClass} {
+    position: relative;
+
+    input[type="text"] {
+        .border-box();
+        width: 100%;
+        margin: 0;
+    }
+
+    > span {
+        position: absolute;
+        top: 7px;
+        width: 200px;
+        float: right;
+        margin-left: 5px;
+        color: @dateTimePickerErrorColor;
+        font-size: 13px;
+    }
+
+    .@{datepickerTriggerClass} {
+        position: absolute;
+        top: @datepickerTriggerTop;
+        right: @datepickerTriggerRight;
+        width: @datepickerIconWidth;
+        height: @datepickerIconHeight;
+        background-image: none;
+        background-color: transparent;
+        cursor: pointer;
+        .font-icon-style();
+
+        &:before {
+            content: "\f073";
+            color: @datepickerIconColor;
+        }
+
+        &:hover {
+            &:before {
+                color: @datepickerIconHoverColor;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &[disabled] {
+            &:before {
+                color: gray;
+            }
+
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
+    }
+}

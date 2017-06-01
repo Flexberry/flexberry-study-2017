@@ -1,0 +1,95 @@
+﻿@import '../../../BaseTheme/Controls/Buttons/Buttons.less';
+
+/**
+ * Файл визуального оформления кнопок.
+ * Тема Spring.
+ */
+
+
+.@{buttonClass} {
+    .background(#fff, #cecece);
+    -moz-box-shadow: inset 0 0 1px 1px @buttonBoxShadowColor;
+    -webkit-box-shadow: inset 0 0 1px 1px @buttonBoxShadowColor;
+    box-shadow: inset 0 0 1px 1px @buttonBoxShadowColor;
+
+    &:hover {
+        background: @buttonHoverBackgroundColor;
+        color: @buttonTextColor;
+        filter: none;
+    }
+
+    &:focus {
+        border-color: @buttonFocusBorderColor;
+        background: @buttonFocusBackgroundColor;
+    }
+
+    &:active {
+        .background(#cecece, #fff);
+        -webkit-box-shadow: inset 1px 1px 1px @buttonActiveBoxShadowColor;
+        box-shadow: inset 1px 1px 1px @buttonActiveBoxShadowColor;
+    }
+}
+
+.ics-btn,
+#popup_panel input[type="button"] {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    .border-radius(4px);
+    background-color: #e5e5e5;
+    .background-image( #fff, #cecece);
+    color: #333;    
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    -moz-box-shadow: inset 0 0 1px 1px #fff;
+    -webkit-box-shadow: inset 0 0 1px 1px #fff;
+    box-shadow: inset 0 0 1px 1px #fff;    
+    -webkit-text-shadow: 0 1px 1px #fff;
+    text-shadow: 0 1px 1px #fff;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        filter: none;
+    }
+
+    &:active {
+        background-color: #cdcdcd;
+        .background-image(#cecece, #fff);
+        color: #333;
+        -webkit-box-shadow: inset 1px 1px 1px #808080;
+        -webkit-box-shadow: inset 1px 1px 1px rgba(128, 128, 128, 0.5);
+        box-shadow: inset 1px 1px 1px #808080;
+        box-shadow: inset 1px 1px 1px rgba(128, 128, 128, 0.5);
+        text-decoration: none;
+    }
+
+    &:focus {
+        position: relative;
+        z-index: 10;
+        border-color: #3a88d5;
+        background: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        outline: none;
+        filter: none;
+    }
+}
+
+a.aspNetDisabled,
+.ics-btn[disabled] {
+    background: #f5f5f5;
+    color: #999;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+@import '_Settings.less';
