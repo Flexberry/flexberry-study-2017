@@ -30,22 +30,15 @@ namespace IIS.Product_37352
     [Caption("Таблица контактов")]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ContactNetworkE", new string[] {
-            "Network.site as \'\' on \'-Сайт\'",
-            "Network as \'\' on \'-Сайт\'",
-            "Contact.UserData2.login as \'\' on \'-Друг\'",
-            "Contact as \'\' on \'-Друг\'",
-            "Contact.UserData2 as \'\'"}, Hidden=new string[] {
-            "Contact.UserData2"})]
-    [MasterViewDefineAttribute("ContactNetworkE", "Network", ICSSoft.STORMNET.LookupTypeEnum.Custom, "", "Network")]
-    [MasterViewDefineAttribute("ContactNetworkE", "Contact", ICSSoft.STORMNET.LookupTypeEnum.Custom, "", "Contact")]
+            "Network as \'Сеть\' on \'-Сеть\'",
+            "Network.name as \'Название сети\' on \'-Сеть\'",
+            "Contact as \'Контакт\' on \'-Контакт\'",
+            "Contact.contactName as \'Имя контакта\' on \'-Контакт\'"})]
     [View("ContactNetworkL", new string[] {
-            "Network.site as \'Сайт\'",
-            "Contact.contactName as \'Ник\'",
-            "Contact",
-            "Contact.UserData2",
-            "Contact.UserData2.login as \'Логин\'"}, Hidden=new string[] {
-            "Contact",
-            "Contact.UserData2"})]
+            "Network.name as \'\' on \'-Сеть\'",
+            "Network as \'\' on \'-Сеть\'",
+            "Contact.contactName as \'\' on \'-Контакт\'",
+            "Contact as \'\' on \'-Контакт\'"})]
     public class ContactNetwork : ICSSoft.STORMNET.DataObject
     {
         
