@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="Рабочий стол" description="Рабочий стол приложения">
+    <siteMapNode title="Новости, общение" xmlns="">
+      <siteMapNode title="Новости" description="" url="~/NewsL.aspx" />
+      <siteMapNode title="Сообщения" description="" url="~/IncomingMessageL.aspx" />
+      <siteMapNode title="Личный блог" description="" url="~/Blog_own.aspx"/>
+      <siteMapNode title="#bБлогосфера" description="" url="~/Blogosphera.aspx" />
+      <siteMapNode title="Сообщества" description="" url="~/CommunityView.aspx" />
+      <siteMapNode title="Друзья" description="" url="~/MyFriends.aspx" />
+      <siteMapNode title="Файлы" description="" url="~/MyFileL.aspx" />
+      <siteMapNode title="Чат" description="" url="~/Chat.aspx" />
+      <siteMapNode title="Настройки" description="" url="~/MySettings.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Интерактив" xmlns="" url="" >
+      <!--<siteMapNode title="Чистая планета 2010" description="" url="~/SummerNetGameDefault.aspx" />-->
+      <!--<siteMapNode title="Текущее задание" description="" url="~/SummerNetGameBlog.aspx" />
+      <siteMapNode title="Все экогруппы" description="" url="~/SummerNetGameView.aspx" />-->
+      <siteMapNode title="#bМастер-классы" description="" url="~/MasterClass.aspx" />
+      <siteMapNode title="#bВсе сетевые конкурсы" description="" url="~/defaultNetGame.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Мой кабинет" xmlns="" url="" >
+      <siteMapNode title="Главная страница" description="" url="~/default.aspx" />
+      <siteMapNode title="Подать запрос на роль" description="" url="~/MyUserRoleRequestE.aspx" />
+      <siteMapNode title="Мои запросы на роль" description="" url="~/MyUserRoleRequestL.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Образование региона" xmlns="" >
+      <siteMapNode title="Министерство образования" description="" url="~/MyKrayVCE.aspx" />
+      <siteMapNode title="Управления образованием" description="" url="~/MyKrayTerrVCL.aspx"/>
+      <siteMapNode title="Школы" description="" url="~/MyKraySchoolVCL.aspx" />
+      <siteMapNode title="Дошкольное образование" description="" url="~/Dou/DouDefault.aspx" />
+      <siteMapNode title="Коррекционное образование" description="" url="~/Korr/KorrDefault.aspx" />
+      <siteMapNode title="Дополнительное образование" description="" url="~/AddStudy.aspx" />
+      <siteMapNode title="Образовательные ресурсы" description="" url="~/zor.aspx" />
+      <siteMapNode title="Библиотеки" description="" url="~/LibMain.aspx" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
