@@ -3,11 +3,14 @@
     using ICSSoft.Services;
     using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET.Business.Audit;
+    using ICSSoft.STORMNET.Security;
     using ICSSoft.STORMNET.Web.AjaxControls;
     using ICSSoft.STORMNET.Web.Tools;
     using Microsoft.Practices.Unity;
     using NewPlatform.Flexberry.Services;
     using NewPlatform.Flexberry.Web.Themeable;
+    using NewPlatform.RecordBookBL;
+    using System.Web;
 
     /// <summary>
     /// Класс конфигурации сервисов приложения.
@@ -26,6 +29,16 @@
 
             // Сервис тем оформления.
             ThemeService.Current = container.Resolve<IThemeService>();
+
+            var securityManager = container.Resolve<ISecurityManager>();
+
+            if (typeof(DefaultSecurityManager) != securityManager.GetType())
+            {
+                // not ok.
+                // HttpContext.Current.User.Identity.Name
+            }
+
+            var result = securityManager.AccessObjectCheck(typeof(Предмет), tTypeAccess.Read, false);
             
             // Настройки лукапа.
             BaseMasterEditorLookUp.ChangeLookUpSettings = FormUtils.ChangeLookUpSettings;
