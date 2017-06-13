@@ -15,6 +15,9 @@ using ICSSoft.STORMNET.Business.LINQProvider;
 
 using System.Linq;
 using System.Collections.Generic;
+using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
+using ICSSoft.STORMNET.FunctionalLanguage;
+using ICSSoft.STORMNET;
 
 namespace IIS.Агрегатор_контактов
 {
@@ -56,12 +59,76 @@ namespace IIS.Агрегатор_контактов
         {
             int n = Convert.ToInt32(TextBox1.Text);
             var ds = (SQLDataService)DataServiceProvider.DataService; // Cервис данных.
+
             List<Contact> contact = ds.Query<Contact>(Contact.Views.ContactE).ToList<Contact>(); // Получение объекта.
+
+            //List<Contact> per = contact.GroupBy(o => o.contactName);
+
+            //IQueryable<Contact> objs = ds.Query<Contact>(Contact.Views.ContactE);
+
+            //IQueryable<Contact> per = from o in objs group o by o.MyUserData into grouping orderby o.MyUserData select o.MyUserData;
+
+            //IQueryable<Contact> objs1 = from o in objs select o;
+
+            //Contact contact = ds.Query<Contact>(Contact.Views.ContactE).Where(o => o.contactName == "Пользователь 1").OrderBy(o => o.contactName).FirstOrDefault();
+
+            //Contact contact1 = ds.Query<Contact>(Contact.Views.ContactE).Where(o => o.contactName == "Пользователь 1").OrderBy(o => o.contactName).FirstOrDefault();
+
+            //IQueryable<Contact> per = contact
+
+            ListBox1.Items.Clear();
+            /*for (int i = 0; i < contact.Count; i++)
+                ListBox1.Items.Add(contact[i].contactName);*/
         }
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
+            var ds = (SQLDataService)DataServiceProvider.DataService; // Cервис данных.
+            List<Profile> profile = ds.Query<Profile>(Profile.Views.ProfileE).ToList<Profile>(); // Получение объекта.
+            ListBox2.Items.Clear();
+            for (int i = 0; i < profile.Count; i++)
+                ListBox2.Items.Add(profile[i].name);
+        }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            var ds = (SQLDataService)DataServiceProvider.DataService; // Cервис данных.
+            List<Profile> profile = ds.Query<Profile>(Profile.Views.ProfileE).ToList<Profile>(); // Получение объекта.
+            ListBox3.Items.Clear();
+            for (int i = 0; i < profile.Count; i++)
+                ListBox3.Items.Add(profile[i].name);
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            LoadingCustomizationStruct lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(Contact), "ContactE");
+            lcs.View = Contact.Views.ContactE;
+            lcs.LoadingTypes = new Type[] { typeof(Contact) };
+
+            var data = DataServiceProvider.DataService.LoadObjects(lcs).Cast<Contact>();
+            var profileCount = data.ToList<Contact>().Count;
+
+            Label2.Text = string.Format("Среднее колличество контактов: {0}", profileCount);
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            LoadingCustomizationStruct lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(Profile), "ProfileE");
+            lcs.View = Profile.Views.ProfileE;
+            lcs.LoadingTypes = new Type[] { typeof(Profile) };
+
+            var data = DataServiceProvider.DataService.LoadObjects(lcs).Cast<Profile>();
+            var profileCount = data.ToList<Profile>().Count;
+
+            var ld = SQLWhereLanguageDef.LanguageDef;
+            lcs.LimitFunction = ld.GetFunction(ld.funcEQ,
+                    new VariableDef(ld.StringType, Information.ExtractPropertyPath<Profile>(x => x.gender)), "m");
+
+            data = DataServiceProvider.DataService.LoadObjects(lcs).Cast<Profile>();
+
+            var mCount = data.ToList<Profile>().Count;
+
+            Label3.Text = string.Format("Мужчин = {0}%    Женищин = {1}%", mCount * 100 / profileCount, 100 - mCount * 100 / profileCount);
         }
     }
 }

@@ -5,14 +5,42 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AddToHeadPlaceholder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <H4>Запрос 1</H4>
+    <H4>Запрос 1 LINQ-провайдера</H4>
     <H5>Вывести топ N пользователей, имеющих максимальное количество контактов.</H5>
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Колличество пользователей" Font-Size="Medium"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" MaxLength="2" TextMode="Number">1</asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Kill this button" OnClick="Button1_Click" />
-        <asp:ListView ID="ListView1" runat="server">
-        </asp:ListView>
+        <asp:Label ID="Label1" runat="server" Text="N =" Font-Size="Medium"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server" MaxLength="2" TextMode="Number" Width="48px">1</asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Применить" OnClick="Button1_Click" />
+        <p>
+        <asp:ListBox ID="ListBox1" runat="server" Height="155px" Width="447px"></asp:ListBox>
+        </div>
+    <H4>Запрос 2 LINQ-провайдера</H4>
+    <H5>Вывести самую часто встречающуюся фамилию пользователей.</H5>
+    <div>
+        <asp:Button ID="Button2" runat="server" Text="Применить" OnClick="Button2_Click" />
+        <p>
+        <asp:ListBox ID="ListBox2" runat="server" Height="155px" Width="447px"></asp:ListBox>
+    </div>
+    <H4>Запрос 3 LINQ-провайдера</H4>
+    <H5>Вывести статистику количества пользователей по каждому типу подключенной социальной сети в разрезе поло-возрастных групп.</H5>
+    <div>
+        <asp:Button ID="Button3" runat="server" Text="Применить" OnClick="Button3_Click" />
+        <p>
+        <asp:ListBox ID="ListBox3" runat="server" Height="155px" Width="447px"></asp:ListBox>
+    </div>
+    <H4>Запрос 4 LoadingCustomizationStruct.</H4>
+    <H5>Получить среднее количество контактов для пользователей в приложении.</H5>
+    <div>
+        <asp:Button ID="Button4" runat="server" Text="Применить" OnClick="Button4_Click" />
+        <p>
+        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+    </div>
+    <H4>Запрос 5 LoadingCustomizationStruct.</H4>
+    <H5>Вывести процентное соотношение между полами пользователей в приложении.</H5>
+    <div>
+        <asp:Button ID="Button5" runat="server" Text="Применить" OnClick="Button5_Click" />
+        <p>
+        <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder0" runat="server">
