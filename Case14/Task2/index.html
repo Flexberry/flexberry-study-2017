@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Находка</title>
+    <link rel="stylesheet" href="CSS/site.css">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid" id="header">
+        <h2 id="application-header">Информация о пропажах</h1>
+        <div class="block" id="lostObject">
+            <h4 class="lostHeader">Информация о потерянном объекте</h3>
+            <div class="inner-required-block" id="lostObjectList">
+                <p>Потеряно</p>
+                <p>Собака</p>
+                <p>Лесная, 14</p>
+                <p>01.06.2017</p>
+                <p>Животное</p>
+            </div>
+            <div class="inner-additional-block">
+                <p>Пятнистая</p>
+                <p>Средняя</p>
+                <p>Дворняжка</p>
+                <p>Откликается на кличку Тузик</p>
+            </div>
+        </div>
+        <div class="block" id="foundObject">
+            <h4 class="foundHeader">Информация о найденном объекте</h3>
+            <div class="inner-required-block" id="foundObjectList">
+                <p>Найдено</p>
+                <p>Сумка</p>
+                <p>Васильковый переулок</p>
+                <p>03.06.2017</p>
+                <p>Вещь</p>
+            </div>
+            <div class="inner-additional-block">
+                <p>Черная</p>
+                <p>Большая</p>
+                <p>Нет породы</p>
+                <p>В сумке зонтик</p>
+            </div>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+</body>
+</html>

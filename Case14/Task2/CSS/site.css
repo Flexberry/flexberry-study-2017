@@ -1,0 +1,38 @@
+#header {
+    margin: 30px;
+    position: relative;
+}
+
+#application-header {
+    padding: 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+.block {
+    display: inline-block;
+    border: 1px solid black;
+    width: 350px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.lostHeader {
+    text-align: center;
+}
+
+.inner-required-block {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
+
+.inner-additional-block {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
