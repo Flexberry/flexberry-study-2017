@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using CompareAccauntData;
+using CompareAccountDate;
 
 namespace Task1
 {
@@ -145,7 +145,7 @@ namespace Task1
             }
 
 
-            return CompareAccauntData.Compare.CompareAccauntData(arr1, arr2);
+            return CompareAccountDate.Compare.CompareAccountDate(arr1, arr2);
         }
     }
 }

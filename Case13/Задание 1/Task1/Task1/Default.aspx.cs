@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using CompareAccauntData;
+using CompareAccountDate;
 
 namespace Task1
 {
@@ -124,8 +124,6 @@ namespace Task1
             }
         };
 
-        public string[,] accountsCompare;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //
@@ -141,9 +139,9 @@ namespace Task1
                 secondTextBox.Text = ConvertAccountData.StringArrToString(tempText);
             }
 
-            accountsCompare = ConvertAccountData.AccautToCompareStringArray(accounts);
-
             // Создание таблицы пользователей по сайтам.
+            string[,] accountsCompare = ConvertAccountData.AccautToCompareStringArray(accounts);
+
             Table1.CellSpacing = 0;
             Table1.CellSpacing = 0;
             Table1.BorderWidth = 2;
@@ -194,7 +192,7 @@ namespace Task1
 
         protected void compareButton_Click(object sender, EventArgs e)
         {
-            anserLabel.Text = "Совпадение " + CompareAccauntData.Compare.CompareAccauntData(ConvertAccountData.StringToArrString(firstTextBox.Text), ConvertAccountData.StringToArrString(secondTextBox.Text)).ToString() + "%";
+            anserLabel.Text = "Совпадение " + CompareAccountDate.Compare.CompareAccountDate(ConvertAccountData.StringToArrString(firstTextBox.Text), ConvertAccountData.StringToArrString(secondTextBox.Text)).ToString() + "%";
         }
     }
 }

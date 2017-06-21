@@ -1,17 +1,17 @@
 ﻿using System;
 using Xunit;
 
-using CompareAccauntData;
+using CompareAccountDate;
 
 namespace UnitTest
 {
     /// <summary>
-    /// Тестирование библиотеки CompareAccauntData.
+    /// Тестирование библиотеки CompareAccountDate.
     /// </summary>
     public class CompareAccountDateTests
     {
         /// <summary>
-        /// Тестовый метод для проверки работы (<see cref="CompareAccauntData"/>).
+        /// Тестовый метод для проверки работы (<see cref="CompareAccountDate"/>).
         /// Тест проверяет следующие факты:
         /// <list type="number">
         /// <item><description>Проверка при идентичности данных.</description></item> 
@@ -63,10 +63,10 @@ namespace UnitTest
             string[] tempText2 = new string[] { };
 
             //Act
-            var test1Act = CompareAccauntData.Compare.CompareAccauntData(tempText1, tempText1);
-            var test2Act = CompareAccauntData.Compare.CompareAccauntData(tempText1, tempText3);
-            var test3Act = CompareAccauntData.Compare.CompareAccauntData(tempText1, tempText4);
-            var test4Act = CompareAccauntData.Compare.CompareAccauntData(tempText1, tempText2);
+            var test1Act = CompareAccountDate.Compare.CompareAccountDate(tempText1, tempText1);
+            var test2Act = CompareAccountDate.Compare.CompareAccountDate(tempText1, tempText3);
+            var test3Act = CompareAccountDate.Compare.CompareAccountDate(tempText1, tempText4);
+            var test4Act = CompareAccountDate.Compare.CompareAccountDate(tempText1, tempText2);
 
             //Assert
 
@@ -84,14 +84,14 @@ namespace UnitTest
         }
 
         /// <summary>
-        /// Тестовый метод для проверки работы с включёнными в массив пустыми элементами (<see cref="CompareAccauntData"/>).
+        /// Тестовый метод для проверки работы с включёнными в массив пустыми элементами (<see cref="CompareAccountDate"/>).
         /// Тест проверяет следующие факты:
         /// <list type="number">
         /// <item><description>Проверка сравнения с включёнными в массив пустыми элементами.</description></item> 
         /// </list> 
         /// </summary>
         [Fact]
-        public void CompareAccauntDataInputWithEmptyTest()
+        public void CompareAccountDateInputWithEmptyTest()
         {
             // Arrange.
             string[] tempText5 = new string[]
@@ -100,7 +100,7 @@ namespace UnitTest
             };
 
             //Act
-            var test1Act = CompareAccauntData.Compare.CompareAccauntData(tempText5, tempText5);
+            var test1Act = CompareAccountDate.Compare.CompareAccountDate(tempText5, tempText5);
 
             //Assert
             // Сравнение масиивов с пустыми элементами.
@@ -108,14 +108,14 @@ namespace UnitTest
         }
 
         /// <summary>
-        /// Тестовый метод для проверки работы с включёнными в массив null элементами (<see cref="CompareAccauntData"/>).
+        /// Тестовый метод для проверки работы с включёнными в массив null элементами (<see cref="CompareAccountDate"/>).
         /// Тест проверяет следующие факты:
         /// <list type="number">
         /// <item><description>Проверка сравнения с включёнными в массив null элементами.</description></item> 
         /// </list> 
         /// </summary>
         [Fact]
-        public void CompareAccauntDataInputWithNullTest()
+        public void CompareAccountDateInputWithNullTest()
         {
             // Arrange.
             string[] tempText6 = new string[]
@@ -124,7 +124,7 @@ namespace UnitTest
             };
 
             //Act
-            var test1Act = CompareAccauntData.Compare.CompareAccauntData(tempText6, tempText6);
+            var test1Act = CompareAccountDate.Compare.CompareAccountDate(tempText6, tempText6);
 
             //Assert
             // Сравнение масиивов с null элментами.
@@ -132,25 +132,25 @@ namespace UnitTest
         }
 
         /// <summary>
-        /// Тестовый метод для проверки ошибки при передаче null элементов (<see cref="CompareAccauntData"/>).
+        /// Тестовый метод для проверки ошибки при передаче null элементов (<see cref="CompareAccountDate"/>).
         /// Тест проверяет следующие факты:
         /// <list type="number">
         /// <item><description>Вывод ошибки при принятии функцией null элемента.</description></item> 
         /// </list> 
         /// </summary>
         [Fact]
-        public void CompareAccauntDataInputNullTest()
+        public void CompareAccountDateInputNullTest()
         {
             // Сравнение  null элментами.
             try
             {
                 //Act
-                CompareAccauntData.Compare.CompareAccauntData(null, null);
+                CompareAccountDate.Compare.CompareAccountDate(null, null);
             }
             catch(Exception ex)
             {
                 //Assert
-                Assert.Equal(ex.Message, CompareAccauntData.Compare.CompareAccauntDataNullExeptionText);
+                Assert.Equal(ex.Message, CompareAccountDate.Compare.CompareAccountDateNullExeptionText);
             }
         }
     }

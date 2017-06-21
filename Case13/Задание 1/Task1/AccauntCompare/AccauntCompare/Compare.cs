@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompareAccauntData
+namespace CompareAccountDate
 {
     /// <summary>
     ///  Класс Compare основной класс программы
@@ -15,20 +15,20 @@ namespace CompareAccauntData
         /// <summary>
         ///  Тескст ошибки принятия нулевого значения
         /// </summary>
-        public static string CompareAccauntDataNullExeptionText = "Аdopted a value of zero";
+        public static string CompareAccountDateNullExeptionText = "Аdopted a value of zero";
  
         /// <summary>
-        /// Метод CompareAccauntData() выполняет сравнение
+        /// Метод CompareAccountDate() выполняет сравнение
         /// двух строковых массивов
         /// </summary>
         /// <param name="innerText1">Первый массив для сравнения</param>
         /// <param name="innerText2">Второй массив для сравнения</param>
         /// <returns>Результат сравнения в процентах</returns>  
-        public static int CompareAccauntData(string[] innerText1, string[] innerText2)
+        public static int CompareAccountDate(string[] innerText1, string[] innerText2)
         {
             if(innerText1 == null || innerText2 == null)
             {
-                throw new Exception(CompareAccauntDataNullExeptionText);
+                throw new Exception(CompareAccountDateNullExeptionText);
             }
 
             int innerText1Lenght = innerText1.Length;
