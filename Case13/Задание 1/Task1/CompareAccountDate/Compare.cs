@@ -16,7 +16,7 @@ namespace CompareAccountDate
         ///  Тескст ошибки принятия нулевого значения
         /// </summary>
         public static string CompareAccountDateNullExeptionText = "Аdopted a value of zero";
- 
+
         /// <summary>
         /// Метод CompareAccountDate() выполняет сравнение
         /// двух строковых массивов
@@ -26,7 +26,7 @@ namespace CompareAccountDate
         /// <returns>Результат сравнения в процентах</returns>  
         public static int CompareAccountDate(string[] innerText1, string[] innerText2)
         {
-            if(innerText1 == null || innerText2 == null)
+            if (innerText1 == null || innerText2 == null)
             {
                 throw new Exception(CompareAccountDateNullExeptionText);
             }
