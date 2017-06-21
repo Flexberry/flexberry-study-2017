@@ -1,5 +1,6 @@
 <html>
  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>
 	var userProfile = ["Логин 1", "Mail 1", "Фамилия 1", "Имя 1", "Отчество 1", "м", "01.02.1992", "Город 1", "Страна 1", "temp.site.com",
 					   "Логин 2", "Mail 2", "Фамилия 2", "Имя 2", "Отчество 2", "м", "02.02.2992", "Город 2", "Страна 2", "temp.site.com",
@@ -7,9 +8,7 @@
 					   "Логин 4", "Mail 4", "Фамилия 4", "Имя 4", "Отчество 4", "м", "04.02.4992", "Город 4", "Страна 4", "temp.site.com",
 					   "Логин 5", "Mail 5", "Фамилия 5", "Имя 5", "Отчество 5", "м", "05.02.5992", "Город 5", "Страна 5", "temp.site.com"];
 	var userProfileType = ["Логин", "Mail", "Фамилия", "Имя", "Отчество", "Пол", "Дата рождения", "Город", "Страна", "Сайт"];
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript">
+
     ! function(i) {
       var o, n;
       i(".title_block").on("click", function() {
@@ -20,8 +19,7 @@
               ".info").stop(!0, !0).slideUp())
       })
     }(jQuery);
-   </script>
-   <script type="text/javascript">
+
    // Набор функций
    var base = {
        // Поиск элементов по классу
@@ -95,22 +93,6 @@
    // Запускаем проверку готовности DOM
    base.check();
    </script>
-   <style type="text/css">
-   .toggle {
-   width: 200px;
-   margin: 0 0 14px;
-   text-align: right;
-   border: 1px solid #ccc;
-   }
-   .toggle .content {
-   text-align: left;
-   border: 1px solid #ccc;
-   background: #eee;
-   }
-   .toggle .toggler {
-   font-size: 11px;
-   }
-   </style>
   <title>Пример веб-страницы</title>
  </head>
  <link rel="stylesheet" href="css/style.css">
