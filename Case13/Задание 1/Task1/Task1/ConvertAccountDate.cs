@@ -6,7 +6,10 @@ using CompareAccountDate;
 
 namespace Task1
 {
-    public static class ConvertAccountData
+    /// <summary>
+    /// Класс для преобразования данных аккаунта.
+    /// <returns>Текстовую переменную</returns>  
+    public static class ConvertAccountDate
     {
 
         // Список сайтов.
@@ -14,7 +17,32 @@ namespace Task1
 
         // Настройка степени идентичности в процентах.
         private static double degreeOfIdentity = 80;
-   
+
+        /// <summary>
+        ///  Тескст ошибки принятия нулевого значения StringArrToStrin
+        /// </summary>
+        public static string CovertAccountDateStringArrToStringNullExeptionText = "Аdopted null value";
+
+        /// <summary>
+        ///  Тескст ошибки принятия нулевого значения StringArrToStrin
+        /// </summary>
+        public static string CovertAccountDateStringToArrStringNullExeptionText = "Аdopted null value";
+
+        /// <summary>
+        ///  Тескст ошибки принятия нулевого значения StringArrToStrin
+        /// </summary>
+        public static string CovertAccountDateSiteTableNumberNullExeptionText = "Аdopted null value";
+
+        /// <summary>
+        ///  Тескст ошибки принятия нулевого значения StringArrToStrin
+        /// </summary>
+        public static string CovertAccountDateAccautToCompareStringArrayNullExeptionText = "Аdopted null value";
+
+        /// <summary>
+        ///  Тескст ошибки принятия нулевого значения StringArrToStrin
+        /// </summary>
+        public static string CovertAccountDateAcciuntCompareAtOneArrayNullExeptionText = "Index is out of bounds of the array";
+
         /// <summary>
         /// Метод StringArrToString() преобразовывает массив в строку.
         /// </summary>
@@ -22,6 +50,11 @@ namespace Task1
         /// <returns>Текстовую переменную</returns>  
         public static string StringArrToString(string[] stringarr)
         {
+            if (stringarr == null)
+            {
+                throw new Exception(CovertAccountDateStringArrToStringNullExeptionText);
+            }
+
             string text = string.Empty;
             for (int i = 0; i < stringarr.Length; i++)
             {
@@ -44,6 +77,11 @@ namespace Task1
         /// <returns>Массив строк</returns>  
         public static string[] StringToArrString(string stringarr)
         {
+            if (stringarr == null)
+            {
+                throw new Exception(CovertAccountDateStringToArrStringNullExeptionText);
+            }
+
             string[] text;
             stringarr = stringarr.Replace(System.Environment.NewLine, "|");
             text = stringarr.Split('|');
@@ -57,6 +95,11 @@ namespace Task1
         /// <returns>Массив пользователей по сайтам</returns>  
         public static string[,] AccautToCompareStringArray(string[,] stringarr)
         {
+            if (stringarr == null)
+            {
+                throw new Exception(CovertAccountDateAccautToCompareStringArrayNullExeptionText);
+            }
+
             //Колличество столбцов в stingarr.
             int stringArrLength = stringarr.GetLength(0);
             int stringArrWith = stringarr.GetLength(1);
@@ -110,8 +153,13 @@ namespace Task1
         /// </summary>
         /// <param name="site">Соц сеть</param>
         /// <returns>Номер соц сети</returns>  
-        private static int SiteTableNumber(string site)
+        public static int SiteTableNumber(string site)
         {
+            if (site == null)
+            {
+                throw new Exception(CovertAccountDateSiteTableNumberNullExeptionText);
+            }
+
             for (int i = 0; i < siteArr.Length; i++)
             {
                 if (site == siteArr[i])
@@ -120,7 +168,7 @@ namespace Task1
                 }
             }
 
-            return 0;
+            return -1;
         }
 
         /// <summary>
@@ -130,11 +178,16 @@ namespace Task1
         /// <param name="i">Номер строки массива</param>
         /// <param name="j">Номер строки массива</param>
         /// <returns>Результат сравнения в процента</returns>  
-        private static int AcciuntCompareAtOneArray(string[,] stringarr, int i, int j)
+        public static int AcciuntCompareAtOneArray(string[,] stringarr, int i, int j)
         {
-
+            int stringArrLength = stringarr.GetLength(0);
             int stringArrWith = stringarr.GetLength(1);
-  
+
+            if (i > stringArrLength || j > stringArrLength || i < 0 || j < 0)
+            {
+                throw new Exception(CovertAccountDateAcciuntCompareAtOneArrayNullExeptionText);
+            }
+
             string[] arr1 = new string[stringArrWith - 1];
             string[] arr2 = new string[stringArrWith - 1];
 

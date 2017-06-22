@@ -127,20 +127,20 @@ namespace Task1
         protected void Page_Load(object sender, EventArgs e)
         {
             //
-            ConvertAccountData.siteArr = siteArr;
+            ConvertAccountDate.siteArr = siteArr;
 
             // Обновление значений в текстбоксах.
             if (firstTextBox.Text == string.Empty)
             {
-                firstTextBox.Text = ConvertAccountData.StringArrToString(tempText);
+                firstTextBox.Text = ConvertAccountDate.StringArrToString(tempText);
             }
             if (secondTextBox.Text == string.Empty)
             {
-                secondTextBox.Text = ConvertAccountData.StringArrToString(tempText);
+                secondTextBox.Text = ConvertAccountDate.StringArrToString(tempText);
             }
 
             // Создание таблицы пользователей по сайтам.
-            string[,] accountsCompare = ConvertAccountData.AccautToCompareStringArray(accounts);
+            string[,] accountsCompare = ConvertAccountDate.AccautToCompareStringArray(accounts);
 
             Table1.CellSpacing = 0;
             Table1.CellSpacing = 0;
@@ -192,7 +192,7 @@ namespace Task1
 
         protected void compareButton_Click(object sender, EventArgs e)
         {
-            anserLabel.Text = "Совпадение " + CompareAccountDate.Compare.CompareAccountDate(ConvertAccountData.StringToArrString(firstTextBox.Text), ConvertAccountData.StringToArrString(secondTextBox.Text)).ToString() + "%";
+            anserLabel.Text = "Совпадение " + CompareAccountDate.Compare.CompareAccountDate(ConvertAccountDate.StringToArrString(firstTextBox.Text), ConvertAccountDate.StringToArrString(secondTextBox.Text)).ToString() + "%";
         }
     }
 }

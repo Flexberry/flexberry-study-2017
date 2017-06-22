@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace CompareAccountDate
 {
     /// <summary>
-    ///  Класс Compare основной класс программы
-    ///  сравнения аккаунтов
+    ///  Класс Compare основной класс программы сравнения аккаунтов
     /// </summary>
     public static class Compare
     {
@@ -18,8 +17,7 @@ namespace CompareAccountDate
         public static string CompareAccountDateNullExeptionText = "Аdopted a value of zero";
 
         /// <summary>
-        /// Метод CompareAccountDate() выполняет сравнение
-        /// двух строковых массивов
+        /// Метод CompareAccountDate() выполняет сравнение двух строковых массивов
         /// </summary>
         /// <param name="innerText1">Первый массив для сравнения</param>
         /// <param name="innerText2">Второй массив для сравнения</param>
