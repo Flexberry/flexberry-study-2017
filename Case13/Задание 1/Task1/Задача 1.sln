@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ECAF0A37
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareAccountDate", "CompareAccountDate\CompareAccountDate.csproj", "{89274A68-5BBB-45C8-BA88-FF2AD5166E01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareAccountDateTest", "CompareAccountDateTest\CompareAccountDateTest.csproj", "{71135984-6CEF-48A5-9D26-FA1859B404EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareAccountDateTests", "CompareAccountDateTest\CompareAccountDateTests.csproj", "{71135984-6CEF-48A5-9D26-FA1859B404EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertAccountDateTest", "ConvertAccountDateTest\ConvertAccountDateTest.csproj", "{9D2D4EBB-5C29-4715-894C-D785D5C19960}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertAccountDateTests", "ConvertAccountDateTest\ConvertAccountDateTests.csproj", "{9D2D4EBB-5C29-4715-894C-D785D5C19960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
