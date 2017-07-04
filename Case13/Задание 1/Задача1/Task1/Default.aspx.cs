@@ -126,6 +126,7 @@ namespace Task1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Добавление списка сайтов классу ConvertAccountData.
             ConvertAccountData.siteArr = siteArr;
 
             // Обновление значений в текстбоксах.
