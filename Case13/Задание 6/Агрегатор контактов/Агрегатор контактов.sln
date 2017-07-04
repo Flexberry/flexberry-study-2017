@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор", "..\Агрегатор\Агрегатор.csproj", "{B5658DC7-B812-4568-8C9A-A63D7311147E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Requests.Forms", "..\Requests\Forms\Requests.Forms.csproj", "{54132C8F-2E3D-4030-B382-EA4D37BEFF92}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор контактов(ASP.NET Application)", "ASP.NET\Агрегатор контактов(ASP.NET Application).csproj", "{54D45F2E-A942-4AED-BAD2-F50EF44D808C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор контактов.Desktop Customizers", "DesktopCustomizers\Агрегатор контактов.Desktop Customizers.csproj", "{6C94E46D-8079-4FFE-A599-B9C42D11F3B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор контактов.Forms", "Forms\Агрегатор контактов.Forms.csproj", "{B88300D7-3D74-4A99-863F-4FE4B445BF5B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор контактов(Objects)", "Objects\Агрегатор контактов(Objects).csproj", "{F8BC8B90-130F-4D3C-BBB9-500BA0732584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Агрегатор контактов.Objects", "Objects\Агрегатор контактов.Objects.csproj", "{0D4CD6AA-9C80-451A-95BC-1200DCEC7D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +23,34 @@ Debug|Any CPU = Debug|Any CPU
 Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5658DC7-B812-4568-8C9A-A63D7311147E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5658DC7-B812-4568-8C9A-A63D7311147E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5658DC7-B812-4568-8C9A-A63D7311147E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5658DC7-B812-4568-8C9A-A63D7311147E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54132C8F-2E3D-4030-B382-EA4D37BEFF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54132C8F-2E3D-4030-B382-EA4D37BEFF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54132C8F-2E3D-4030-B382-EA4D37BEFF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54132C8F-2E3D-4030-B382-EA4D37BEFF92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54D45F2E-A942-4AED-BAD2-F50EF44D808C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54D45F2E-A942-4AED-BAD2-F50EF44D808C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54D45F2E-A942-4AED-BAD2-F50EF44D808C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54D45F2E-A942-4AED-BAD2-F50EF44D808C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C94E46D-8079-4FFE-A599-B9C42D11F3B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C94E46D-8079-4FFE-A599-B9C42D11F3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C94E46D-8079-4FFE-A599-B9C42D11F3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C94E46D-8079-4FFE-A599-B9C42D11F3B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88300D7-3D74-4A99-863F-4FE4B445BF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88300D7-3D74-4A99-863F-4FE4B445BF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88300D7-3D74-4A99-863F-4FE4B445BF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88300D7-3D74-4A99-863F-4FE4B445BF5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8BC8B90-130F-4D3C-BBB9-500BA0732584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8BC8B90-130F-4D3C-BBB9-500BA0732584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8BC8B90-130F-4D3C-BBB9-500BA0732584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8BC8B90-130F-4D3C-BBB9-500BA0732584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4CD6AA-9C80-451A-95BC-1200DCEC7D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4CD6AA-9C80-451A-95BC-1200DCEC7D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4CD6AA-9C80-451A-95BC-1200DCEC7D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4CD6AA-9C80-451A-95BC-1200DCEC7D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
