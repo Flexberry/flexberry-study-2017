@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompareAccountDateTests.cs" />
-    <Compile Include="ConvertAccountDateTest.cs" />
+    <Compile Include="CompareAccountDataTests.cs" />
+    <Compile Include="ConvertAccountDataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

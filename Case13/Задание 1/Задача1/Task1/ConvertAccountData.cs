@@ -11,40 +11,43 @@ namespace Task1
     /// </summary> 
     public static class ConvertAccountData
     {
-
-        // Список сайтов.
+        /// <summary>
+        /// Список сайтов.
+        /// </summary>
         public static string[] siteArr;
-
-        // Настройка степени идентичности в процентах.
+  
+        /// <summary>
+        /// Настройка степени идентичности в процентах.
+        /// </summary>
         private static double degreeOfIdentity = 80;
 
         /// <summary>
-        ///  Текст ошибки принятия нулевого значения StringArrToStrin.
+        /// Текст ошибки принятия нулевого значения StringArrToStrin.
         /// </summary>
         public static string CovertAccountDataStringArrToStringNullExeptionText = "Аdopted null value";
 
         /// <summary>
-        ///  Текст ошибки принятия нулевого значения StringToArrString.
+        /// Текст ошибки принятия нулевого значения StringToArrString.
         /// </summary>
         public static string CovertAccountDataStringToArrStringNullExeptionText = "Аdopted null value";
 
         /// <summary>
-        ///  Текст ошибки принятия нулевого значения SiteTableNumber.
+        /// Текст ошибки принятия нулевого значения SiteTableNumber.
         /// </summary>
         public static string CovertAccountDataSiteTableNumberNullExeptionText = "Аdopted null value";
 
         /// <summary>
-        ///  Текст ошибки принятия нулевого значения AccountToCompareStringArray.
+        /// Текст ошибки принятия нулевого значения AccountToCompareStringArray.
         /// </summary>
         public static string CovertAccountDataAccountToCompareStringArrayNullExeptionText = "Аdopted null value";
 
         /// <summary>
-        ///  Текст ошибки принятия нулевого значения AccountCompareAtOneArray.
+        /// Текст ошибки принятия нулевого значения AccountCompareAtOneArray.
         /// </summary>
         public static string CovertAccountDataAccountCompareAtOneArrayNullExeptionText = "Index is out of bounds of the array";
 
         /// <summary>
-        /// Метод StringArrToString() преобразовывает массив в строку.
+        /// Преобразует массив в строку.
         /// </summary>
         /// <param name="stringarr">Массив для преобразования.</param>
         /// <returns>Текстовую переменную.</returns>  
@@ -71,7 +74,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Метод StringToArrString() преобразовывает стоку в массив.
+        /// Преобразует стоку в массив.
         /// </summary>
         /// <param name="stringarr">Строка для преобразования.</param>
         /// <returns>Массив строк.</returns>  
@@ -89,7 +92,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Метод AccautToCompareStringArray() преобразует массив пользователей в массив пользователей по сайтам.
+        /// Преобразует массив пользователей в массив пользователей по сайтам.
         /// </summary>
         /// <param name="stringarr">Входной массив пользователей.</param>
         /// <returns>Массив пользователей по сайтам.</returns>  
@@ -149,7 +152,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Метод SiteTableNumber() возвращает номер сети в таблице.
+        /// Возвращает номер сети в таблице.
         /// </summary>
         /// <param name="site">Соц. сеть.</param>
         /// <returns>Номер соц. сети.</returns>  
@@ -172,7 +175,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Метод  AcciuntCompareAtOneArray() выполняет сравнение строк массива.
+        ///Выполняет сравнение строк массива.
         /// </summary>
         /// <param name="site">Соц. сеть.</param>
         /// <param name="i">Номер строки массива.</param>

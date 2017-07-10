@@ -4,7 +4,10 @@ using System;
 
 namespace ConvertAccountDataTest
 {
-    public class ConvertAccountDataTest
+    /// <summary>
+    /// Тестирование класса ConvertAccountData.
+    /// </summary> 
+    public class ConvertAccountDataTests
     {
 
         /// <summary>

@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{6DC9733C-FBD7-4BF1-BE2B-81E332DAA173}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3422C83-CDCC-41CE-8EFB-DACF72C89A87}"
-	ProjectSection(SolutionItems) = preProject
-		AccauntCompare\AccauntCompare.sln = AccauntCompare\AccauntCompare.sln
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ECAF0A37-C10D-48E7-938E-1D7B99905864}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareAccountData", "CompareAccountDate\CompareAccountData.csproj", "{89274A68-5BBB-45C8-BA88-FF2AD5166E01}"

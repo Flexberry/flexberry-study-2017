@@ -19,35 +19,35 @@ namespace CompareAccountData
         /// <summary>
         /// Метод CompareAccountData() выполняет сравнение двух строковых массивов.
         /// </summary>
-        /// <param name="innerAccountDataArray1">Первый массив для сравнения.</param>
-        /// <param name="innerAccountDataArray2">Второй массив для сравнения.</param>
+        /// <param name="accountDataArray1">Первый массив для сравнения.</param>
+        /// <param name="accountDataArray2">Второй массив для сравнения.</param>
         /// <returns>Результат сравнения в процентах.</returns>  
-        public static int CompareAccountData(string[] innerAccountDataArray1, string[] innerAccountDataArray2)
+        public static int CompareAccountData(string[] accountDataArray1, string[] accountDataArray2)
         {
-            if (innerAccountDataArray1 == null || innerAccountDataArray2 == null)
+            if (accountDataArray1 == null || accountDataArray2 == null)
             {
                 throw new Exception(CompareAccountDataNullExeptionText);
             }
 
-            int innerAccountDataArray1Lenght = innerAccountDataArray1.Length;
-            int innerAccountDataArray2Lenght = innerAccountDataArray2.Length;
+            int accountDataArray1Lenght = accountDataArray1.Length;
+            int accountDataArray2Lenght = accountDataArray2.Length;
 
             // Результат сравнения.
             int result = 0;
 
             // Максимальное количество элементов при сравнении.
-            int maxResult = Math.Max(innerAccountDataArray1Lenght, innerAccountDataArray2Lenght);
+            int maxResult = Math.Max(accountDataArray1Lenght, accountDataArray2Lenght);
 
             // Сравнение элементов массива.
-            for (int i = 0; i < innerAccountDataArray1Lenght; i++)
+            for (int i = 0; i < accountDataArray1Lenght; i++)
             {
-                for (int j = 0; j < innerAccountDataArray2Lenght; j++)
+                for (int j = 0; j < accountDataArray2Lenght; j++)
                 {
-                    if (innerAccountDataArray1[i] != null && innerAccountDataArray2[j] != null)
+                    if (accountDataArray1[i] != null && accountDataArray2[j] != null)
                     {
-                        if (innerAccountDataArray1[i] != string.Empty && innerAccountDataArray2[j] != string.Empty)
+                        if (accountDataArray1[i] != string.Empty && accountDataArray2[j] != string.Empty)
                         {
-                            if (innerAccountDataArray1[i].Equals(innerAccountDataArray2[j]))
+                            if (accountDataArray1[i].Equals(accountDataArray2[j]))
                             {
                                 result++;
                             }
